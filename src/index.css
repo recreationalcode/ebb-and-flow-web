@@ -1,13 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.bg-lymph {
+  background: url("../public/lymphatic.jpg") no-repeat;
+  background-size: cover;
+  height: 2048px;
+}
+
+.bg-logo {
+  height: 100vh;
+  width: 100vw;
+}
+
+.logo {
+  filter: brightness(0) invert(1);
+}
+
+.frosted-glass {
+  backdrop-filter: blur(5px);
+}
+
+button:focus-visible {
+  outline: unset;
 }
