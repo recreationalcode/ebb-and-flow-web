@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 import PurpleBlueLogo from "./logos/Purple Blue Logo.png";
@@ -8,16 +8,9 @@ function classNames(...classes) {
 }
 
 export default function Schedule(props) {
-  const textButtonRef = useRef(null); // TODO
-
   return (
     <Transition.Root show={props.open} as={Fragment}>
-      <Dialog
-        as="div"
-        className="relative z-10"
-        initialFocus={textButtonRef}
-        onClose={props.setOpen}
-      >
+      <Dialog as="div" className="relative z-10" onClose={props.setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -48,6 +41,7 @@ export default function Schedule(props) {
                       src={PurpleBlueLogo}
                       className="h-16 sm:h-24"
                       aria-hidden="true"
+                      alt="Ebb & Flow"
                     />
                   </div>
                   <div className="sm:flex sm:flex-col">

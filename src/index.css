@@ -15,25 +15,6 @@ code {
     monospace;
 }
 
-.bg-lymph {
-  background: url("../public/lymphatic.jpg") no-repeat;
-  background-size: cover;
-  height: 2048px;
-}
-
-.bg-logo {
-  height: 100vh;
-  width: 100vw;
-}
-
-.logo {
-  filter: brightness(0) invert(1);
-}
-
-.frosted-glass {
-  backdrop-filter: blur(5px);
-}
-
 button:focus-visible {
   outline: unset;
 }
