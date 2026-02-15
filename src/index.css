@@ -25,3 +25,14 @@ code {
 button:focus-visible {
   outline: unset;
 }
+
+/* DropReveal — teardrop falls, then circle expands */
+@keyframes teardrop-fall {
+  from { top: 30px; }
+  to   { top: calc(50% - 21px); }
+}
+
+@keyframes circle-expand {
+  from { clip-path: circle(20px at 50% 50%); }
+  to   { clip-path: circle(150% at 50% 50%); }
+}
