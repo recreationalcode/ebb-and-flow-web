@@ -1,12 +1,13 @@
-import NatalieGamble from "../assets/images/ng.jpeg";
-import AustinTexas from "../assets/images/Austin Texas.png";
-import PurpleName from "../assets/name-logos/Purple Name@2x.png";
+import NatalieGamble from '../assets/images/ng.jpeg';
+import AustinTexas from '../assets/images/Austin Texas.png';
 
 export default function Info(props) {
   return (
-    <div className="h-screen w-screen bg-gray-light text-center overflow-auto">
+    <div className="min-h-screen w-screen bg-gray-light text-center">
       <div className="h-28 sm:h-28"></div>
-      <img className="h-24 sm:h-36 mx-auto" src={PurpleName} alt="Ebb & Flow" />
+      <span className="font-script text-6xl sm:text-8xl text-purple">
+        Ebb & flow
+      </span>
       <div className="h-4 sm:h-8"></div>
       <img
         className="h-32 mx-auto mb-4 rounded-full sm:h-64 drop-shadow-lg"
@@ -22,8 +23,8 @@ export default function Info(props) {
       </span>
       <div className="h-2 sm:h-4" />
       <div className="text-m mx-8 font font-light tracking-widest text-gray sm:text-xl">
-        Specialized in{" "}
-        <span className="text-m font-medium">Lymphatic Drainage</span> and{" "}
+        Specialized in{' '}
+        <span className="text-m font-medium">Lymphatic Drainage</span> and{' '}
         <span className="text-m font-medium">Oncology Massage</span>
       </div>
       <div className="h-4 sm:h-8" />

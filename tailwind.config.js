@@ -15,6 +15,10 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+        script: ["Saturday Script", "cursive"],
+      },
+      boxShadow: {
+        header: "0 4px 10px rgba(0, 0, 0, 0.2)",
       },
     },
   },
