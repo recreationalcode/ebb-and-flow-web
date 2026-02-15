@@ -1,10 +1,6 @@
-import NatalieGamble from "./ng.jpeg";
-import AustinTexas from "./Austin Texas.png";
-import PurpleName from "./name-logos/Purple Name@2x.png";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import NatalieGamble from "../assets/images/ng.jpeg";
+import AustinTexas from "../assets/images/Austin Texas.png";
+import PurpleName from "../assets/name-logos/Purple Name@2x.png";
 
 export default function Info(props) {
   return (

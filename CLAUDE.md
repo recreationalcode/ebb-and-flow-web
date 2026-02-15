@@ -15,24 +15,31 @@ Oncology Massage. The site showcases services, credentials, and contact options.
 
 ## Development
 ```bash
-yarn start          # Dev server at http://localhost:3000
-yarn build          # Production build to ./build
-yarn test           # Jest + React Testing Library
+npm start           # Dev server at http://localhost:3000
+npm run build       # Production build to ./build
+npm test            # Jest + React Testing Library
 ```
 
 ## Project Structure
 ```
 src/
-├── App.js          # Main app, manages schedule modal state
-├── Header.js       # Fixed nav with logo and "Schedule" button
-├── Info.js         # Landing section: photo, credentials, services, location
-├── Schedule.js     # Contact modal (Text/Call/Email)
-├── index.js        # React entry point
-├── index.css       # Tailwind directives + global styles
-├── logos/           # Brand logo variants (gray-blue, purple-blue, white)
-├── name-logos/      # Named logo variants (11 files)
-├── ng.jpeg          # Owner headshot
-└── Austin Texas.png # Location graphic
+├── assets/
+│   ├── images/         # ng.jpeg, Austin Texas.png
+│   ├── logos/          # Brand logo variants (gray-blue, purple-blue, white)
+│   └── name-logos/     # Named logo variants (11 files)
+├── components/
+│   ├── App.js          # Main app, manages schedule modal state
+│   ├── Header.js       # Fixed nav with logo and "Schedule" button
+│   ├── Info.js         # Landing section: photo, credentials, services, location
+│   └── Schedule.js     # Contact modal (Text/Call/Email)
+├── utils/
+│   ├── classNames.js   # Shared classNames() helper for conditional Tailwind classes
+│   ├── reportWebVitals.js
+│   └── vitals.js       # Vercel Analytics integration
+├── index.js            # React entry point
+├── index.css           # Tailwind directives + global styles
+├── App.test.js         # CRA test file
+└── setupTests.js       # CRA test config
 ```
 
 ## Design & Theme
@@ -43,7 +50,7 @@ src/
 
 ## Conventions
 - Functional components with hooks
-- `classNames()` helper for conditional Tailwind classes
+- `classNames()` helper in `src/utils/classNames.js` for conditional Tailwind classes
 - ESLint via CRA defaults (react-app preset)
 - Images imported as ES modules
 - Vercel Analytics enabled in production

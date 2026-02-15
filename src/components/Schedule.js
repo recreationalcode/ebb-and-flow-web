@@ -1,11 +1,7 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
-import PurpleBlueLogo from "./logos/Purple Blue Logo.png";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import PurpleBlueLogo from "../assets/logos/Purple Blue Logo.png";
 
 export default function Schedule(props) {
   return (

@@ -1,13 +1,9 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Popover } from "@headlessui/react";
 
-import GrayBlueLogo from "./logos/Gray Blue Logo.png";
-import LightGrayFullName from "./name-logos/Light Gray Full Name.png";
-import LightGrayName from "./name-logos/Light Gray Name.png";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import GrayBlueLogo from "../assets/logos/Gray Blue Logo.png";
+import LightGrayFullName from "../assets/name-logos/Light Gray Full Name.png";
+import LightGrayName from "../assets/name-logos/Light Gray Name.png";
 
 export default function Header(props) {
   return (
