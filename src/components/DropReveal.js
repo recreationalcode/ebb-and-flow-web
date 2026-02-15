@@ -1,18 +1,27 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
-// Phases: closed → dropping → expanding → open
-// No reverse animation. When open goes false, unmount immediately.
+// Phases: closed → dropping → expanding → open → background
+// When open goes false, 'open' becomes 'background' (stays rendered at z-30,
+// preserving scroll position). Re-entering sets it back to 'dropping'.
 
 export default function DropReveal({ open, onOpen, colorClass, children }) {
   const [phase, setPhase] = useState(open ? 'open' : 'closed');
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    if (open && phase === 'closed') {
+    if (open && (phase === 'closed' || phase === 'background')) {
       setPhase('dropping');
-    } else if (!open && phase !== 'closed') {
-      setPhase('closed');
+    } else if (!open && phase === 'open') {
+      setPhase('background');
     }
   }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Scroll to top when revealing a new page
+  useEffect(() => {
+    if (phase === 'expanding' && containerRef.current) {
+      containerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [phase]);
 
   const onTeardropEnd = useCallback(() => {
     setPhase((p) => (p === 'dropping' ? 'expanding' : p));
@@ -55,7 +64,7 @@ export default function DropReveal({ open, onOpen, colorClass, children }) {
     );
   }
 
-  // Circle expands from center, then stays open
+  const isBackground = phase === 'background';
   const style = {};
   if (phase === 'expanding') {
     style.animation = 'circle-expand 1s forwards linear';
@@ -65,7 +74,8 @@ export default function DropReveal({ open, onOpen, colorClass, children }) {
 
   return (
     <div
-      className="fixed inset-0 z-40 overflow-y-auto"
+      ref={containerRef}
+      className={`fixed inset-0 ${isBackground ? 'z-30' : 'z-40'} overflow-y-auto`}
       style={style}
       onAnimationEnd={onRevealEnd}
     >

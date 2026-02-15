@@ -7,9 +7,15 @@ export default function Header(props) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 0);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const onScroll = (e) => {
+      const scrollTop =
+        e.target === document || e.target === document.documentElement
+          ? window.scrollY
+          : e.target.scrollTop;
+      setScrolled(scrollTop > 0);
+    };
+    document.addEventListener('scroll', onScroll, { capture: true, passive: true });
+    return () => document.removeEventListener('scroll', onScroll, { capture: true });
   }, []);
 
   return (
