@@ -17,7 +17,7 @@ export default function Header(props) {
               'rounded-b-2xl shadow-header',
             )}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-              <div className="flex justify-between items-center pt-3 pb-4 sm:py-4 md:justify-start md:space-x-10">
+              <div className="flex justify-between items-center py-3 sm:py-4 md:justify-start md:space-x-10">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
                   <img className="h-10" src={GrayBlueLogo} alt="Ebb & Flow" />
                   <span className="flex items-center gap-0.5 ml-3 sm:ml-4 mt-2 sm:mt-1.5">
@@ -69,10 +69,10 @@ export default function Header(props) {
           <Popover.Panel
             static
             className={classNames(
-              'fixed z-[45] left-4 right-4 sm:hidden overflow-hidden',
+              'fixed z-[45] left-4 right-4 sm:hidden',
               !open && 'pointer-events-none',
             )}
-            style={{ top: 54 }}>
+            style={{ top: 50 }}>
             <div
               className={classNames(
                 'transition-transform duration-300 ease-out',
