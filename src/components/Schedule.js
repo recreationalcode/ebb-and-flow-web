@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 
 import PurpleBlueLogo from "../assets/logos/Purple Blue Logo.png";
+import Button from "../ui/Button";
 
 export default function Schedule(props) {
   return (
@@ -51,28 +52,19 @@ export default function Schedule(props) {
                     </div>
                     <div className="bg-gray-light px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse sm:self-center">
                       <a href="sms: 8505293740">
-                        <button
-                          type="button"
-                          className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-purple text-base font-medium text-gray-light hover:bg-white hover:text-purple sm:ml-3 sm:w-auto sm:text-sm"
-                        >
+                        <Button className="w-full sm:ml-3 sm:w-auto sm:text-sm">
                           Text
-                        </button>
+                        </Button>
                       </a>
                       <a href="tel: 8505293740">
-                        <button
-                          type="button"
-                          className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 mt-2 sm:mt-0 bg-purple text-base font-medium text-gray-light hover:bg-white hover:text-purple sm:ml-3 sm:w-auto sm:text-sm"
-                        >
+                        <Button className="w-full mt-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                           Call
-                        </button>
+                        </Button>
                       </a>
                       <a href="mailto: nat.gamble@yahoo.com">
-                        <button
-                          type="button"
-                          className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 mt-2 sm:mt-0 bg-purple text-base font-medium text-gray-light hover:bg-white hover:text-purple sm:ml-3 sm:w-auto sm:text-sm"
-                        >
+                        <Button className="w-full mt-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                           Email
-                        </button>
+                        </Button>
                       </a>
                     </div>
                   </div>
