@@ -3,6 +3,6 @@ import App from './components/App';
 
 test('renders schedule button', () => {
   render(<App />);
-  const button = screen.getByText(/schedule/i);
-  expect(button).toBeInTheDocument();
+  const buttons = screen.getAllByText(/schedule/i);
+  expect(buttons.length).toBeGreaterThan(0);
 });
