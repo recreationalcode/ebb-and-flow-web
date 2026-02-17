@@ -53,8 +53,7 @@ export default function DropReveal({ open, onOpen, colorClass, children }) {
             animation:
               'teardrop-fall 1s forwards cubic-bezier(.87, 0, .79, .14)',
           }}
-          onAnimationEnd={onTeardropEnd}
-        >
+          onAnimationEnd={onTeardropEnd}>
           <path
             d="M15 0C15 0 0 20 0 28C0 36 7 42 15 42C23 42 30 36 30 28C30 20 15 0 15 0Z"
             fill="currentColor"
@@ -65,20 +64,18 @@ export default function DropReveal({ open, onOpen, colorClass, children }) {
   }
 
   const isBackground = phase === 'background';
-  const style = {};
+  const style = { '--reveal-r': '2000px' };
   if (phase === 'expanding') {
-    style.animation = 'circle-expand 1s forwards linear';
-  } else {
-    style.clipPath = 'circle(150% at 50% 50%)';
+    const isMobile = window.innerWidth < 640;
+    style.animation = `circle-expand ${isMobile ? '1.2s' : '0.8s'} forwards linear`;
   }
 
   return (
     <div
       ref={containerRef}
-      className={`fixed inset-0 ${isBackground ? 'z-30' : 'z-40'} overflow-y-auto`}
+      className={`fixed inset-0 ${isBackground ? 'z-30' : 'z-40'} overflow-y-auto reveal-mask`}
       style={style}
-      onAnimationEnd={onRevealEnd}
-    >
+      onAnimationEnd={onRevealEnd}>
       {children}
     </div>
   );
