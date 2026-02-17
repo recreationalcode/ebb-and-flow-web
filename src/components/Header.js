@@ -81,7 +81,7 @@ export default function Header(props) {
               <div
                 className={classNames(
                   props.bgColor || 'bg-blue',
-                  'rounded-b-2xl shadow-header px-4 pb-4 pt-5',
+                  'rounded-b-2xl shadow-header px-4 pb-4 pt-8',
                 )}>
                 <div className="flex flex-col gap-2">
                   <Button

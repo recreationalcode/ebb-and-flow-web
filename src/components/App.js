@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import Header from "./Header";
 import Info from "./Info";
 import Schedule from "./Schedule";
+import Button from "../ui/Button";
 import DropReveal from "./DropReveal";
 import LymphaticMassage from "./LymphaticMassage";
 
@@ -42,6 +43,11 @@ export default function App() {
         <LymphaticMassage />
       </DropReveal>
       <Schedule open={schedule} setOpen={setSchedule} />
+      <div className="fixed bottom-6 inset-x-0 z-50 sm:hidden flex justify-center">
+        <Button className="px-12 py-3 text-lg shadow-[0_4px_20px_rgba(0,0,0,0.3)]" onClick={() => setSchedule(true)}>
+          Schedule
+        </Button>
+      </div>
     </div>
   );
 }
