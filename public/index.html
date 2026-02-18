@@ -4,41 +4,95 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#5D739C" />
     <meta
       name="description"
-      content="Ebb and Flow Massage Studio run by Natalie Gamble"
+      content="Ebb & Flow is a mobile massage studio in Austin, TX specializing in Lymphatic Drainage and Oncology Massage. 60-minute sessions starting at $150. Book with Natalie Gamble, LMT, CMLDT, MMP."
     />
+    <link rel="canonical" href="https://ebbandflowmassagestudio.com/" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Ebb & Flow</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ebbandflowmassagestudio.com/" />
+    <meta property="og:title" content="Ebb & Flow Massage Studio | Lymphatic Drainage & Oncology Massage in Austin, TX" />
+    <meta property="og:description" content="Mobile massage studio in Austin, TX specializing in Lymphatic Drainage and Oncology Massage. 60-minute sessions starting at $150." />
+    <meta property="og:site_name" content="Ebb & Flow Massage Studio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ebb & Flow Massage Studio | Lymphatic Drainage & Oncology Massage in Austin, TX" />
+    <meta name="twitter:description" content="Mobile massage studio in Austin, TX specializing in Lymphatic Drainage and Oncology Massage. 60-minute sessions starting at $150." />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Ebb & Flow Massage Studio",
+        "description": "Mobile massage studio in Austin, TX specializing in Lymphatic Drainage and Oncology Massage.",
+        "url": "https://ebbandflowmassagestudio.com",
+        "telephone": "+18505293740",
+        "email": "nat.gamble@yahoo.com",
+        "image": "https://ebbandflowmassagestudio.com/logo512.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Austin",
+          "addressRegion": "TX",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 30.2672,
+          "longitude": -97.7431
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Austin",
+          "sameAs": "https://en.wikipedia.org/wiki/Austin,_Texas"
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Natalie Gamble",
+          "jobTitle": "Licensed Massage Therapist (LMT, CMLDT, MMP)"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Massage Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Lymphatic Drainage Massage",
+                "description": "Specialized manual lymphatic drainage therapy."
+              },
+              "price": "150.00",
+              "priceCurrency": "USD"
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Oncology Massage",
+                "description": "Gentle massage therapy tailored for cancer patients and survivors."
+              },
+              "price": "150.00",
+              "priceCurrency": "USD"
+            }
+          ]
+        },
+        "priceRange": "$150+"
+      }
+    </script>
+
+    <title>Ebb & Flow Massage Studio | Lymphatic Drainage & Oncology Massage in Austin, TX</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

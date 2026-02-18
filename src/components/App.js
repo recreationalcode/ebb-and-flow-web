@@ -33,8 +33,24 @@ export default function App() {
     return () => window.removeEventListener("popstate", onPopState);
   }, []);
 
+  useEffect(() => {
+    const titles = {
+      home: "Ebb & Flow Massage Studio | Lymphatic Drainage & Oncology Massage in Austin, TX",
+      lymphatic: "Lymphatic Massage | Ebb & Flow Massage Studio \u2014 Austin, TX",
+    };
+    document.title = titles[page] || titles.home;
+
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.href =
+        page === "lymphatic"
+          ? "https://ebbandflowmassagestudio.com/lymphatic-massage"
+          : "https://ebbandflowmassagestudio.com/";
+    }
+  }, [page]);
+
   return (
-    <div className="bg-gray-light">
+    <main className="bg-gray-light">
       <Header setSchedule={setSchedule} page={page} navigate={navigate} bgColor="bg-blue" />
       <DropReveal open={page === "home"} colorClass="text-gray-light">
         <Info />
@@ -48,6 +64,6 @@ export default function App() {
           Schedule
         </Button>
       </div>
-    </div>
+    </main>
   );
 }

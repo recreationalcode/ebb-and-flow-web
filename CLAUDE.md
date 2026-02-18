@@ -55,6 +55,16 @@ src/
 - Images imported as ES modules
 - Vercel Analytics enabled in production
 
+## SEO Guidelines
+- Every page/route must have a unique `<title>` — set via `useEffect` in `App.js`
+- Maintain proper heading hierarchy: one `<h1>` per page, then `<h2>`, `<h3>`, etc.
+- Use semantic HTML elements (`<main>`, `<section>`, `<nav>`, `<header>`) with `aria-label` where appropriate
+- When adding new routes, add them to `public/sitemap.xml` and update the title map in `App.js`
+- Keep JSON-LD structured data in `public/index.html` up to date (services, pricing, contact info)
+- Contact links must use proper format: `tel:+18505293740`, `sms:+18505293740`, `mailto:user@example.com` (no spaces)
+- All images must have descriptive `alt` text
+- Meta description in `index.html` should be 120-160 characters with relevant keywords
+
 ## Deployment
 - Hosted on **Vercel**
 - Analytics via `REACT_APP_VERCEL_ANALYTICS_ID` in `.env.production`

@@ -51,17 +51,17 @@ export default function Schedule(props) {
                       </Dialog.Title>
                     </div>
                     <div className="bg-gray-light px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse sm:self-center">
-                      <a href="sms: 8505293740">
+                      <a href="sms:+18505293740">
                         <Button className="w-full sm:ml-3 sm:w-auto sm:text-sm">
                           Text
                         </Button>
                       </a>
-                      <a href="tel: 8505293740">
+                      <a href="tel:+18505293740">
                         <Button className="w-full mt-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                           Call
                         </Button>
                       </a>
-                      <a href="mailto: nat.gamble@yahoo.com">
+                      <a href="mailto:nat.gamble@yahoo.com">
                         <Button className="w-full mt-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                           Email
                         </Button>

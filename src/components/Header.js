@@ -30,7 +30,7 @@ export default function Header(props) {
                   </span>
                   <span className="flex items-baseline ml-2 mt-1 sm:hidden"></span>
                 </div>
-                <nav className="hidden sm:flex items-center gap-1 sm:gap-2">
+                <nav aria-label="Main navigation" className="hidden sm:flex items-center gap-1 sm:gap-2">
                   <Button
                     variant="ghost"
                     active={props.page === 'home'}
@@ -83,7 +83,7 @@ export default function Header(props) {
                   props.bgColor || 'bg-blue',
                   'rounded-b-2xl shadow-header px-4 pb-4 pt-8',
                 )}>
-                <div className="flex flex-col gap-2">
+                <nav aria-label="Mobile navigation" className="flex flex-col gap-2">
                   <Button
                     variant="ghost"
                     active={props.page === 'home'}
@@ -113,7 +113,7 @@ export default function Header(props) {
                     }}>
                     Schedule
                   </Button>
-                </div>
+                </nav>
               </div>
             </div>
           </Popover.Panel>
