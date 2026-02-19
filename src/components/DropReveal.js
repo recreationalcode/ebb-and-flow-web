@@ -2,17 +2,23 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 
 // Phases: closed → dropping → expanding → open → background
 // When open goes false, 'open' becomes 'background' (stays rendered at z-30,
-// preserving scroll position). Re-entering sets it back to 'dropping'.
+// preserving scroll position). Re-entering from 'background' animates normally
+// unless the outgoing animation was cancelled (wasObscured=false), in which case
+// it promotes straight to 'open'. Mid-animation cancellation goes to 'closed'.
 
-export default function DropReveal({ open, onOpen, colorClass, children }) {
+export default function DropReveal({ open, onOpen, wasObscured, colorClass, children }) {
   const [phase, setPhase] = useState(open ? 'open' : 'closed');
   const containerRef = useRef(null);
 
   useEffect(() => {
-    if (open && (phase === 'closed' || phase === 'background')) {
+    if (open && phase === 'closed') {
       setPhase('dropping');
+    } else if (open && phase === 'background') {
+      setPhase(wasObscured ? 'dropping' : 'open');
     } else if (!open && phase === 'open') {
       setPhase('background');
+    } else if (!open && (phase === 'dropping' || phase === 'expanding')) {
+      setPhase('closed');
     }
   }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
 

@@ -15,6 +15,11 @@ function pageFromPath(pathname) {
 export default function App() {
   const [schedule, setSchedule] = useState(false);
   const [page, setPage] = useState(() => pageFromPath(window.location.pathname));
+  const [revealedPage, setRevealedPage] = useState(() => pageFromPath(window.location.pathname));
+
+  const handleRevealComplete = useCallback(() => {
+    setRevealedPage(page);
+  }, [page]);
 
   const navigate = useCallback(
     (newPage) => {
@@ -52,10 +57,10 @@ export default function App() {
   return (
     <main className="bg-gray-light">
       <Header setSchedule={setSchedule} page={page} navigate={navigate} bgColor="bg-blue" />
-      <DropReveal open={page === "home"} colorClass="text-gray-light">
+      <DropReveal open={page === "home"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "home"} colorClass="text-gray-light">
         <Info />
       </DropReveal>
-      <DropReveal open={page === "lymphatic"} colorClass="text-blue">
+      <DropReveal open={page === "lymphatic"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymphatic"} colorClass="text-blue">
         <LymphaticMassage />
       </DropReveal>
       <Schedule open={schedule} setOpen={setSchedule} />
