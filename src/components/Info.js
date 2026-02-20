@@ -1,5 +1,4 @@
 import NatalieGamble from '../assets/images/ng.jpeg';
-import AustinTexas from '../assets/images/Austin Texas.png';
 
 export default function Info(props) {
   return (
@@ -23,8 +22,9 @@ export default function Info(props) {
       <div className="h-2 sm:h-4" />
       <div className="text-m mx-8 font font-light tracking-widest text-gray sm:text-xl">
         Specialized in{' '}
-        <span className="text-m font-medium">Lymphatic Drainage</span> and{' '}
-        <span className="text-m font-medium">Oncology Massage</span>
+        <span className="text-m font-medium">Lymphatic Drainage</span>,{' '}
+        <span className="text-m font-medium">Oncology Massage</span>, and{' '}
+        <span className="text-m font-medium">Craniosacral Therapy</span>
       </div>
       <div className="h-4 sm:h-8" />
       <br />
@@ -33,26 +33,37 @@ export default function Info(props) {
         at <span className="text-m font-medium">$150</span>
       </div>
       <div className="h-6 sm:h-12 w-24 mx-auto border-b-2 border-blue mb-6 sm:mb-12 " />
-      <span className="text-xl font font-normal tracking-wide text-blue sm:text-2xl">
-        I come to you!
-      </span>
-      <br />
-      <span className="text-xs font font-light tracking-wide text-gray sm:text-sm">
-        Note: Prices may change based on location.
-      </span>
-      <br />
-      <div className="h-6 sm:h-12" />
-      <img
-        className="h-24 mx-auto mb-4 sm:h-48 sm:mb-10"
-        src={AustinTexas}
-        alt="Austin, Texas"
-      />
-      <div className="text-s font font-bold tracking-widest text-blue sm:text-l">
-        AUSTIN, TX
+      <div className="mx-6 sm:mx-auto sm:max-w-md bg-blue rounded-2xl px-6 py-6 sm:px-8 sm:py-8 shadow-lg">
+        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-light mb-4">
+          Located at
+        </div>
+        <a
+          href="https://yaoshancenter.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block text-base sm:text-lg font-medium text-white underline underline-offset-2 decoration-white/40 hover:decoration-white transition-colors"
+        >
+          Yao Shan Center for Chinese Medicine
+        </a>
+        <div className="text-base sm:text-lg font-light text-white mt-1">
+          910 17th Street NW, Suite 1020
+        </div>
+        <div className="text-base sm:text-lg font-light text-white">
+          Washington, DC 20006
+        </div>
+        <div className="mt-4 rounded-xl overflow-hidden shadow-md">
+          <iframe
+            title="Yao Shan Center for Chinese Medicine location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.0!2d-77.0395!3d38.9017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7b8e1234567%3A0x0!2s910+17th+St+NW%2C+Washington%2C+DC+20006!5e0!3m2!1sen!2sus!4v1700000000000"
+            width="100%"
+            height="180"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
       </div>
-      <span className="text-xs font font-light tracking-wide text-gray sm:text-sm">
-        (and surrounding areas)
-      </span>
       <div className="h-12 sm:h-16"></div>
     </section>
   );

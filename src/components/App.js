@@ -5,12 +5,32 @@ import Schedule from "./Schedule";
 import Button from "../ui/Button";
 import DropReveal from "./DropReveal";
 import LymphaticMassage from "./LymphaticMassage";
+import OncologyMassage from "./OncologyMassage";
+import CraniosacralMassage from "./CraniosacralMassage";
 
 const LYMPHATIC_PATH = "/lymphatic-massage";
+const ONCOLOGY_PATH = "/oncology-massage";
+const CRANIOSACRAL_PATH = "/craniosacral-massage";
 
 function pageFromPath(pathname) {
-  return pathname === LYMPHATIC_PATH ? "lymphatic" : "home";
+  switch (pathname) {
+    case LYMPHATIC_PATH:
+      return "lymphatic";
+    case ONCOLOGY_PATH:
+      return "oncology";
+    case CRANIOSACRAL_PATH:
+      return "craniosacral";
+    default:
+      return "home";
+  }
 }
+
+const pagePaths = {
+  home: "/",
+  lymphatic: LYMPHATIC_PATH,
+  oncology: ONCOLOGY_PATH,
+  craniosacral: CRANIOSACRAL_PATH,
+};
 
 export default function App() {
   const [schedule, setSchedule] = useState(false);
@@ -24,8 +44,7 @@ export default function App() {
   const navigate = useCallback(
     (newPage) => {
       if (page !== newPage) {
-        const path = newPage === "lymphatic" ? LYMPHATIC_PATH : "/";
-        window.history.pushState({ page: newPage }, "", path);
+        window.history.pushState({ page: newPage }, "", pagePaths[newPage] || "/");
         setPage(newPage);
       }
     },
@@ -40,28 +59,39 @@ export default function App() {
 
   useEffect(() => {
     const titles = {
-      home: "Ebb & Flow Massage Studio | Lymphatic Drainage & Oncology Massage in Austin, TX",
-      lymphatic: "Lymphatic Massage | Ebb & Flow Massage Studio \u2014 Austin, TX",
+      home: "Ebb & Flow Massage Studio | Lymphatic Drainage, Oncology Massage & Craniosacral Therapy in Washington, DC",
+      lymphatic: "Lymphatic Massage | Ebb & Flow Massage Studio \u2014 Washington, DC",
+      oncology: "Oncology Massage | Ebb & Flow Massage Studio \u2014 Washington, DC",
+      craniosacral: "Craniosacral Therapy | Ebb & Flow Massage Studio \u2014 Washington, DC",
     };
     document.title = titles[page] || titles.home;
 
+    const canonicalPaths = {
+      home: "https://ebbandflowmassagestudio.com/",
+      lymphatic: "https://ebbandflowmassagestudio.com/lymphatic-massage",
+      oncology: "https://ebbandflowmassagestudio.com/oncology-massage",
+      craniosacral: "https://ebbandflowmassagestudio.com/craniosacral-massage",
+    };
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
-      canonical.href =
-        page === "lymphatic"
-          ? "https://ebbandflowmassagestudio.com/lymphatic-massage"
-          : "https://ebbandflowmassagestudio.com/";
+      canonical.href = canonicalPaths[page] || canonicalPaths.home;
     }
   }, [page]);
 
   return (
     <main className="bg-gray-light">
       <Header setSchedule={setSchedule} page={page} navigate={navigate} bgColor="bg-blue" />
-      <DropReveal open={page === "home"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "home"} colorClass="text-gray-light">
+      <DropReveal open={page === "home"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "home"} dismissed={page !== "home" && revealedPage !== "home"} colorClass="text-gray-light">
         <Info />
       </DropReveal>
-      <DropReveal open={page === "lymphatic"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymphatic"} colorClass="text-blue">
+      <DropReveal open={page === "lymphatic"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymphatic"} dismissed={page !== "lymphatic" && revealedPage !== "lymphatic"} colorClass="text-blue">
         <LymphaticMassage />
+      </DropReveal>
+      <DropReveal open={page === "oncology"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "oncology"} dismissed={page !== "oncology" && revealedPage !== "oncology"} colorClass="text-purple">
+        <OncologyMassage />
+      </DropReveal>
+      <DropReveal open={page === "craniosacral"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "craniosacral"} dismissed={page !== "craniosacral" && revealedPage !== "craniosacral"} colorClass="text-blue">
+        <CraniosacralMassage />
       </DropReveal>
       <Schedule open={schedule} setOpen={setSchedule} />
       <div className="fixed bottom-6 inset-x-0 z-50 sm:hidden flex justify-center">

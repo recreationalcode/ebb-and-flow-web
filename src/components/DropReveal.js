@@ -6,7 +6,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 // unless the outgoing animation was cancelled (wasObscured=false), in which case
 // it promotes straight to 'open'. Mid-animation cancellation goes to 'closed'.
 
-export default function DropReveal({ open, onOpen, wasObscured, colorClass, children }) {
+export default function DropReveal({ open, onOpen, wasObscured, colorClass, dismissed, children }) {
   const [phase, setPhase] = useState(open ? 'open' : 'closed');
   const containerRef = useRef(null);
 
@@ -21,6 +21,13 @@ export default function DropReveal({ open, onOpen, wasObscured, colorClass, chil
       setPhase('closed');
     }
   }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Close stale background pages so only the most recent one stays rendered
+  useEffect(() => {
+    if (dismissed) {
+      setPhase((p) => (p === 'background' ? 'closed' : p));
+    }
+  }, [dismissed]);
 
   // Scroll to top when revealing a new page
   useEffect(() => {

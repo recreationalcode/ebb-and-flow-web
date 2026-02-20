@@ -43,6 +43,18 @@ export default function Header(props) {
                     onClick={() => props.navigate('lymphatic')}>
                     Lymphatic
                   </Button>
+                  <Button
+                    variant="ghost"
+                    active={props.page === 'oncology'}
+                    onClick={() => props.navigate('oncology')}>
+                    Oncology
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    active={props.page === 'craniosacral'}
+                    onClick={() => props.navigate('craniosacral')}>
+                    Craniosacral
+                  </Button>
                 </nav>
                 <div className="hidden sm:flex items-center justify-end ml-3 sm:ml-4">
                   <Button
@@ -103,6 +115,26 @@ export default function Header(props) {
                       close();
                     }}>
                     Lymphatic
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    active={props.page === 'oncology'}
+                    className="w-full text-left"
+                    onClick={() => {
+                      props.navigate('oncology');
+                      close();
+                    }}>
+                    Oncology
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    active={props.page === 'craniosacral'}
+                    className="w-full text-left"
+                    onClick={() => {
+                      props.navigate('craniosacral');
+                      close();
+                    }}>
+                    Craniosacral
                   </Button>
                   <div className="border-t border-white/20 my-1" />
                   <Button
