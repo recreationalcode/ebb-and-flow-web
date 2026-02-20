@@ -58,24 +58,44 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const titles = {
-      home: "Ebb & Flow Massage Studio | Lymphatic Drainage, Oncology Massage & Craniosacral Therapy in Washington, DC",
-      lymphatic: "Lymphatic Massage | Ebb & Flow Massage Studio \u2014 Washington, DC",
-      oncology: "Oncology Massage | Ebb & Flow Massage Studio \u2014 Washington, DC",
-      craniosacral: "Craniosacral Therapy | Ebb & Flow Massage Studio \u2014 Washington, DC",
+    const seo = {
+      home: {
+        title: "Ebb & Flow Massage Studio | Lymphatic Drainage, Oncology Massage & Craniosacral Therapy in Washington, DC",
+        description: "Ebb & Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. 60-minute sessions starting at $150. Book with Natalie Gamble, LMT, CMLDT, MMP.",
+        url: "https://ebbandflowmassagestudio.com/",
+      },
+      lymphatic: {
+        title: "Lymphatic Massage | Ebb & Flow Massage Studio — Washington, DC",
+        description: "Manual lymphatic drainage massage in Washington, DC. Natalie Gamble, LMT, CMLDT, specializes in gentle techniques to support your lymphatic system. 60-minute sessions starting at $150.",
+        url: "https://ebbandflowmassagestudio.com/lymphatic-massage",
+      },
+      oncology: {
+        title: "Oncology Massage | Ebb & Flow Massage Studio — Washington, DC",
+        description: "Oncology massage therapy in Washington, DC. Gentle, specialized massage for cancer patients and survivors by Natalie Gamble, LMT, MMP. 60-minute sessions starting at $150.",
+        url: "https://ebbandflowmassagestudio.com/oncology-massage",
+      },
+      craniosacral: {
+        title: "Craniosacral Therapy | Ebb & Flow Massage Studio — Washington, DC",
+        description: "Craniosacral therapy in Washington, DC. Light-touch therapy supporting natural healing by Natalie Gamble, LMT. 60-minute sessions starting at $150.",
+        url: "https://ebbandflowmassagestudio.com/craniosacral-massage",
+      },
     };
-    document.title = titles[page] || titles.home;
+    const { title, description, url } = seo[page] || seo.home;
 
-    const canonicalPaths = {
-      home: "https://ebbandflowmassagestudio.com/",
-      lymphatic: "https://ebbandflowmassagestudio.com/lymphatic-massage",
-      oncology: "https://ebbandflowmassagestudio.com/oncology-massage",
-      craniosacral: "https://ebbandflowmassagestudio.com/craniosacral-massage",
+    document.title = title;
+
+    const setMeta = (selector, attr, value) => {
+      const el = document.querySelector(selector);
+      if (el) el.setAttribute(attr, value);
     };
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.href = canonicalPaths[page] || canonicalPaths.home;
-    }
+
+    setMeta('link[rel="canonical"]', "href", url);
+    setMeta('meta[name="description"]', "content", description);
+    setMeta('meta[property="og:title"]', "content", title);
+    setMeta('meta[property="og:description"]', "content", description);
+    setMeta('meta[property="og:url"]', "content", url);
+    setMeta('meta[name="twitter:title"]', "content", title);
+    setMeta('meta[name="twitter:description"]', "content", description);
   }, [page]);
 
   return (

@@ -13,11 +13,14 @@ export default function Button({
   variant = 'primary',
   active,
   className,
+  href,
   children,
   ...rest
 }) {
+  const Tag = href ? 'a' : 'button';
   return (
-    <button
+    <Tag
+      href={href}
       className={classNames(
         base,
         variants[variant],
@@ -28,6 +31,6 @@ export default function Button({
       {...rest}
     >
       {children}
-    </button>
+    </Tag>
   );
 }

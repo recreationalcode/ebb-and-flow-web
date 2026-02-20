@@ -31,7 +31,7 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "HealthAndBeautyBusiness"],
         "name": "Ebb & Flow Massage Studio",
         "description": "Massage studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy.",
         "url": "https://ebbandflowmassagestudio.com",
@@ -97,14 +97,34 @@
             }
           ]
         },
-        "priceRange": "$150+"
+        "priceRange": "$150+",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Wednesday",
+            "opens": "08:00",
+            "closes": "17:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:00",
+            "closes": "17:00"
+          }
+        ]
       }
     </script>
 
     <title>Ebb & Flow Massage Studio | Lymphatic Drainage, Oncology Massage & Craniosacral Therapy in Washington, DC</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <h1>Ebb &amp; Flow Massage Studio — Washington, DC</h1>
+      <p>Natalie Gamble, LMT, CMLDT, MMP — specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy.</p>
+      <p>60-minute sessions starting at $150. Available Wednesdays and Saturdays, 8:00 AM – 5:00 PM.</p>
+      <p>Located at Yao Shan Center for Chinese Medicine, 910 17th Street NW, Suite 1020, Washington, DC 20006.</p>
+      <p>Call <a href="tel:+18505293740">(850) 529-3740</a> or email <a href="mailto:nat.gamble@yahoo.com">nat.gamble@yahoo.com</a> to schedule.</p>
+    </noscript>
     <div id="root"></div>
   </body>
 </html>

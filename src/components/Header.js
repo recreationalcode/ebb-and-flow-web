@@ -39,26 +39,30 @@ export default function Header(props) {
                 <nav aria-label="Main navigation" className="hidden sm:flex items-center gap-1 sm:gap-2">
                   <Button
                     variant="ghost"
+                    href="/"
                     active={props.page === 'home'}
-                    onClick={() => props.navigate('home')}>
+                    onClick={(e) => { e.preventDefault(); props.navigate('home'); }}>
                     Home
                   </Button>
                   <Button
                     variant="ghost"
+                    href="/lymphatic-massage"
                     active={props.page === 'lymphatic'}
-                    onClick={() => props.navigate('lymphatic')}>
+                    onClick={(e) => { e.preventDefault(); props.navigate('lymphatic'); }}>
                     Lymphatic
                   </Button>
                   <Button
                     variant="ghost"
+                    href="/oncology-massage"
                     active={props.page === 'oncology'}
-                    onClick={() => props.navigate('oncology')}>
+                    onClick={(e) => { e.preventDefault(); props.navigate('oncology'); }}>
                     Oncology
                   </Button>
                   <Button
                     variant="ghost"
+                    href="/craniosacral-massage"
                     active={props.page === 'craniosacral'}
-                    onClick={() => props.navigate('craniosacral')}>
+                    onClick={(e) => { e.preventDefault(); props.navigate('craniosacral'); }}>
                     Craniosacral
                   </Button>
                 </nav>
@@ -104,9 +108,11 @@ export default function Header(props) {
                 <nav aria-label="Mobile navigation" className="flex flex-col gap-2">
                   <Button
                     variant="ghost"
+                    href="/"
                     active={props.page === 'home'}
                     className="w-full text-left"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       props.navigate('home');
                       close();
                     }}>
@@ -114,9 +120,11 @@ export default function Header(props) {
                   </Button>
                   <Button
                     variant="ghost"
+                    href="/lymphatic-massage"
                     active={props.page === 'lymphatic'}
                     className="w-full text-left"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       props.navigate('lymphatic');
                       close();
                     }}>
@@ -124,9 +132,11 @@ export default function Header(props) {
                   </Button>
                   <Button
                     variant="ghost"
+                    href="/oncology-massage"
                     active={props.page === 'oncology'}
                     className="w-full text-left"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       props.navigate('oncology');
                       close();
                     }}>
@@ -134,9 +144,11 @@ export default function Header(props) {
                   </Button>
                   <Button
                     variant="ghost"
+                    href="/craniosacral-massage"
                     active={props.page === 'craniosacral'}
                     className="w-full text-left"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       props.navigate('craniosacral');
                       close();
                     }}>
