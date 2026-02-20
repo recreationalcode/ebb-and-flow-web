@@ -19,16 +19,22 @@ export default function Header(props) {
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
               <div className="flex justify-between items-center py-3 sm:py-4 md:justify-start md:space-x-10">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
-                  <img className="h-10" src={GrayBlueLogo} alt="Ebb & Flow" />
-                  <span className="flex items-center gap-0.5 ml-3 sm:ml-4 mt-2 sm:mt-1.5">
-                    <span className="font-script text-2xl sm:text-3xl text-gray-light">
-                      Ebb & flow
+                  <button
+                    type="button"
+                    className="flex items-center cursor-pointer bg-transparent border-none p-0"
+                    onClick={() => props.navigate('home')}
+                    aria-label="Go to home page"
+                  >
+                    <img className="h-10" src={GrayBlueLogo} alt="Ebb & Flow" />
+                    <span className="flex items-center gap-0.5 ml-3 sm:ml-4 mt-2 sm:mt-1.5">
+                      <span className="font-script text-2xl sm:text-3xl text-gray-light">
+                        Ebb & flow
+                      </span>
+                      <span className="ml-2 text-xs font-light tracking-widest text-gray-light hidden sm:block">
+                        MASSAGE STUDIO
+                      </span>
                     </span>
-                    <span className="ml-2 text-xs font-light tracking-widest text-gray-light hidden sm:block">
-                      MASSAGE STUDIO
-                    </span>
-                  </span>
-                  <span className="flex items-baseline ml-2 mt-1 sm:hidden"></span>
+                  </button>
                 </div>
                 <nav aria-label="Main navigation" className="hidden sm:flex items-center gap-1 sm:gap-2">
                   <Button

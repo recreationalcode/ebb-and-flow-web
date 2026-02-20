@@ -90,7 +90,7 @@ export default function App() {
       <DropReveal open={page === "oncology"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "oncology"} dismissed={page !== "oncology" && revealedPage !== "oncology"} colorClass="text-purple">
         <OncologyMassage />
       </DropReveal>
-      <DropReveal open={page === "craniosacral"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "craniosacral"} dismissed={page !== "craniosacral" && revealedPage !== "craniosacral"} colorClass="text-blue">
+      <DropReveal open={page === "craniosacral"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "craniosacral"} dismissed={page !== "craniosacral" && revealedPage !== "craniosacral"} colorClass="text-gray-light">
         <CraniosacralMassage />
       </DropReveal>
       <Schedule open={schedule} setOpen={setSchedule} />
