@@ -1,6 +1,7 @@
 import Footer from './Footer';
+import ScheduleButton from '../ui/ScheduleButton';
 
-export default function LymphaticMassage() {
+export default function LymphaticMassage({ setSchedule }) {
   return (
     <>
       <section
@@ -18,6 +19,12 @@ export default function LymphaticMassage() {
           your body's natural detoxification processes, lymphatic drainage
           massage offers a deeply therapeutic experience.
         </p>
+        <div className="h-6" />
+        <p className="text-lg font-light text-gray-light">
+          <span className="font-medium">60 minute sessions</span> for{' '}
+          <span className="font-medium">$150</span>
+        </p>
+        <ScheduleButton setSchedule={setSchedule} className="mt-6" />
       </section>
       <Footer />
     </>

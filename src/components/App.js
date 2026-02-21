@@ -61,22 +61,22 @@ export default function App() {
     const seo = {
       home: {
         title: "Ebb & Flow Massage Studio | Lymphatic Drainage, Oncology Massage & Craniosacral Therapy in Washington, DC",
-        description: "Ebb & Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. 60-minute sessions starting at $150. Book with Natalie Gamble, LMT, CMLDT, MMP.",
+        description: "Ebb & Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP.",
         url: "https://ebbandflowmassagestudio.com/",
       },
       lymphatic: {
         title: "Lymphatic Massage | Ebb & Flow Massage Studio — Washington, DC",
-        description: "Manual lymphatic drainage massage in Washington, DC. Natalie Gamble, LMT, CMLDT, specializes in gentle techniques to support your lymphatic system. 60-minute sessions starting at $150.",
+        description: "Manual lymphatic drainage massage in Washington, DC. Natalie Gamble, LMT, CMLDT, specializes in gentle techniques to support your lymphatic system. 60-minute sessions for $150.",
         url: "https://ebbandflowmassagestudio.com/lymphatic-massage",
       },
       oncology: {
         title: "Oncology Massage | Ebb & Flow Massage Studio — Washington, DC",
-        description: "Oncology massage therapy in Washington, DC. Gentle, specialized massage for cancer patients and survivors by Natalie Gamble, LMT, MMP. 60-minute sessions starting at $150.",
+        description: "Oncology massage therapy in Washington, DC. Gentle, specialized massage for cancer patients and survivors by Natalie Gamble, LMT, MMP. 60-minute sessions for $130.",
         url: "https://ebbandflowmassagestudio.com/oncology-massage",
       },
       craniosacral: {
         title: "Craniosacral Therapy | Ebb & Flow Massage Studio — Washington, DC",
-        description: "Craniosacral therapy in Washington, DC. Light-touch therapy supporting natural healing by Natalie Gamble, LMT. 60-minute sessions starting at $150.",
+        description: "Craniosacral therapy in Washington, DC. Light-touch therapy supporting natural healing by Natalie Gamble, LMT. 60-minute sessions for $150.",
         url: "https://ebbandflowmassagestudio.com/craniosacral-massage",
       },
     };
@@ -102,16 +102,16 @@ export default function App() {
     <main className="bg-gray-light">
       <Header setSchedule={setSchedule} page={page} navigate={navigate} bgColor="bg-blue" />
       <DropReveal open={page === "home"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "home"} dismissed={page !== "home" && revealedPage !== "home"} colorClass="text-gray-light">
-        <Info />
+        <Info navigate={navigate} setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal open={page === "lymphatic"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymphatic"} dismissed={page !== "lymphatic" && revealedPage !== "lymphatic"} colorClass="text-blue">
-        <LymphaticMassage />
+        <LymphaticMassage setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal open={page === "oncology"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "oncology"} dismissed={page !== "oncology" && revealedPage !== "oncology"} colorClass="text-purple">
-        <OncologyMassage />
+        <OncologyMassage setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal open={page === "craniosacral"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "craniosacral"} dismissed={page !== "craniosacral" && revealedPage !== "craniosacral"} colorClass="text-gray-light">
-        <CraniosacralMassage />
+        <CraniosacralMassage setSchedule={setSchedule} />
       </DropReveal>
       <Schedule open={schedule} setOpen={setSchedule} />
       <div className="fixed bottom-6 inset-x-0 z-50 sm:hidden flex justify-center">

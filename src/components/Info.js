@@ -1,7 +1,8 @@
 import NatalieGamble from '../assets/images/ng.jpeg';
 import Footer from './Footer';
+import ScheduleButton from '../ui/ScheduleButton';
 
-export default function Info(props) {
+export default function Info({ navigate, setSchedule }) {
   return (
     <>
       <section aria-label="About Ebb & Flow" className="sm:min-h-screen bg-gray-light text-center">
@@ -24,16 +25,13 @@ export default function Info(props) {
         <div className="h-2 sm:h-4" />
         <div className="text-lg mx-8 font-light tracking-widest text-gray sm:text-xl">
           Specialized in{' '}
-          <span className="font-medium">Lymphatic Drainage</span>,{' '}
-          <span className="font-medium">Oncology Massage</span>, and{' '}
-          <span className="font-medium">Craniosacral Therapy</span>
+          <button onClick={() => navigate('lymphatic')} className="font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Lymphatic Drainage</button>,{' '}
+          <button onClick={() => navigate('oncology')} className="font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Oncology Massage</button>, and{' '}
+          <button onClick={() => navigate('craniosacral')} className="font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Craniosacral Therapy</button>
         </div>
         <div className="h-4 sm:h-8" />
-        <br />
-        <div className="text-lg mx-8 font-light text-gray sm:text-2xl">
-          <span className="font-medium">60 minute sessions</span> starting
-          at <span className="font-medium">$150</span>
-        </div>
+        <ScheduleButton setSchedule={setSchedule} />
+        <div className="h-4 sm:h-8" />
       </section>
       <Footer />
     </>

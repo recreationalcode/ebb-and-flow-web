@@ -1,6 +1,7 @@
 import Footer from './Footer';
+import ScheduleButton from '../ui/ScheduleButton';
 
-export default function OncologyMassage() {
+export default function OncologyMassage({ setSchedule }) {
   return (
     <>
       <section
@@ -18,6 +19,12 @@ export default function OncologyMassage() {
           pain, and improve quality of life throughout every stage of the cancer
           journey.
         </p>
+        <div className="h-6" />
+        <p className="text-lg font-light text-gray-light">
+          <span className="font-medium">60 minute sessions</span> for{' '}
+          <span className="font-medium">$130</span>
+        </p>
+        <ScheduleButton setSchedule={setSchedule} className="mt-6" />
       </section>
       <Footer />
     </>

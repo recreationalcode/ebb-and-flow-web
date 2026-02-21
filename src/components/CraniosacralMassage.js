@@ -1,6 +1,7 @@
 import Footer from './Footer';
+import ScheduleButton from '../ui/ScheduleButton';
 
-export default function CraniosacralMassage() {
+export default function CraniosacralMassage({ setSchedule }) {
   return (
     <>
       <section
@@ -18,6 +19,12 @@ export default function CraniosacralMassage() {
           a wide range of conditions, from chronic pain and migraines to
           stress-related disorders.
         </p>
+        <div className="h-6" />
+        <p className="text-lg font-light text-gray">
+          <span className="font-medium">60 minute sessions</span> for{' '}
+          <span className="font-medium">$150</span>
+        </p>
+        <ScheduleButton setSchedule={setSchedule} className="mt-6" />
       </section>
       <Footer />
     </>
