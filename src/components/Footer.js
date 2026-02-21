@@ -22,6 +22,16 @@ export default function Footer() {
           <div>910 17th Street NW, Suite 1020</div>
           <div>Washington, DC 20006</div>
         </div>
+        <div className="font-light text-white">
+          <span>Inside the </span>
+          <a
+            href="https://yaoshancenter.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 decoration-white/40 hover:decoration-white transition-colors">
+            Yao Shan Center for Chinese Medicine
+          </a>
+        </div>
         <div className="rounded-xl overflow-hidden shadow-md">
           <iframe
             title="Yao Shan Center for Chinese Medicine location"
@@ -33,16 +43,6 @@ export default function Footer() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
-        </div>
-        <div className="font-light text-white">
-          <span>Inside the </span>
-          <a
-            href="https://yaoshancenter.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-2 decoration-white/40 hover:decoration-white transition-colors">
-            Yao Shan Center for Chinese Medicine
-          </a>
         </div>
       </div>
     </footer>
