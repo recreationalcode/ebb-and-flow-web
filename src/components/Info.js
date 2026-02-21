@@ -4,7 +4,7 @@ import Footer from './Footer';
 export default function Info(props) {
   return (
     <>
-      <section aria-label="About Ebb & Flow" className="min-h-screen w-screen bg-gray-light text-center">
+      <section aria-label="About Ebb & Flow" className="sm:min-h-screen bg-gray-light text-center">
         <div className="h-28 sm:h-28"></div>
         <span className="font-script text-6xl sm:text-8xl text-purple">
           Ebb & flow

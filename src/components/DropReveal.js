@@ -92,7 +92,7 @@ export default function DropReveal({ open, onOpen, wasObscured, colorClass, dism
   return (
     <div
       ref={containerRef}
-      className={`fixed inset-0 ${isBackground ? 'z-30' : 'z-40'} overflow-y-auto reveal-mask`}
+      className={`fixed inset-0 ${isBackground ? 'z-30' : 'z-40'} overflow-y-auto ${phase === 'expanding' ? 'reveal-mask' : ''}`}
       style={style}
       onAnimationEnd={onRevealEnd}>
       {children}
