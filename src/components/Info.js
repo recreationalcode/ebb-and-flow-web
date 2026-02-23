@@ -9,7 +9,7 @@ export default function Info({ navigate, setSchedule, setAboutMe }) {
       <section
         aria-label="About Ebb & Flow"
         className="sm:min-h-screen bg-gray-light text-center">
-        <div className="h-28 sm:h-28"></div>
+        <div className="h-28 sm:h-32"></div>
         <span className="font-script text-6xl sm:text-8xl text-purple">
           Ebb & flow
         </span>
@@ -26,11 +26,11 @@ export default function Info({ navigate, setSchedule, setAboutMe }) {
           LMT, CMLDT, MMP
         </h2>
         <div className="h-4 sm:h-4" />
-        <button
-          onClick={() => setAboutMe(true)}
-          className="text-sm font-light text-purple underline underline-offset-2 hover:text-blue transition-colors">
+        <Button
+          className="!bg-blue hover:!bg-gray-light text-white hover:text-blue"
+          onClick={() => setAboutMe(true)}>
           About Me
-        </button>
+        </Button>
         <div className="h-4 sm:h-8" />
         <div className="text-sm font-semibold uppercase tracking-[0.2em] text-purple mb-4">
           Specialized in

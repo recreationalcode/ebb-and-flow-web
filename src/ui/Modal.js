@@ -1,10 +1,13 @@
-import { Fragment } from 'react';
+import { Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import classNames from '../utils/classNames';
 
-export default function Modal({ open, setOpen, children }) {
+export default function Modal({ open, setOpen, top, children }) {
+  const topRef = useRef(null);
+
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-[60]" onClose={setOpen}>
+      <Dialog as="div" className="relative z-[60]" onClose={setOpen} initialFocus={top ? topRef : undefined}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -17,7 +20,7 @@ export default function Modal({ open, setOpen, children }) {
         </Transition.Child>
 
         <div className="fixed z-10 inset-0 overflow-y-auto">
-          <div className="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
+          <div className={classNames("flex sm:items-center justify-center min-h-full p-4 text-center sm:p-0", top ? "items-start" : "items-end")}>
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -27,6 +30,7 @@ export default function Modal({ open, setOpen, children }) {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
               <Dialog.Panel className="relative bg-gray-light rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-md sm:w-full">
+                {top && <span ref={topRef} tabIndex={-1} className="sr-only" />}
                 {children}
               </Dialog.Panel>
             </Transition.Child>

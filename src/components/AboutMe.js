@@ -1,13 +1,14 @@
 import { Dialog } from '@headlessui/react';
 import Modal from '../ui/Modal';
+import Button from '../ui/Button';
 
 export default function AboutMe({ open, setOpen }) {
   return (
-    <Modal open={open} setOpen={setOpen}>
-      <div className="bg-gray-light px-6 pt-6 pb-6 sm:px-8 sm:pt-8 sm:pb-8">
+    <Modal open={open} setOpen={setOpen} top>
+      <div className="flex flex-col items-center justify-center bg-gray-light px-6 pt-12 pb-8 gap-6">
         <Dialog.Title
           as="h3"
-          className="text-lg text-center font-light text-purple mb-4">
+          className="font-script text-6xl text-center font-light text-purple">
           Who I Am and What I Do
         </Dialog.Title>
         <div className="space-y-4 text-sm font-light text-gray leading-relaxed">
@@ -20,11 +21,11 @@ export default function AboutMe({ open, setOpen }) {
             chapters.
           </p>
           <p>
-            I love being the person who sees a client through the whole loop: the
-            "rebuilding" phase, the "recovery" phase, and finally, the
+            I love being the person who sees a client through the whole loop:
+            the "rebuilding" phase, the "recovery" phase, and finally, the
             "flourishing" phase. I'm a firm believer that everyone deserves to
-            feel at home in their own skin, and I use a mix of clinical precision
-            and intuitive touch to help you get there.
+            feel at home in their own skin, and I use a mix of clinical
+            precision and intuitive touch to help you get there.
           </p>
           <p>
             Why the heavy focus on lymph and oncology? Because I love a good
@@ -35,10 +36,13 @@ export default function AboutMe({ open, setOpen }) {
           <p>
             On a personal note: I'm a total junkie for trying out all the latest
             devices and products regarding MLD—if there's things along more
-            effectively, I've probably already tested it or it's something that I
-            may need to know about and try!
+            effectively, I've probably already tested it or it's something that
+            I may need to know about and try!
           </p>
         </div>
+        <Button className="sm:hidden w-full" onClick={() => setOpen(false)}>
+          Close
+        </Button>
       </div>
     </Modal>
   );
