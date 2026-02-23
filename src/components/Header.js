@@ -8,10 +8,26 @@ import ScheduleButton from '../ui/ScheduleButton';
 import classNames from '../utils/classNames';
 
 const LYMPHATIC_SUBPAGES = [
-  { page: 'lymph-mld', path: '/services/lymphatic/manual-drainage', label: 'Manual Lymphatic Drainage' },
-  { page: 'lymph-operative', path: '/services/lymphatic/pre-post-operative', label: 'Pre/Post Operative' },
-  { page: 'lymph-fertility', path: '/services/lymphatic/fertility-pregnancy', label: 'Fertility/Pregnancy/Postpartum' },
-  { page: 'lymph-edema', path: '/services/lymphatic/lymphedema-lipedema', label: 'Lymphedema or Lipedema Management' },
+  {
+    page: 'lymph-mld',
+    path: '/services/lymphatic/manual-drainage',
+    label: 'Manual Lymphatic Drainage',
+  },
+  {
+    page: 'lymph-operative',
+    path: '/services/lymphatic/pre-post-operative',
+    label: 'Pre/Post Operative',
+  },
+  {
+    page: 'lymph-fertility',
+    path: '/services/lymphatic/fertility-pregnancy',
+    label: 'Fertility/Pregnancy/Postpartum',
+  },
+  {
+    page: 'lymph-edema',
+    path: '/services/lymphatic/lymphedema-lipedema',
+    label: 'Lymphedema or Lipedema Management',
+  },
 ];
 const isLymphaticPage = (p) => p.startsWith('lymph-');
 
@@ -55,8 +71,7 @@ export default function Header(props) {
                     type="button"
                     className="flex items-center cursor-pointer bg-transparent border-none p-0"
                     onClick={() => props.navigate('home')}
-                    aria-label="Go to home page"
-                  >
+                    aria-label="Go to home page">
                     <img className="h-10" src={GrayBlueLogo} alt="Ebb & Flow" />
                     <span className="flex items-center gap-0.5 ml-3 sm:ml-4 mt-2 sm:mt-1.5">
                       <span className="font-script text-2xl sm:text-3xl text-gray-light">
@@ -68,12 +83,17 @@ export default function Header(props) {
                     </span>
                   </button>
                 </div>
-                <nav aria-label="Main navigation" className="hidden sm:flex items-center gap-1 sm:gap-2">
+                <nav
+                  aria-label="Main navigation"
+                  className="hidden sm:flex items-center gap-1 sm:gap-2">
                   <Button
                     variant="ghost"
                     href="/"
                     active={props.page === 'home'}
-                    onClick={(e) => { e.preventDefault(); props.navigate('home'); }}>
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.navigate('home');
+                    }}>
                     Home
                   </Button>
 
@@ -81,8 +101,7 @@ export default function Header(props) {
                   <div
                     className="relative"
                     onMouseEnter={openDesktopMenu}
-                    onMouseLeave={closeDesktopMenu}
-                  >
+                    onMouseLeave={closeDesktopMenu}>
                     <button
                       type="button"
                       className={classNames(
@@ -95,8 +114,7 @@ export default function Header(props) {
                       onClick={(e) => {
                         e.preventDefault();
                         props.navigate('lymph-mld');
-                      }}
-                    >
+                      }}>
                       Lymphatic
                       <ChevronDownIcon
                         className={classNames(
@@ -112,12 +130,12 @@ export default function Header(props) {
                         lymphMenuOpen
                           ? 'opacity-100 translate-y-0 pointer-events-auto'
                           : 'opacity-0 -translate-y-1 pointer-events-none',
-                      )}
-                    >
-                      <div className={classNames(
-                        props.bgColor || 'bg-blue',
-                        'rounded-xl shadow-header py-3 px-3 min-w-[220px]',
                       )}>
+                      <div
+                        className={classNames(
+                          props.bgColor || 'bg-blue',
+                          'rounded-xl shadow-header py-3 px-3 min-w-[220px]',
+                        )}>
                         {LYMPHATIC_SUBPAGES.map((sub) => (
                           <a
                             key={sub.page}
@@ -132,8 +150,7 @@ export default function Header(props) {
                               e.preventDefault();
                               props.navigate(sub.page);
                               setLymphMenuOpen(false);
-                            }}
-                          >
+                            }}>
                             {sub.label}
                           </a>
                         ))}
@@ -145,19 +162,28 @@ export default function Header(props) {
                     variant="ghost"
                     href="/services/oncology-massage"
                     active={props.page === 'oncology'}
-                    onClick={(e) => { e.preventDefault(); props.navigate('oncology'); }}>
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.navigate('oncology');
+                    }}>
                     Oncology
                   </Button>
                   <Button
                     variant="ghost"
                     href="/services/craniosacral-massage"
                     active={props.page === 'craniosacral'}
-                    onClick={(e) => { e.preventDefault(); props.navigate('craniosacral'); }}>
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.navigate('craniosacral');
+                    }}>
                     Craniosacral
                   </Button>
                 </nav>
                 <div className="hidden sm:flex items-center justify-end ml-3 sm:ml-4">
-                  <ScheduleButton setSchedule={props.setSchedule} className="whitespace-nowrap" />
+                  <ScheduleButton
+                    setSchedule={props.setSchedule}
+                    className="whitespace-nowrap"
+                  />
                 </div>
                 <div className="sm:hidden">
                   <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-blue-light hover:text-white hover:bg-white/10 transition-colors">
@@ -181,7 +207,10 @@ export default function Header(props) {
               !open && 'pointer-events-none',
             )}
             style={{ top: 50 }}>
-            <MobileSubReset open={open} onReset={() => setMobileSubOpen(false)} />
+            <MobileSubReset
+              open={open}
+              onReset={() => setMobileSubOpen(false)}
+            />
             <div
               className={classNames(
                 'transition-transform duration-300 ease-out',
@@ -192,7 +221,9 @@ export default function Header(props) {
                   props.bgColor || 'bg-blue',
                   'rounded-b-2xl shadow-header px-4 pb-4 pt-8',
                 )}>
-                <nav aria-label="Mobile navigation" className="flex flex-col gap-2">
+                <nav
+                  aria-label="Mobile navigation"
+                  className="flex flex-col gap-2">
                   <Button
                     variant="ghost"
                     href="/"
@@ -217,8 +248,7 @@ export default function Header(props) {
                           ? 'text-white bg-white/20 font-normal'
                           : 'text-blue-light hover:text-white hover:bg-white/10',
                       )}
-                      onClick={() => setMobileSubOpen(!mobileSubOpen)}
-                    >
+                      onClick={() => setMobileSubOpen(!mobileSubOpen)}>
                       Lymphatic
                       <ChevronDownIcon
                         className={classNames(
@@ -231,16 +261,17 @@ export default function Header(props) {
                     <div
                       className={classNames(
                         'overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]',
-                        mobileSubOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0',
-                      )}
-                    >
+                        mobileSubOpen
+                          ? 'max-h-48 opacity-100'
+                          : 'max-h-0 opacity-0',
+                      )}>
                       <div className="flex flex-col gap-1 items-center pt-1">
                         {LYMPHATIC_SUBPAGES.map((sub) => (
                           <a
                             key={sub.page}
                             href={sub.path}
                             className={classNames(
-                              'block rounded-md px-3 py-1.5 text-sm font-light tracking-wide transition-colors text-center',
+                              'block w-full rounded-md px-3 py-1.5 text-sm font-light tracking-wide transition-colors text-center',
                               props.page === sub.page
                                 ? 'text-white bg-white/20 font-normal'
                                 : 'text-blue-light hover:text-white hover:bg-white/10',
@@ -249,8 +280,7 @@ export default function Header(props) {
                               e.preventDefault();
                               props.navigate(sub.page);
                               close();
-                            }}
-                          >
+                            }}>
                             {sub.label}
                           </a>
                         ))}
@@ -284,7 +314,10 @@ export default function Header(props) {
                   </Button>
                   <div className="border-t border-white/20 my-1" />
                   <ScheduleButton
-                    setSchedule={() => { props.setSchedule(true); close(); }}
+                    setSchedule={() => {
+                      props.setSchedule(true);
+                      close();
+                    }}
                     className="w-full"
                   />
                 </nav>
