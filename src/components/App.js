@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import Header from "./Header";
 import Info from "./Info";
 import Schedule from "./Schedule";
+import AboutMe from "./AboutMe";
 import ScheduleButton from "../ui/ScheduleButton";
 import DropReveal from "./DropReveal";
 import ManualLymphaticDrainage from "./ManualLymphaticDrainage";
@@ -65,6 +66,7 @@ const bookingUrls = {
 
 export default function App() {
   const [schedule, setSchedule] = useState(false);
+  const [aboutMe, setAboutMe] = useState(false);
   const [page, setPage] = useState(() => pageFromPath(window.location.pathname));
   const [revealedPage, setRevealedPage] = useState(() => pageFromPath(window.location.pathname));
 
@@ -161,7 +163,7 @@ export default function App() {
     <main className="bg-gray-light">
       <Header setSchedule={setSchedule} page={page} navigate={navigate} bgColor="bg-blue" />
       <DropReveal open={page === "home"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "home"} dismissed={page !== "home" && revealedPage !== "home"} colorClass="text-gray-light">
-        <Info navigate={navigate} setSchedule={setSchedule} />
+        <Info navigate={navigate} setSchedule={setSchedule} setAboutMe={setAboutMe} />
       </DropReveal>
       <DropReveal open={page === "lymph-mld"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymph-mld"} dismissed={page !== "lymph-mld" && revealedPage !== "lymph-mld"} colorClass="text-blue">
         <ManualLymphaticDrainage setSchedule={setSchedule} />
@@ -182,6 +184,7 @@ export default function App() {
         <CraniosacralMassage setSchedule={setSchedule} />
       </DropReveal>
       <Schedule open={schedule} setOpen={setSchedule} bookingUrl={bookingUrls[page]} />
+      <AboutMe open={aboutMe} setOpen={setAboutMe} />
       <div className="fixed bottom-6 inset-x-0 z-50 sm:hidden flex justify-center">
         <div className="rounded-md shadow-[0_4px_24px_rgba(0,0,0,0.35)]">
           <ScheduleButton setSchedule={setSchedule} className="px-12 py-3 text-lg" />

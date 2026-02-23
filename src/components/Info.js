@@ -3,7 +3,7 @@ import Footer from './Footer';
 import Button from '../ui/Button';
 import { DesktopScheduleButton } from '../ui/ScheduleButton';
 
-export default function Info({ navigate, setSchedule }) {
+export default function Info({ navigate, setSchedule, setAboutMe }) {
   return (
     <>
       <section
@@ -25,6 +25,12 @@ export default function Info({ navigate, setSchedule }) {
         <h2 className="text-xl font-thin tracking-widest text-blue sm:text-4xl">
           LMT, CMLDT, MMP
         </h2>
+        <div className="h-4 sm:h-4" />
+        <button
+          onClick={() => setAboutMe(true)}
+          className="text-sm font-light text-purple underline underline-offset-2 hover:text-blue transition-colors">
+          About Me
+        </button>
         <div className="h-4 sm:h-8" />
         <div className="text-sm font-semibold uppercase tracking-[0.2em] text-purple mb-4">
           Specialized in

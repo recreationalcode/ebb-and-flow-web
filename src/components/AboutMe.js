@@ -1,0 +1,45 @@
+import { Dialog } from '@headlessui/react';
+import Modal from '../ui/Modal';
+
+export default function AboutMe({ open, setOpen }) {
+  return (
+    <Modal open={open} setOpen={setOpen}>
+      <div className="bg-gray-light px-6 pt-6 pb-6 sm:px-8 sm:pt-8 sm:pb-8">
+        <Dialog.Title
+          as="h3"
+          className="text-lg text-center font-light text-purple mb-4">
+          Who I Am and What I Do
+        </Dialog.Title>
+        <div className="space-y-4 text-sm font-light text-gray leading-relaxed">
+          <p>
+            A 2019 graduate of the Lauterstein-Conway Massage School in Austin,
+            TX, I've spent my career focusing on the people who often need touch
+            the most but receive it the least. I began my journey by diving
+            straight into Tracy Walton's Oncology Massage certification, driven
+            by a passion for supporting clients through their most vulnerable
+            chapters.
+          </p>
+          <p>
+            I love being the person who sees a client through the whole loop: the
+            "rebuilding" phase, the "recovery" phase, and finally, the
+            "flourishing" phase. I'm a firm believer that everyone deserves to
+            feel at home in their own skin, and I use a mix of clinical precision
+            and intuitive touch to help you get there.
+          </p>
+          <p>
+            Why the heavy focus on lymph and oncology? Because I love a good
+            comeback story. I'm here to support your body's natural rhythm,
+            whether you're navigating a new diagnosis or just ready to start
+            flourishing again.
+          </p>
+          <p>
+            On a personal note: I'm a total junkie for trying out all the latest
+            devices and products regarding MLD—if there's things along more
+            effectively, I've probably already tested it or it's something that I
+            may need to know about and try!
+          </p>
+        </div>
+      </div>
+    </Modal>
+  );
+}
