@@ -7,7 +7,7 @@ const variants = {
   primary:
     'shadow-sm px-4 py-2 bg-purple text-base font-medium text-gray-light hover:bg-gray-light hover:text-purple active:bg-white drop-shadow',
   ghost: 'px-3 py-1.5 text-sm font-light tracking-wide',
-  card: 'bg-gray-light brightness-105 rounded-2xl px-5 py-5 shadow-md hover:bg-purple text-base font-medium text-purple hover:text-white',
+  card: 'bg-gray-light brightness-[103%] rounded-2xl px-5 py-5 shadow-md hover:bg-blue/80 text-sm font-medium text-blue hover:text-white uppercase tracking-widest',
 };
 
 export default function Button({
