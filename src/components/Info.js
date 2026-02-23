@@ -1,6 +1,6 @@
 import NatalieGamble from '../assets/images/ng.jpeg';
 import Footer from './Footer';
-import ScheduleButton from '../ui/ScheduleButton';
+import { DesktopScheduleButton } from '../ui/ScheduleButton';
 
 export default function Info({ navigate, setSchedule }) {
   return (
@@ -38,7 +38,7 @@ export default function Info({ navigate, setSchedule }) {
           </div>
         </div>
         <div className="h-4 sm:h-8" />
-        <ScheduleButton setSchedule={setSchedule} />
+        <DesktopScheduleButton setSchedule={setSchedule} />
         <div className="h-4 sm:h-8" />
       </section>
       <Footer />

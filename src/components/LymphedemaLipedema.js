@@ -1,5 +1,5 @@
 import Footer from './Footer';
-import ScheduleButton from '../ui/ScheduleButton';
+import { DesktopScheduleButton } from '../ui/ScheduleButton';
 
 export default function LymphedemaLipedema({ setSchedule }) {
   return (
@@ -24,7 +24,7 @@ export default function LymphedemaLipedema({ setSchedule }) {
           <span className="font-medium">60 minute sessions</span> for{' '}
           <span className="font-medium">$150</span>
         </p>
-        <ScheduleButton setSchedule={setSchedule} className="mt-6" />
+        <DesktopScheduleButton setSchedule={setSchedule} className="mt-6" />
       </section>
       <Footer />
     </>

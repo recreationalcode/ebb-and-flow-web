@@ -1,13 +1,14 @@
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 
+import { CalendarIcon, ChatIcon, PhoneIcon, MailIcon } from '@heroicons/react/outline';
 import PurpleBlueLogo from '../assets/logos/Purple Blue Logo.png';
 import Button from '../ui/Button';
 
-export default function Schedule(props) {
+export default function Schedule({ open, setOpen, bookingUrl, ...props }) {
   return (
-    <Transition.Root show={props.open} as={Fragment}>
-      <Dialog as="div" className="relative z-[60]" onClose={props.setOpen}>
+    <Transition.Root show={open} as={Fragment}>
+      <Dialog as="div" className="relative z-[60]" onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -47,12 +48,13 @@ export default function Schedule(props) {
                         Schedule your appointment
                       </Dialog.Title>
                     </div>
-                    <div className="px-4 py-3 sm:px-6 flex flex-col items-center">
+                    <div className="px-4 py-3 sm:px-6 flex flex-col sm:items-center">
                       <a
-                        href="https://ebbnflow.janeapp.com"
+                        href={bookingUrl || 'https://ebbnflow.janeapp.com'}
                         target="_blank"
                         rel="noopener noreferrer">
                         <Button className="w-full sm:w-auto sm:text-sm">
+                          <CalendarIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
                           Book Online
                         </Button>
                       </a>
@@ -65,15 +67,24 @@ export default function Schedule(props) {
                       Want to speak with Natalie directly about your therapy
                       needs?
                     </p>
-                    <div className="px-4 py-3 sm:px-6 flex justify-center gap-3">
+                    <div className="px-4 py-3 sm:px-6 flex flex-col sm:flex-row justify-center gap-3">
                       <a href="sms:+18505293740">
-                        <Button className="sm:text-sm">Text</Button>
+                        <Button className="w-full sm:w-auto sm:text-sm">
+                          <ChatIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                          Text
+                        </Button>
                       </a>
                       <a href="tel:+18505293740">
-                        <Button className="sm:text-sm">Call</Button>
+                        <Button className="w-full sm:w-auto sm:text-sm">
+                          <PhoneIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                          Call
+                        </Button>
                       </a>
                       <a href="mailto:nat.gamble@yahoo.com">
-                        <Button className="sm:text-sm">Email</Button>
+                        <Button className="w-full sm:w-auto sm:text-sm">
+                          <MailIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                          Email
+                        </Button>
                       </a>
                     </div>
                   </div>

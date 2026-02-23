@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import Header from "./Header";
 import Info from "./Info";
 import Schedule from "./Schedule";
-import Button from "../ui/Button";
+import ScheduleButton from "../ui/ScheduleButton";
 import DropReveal from "./DropReveal";
 import ManualLymphaticDrainage from "./ManualLymphaticDrainage";
 import PrePostOperativeLymphatic from "./PrePostOperativeLymphatic";
@@ -52,6 +52,15 @@ const pagePaths = {
   "lymph-edema": LYMPH_EDEMA_PATH,
   oncology: ONCOLOGY_PATH,
   craniosacral: CRANIOSACRAL_PATH,
+};
+
+const bookingUrls = {
+  "lymph-mld": "https://ebbnflow.janeapp.com/#/manual-lymphatic-drainage-mld",
+  "lymph-operative": "https://ebbnflow.janeapp.com/#/pre-post-operative-lymphatic-massage",
+  "lymph-fertility": "https://ebbnflow.janeapp.com/#/fertility-pregnancy-postpartum-lymphatic-massage",
+  "lymph-edema": "https://ebbnflow.janeapp.com/#/lymphedema-and-lipedema-management",
+  oncology: "https://ebbnflow.janeapp.com/#/oncology-massage",
+  craniosacral: "https://ebbnflow.janeapp.com/#/craniosacral-therapy-cst",
 };
 
 export default function App() {
@@ -172,11 +181,11 @@ export default function App() {
       <DropReveal open={page === "craniosacral"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "craniosacral"} dismissed={page !== "craniosacral" && revealedPage !== "craniosacral"} colorClass="text-gray-light">
         <CraniosacralMassage setSchedule={setSchedule} />
       </DropReveal>
-      <Schedule open={schedule} setOpen={setSchedule} />
+      <Schedule open={schedule} setOpen={setSchedule} bookingUrl={bookingUrls[page]} />
       <div className="fixed bottom-6 inset-x-0 z-50 sm:hidden flex justify-center">
-        <Button className="px-12 py-3 text-lg shadow-[0_4px_20px_rgba(0,0,0,0.3)]" onClick={() => setSchedule(true)}>
-          Schedule
-        </Button>
+        <div className="rounded-md shadow-[0_4px_24px_rgba(0,0,0,0.35)]">
+          <ScheduleButton setSchedule={setSchedule} className="px-12 py-3 text-lg" />
+        </div>
       </div>
     </main>
   );

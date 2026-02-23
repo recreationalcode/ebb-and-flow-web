@@ -4,6 +4,7 @@ import { MenuIcon, XIcon, ChevronDownIcon } from '@heroicons/react/outline';
 
 import GrayBlueLogo from '../assets/logos/Gray Blue Logo.png';
 import Button from '../ui/Button';
+import ScheduleButton from '../ui/ScheduleButton';
 import classNames from '../utils/classNames';
 
 const LYMPHATIC_SUBPAGES = [
@@ -156,11 +157,7 @@ export default function Header(props) {
                   </Button>
                 </nav>
                 <div className="hidden sm:flex items-center justify-end ml-3 sm:ml-4">
-                  <Button
-                    className="whitespace-nowrap"
-                    onClick={() => props.setSchedule(true)}>
-                    Schedule
-                  </Button>
+                  <ScheduleButton setSchedule={props.setSchedule} className="whitespace-nowrap" />
                 </div>
                 <div className="sm:hidden">
                   <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-blue-light hover:text-white hover:bg-white/10 transition-colors">
@@ -286,14 +283,10 @@ export default function Header(props) {
                     Craniosacral
                   </Button>
                   <div className="border-t border-white/20 my-1" />
-                  <Button
+                  <ScheduleButton
+                    setSchedule={() => { props.setSchedule(true); close(); }}
                     className="w-full"
-                    onClick={() => {
-                      props.setSchedule(true);
-                      close();
-                    }}>
-                    Schedule
-                  </Button>
+                  />
                 </nav>
               </div>
             </div>
