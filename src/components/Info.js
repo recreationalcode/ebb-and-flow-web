@@ -24,10 +24,18 @@ export default function Info({ navigate, setSchedule }) {
         </h2>
         <div className="h-2 sm:h-4" />
         <div className="text-lg mx-8 font-light tracking-widest text-gray sm:text-xl">
-          Specialized in{' '}
-          <button onClick={() => navigate('lymphatic')} className="font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Lymphatic Drainage</button>,{' '}
-          <button onClick={() => navigate('oncology')} className="font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Oncology Massage</button>, and{' '}
-          <button onClick={() => navigate('craniosacral')} className="font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Craniosacral Therapy</button>
+          <div className="mb-3">Specialized in</div>
+          <div className="flex flex-col items-center gap-3">
+            <div className="flex flex-col items-center gap-1">
+              <span className="font-medium text-blue text-base sm:text-lg tracking-wider">Lymphatic Therapy</span>
+              <button onClick={() => navigate('lymph-mld')} className="text-sm sm:text-base font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Manual Lymphatic Drainage</button>
+              <button onClick={() => navigate('lymph-operative')} className="text-sm sm:text-base font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Pre/Post Operative</button>
+              <button onClick={() => navigate('lymph-fertility')} className="text-sm sm:text-base font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Fertility/Pregnancy/Postpartum</button>
+              <button onClick={() => navigate('lymph-edema')} className="text-sm sm:text-base font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Lymphedema or Lipedema Management</button>
+            </div>
+            <button onClick={() => navigate('oncology')} className="font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Oncology Massage</button>
+            <button onClick={() => navigate('craniosacral')} className="font-medium text-purple underline decoration-1 underline-offset-2 hover:text-blue transition-colors">Craniosacral Therapy</button>
+          </div>
         </div>
         <div className="h-4 sm:h-8" />
         <ScheduleButton setSchedule={setSchedule} />

@@ -7,19 +7,37 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ebbandflowmassagestudio.com/lymphatic-massage</loc>
+    <loc>https://ebbandflowmassagestudio.com/services/lymphatic/manual-drainage</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ebbandflowmassagestudio.com/oncology-massage</loc>
+    <loc>https://ebbandflowmassagestudio.com/services/lymphatic/pre-post-operative</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ebbandflowmassagestudio.com/craniosacral-massage</loc>
+    <loc>https://ebbandflowmassagestudio.com/services/lymphatic/fertility-pregnancy</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ebbandflowmassagestudio.com/services/lymphatic/lymphedema-lipedema</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ebbandflowmassagestudio.com/services/oncology-massage</loc>
+    <lastmod>2025-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ebbandflowmassagestudio.com/services/craniosacral-massage</loc>
     <lastmod>2025-02-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

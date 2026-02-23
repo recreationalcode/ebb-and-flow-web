@@ -1,23 +1,23 @@
 import Footer from './Footer';
 import ScheduleButton from '../ui/ScheduleButton';
 
-export default function LymphaticMassage({ setSchedule }) {
+export default function LymphedemaLipedema({ setSchedule }) {
   return (
     <>
       <section
-        aria-label="Lymphatic Massage"
+        aria-label="Lymphedema or Lipedema Management"
         className="sm:min-h-screen flex flex-col items-center sm:justify-center pt-28 pb-16 px-8 text-center bg-blue">
         <h1 className="font-script text-5xl text-white mb-6">
-          Lymphatic Massage
+          Lymphedema or Lipedema Management
         </h1>
         <p className="max-w-xl text-lg font-light text-gray-light leading-relaxed">
-          Manual lymphatic drainage is a gentle, rhythmic massage technique
-          designed to stimulate the natural flow of lymph fluid throughout the
-          body. This specialized therapy can help reduce swelling, support
-          immune function, and promote overall wellness. Whether you are
-          recovering from surgery, managing lymphedema, or seeking to support
-          your body's natural detoxification processes, lymphatic drainage
-          massage offers a deeply therapeutic experience.
+          Specialized lymphatic drainage for the management of lymphedema and
+          lipedema provides targeted relief for chronic swelling and discomfort.
+          Using certified manual lymphatic drainage techniques, this therapy
+          helps reduce fluid buildup, improve tissue health, and enhance
+          mobility. As a certified lymphedema therapist, Natalie works with each
+          client to develop a personalized treatment plan that supports
+          long-term management and improved quality of life.
         </p>
         <div className="h-6" />
         <p className="text-lg font-light text-gray-light">

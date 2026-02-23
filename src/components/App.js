@@ -4,21 +4,40 @@ import Info from "./Info";
 import Schedule from "./Schedule";
 import Button from "../ui/Button";
 import DropReveal from "./DropReveal";
-import LymphaticMassage from "./LymphaticMassage";
+import ManualLymphaticDrainage from "./ManualLymphaticDrainage";
+import PrePostOperativeLymphatic from "./PrePostOperativeLymphatic";
+import FertilityPregnancyLymphatic from "./FertilityPregnancyLymphatic";
+import LymphedemaLipedema from "./LymphedemaLipedema";
 import OncologyMassage from "./OncologyMassage";
 import CraniosacralMassage from "./CraniosacralMassage";
 
-const LYMPHATIC_PATH = "/lymphatic-massage";
-const ONCOLOGY_PATH = "/oncology-massage";
-const CRANIOSACRAL_PATH = "/craniosacral-massage";
+const LYMPH_MLD_PATH = "/services/lymphatic/manual-drainage";
+const LYMPH_OPERATIVE_PATH = "/services/lymphatic/pre-post-operative";
+const LYMPH_FERTILITY_PATH = "/services/lymphatic/fertility-pregnancy";
+const LYMPH_EDEMA_PATH = "/services/lymphatic/lymphedema-lipedema";
+const ONCOLOGY_PATH = "/services/oncology-massage";
+const CRANIOSACRAL_PATH = "/services/craniosacral-massage";
 
 function pageFromPath(pathname) {
   switch (pathname) {
-    case LYMPHATIC_PATH:
-      return "lymphatic";
+    case LYMPH_MLD_PATH:
+      return "lymph-mld";
+    case LYMPH_OPERATIVE_PATH:
+      return "lymph-operative";
+    case LYMPH_FERTILITY_PATH:
+      return "lymph-fertility";
+    case LYMPH_EDEMA_PATH:
+      return "lymph-edema";
     case ONCOLOGY_PATH:
       return "oncology";
     case CRANIOSACRAL_PATH:
+      return "craniosacral";
+    // Legacy redirects
+    case "/lymphatic-massage":
+      return "lymph-mld";
+    case "/oncology-massage":
+      return "oncology";
+    case "/craniosacral-massage":
       return "craniosacral";
     default:
       return "home";
@@ -27,7 +46,10 @@ function pageFromPath(pathname) {
 
 const pagePaths = {
   home: "/",
-  lymphatic: LYMPHATIC_PATH,
+  "lymph-mld": LYMPH_MLD_PATH,
+  "lymph-operative": LYMPH_OPERATIVE_PATH,
+  "lymph-fertility": LYMPH_FERTILITY_PATH,
+  "lymph-edema": LYMPH_EDEMA_PATH,
   oncology: ONCOLOGY_PATH,
   craniosacral: CRANIOSACRAL_PATH,
 };
@@ -51,6 +73,19 @@ export default function App() {
     [page]
   );
 
+  // Redirect legacy URLs to new paths
+  useEffect(() => {
+    const legacyMap = {
+      "/lymphatic-massage": LYMPH_MLD_PATH,
+      "/oncology-massage": ONCOLOGY_PATH,
+      "/craniosacral-massage": CRANIOSACRAL_PATH,
+    };
+    const newPath = legacyMap[window.location.pathname];
+    if (newPath) {
+      window.history.replaceState(null, "", newPath);
+    }
+  }, []);
+
   useEffect(() => {
     const onPopState = () => setPage(pageFromPath(window.location.pathname));
     window.addEventListener("popstate", onPopState);
@@ -64,20 +99,35 @@ export default function App() {
         description: "Ebb & Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP.",
         url: "https://ebbandflowmassagestudio.com/",
       },
-      lymphatic: {
-        title: "Lymphatic Massage | Ebb & Flow Massage Studio — Washington, DC",
+      "lymph-mld": {
+        title: "Manual Lymphatic Drainage | Ebb & Flow Massage Studio — Washington, DC",
         description: "Manual lymphatic drainage massage in Washington, DC. Natalie Gamble, LMT, CMLDT, specializes in gentle techniques to support your lymphatic system. 60-minute sessions for $150.",
-        url: "https://ebbandflowmassagestudio.com/lymphatic-massage",
+        url: "https://ebbandflowmassagestudio.com/services/lymphatic/manual-drainage",
+      },
+      "lymph-operative": {
+        title: "Pre/Post Operative Lymphatic Massage | Ebb & Flow Massage Studio — Washington, DC",
+        description: "Pre and post operative lymphatic massage in Washington, DC. Specialized drainage techniques to support surgical recovery. 60-minute sessions for $150.",
+        url: "https://ebbandflowmassagestudio.com/services/lymphatic/pre-post-operative",
+      },
+      "lymph-fertility": {
+        title: "Fertility/Pregnancy/Postpartum Lymphatic Massage | Ebb & Flow Massage Studio — Washington, DC",
+        description: "Lymphatic drainage for fertility, pregnancy, and postpartum in Washington, DC. Gentle support for your changing body. 60-minute sessions for $150.",
+        url: "https://ebbandflowmassagestudio.com/services/lymphatic/fertility-pregnancy",
+      },
+      "lymph-edema": {
+        title: "Lymphedema or Lipedema Management | Ebb & Flow Massage Studio — Washington, DC",
+        description: "Specialized lymphatic drainage for lymphedema and lipedema management in Washington, DC. Certified manual lymphatic drainage by Natalie Gamble, LMT, CMLDT. 60-minute sessions for $150.",
+        url: "https://ebbandflowmassagestudio.com/services/lymphatic/lymphedema-lipedema",
       },
       oncology: {
         title: "Oncology Massage | Ebb & Flow Massage Studio — Washington, DC",
         description: "Oncology massage therapy in Washington, DC. Gentle, specialized massage for cancer patients and survivors by Natalie Gamble, LMT, MMP. 60-minute sessions for $130.",
-        url: "https://ebbandflowmassagestudio.com/oncology-massage",
+        url: "https://ebbandflowmassagestudio.com/services/oncology-massage",
       },
       craniosacral: {
         title: "Craniosacral Therapy | Ebb & Flow Massage Studio — Washington, DC",
         description: "Craniosacral therapy in Washington, DC. Light-touch therapy supporting natural healing by Natalie Gamble, LMT. 60-minute sessions for $150.",
-        url: "https://ebbandflowmassagestudio.com/craniosacral-massage",
+        url: "https://ebbandflowmassagestudio.com/services/craniosacral-massage",
       },
     };
     const { title, description, url } = seo[page] || seo.home;
@@ -104,8 +154,17 @@ export default function App() {
       <DropReveal open={page === "home"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "home"} dismissed={page !== "home" && revealedPage !== "home"} colorClass="text-gray-light">
         <Info navigate={navigate} setSchedule={setSchedule} />
       </DropReveal>
-      <DropReveal open={page === "lymphatic"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymphatic"} dismissed={page !== "lymphatic" && revealedPage !== "lymphatic"} colorClass="text-blue">
-        <LymphaticMassage setSchedule={setSchedule} />
+      <DropReveal open={page === "lymph-mld"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymph-mld"} dismissed={page !== "lymph-mld" && revealedPage !== "lymph-mld"} colorClass="text-blue">
+        <ManualLymphaticDrainage setSchedule={setSchedule} />
+      </DropReveal>
+      <DropReveal open={page === "lymph-operative"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymph-operative"} dismissed={page !== "lymph-operative" && revealedPage !== "lymph-operative"} colorClass="text-purple">
+        <PrePostOperativeLymphatic setSchedule={setSchedule} />
+      </DropReveal>
+      <DropReveal open={page === "lymph-fertility"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymph-fertility"} dismissed={page !== "lymph-fertility" && revealedPage !== "lymph-fertility"} colorClass="text-gray-light">
+        <FertilityPregnancyLymphatic setSchedule={setSchedule} />
+      </DropReveal>
+      <DropReveal open={page === "lymph-edema"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymph-edema"} dismissed={page !== "lymph-edema" && revealedPage !== "lymph-edema"} colorClass="text-blue">
+        <LymphedemaLipedema setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal open={page === "oncology"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "oncology"} dismissed={page !== "oncology" && revealedPage !== "oncology"} colorClass="text-purple">
         <OncologyMassage setSchedule={setSchedule} />
