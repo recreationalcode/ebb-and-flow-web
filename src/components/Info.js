@@ -22,11 +22,11 @@ export default function Info({ navigate, setSchedule }) {
         <h1 className="text-4xl font-extralight text-blue sm:text-6xl">
           Natalie Gamble
         </h1>
-        <h2 className="text-xl font-thin tracking-widest text-blue sm:text-4xl">
-          LMT, CMLDT, MMP
+        <h2 className="text-lg font-thin tracking-widest text-blue sm:text-3xl">
+          LMT, CMLDT, MMP, CST
         </h2>
-        <div className="h-4 sm:h-8" />
-        <div className="text-sm font-semibold uppercase tracking-[0.2em] text-purple mb-4">
+        <div className="h-8 sm:h-12" />
+        <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-purple mb-4">
           Specialized in
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mx-6 sm:mx-auto sm:max-w-3xl">

@@ -2,7 +2,7 @@
 
 ## About
 Single-page website for **Ebb & Flow**, a mobile massage therapy studio in Austin, TX
-owned by Natalie Gamble (LMT, CMLDT, MMP). Specializes in Lymphatic Drainage and
+owned by Natalie Gamble (LMT, CMLDT, MMP, CST). Specializes in Lymphatic Drainage and
 Oncology Massage. The site showcases services, credentials, and contact options.
 
 ## Tech Stack
