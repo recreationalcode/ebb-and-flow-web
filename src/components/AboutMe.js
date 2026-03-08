@@ -1,17 +1,16 @@
-import { Dialog } from '@headlessui/react';
-import Modal from '../ui/Modal';
-import Button from '../ui/Button';
+import Footer from './Footer';
+import { DesktopScheduleButton } from '../ui/ScheduleButton';
 
-export default function AboutMe({ open, setOpen }) {
+export default function AboutMe({ setSchedule }) {
   return (
-    <Modal open={open} setOpen={setOpen} top>
-      <div className="flex flex-col items-center justify-center bg-gray-light px-6 pt-12 pb-8 gap-6">
-        <Dialog.Title
-          as="h3"
-          className="font-script text-6xl text-center font-light text-purple">
+    <>
+      <section
+        aria-label="About Natalie Gamble"
+        className="sm:min-h-screen flex flex-col items-center pt-28 pb-16 px-8 text-center bg-gray-light">
+        <h1 className="font-script text-6xl text-purple mb-6">
           Who I Am and What I Do
-        </Dialog.Title>
-        <div className="space-y-4 text-sm font-light text-gray leading-relaxed">
+        </h1>
+        <div className="max-w-xl space-y-4 text-sm font-light text-gray leading-relaxed text-left">
           <p>
             A 2019 graduate of the Lauterstein-Conway Massage School in Austin,
             TX, I've spent my career focusing on the people who often need touch
@@ -40,10 +39,9 @@ export default function AboutMe({ open, setOpen }) {
             I may need to know about and try!
           </p>
         </div>
-        <Button className="sm:hidden w-full" onClick={() => setOpen(false)}>
-          Close
-        </Button>
-      </div>
-    </Modal>
+        <DesktopScheduleButton setSchedule={setSchedule} className="mt-6" />
+      </section>
+      <Footer />
+    </>
   );
 }

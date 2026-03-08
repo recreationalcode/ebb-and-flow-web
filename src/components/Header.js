@@ -97,6 +97,17 @@ export default function Header(props) {
                     Home
                   </Button>
 
+                  <Button
+                    variant="ghost"
+                    href="/about"
+                    active={props.page === 'about'}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.navigate('about');
+                    }}>
+                    About
+                  </Button>
+
                   {/* Lymphatic dropdown */}
                   <div
                     className="relative"
@@ -235,6 +246,19 @@ export default function Header(props) {
                       close();
                     }}>
                     Home
+                  </Button>
+
+                  <Button
+                    variant="ghost"
+                    href="/about"
+                    active={props.page === 'about'}
+                    className="w-full text-left"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.navigate('about');
+                      close();
+                    }}>
+                    About
                   </Button>
 
                   {/* Lymphatic toggle + sub-links */}

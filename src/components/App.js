@@ -12,6 +12,7 @@ import LymphedemaLipedema from "./LymphedemaLipedema";
 import OncologyMassage from "./OncologyMassage";
 import CraniosacralMassage from "./CraniosacralMassage";
 
+const ABOUT_PATH = "/about";
 const LYMPH_MLD_PATH = "/services/lymphatic/manual-drainage";
 const LYMPH_OPERATIVE_PATH = "/services/lymphatic/pre-post-operative";
 const LYMPH_FERTILITY_PATH = "/services/lymphatic/fertility-pregnancy";
@@ -21,6 +22,8 @@ const CRANIOSACRAL_PATH = "/services/craniosacral-massage";
 
 function pageFromPath(pathname) {
   switch (pathname) {
+    case ABOUT_PATH:
+      return "about";
     case LYMPH_MLD_PATH:
       return "lymph-mld";
     case LYMPH_OPERATIVE_PATH:
@@ -47,6 +50,7 @@ function pageFromPath(pathname) {
 
 const pagePaths = {
   home: "/",
+  about: ABOUT_PATH,
   "lymph-mld": LYMPH_MLD_PATH,
   "lymph-operative": LYMPH_OPERATIVE_PATH,
   "lymph-fertility": LYMPH_FERTILITY_PATH,
@@ -66,7 +70,6 @@ const bookingUrls = {
 
 export default function App() {
   const [schedule, setSchedule] = useState(false);
-  const [aboutMe, setAboutMe] = useState(false);
   const [page, setPage] = useState(() => pageFromPath(window.location.pathname));
   const [revealedPage, setRevealedPage] = useState(() => pageFromPath(window.location.pathname));
 
@@ -109,6 +112,11 @@ export default function App() {
         title: "Ebb & Flow Massage Studio | Lymphatic Drainage, Oncology Massage & Craniosacral Therapy in Washington, DC",
         description: "Ebb & Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP.",
         url: "https://ebbandflowmassagestudio.com/",
+      },
+      about: {
+        title: "About Natalie Gamble | Ebb & Flow Massage Studio — Washington, DC",
+        description: "Meet Natalie Gamble, LMT, CMLDT, MMP — massage therapist in Washington, DC specializing in lymphatic drainage and oncology massage at Ebb & Flow Massage Studio.",
+        url: "https://ebbandflowmassagestudio.com/about",
       },
       "lymph-mld": {
         title: "Manual Lymphatic Drainage | Ebb & Flow Massage Studio — Washington, DC",
@@ -163,7 +171,10 @@ export default function App() {
     <main className="bg-gray-light">
       <Header setSchedule={setSchedule} page={page} navigate={navigate} bgColor="bg-blue" />
       <DropReveal open={page === "home"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "home"} dismissed={page !== "home" && revealedPage !== "home"} colorClass="text-gray-light">
-        <Info navigate={navigate} setSchedule={setSchedule} setAboutMe={setAboutMe} />
+        <Info navigate={navigate} setSchedule={setSchedule} />
+      </DropReveal>
+      <DropReveal open={page === "about"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "about"} dismissed={page !== "about" && revealedPage !== "about"} colorClass="text-gray-light">
+        <AboutMe setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal open={page === "lymph-mld"} onOpen={handleRevealComplete} wasObscured={revealedPage !== "lymph-mld"} dismissed={page !== "lymph-mld" && revealedPage !== "lymph-mld"} colorClass="text-blue">
         <ManualLymphaticDrainage setSchedule={setSchedule} />
@@ -184,7 +195,6 @@ export default function App() {
         <CraniosacralMassage setSchedule={setSchedule} />
       </DropReveal>
       <Schedule open={schedule} setOpen={setSchedule} bookingUrl={bookingUrls[page]} />
-      <AboutMe open={aboutMe} setOpen={setAboutMe} />
       <div className="fixed bottom-6 inset-x-0 z-50 sm:hidden flex justify-center">
         <div className="rounded-md shadow-[0_4px_24px_rgba(0,0,0,0.35)]">
           <ScheduleButton setSchedule={setSchedule} className="px-12 py-3 text-lg" />
