@@ -6,11 +6,11 @@ export default function AboutMe({ setSchedule }) {
     <>
       <section
         aria-label="About Natalie Gamble"
-        className="sm:min-h-screen flex flex-col items-center pt-28 pb-16 px-8 text-center bg-gray-light">
+        className="sm:min-h-screen flex flex-col items-center pt-28 pb-16 px-8 text-center bg-gray-200">
         <h1 className="font-script text-6xl text-purple mb-6">
           Who I Am and What I Do
         </h1>
-        <div className="max-w-xl space-y-4 text-sm font-light text-gray leading-relaxed text-left">
+        <div className="max-w-xl space-y-4 text-sm font-light text-gray-700 leading-relaxed text-left">
           <p>
             A 2019 graduate of the Lauterstein-Conway Massage School in Austin,
             TX, I've spent my career focusing on the people who often need touch

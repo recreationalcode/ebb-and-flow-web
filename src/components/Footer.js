@@ -2,20 +2,20 @@ export default function Footer() {
   return (
     <footer
       aria-label="Availability and location"
-      className="bg-gray-light text-center px-6 pt-8 sm:pt-12 pb-24 sm:pb-16">
+      className="bg-gray-200 text-center px-6 pt-8 sm:pt-12 pb-24 sm:pb-16">
       <div className="mb-6 sm:mb-8">
-        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-gray mb-3">
+        <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-gray-600 mb-3">
           Availability
         </div>
         <div className="text-lg sm:text-xl font-medium text-blue">
           Wednesdays &amp; Saturdays
         </div>
-        <div className="text-base sm:text-lg font-light text-gray">
+        <div className="text-base sm:text-lg font-light text-gray-600">
           8:00 AM &ndash; 5:00 PM
         </div>
       </div>
       <div className="flex flex-col gap-4 sm:mx-auto sm:max-w-lg bg-blue rounded-2xl px-6 py-6 sm:px-8 sm:py-8 shadow-lg">
-        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-light">
+        <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-blue-100">
           Location
         </div>
         <div className="text-base sm:text-lg font-light text-white">

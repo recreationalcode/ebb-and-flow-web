@@ -74,10 +74,10 @@ export default function Header(props) {
                     aria-label="Go to home page">
                     <img className="h-10" src={GrayBlueLogo} alt="Ebb & Flow" />
                     <span className="flex items-center gap-0.5 ml-3 sm:ml-4 mt-2 sm:mt-1.5">
-                      <span className="font-script text-2xl sm:text-3xl text-gray-light">
+                      <span className="font-script text-2xl sm:text-3xl text-gray-100">
                         Ebb & flow
                       </span>
-                      <span className="ml-2 text-xs font-light tracking-widest text-gray-light hidden sm:block">
+                      <span className="ml-2 text-xs font-light tracking-widest text-gray-100 hidden sm:block">
                         MASSAGE STUDIO
                       </span>
                     </span>
@@ -120,7 +120,7 @@ export default function Header(props) {
                         'px-3 py-1.5 text-sm font-light tracking-wide',
                         isLymphaticPage(props.page)
                           ? 'text-white bg-white/20 font-normal'
-                          : 'text-blue-light hover:text-white hover:bg-white/10',
+                          : 'text-blue-300 hover:text-white hover:bg-white/10',
                       )}
                       onClick={(e) => {
                         e.preventDefault();
@@ -155,7 +155,7 @@ export default function Header(props) {
                               'block rounded-md px-3 py-1.5 text-sm font-light tracking-wide transition-colors whitespace-nowrap',
                               props.page === sub.page
                                 ? 'text-white bg-white/20 font-normal'
-                                : 'text-blue-light hover:text-white hover:bg-white/10',
+                                : 'text-blue-300 hover:text-white hover:bg-white/10',
                             )}
                             onClick={(e) => {
                               e.preventDefault();
@@ -197,7 +197,7 @@ export default function Header(props) {
                   />
                 </div>
                 <div className="sm:hidden">
-                  <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-blue-light hover:text-white hover:bg-white/10 transition-colors">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-blue-300 hover:text-white hover:bg-white/10 transition-colors">
                     <span className="sr-only">Open menu</span>
                     {open ? (
                       <XIcon className="h-6 w-6" aria-hidden="true" />
@@ -270,7 +270,7 @@ export default function Header(props) {
                         'px-3 py-1.5 text-sm font-light tracking-wide',
                         isLymphaticPage(props.page)
                           ? 'text-white bg-white/20 font-normal'
-                          : 'text-blue-light hover:text-white hover:bg-white/10',
+                          : 'text-blue-300 hover:text-white hover:bg-white/10',
                       )}
                       onClick={() => setMobileSubOpen(!mobileSubOpen)}>
                       Lymphatic
@@ -298,7 +298,7 @@ export default function Header(props) {
                               'block w-full rounded-md px-3 py-1.5 text-sm font-light tracking-wide transition-colors text-center',
                               props.page === sub.page
                                 ? 'text-white bg-white/20 font-normal'
-                                : 'text-blue-light hover:text-white hover:bg-white/10',
+                                : 'text-blue-300 hover:text-white hover:bg-white/10',
                             )}
                             onClick={(e) => {
                               e.preventDefault();

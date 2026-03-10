@@ -6,11 +6,11 @@ export default function CraniosacralMassage({ setSchedule }) {
     <>
       <section
         aria-label="Craniosacral Therapy"
-        className="sm:min-h-screen flex flex-col items-center sm:justify-center pt-28 pb-16 px-8 text-center bg-gray-light">
+        className="sm:min-h-screen flex flex-col items-center sm:justify-center pt-28 pb-16 px-8 text-center bg-gray-200">
         <h1 className="font-script text-5xl text-purple mb-6">
           Craniosacral Therapy
         </h1>
-        <p className="max-w-xl text-lg font-light text-gray leading-relaxed">
+        <p className="max-w-xl text-lg font-light text-gray-600 leading-relaxed">
           Craniosacral therapy is a gentle, hands-on approach that uses light
           touch to release tension deep within the body. By working with the
           craniosacral system&mdash;the membranes and fluid that surround the
@@ -20,7 +20,7 @@ export default function CraniosacralMassage({ setSchedule }) {
           stress-related disorders.
         </p>
         <div className="h-6" />
-        <p className="text-lg font-light text-gray">
+        <p className="text-lg font-light text-gray-600">
           <span className="font-medium">60 minute sessions</span> for{' '}
           <span className="font-medium">$150</span>
         </p>

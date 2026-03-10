@@ -8,7 +8,7 @@ import Modal from '../ui/Modal';
 export default function Schedule({ open, setOpen, bookingUrl, ...props }) {
   return (
     <Modal open={open} setOpen={setOpen}>
-      <div className="bg-gray-light px-4 pt-5 pb-4 sm:p-6 sm:pb-4 sm:flex sm:items-start">
+      <div className="bg-gray-200 px-4 pt-5 pb-4 sm:p-6 sm:pb-4 sm:flex sm:items-start">
         <div className="mx-auto flex-shrink-0 flex items-center justify-center rounded-full sm:mx-0 sm:self-center">
           <img
             src={PurpleBlueLogo}
@@ -21,7 +21,7 @@ export default function Schedule({ open, setOpen, bookingUrl, ...props }) {
           <div className="mt-3">
             <Dialog.Title
               as="h3"
-              className="text-md text-center font-light text-gray mt-2 mb-2 sm:mt-0 sm:mb-2">
+              className="text-md text-center font-light text-gray-600 mt-2 mb-2 sm:mt-0 sm:mb-2">
               Schedule your appointment
             </Dialog.Title>
           </div>
@@ -35,12 +35,12 @@ export default function Schedule({ open, setOpen, bookingUrl, ...props }) {
                 Book Online
               </Button>
             </a>
-            <p className="text-xs italic text-gray font-light mt-2 text-center">
+            <p className="text-xs italic text-gray-600 font-light mt-2 text-center">
               A card on file will be required
             </p>
           </div>
           <hr className="mx-6 my-1 border-gray/20" />
-          <p className="text-xs text-gray font-medium text-center mt-4 px-4">
+          <p className="text-xs text-gray-600 font-medium text-center mt-4 px-4">
             Want to speak with Natalie directly about your therapy
             needs?
           </p>

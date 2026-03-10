@@ -10,7 +10,7 @@ export default function PrePostOperativeLymphatic({ setSchedule }) {
         <h1 className="font-script text-5xl text-white mb-6">
           Pre/Post Operative
         </h1>
-        <p className="max-w-xl text-lg font-light text-gray-light leading-relaxed">
+        <p className="max-w-xl text-lg font-light text-gray-100 leading-relaxed">
           Pre and post operative lymphatic massage supports your body before and
           after surgery. Before a procedure, lymphatic drainage helps prepare the
           tissue by reducing fluid retention and boosting immune response. After
@@ -20,7 +20,7 @@ export default function PrePostOperativeLymphatic({ setSchedule }) {
           where reducing inflammation is key to optimal outcomes.
         </p>
         <div className="h-6" />
-        <p className="text-lg font-light text-gray-light">
+        <p className="text-lg font-light text-gray-100">
           <span className="font-medium">60 minute sessions</span> for{' '}
           <span className="font-medium">$150</span>
         </p>

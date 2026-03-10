@@ -194,7 +194,7 @@ export default function App() {
   }, [page]);
 
   return (
-    <main className="bg-gray-light">
+    <main className="bg-gray-200">
       <Header
         setSchedule={setSchedule}
         page={page}
@@ -206,7 +206,7 @@ export default function App() {
         onOpen={handleRevealComplete}
         wasObscured={revealedPage !== 'home'}
         dismissed={page !== 'home' && revealedPage !== 'home'}
-        colorClass="text-gray-light">
+        colorClass="text-gray-200">
         <Info navigate={navigate} setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal
@@ -214,7 +214,7 @@ export default function App() {
         onOpen={handleRevealComplete}
         wasObscured={revealedPage !== 'about'}
         dismissed={page !== 'about' && revealedPage !== 'about'}
-        colorClass="text-gray-light">
+        colorClass="text-gray-200">
         <AboutMe setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal
@@ -242,7 +242,7 @@ export default function App() {
         dismissed={
           page !== 'lymph-fertility' && revealedPage !== 'lymph-fertility'
         }
-        colorClass="text-gray-light">
+        colorClass="text-gray-200">
         <FertilityPregnancyLymphatic setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal
@@ -266,7 +266,7 @@ export default function App() {
         onOpen={handleRevealComplete}
         wasObscured={revealedPage !== 'craniosacral'}
         dismissed={page !== 'craniosacral' && revealedPage !== 'craniosacral'}
-        colorClass="text-gray-light">
+        colorClass="text-gray-200">
         <CraniosacralMassage setSchedule={setSchedule} />
       </DropReveal>
       <Schedule
