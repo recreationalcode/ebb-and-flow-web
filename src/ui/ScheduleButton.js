@@ -1,8 +1,10 @@
+import { CalendarIcon } from '@heroicons/react/outline';
 import Button from './Button';
 
 export default function ScheduleButton({ setSchedule, variant, className }) {
   return (
     <Button variant={variant} className={className} onClick={() => setSchedule(true)}>
+      <CalendarIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
       Schedule
     </Button>
   );

@@ -340,7 +340,7 @@ export default function Header(props) {
                   </Button>
                   <div className="border-t border-white/20 my-1" />
                   <Button
-                    variant="secondary"
+                    variant="ghost"
                     href="https://ebbnflow.janeapp.com/online_gift_cards/new"
                     target="_blank"
                     rel="noopener noreferrer"
