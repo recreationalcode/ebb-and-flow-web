@@ -6,7 +6,7 @@ export default function CraniosacralMassage({ setSchedule }) {
     <>
       <section
         aria-label="Craniosacral Therapy"
-        className="sm:min-h-screen flex flex-col items-center sm:justify-center pt-28 pb-16 px-8 text-center bg-gray-200">
+        className="flex flex-col items-center pt-28 sm:pt-40 pb-24 sm:pb-28 px-8 text-center bg-gray-200">
         <h1 className="font-script text-5xl text-purple mb-6">
           Craniosacral Therapy
         </h1>

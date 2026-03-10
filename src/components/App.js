@@ -206,7 +206,7 @@ export default function App() {
         onOpen={handleRevealComplete}
         wasObscured={revealedPage !== 'home'}
         dismissed={page !== 'home' && revealedPage !== 'home'}
-        colorClass="text-gray-200">
+        color="gray">
         <Info navigate={navigate} setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal
@@ -214,7 +214,7 @@ export default function App() {
         onOpen={handleRevealComplete}
         wasObscured={revealedPage !== 'about'}
         dismissed={page !== 'about' && revealedPage !== 'about'}
-        colorClass="text-gray-200">
+        color="gray">
         <AboutMe setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal
@@ -222,7 +222,7 @@ export default function App() {
         onOpen={handleRevealComplete}
         wasObscured={revealedPage !== 'lymph-mld'}
         dismissed={page !== 'lymph-mld' && revealedPage !== 'lymph-mld'}
-        colorClass="text-blue">
+        color="blue">
         <ManualLymphaticDrainage setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal
@@ -232,7 +232,7 @@ export default function App() {
         dismissed={
           page !== 'lymph-operative' && revealedPage !== 'lymph-operative'
         }
-        colorClass="text-purple">
+        color="purple">
         <PrePostOperativeLymphatic setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal
@@ -242,7 +242,7 @@ export default function App() {
         dismissed={
           page !== 'lymph-fertility' && revealedPage !== 'lymph-fertility'
         }
-        colorClass="text-gray-200">
+        color="gray">
         <FertilityPregnancyLymphatic setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal
@@ -250,7 +250,7 @@ export default function App() {
         onOpen={handleRevealComplete}
         wasObscured={revealedPage !== 'lymph-edema'}
         dismissed={page !== 'lymph-edema' && revealedPage !== 'lymph-edema'}
-        colorClass="text-blue">
+        color="blue">
         <LymphedemaLipedema setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal
@@ -258,7 +258,7 @@ export default function App() {
         onOpen={handleRevealComplete}
         wasObscured={revealedPage !== 'oncology'}
         dismissed={page !== 'oncology' && revealedPage !== 'oncology'}
-        colorClass="text-purple">
+        color="purple">
         <OncologyMassage setSchedule={setSchedule} />
       </DropReveal>
       <DropReveal
@@ -266,7 +266,7 @@ export default function App() {
         onOpen={handleRevealComplete}
         wasObscured={revealedPage !== 'craniosacral'}
         dismissed={page !== 'craniosacral' && revealedPage !== 'craniosacral'}
-        colorClass="text-gray-200">
+        color="gray">
         <CraniosacralMassage setSchedule={setSchedule} />
       </DropReveal>
       <Schedule

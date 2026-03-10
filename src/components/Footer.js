@@ -1,8 +1,18 @@
 export default function Footer() {
   return (
-    <footer
-      aria-label="Availability and location"
-      className="bg-gray-200 text-center px-6 pt-8 sm:pt-12 pb-24 sm:pb-16">
+    <footer aria-label="Availability and location" className="relative bg-gray-50">
+      <svg
+        className="absolute -top-6 sm:-top-8 left-0 w-full h-6 sm:h-8"
+        viewBox="0 0 1440 32"
+        preserveAspectRatio="none"
+        aria-hidden="true">
+        <path
+          d="M0,20 C360,32 720,8 1080,20 C1260,26 1380,16 1440,20 L1440,32 L0,32 Z"
+          fill="currentColor"
+          className="text-gray-50"
+        />
+      </svg>
+      <div className="text-center px-6 pt-8 sm:pt-12 pb-24 sm:pb-16">
       <div className="mb-6 sm:mb-8">
         <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-gray-600 mb-3">
           Availability
@@ -44,6 +54,7 @@ export default function Footer() {
             referrerPolicy="no-referrer-when-downgrade"
           />
         </div>
+      </div>
       </div>
     </footer>
   );

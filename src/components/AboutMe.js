@@ -6,7 +6,7 @@ export default function AboutMe({ setSchedule }) {
     <>
       <section
         aria-label="About Natalie Gamble"
-        className="sm:min-h-screen flex flex-col items-center pt-28 pb-16 px-8 text-center bg-gray-200">
+        className="flex flex-col items-center pt-28 sm:pt-40 pb-24 sm:pb-32 px-8 text-center bg-gray-200">
         <h1 className="font-script text-6xl text-purple mb-6">
           Who I Am and What I Do
         </h1>

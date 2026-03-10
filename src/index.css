@@ -42,12 +42,21 @@ button:focus-visible {
   initial-value: 20px;
 }
 
+@property --reveal-overlay {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+
+/* Single keyframe drives both the mask expansion and the color-wash fade */
 @keyframes circle-expand {
   from {
     --reveal-r: 20px;
+    --reveal-overlay: 0.5;
   }
   to {
     --reveal-r: 2000px;
+    --reveal-overlay: 0;
   }
 }
 
@@ -62,4 +71,17 @@ button:focus-visible {
     #000 calc(100% - 32px),
     transparent 100%
   );
+}
+
+/* Color-wash overlay: fades from the lighter shade to transparent,
+   revealing the actual page color beneath. Driven by --reveal-overlay
+   which is animated in the same circle-expand keyframe. */
+.reveal-mask::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-color: var(--reveal-light);
+  opacity: var(--reveal-overlay);
 }

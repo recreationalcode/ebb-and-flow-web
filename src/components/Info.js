@@ -8,9 +8,9 @@ export default function Info({ navigate, setSchedule }) {
     <>
       <section
         aria-label="About Ebb & Flow"
-        className="sm:min-h-screen bg-gray-200 text-center">
-        <div className="h-28 sm:h-32"></div>
-        <span className="font-script text-6xl sm:text-8xl text-purple">
+        className="bg-gray-200 text-center">
+        <div className="h-28 sm:h-40"></div>
+        <span className="font-script text-7xl sm:text-8xl text-purple">
           Ebb & flow
         </span>
         <div className="h-4 sm:h-8"></div>
@@ -73,7 +73,7 @@ export default function Info({ navigate, setSchedule }) {
         </div>
         <div className="h-4 sm:h-8" />
         <DesktopScheduleButton setSchedule={setSchedule} />
-        <div className="h-4 sm:h-8" />
+        <div className="h-10 sm:h-16" />
       </section>
       <Footer />
     </>

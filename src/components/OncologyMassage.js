@@ -6,7 +6,7 @@ export default function OncologyMassage({ setSchedule }) {
     <>
       <section
         aria-label="Oncology Massage"
-        className="sm:min-h-screen flex flex-col items-center sm:justify-center pt-28 pb-16 px-8 text-center bg-purple">
+        className="flex flex-col items-center pt-28 sm:pt-40 pb-24 sm:pb-28 px-8 text-center bg-purple-600">
         <h1 className="font-script text-5xl text-white mb-6">
           Oncology Massage
         </h1>

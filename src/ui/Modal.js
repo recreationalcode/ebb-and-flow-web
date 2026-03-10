@@ -7,7 +7,11 @@ export default function Modal({ open, setOpen, top, children }) {
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-[60]" onClose={setOpen} initialFocus={top ? topRef : undefined}>
+      <Dialog
+        as="div"
+        className="relative z-[60]"
+        onClose={setOpen}
+        initialFocus={top ? topRef : undefined}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -16,11 +20,15 @@ export default function Modal({ open, setOpen, top, children }) {
           leave="ease-in duration-200"
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
-          <div className="fixed inset-0 bg-gray-900/50 transition-opacity" />
+          <div className="fixed inset-0 bg-blue-200/50 transition-opacity" />
         </Transition.Child>
 
         <div className="fixed z-10 inset-0 overflow-y-auto">
-          <div className={classNames("flex sm:items-center justify-center min-h-full p-4 text-center sm:p-0", top ? "items-start" : "items-end")}>
+          <div
+            className={classNames(
+              'flex sm:items-center justify-center min-h-full p-4 text-center sm:p-0',
+              top ? 'items-start' : 'items-end',
+            )}>
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
