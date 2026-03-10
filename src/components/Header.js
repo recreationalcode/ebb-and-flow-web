@@ -70,7 +70,7 @@ export default function Header(props) {
               'rounded-b-2xl shadow-header',
             )}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-              <div className="flex justify-between items-center py-3 sm:py-4 md:justify-start md:space-x-10">
+              <div className="flex justify-between items-center py-3 sm:py-4 lg:justify-start lg:space-x-10">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
                   <button
                     type="button"
@@ -79,10 +79,10 @@ export default function Header(props) {
                     aria-label="Go to home page">
                     <img className="h-10" src={GrayBlueLogo} alt="Ebb & Flow" />
                     <span className="flex items-center gap-0.5 ml-3 sm:ml-4 mt-2 sm:mt-1.5">
-                      <span className="font-script text-2xl sm:text-3xl text-gray-100">
+                      <span className="font-script text-2xl sm:text-3xl text-gray-100 whitespace-nowrap">
                         Ebb & flow
                       </span>
-                      <span className="ml-2 text-xs font-light tracking-widest text-gray-100 hidden sm:block">
+                      <span className="ml-2 text-xs font-light tracking-widest text-gray-100 hidden xl:block">
                         MASSAGE STUDIO
                       </span>
                     </span>
@@ -90,7 +90,7 @@ export default function Header(props) {
                 </div>
                 <nav
                   aria-label="Main navigation"
-                  className="hidden sm:flex items-center gap-1 sm:gap-2">
+                  className="hidden lg:flex items-center gap-1 lg:gap-2">
                   <Button
                     variant="ghost"
                     href="/"
@@ -186,7 +186,7 @@ export default function Header(props) {
                     Craniosacral
                   </Button>
                 </nav>
-                <div className="hidden sm:flex items-center justify-end gap-2 ml-3 sm:ml-4">
+                <div className="hidden lg:flex items-center justify-end gap-2 ml-3 lg:ml-4">
                   <Button
                     variant="ghost"
                     href="https://ebbnflow.janeapp.com/online_gift_cards/new"
@@ -206,7 +206,7 @@ export default function Header(props) {
                     Schedule
                   </Button>
                 </div>
-                <div className="sm:hidden">
+                <div className="lg:hidden">
                   <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-blue-300 hover:text-white hover:bg-white/10 transition-colors">
                     <span className="sr-only">Open menu</span>
                     {open ? (
@@ -224,7 +224,7 @@ export default function Header(props) {
           <Popover.Panel
             static
             className={classNames(
-              'fixed z-[45] left-4 right-4 sm:hidden',
+              'fixed z-[45] left-4 right-4 sm:left-16 sm:right-16 lg:hidden overflow-hidden',
               !open && 'pointer-events-none',
             )}
             style={{ top: 50 }}>
