@@ -6,6 +6,7 @@ const base =
 const variants = {
   primary:
     'shadow-sm px-4 py-2 bg-purple text-base font-medium text-white hover:bg-purple-400 active:bg-purple-300 drop-shadow focus-visible:ring-purple-300',
+  fab: 'shadow-sm px-12 py-3 bg-purple text-lg font-medium text-white hover:bg-purple-400 active:bg-purple-300 drop-shadow focus-visible:ring-purple-300',
   ghost:
     'px-3 py-1.5 text-sm font-light tracking-wide focus-visible:ring-blue-300 focus-visible:ring-offset-0',
   card: 'bg-gray-100 rounded-2xl px-5 py-5 shadow-md hover:bg-blue-400 active:bg-blue-500 text-sm font-medium text-blue hover:text-white active:text-white uppercase tracking-widest focus-visible:ring-blue-300',

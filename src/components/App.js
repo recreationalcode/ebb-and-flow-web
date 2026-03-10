@@ -3,7 +3,7 @@ import Header from './Header';
 import Info from './Info';
 import Schedule from './Schedule';
 import AboutMe from './AboutMe';
-import ScheduleButton from '../ui/ScheduleButton';
+import { MobileScheduleButton } from '../ui/ScheduleButton';
 import DropReveal from './DropReveal';
 import ManualLymphaticDrainage from './ManualLymphaticDrainage';
 import PrePostOperativeLymphatic from './PrePostOperativeLymphatic';
@@ -274,14 +274,7 @@ export default function App() {
         setOpen={setSchedule}
         bookingUrl={bookingUrls[page]}
       />
-      <div className="fixed bottom-6 inset-x-0 z-50 sm:hidden flex justify-center">
-        <div className="rounded-md shadow-[0_4px_24px_rgba(0,0,0,0.35)]">
-          <ScheduleButton
-            setSchedule={setSchedule}
-            className="px-12 py-3 text-lg"
-          />
-        </div>
-      </div>
+      <MobileScheduleButton setSchedule={setSchedule} />
     </main>
   );
 }
