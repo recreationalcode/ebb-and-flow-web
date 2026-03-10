@@ -5,11 +5,13 @@ const base =
 
 const variants = {
   primary:
-    'shadow-sm px-4 py-2 bg-purple text-base font-medium text-white hover:bg-purple-400 active:bg-purple-300 drop-shadow focus-visible:ring-purple-300',
-  fab: 'shadow-sm px-12 py-3 bg-purple text-lg font-medium text-white hover:bg-purple-400 active:bg-purple-300 drop-shadow focus-visible:ring-purple-300',
+    'shadow-sm px-4 py-2 bg-purple-500 text-base font-medium text-white hover:bg-purple-400 active:bg-purple-300 drop-shadow focus-visible:ring-purple-300',
+  fab: 'shadow-sm px-12 py-3 bg-purple-500 text-lg font-medium text-white hover:bg-purple-400 active:bg-purple-300 drop-shadow focus-visible:ring-purple-300',
   ghost:
-    'px-3 py-1.5 text-sm font-light tracking-wide focus-visible:ring-blue-300 focus-visible:ring-offset-0',
-  card: 'bg-gray-100 rounded-2xl px-5 py-5 shadow-md hover:bg-blue-400 active:bg-blue-500 text-sm font-medium text-blue hover:text-white active:text-white uppercase tracking-widest focus-visible:ring-blue-300',
+    'px-3 py-1.5 text-sm font-light tracking-wide text-blue-300 hover:text-white hover:bg-blue-400/20 active:bg-blue-300/40 focus-visible:ring-blue-300 focus-visible:ring-offset-0',
+  card: 'bg-gray-100 rounded-2xl px-5 py-5 shadow-md text-sm font-medium text-blue-500 hover:bg-blue-400 hover:text-white active:bg-blue-500 active:text-white uppercase tracking-widest focus-visible:ring-blue-300',
+  secondary:
+    'shadow-sm px-3 py-1.5 rounded-md bg-gray-100 text-sm font-medium text-blue-500 hover:bg-blue-400 hover:text-white active:bg-blue-500 active:text-white focus-visible:ring-blue-300',
 };
 
 export default function Button({
@@ -27,10 +29,9 @@ export default function Button({
       className={classNames(
         base,
         variants[variant],
-        variant === 'ghost' && active && 'text-white bg-white/20 font-normal',
         variant === 'ghost' &&
-          !active &&
-          'text-blue-300 hover:text-white hover:bg-white/10',
+          active &&
+          '!text-white !bg-blue-400/50 font-normal',
         className,
       )}
       {...rest}>

@@ -1,10 +1,15 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { Popover } from '@headlessui/react';
-import { MenuIcon, XIcon, ChevronDownIcon } from '@heroicons/react/outline';
+import {
+  MenuIcon,
+  XIcon,
+  ChevronDownIcon,
+  GiftIcon,
+  CalendarIcon,
+} from '@heroicons/react/outline';
 
 import GrayBlueLogo from '../assets/logos/Gray Blue Logo.png';
 import Button from '../ui/Button';
-import ScheduleButton from '../ui/ScheduleButton';
 import classNames from '../utils/classNames';
 
 const LYMPHATIC_SUBPAGES = [
@@ -113,15 +118,9 @@ export default function Header(props) {
                     className="relative"
                     onMouseEnter={openDesktopMenu}
                     onMouseLeave={closeDesktopMenu}>
-                    <button
-                      type="button"
-                      className={classNames(
-                        'inline-flex items-center justify-center rounded-md transition-colors',
-                        'px-3 py-1.5 text-sm font-light tracking-wide',
-                        isLymphaticPage(props.page)
-                          ? 'text-white bg-white/20 font-normal'
-                          : 'text-blue-300 hover:text-white hover:bg-white/10',
-                      )}
+                    <Button
+                      variant="ghost"
+                      active={isLymphaticPage(props.page)}
                       onClick={(e) => {
                         e.preventDefault();
                         props.navigate('lymph-mld');
@@ -134,7 +133,7 @@ export default function Header(props) {
                         )}
                         aria-hidden="true"
                       />
-                    </button>
+                    </Button>
                     <div
                       className={classNames(
                         'absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200',
@@ -148,22 +147,19 @@ export default function Header(props) {
                           'rounded-xl shadow-header py-3 px-3 min-w-[220px]',
                         )}>
                         {LYMPHATIC_SUBPAGES.map((sub) => (
-                          <a
+                          <Button
                             key={sub.page}
+                            variant="ghost"
                             href={sub.path}
-                            className={classNames(
-                              'block rounded-md px-3 py-1.5 text-sm font-light tracking-wide transition-colors whitespace-nowrap',
-                              props.page === sub.page
-                                ? 'text-white bg-white/20 font-normal'
-                                : 'text-blue-300 hover:text-white hover:bg-white/10',
-                            )}
+                            active={props.page === sub.page}
+                            className="w-full !justify-start whitespace-nowrap"
                             onClick={(e) => {
                               e.preventDefault();
                               props.navigate(sub.page);
                               setLymphMenuOpen(false);
                             }}>
                             {sub.label}
-                          </a>
+                          </Button>
                         ))}
                       </div>
                     </div>
@@ -190,11 +186,25 @@ export default function Header(props) {
                     Craniosacral
                   </Button>
                 </nav>
-                <div className="hidden sm:flex items-center justify-end ml-3 sm:ml-4">
-                  <ScheduleButton
-                    setSchedule={props.setSchedule}
+                <div className="hidden sm:flex items-center justify-end gap-2 ml-3 sm:ml-4">
+                  <Button
+                    variant="ghost"
+                    href="https://ebbnflow.janeapp.com/online_gift_cards/new"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whitespace-nowrap">
+                    <GiftIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                    Gift Card
+                  </Button>
+                  <Button
                     className="whitespace-nowrap"
-                  />
+                    onClick={() => props.setSchedule(true)}>
+                    <CalendarIcon
+                      className="h-4 w-4 mr-1.5"
+                      aria-hidden="true"
+                    />
+                    Schedule
+                  </Button>
                 </div>
                 <div className="sm:hidden">
                   <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-blue-300 hover:text-white hover:bg-white/10 transition-colors">
@@ -263,15 +273,10 @@ export default function Header(props) {
 
                   {/* Lymphatic toggle + sub-links */}
                   <div>
-                    <button
-                      type="button"
-                      className={classNames(
-                        'inline-flex items-center justify-center rounded-md transition-colors w-full',
-                        'px-3 py-1.5 text-sm font-light tracking-wide',
-                        isLymphaticPage(props.page)
-                          ? 'text-white bg-white/20 font-normal'
-                          : 'text-blue-300 hover:text-white hover:bg-white/10',
-                      )}
+                    <Button
+                      variant="ghost"
+                      active={isLymphaticPage(props.page)}
+                      className="w-full"
                       onClick={() => setMobileSubOpen(!mobileSubOpen)}>
                       Lymphatic
                       <ChevronDownIcon
@@ -281,7 +286,7 @@ export default function Header(props) {
                         )}
                         aria-hidden="true"
                       />
-                    </button>
+                    </Button>
                     <div
                       className={classNames(
                         'overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]',
@@ -291,22 +296,19 @@ export default function Header(props) {
                       )}>
                       <div className="flex flex-col gap-1 items-center pt-1">
                         {LYMPHATIC_SUBPAGES.map((sub) => (
-                          <a
+                          <Button
                             key={sub.page}
+                            variant="ghost"
                             href={sub.path}
-                            className={classNames(
-                              'block w-full rounded-md px-3 py-1.5 text-sm font-light tracking-wide transition-colors text-center',
-                              props.page === sub.page
-                                ? 'text-white bg-white/20 font-normal'
-                                : 'text-blue-300 hover:text-white hover:bg-white/10',
-                            )}
+                            active={props.page === sub.page}
+                            className="w-full"
                             onClick={(e) => {
                               e.preventDefault();
                               props.navigate(sub.page);
                               close();
                             }}>
                             {sub.label}
-                          </a>
+                          </Button>
                         ))}
                       </div>
                     </div>
@@ -337,13 +339,27 @@ export default function Header(props) {
                     Craniosacral
                   </Button>
                   <div className="border-t border-white/20 my-1" />
-                  <ScheduleButton
-                    setSchedule={() => {
+                  <Button
+                    variant="secondary"
+                    href="https://ebbnflow.janeapp.com/online_gift_cards/new"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full">
+                    <GiftIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                    Gift Card
+                  </Button>
+                  <Button
+                    className="w-full"
+                    onClick={() => {
                       props.setSchedule(true);
                       close();
-                    }}
-                    className="w-full"
-                  />
+                    }}>
+                    <CalendarIcon
+                      className="h-4 w-4 mr-1.5"
+                      aria-hidden="true"
+                    />
+                    Schedule
+                  </Button>
                 </nav>
               </div>
             </div>
