@@ -15,23 +15,28 @@ import classNames from '../utils/classNames';
 const LYMPHATIC_SUBPAGES = [
   {
     page: 'lymph-mld',
-    path: '/services/lymphatic/manual-drainage',
+    path: '/services/lymphatic/manual-lymphatic-drainage',
     label: 'Manual Lymphatic Drainage',
   },
   {
     page: 'lymph-operative',
-    path: '/services/lymphatic/pre-post-operative',
-    label: 'Pre/Post Operative',
-  },
-  {
-    page: 'lymph-fertility',
-    path: '/services/lymphatic/fertility-pregnancy',
-    label: 'Fertility/Pregnancy/Postpartum',
+    path: '/services/lymphatic/pre-post-op-lymphatic-massage',
+    label: 'Pre/Post-Op Lymphatic',
   },
   {
     page: 'lymph-edema',
-    path: '/services/lymphatic/lymphedema-lipedema',
-    label: 'Lymphedema or Lipedema Management',
+    path: '/services/lymphatic/lymphedema-lipedema-management',
+    label: 'Lymphedema/Lipedema',
+  },
+  {
+    page: 'lymph-fertility',
+    path: '/services/lymphatic/fertility-ivf-support-massage',
+    label: 'Fertility/IVF Support',
+  },
+  {
+    page: 'lymph-pregnancy',
+    path: '/services/lymphatic/pregnancy-postpartum-lymphatic-massage',
+    label: 'Pregnancy/Postpartum',
   },
 ];
 const isLymphaticPage = (p) => p.startsWith('lymph-');
@@ -47,7 +52,7 @@ function MobileSubReset({ open, onReset }) {
 
 export default function Header(props) {
   const [lymphMenuOpen, setLymphMenuOpen] = useState(false);
-  const [mobileSubOpen, setMobileSubOpen] = useState(false);
+  const [mobileSubOpen, setMobileSubOpen] = useState(() => isLymphaticPage(props.page));
   const closeTimer = useRef(null);
 
   const openDesktopMenu = useCallback(() => {
@@ -144,7 +149,7 @@ export default function Header(props) {
                       <div
                         className={classNames(
                           props.bgColor || 'bg-blue',
-                          'rounded-xl shadow-header py-3 px-3 min-w-[220px]',
+                          'rounded-xl shadow-header py-3 px-3 min-w-[280px]',
                         )}>
                         {LYMPHATIC_SUBPAGES.map((sub) => (
                           <Button
@@ -177,7 +182,7 @@ export default function Header(props) {
                   </Button>
                   <Button
                     variant="ghost"
-                    href="/services/craniosacral-massage"
+                    href="/services/craniosacral-therapy"
                     active={props.page === 'craniosacral'}
                     onClick={(e) => {
                       e.preventDefault();
@@ -230,7 +235,7 @@ export default function Header(props) {
             style={{ top: 50 }}>
             <MobileSubReset
               open={open}
-              onReset={() => setMobileSubOpen(false)}
+              onReset={() => setMobileSubOpen(isLymphaticPage(props.page))}
             />
             <div
               className={classNames(
@@ -291,7 +296,7 @@ export default function Header(props) {
                       className={classNames(
                         'overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]',
                         mobileSubOpen
-                          ? 'max-h-48 opacity-100'
+                          ? 'max-h-64 opacity-100'
                           : 'max-h-0 opacity-0',
                       )}>
                       <div className="flex flex-col gap-1 items-center pt-1">
@@ -328,7 +333,7 @@ export default function Header(props) {
                   </Button>
                   <Button
                     variant="ghost"
-                    href="/services/craniosacral-massage"
+                    href="/services/craniosacral-therapy"
                     active={props.page === 'craniosacral'}
                     className="w-full text-left"
                     onClick={(e) => {

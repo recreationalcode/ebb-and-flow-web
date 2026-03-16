@@ -51,6 +51,13 @@ module.exports = {
         950: "#302540",
         DEFAULT: "#9277AB",
       },
+      amber: {
+        50: "#FFFBEB",
+        100: "#FEF3C7",
+        200: "#FDE68A",
+        800: "#92400E",
+        900: "#78350F",
+      },
     },
     extend: {
       fontFamily: {
