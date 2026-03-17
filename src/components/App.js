@@ -12,6 +12,7 @@ import PregnancyPostpartumLymphatic from './PregnancyPostpartumLymphatic';
 import LymphedemaLipedema from './LymphedemaLipedema';
 import OncologyMassage from './OncologyMassage';
 import CraniosacralMassage from './CraniosacralMassage';
+import FAQ from './FAQ';
 import THEMES from '../config/themes';
 
 const ABOUT_PATH = '/about';
@@ -22,6 +23,7 @@ const LYMPH_PREGNANCY_PATH = '/services/lymphatic/pregnancy-postpartum-lymphatic
 const LYMPH_EDEMA_PATH = '/services/lymphatic/lymphedema-lipedema-management';
 const ONCOLOGY_PATH = '/services/oncology-massage';
 const CRANIOSACRAL_PATH = '/services/craniosacral-therapy';
+const FAQ_PATH = '/faq';
 
 function pageFromPath(pathname) {
   switch (pathname) {
@@ -41,6 +43,8 @@ function pageFromPath(pathname) {
       return 'oncology';
     case CRANIOSACRAL_PATH:
       return 'craniosacral';
+    case FAQ_PATH:
+      return 'faq';
     // Legacy redirects
     case '/lymphatic-massage':
     case '/services/lymphatic/manual-drainage':
@@ -71,6 +75,7 @@ const pagePaths = {
   'lymph-edema': LYMPH_EDEMA_PATH,
   oncology: ONCOLOGY_PATH,
   craniosacral: CRANIOSACRAL_PATH,
+  faq: FAQ_PATH,
 };
 
 const bookingUrls = {
@@ -101,12 +106,12 @@ export default function App() {
   }, [page]);
 
   const navigate = useCallback(
-    (newPage) => {
+    (newPage, hash = '') => {
       if (page !== newPage) {
         window.history.pushState(
           { page: newPage },
           '',
-          pagePaths[newPage] || '/',
+          (pagePaths[newPage] || '/') + hash,
         );
         setPage(newPage);
       }
@@ -203,6 +208,13 @@ export default function App() {
           'Gentle craniosacral therapy in Washington, DC to support relaxation, nervous system regulation, and relief from tension patterns.',
         url: 'https://ebbandflowmassagestudio.com/services/craniosacral-therapy',
       },
+      faq: {
+        title:
+          'FAQ | Ebb & Flow Massage Studio — Washington, DC',
+        description:
+          'Frequently asked questions about lymphatic drainage, oncology massage, craniosacral therapy, booking, and more at Ebb & Flow Massage Studio in Washington, DC.',
+        url: 'https://ebbandflowmassagestudio.com/faq',
+      },
     };
     const { title, description, url } = seo[page] || seo.home;
 
@@ -252,7 +264,7 @@ export default function App() {
         wasObscured={revealedPage !== 'lymph-mld'}
         dismissed={page !== 'lymph-mld' && revealedPage !== 'lymph-mld'}
         color={THEMES['lymph-mld'].dropReveal}>
-        <ManualLymphaticDrainage setSchedule={setSchedule} />
+        <ManualLymphaticDrainage setSchedule={setSchedule} navigate={navigate} />
       </DropReveal>
       <DropReveal
         open={page === 'lymph-operative'}
@@ -262,7 +274,7 @@ export default function App() {
           page !== 'lymph-operative' && revealedPage !== 'lymph-operative'
         }
         color={THEMES['lymph-operative'].dropReveal}>
-        <PrePostOperativeLymphatic setSchedule={setSchedule} />
+        <PrePostOperativeLymphatic setSchedule={setSchedule} navigate={navigate} />
       </DropReveal>
       <DropReveal
         open={page === 'lymph-fertility'}
@@ -272,7 +284,7 @@ export default function App() {
           page !== 'lymph-fertility' && revealedPage !== 'lymph-fertility'
         }
         color={THEMES['lymph-fertility'].dropReveal}>
-        <FertilityIVFSupport setSchedule={setSchedule} />
+        <FertilityIVFSupport setSchedule={setSchedule} navigate={navigate} />
       </DropReveal>
       <DropReveal
         open={page === 'lymph-pregnancy'}
@@ -282,7 +294,7 @@ export default function App() {
           page !== 'lymph-pregnancy' && revealedPage !== 'lymph-pregnancy'
         }
         color={THEMES['lymph-pregnancy'].dropReveal}>
-        <PregnancyPostpartumLymphatic setSchedule={setSchedule} />
+        <PregnancyPostpartumLymphatic setSchedule={setSchedule} navigate={navigate} />
       </DropReveal>
       <DropReveal
         open={page === 'lymph-edema'}
@@ -290,7 +302,7 @@ export default function App() {
         wasObscured={revealedPage !== 'lymph-edema'}
         dismissed={page !== 'lymph-edema' && revealedPage !== 'lymph-edema'}
         color={THEMES['lymph-edema'].dropReveal}>
-        <LymphedemaLipedema setSchedule={setSchedule} />
+        <LymphedemaLipedema setSchedule={setSchedule} navigate={navigate} />
       </DropReveal>
       <DropReveal
         open={page === 'oncology'}
@@ -298,7 +310,7 @@ export default function App() {
         wasObscured={revealedPage !== 'oncology'}
         dismissed={page !== 'oncology' && revealedPage !== 'oncology'}
         color={THEMES['oncology'].dropReveal}>
-        <OncologyMassage setSchedule={setSchedule} />
+        <OncologyMassage setSchedule={setSchedule} navigate={navigate} />
       </DropReveal>
       <DropReveal
         open={page === 'craniosacral'}
@@ -306,7 +318,15 @@ export default function App() {
         wasObscured={revealedPage !== 'craniosacral'}
         dismissed={page !== 'craniosacral' && revealedPage !== 'craniosacral'}
         color={THEMES['craniosacral'].dropReveal}>
-        <CraniosacralMassage setSchedule={setSchedule} />
+        <CraniosacralMassage setSchedule={setSchedule} navigate={navigate} />
+      </DropReveal>
+      <DropReveal
+        open={page === 'faq'}
+        onOpen={handleRevealComplete}
+        wasObscured={revealedPage !== 'faq'}
+        dismissed={page !== 'faq' && revealedPage !== 'faq'}
+        color="gray">
+        <FAQ />
       </DropReveal>
       <Schedule
         open={schedule}

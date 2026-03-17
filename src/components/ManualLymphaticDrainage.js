@@ -1,7 +1,7 @@
 import ServicePage from './ServicePage';
 import THEMES from '../config/themes';
 
-export default function ManualLymphaticDrainage({ setSchedule }) {
+export default function ManualLymphaticDrainage({ setSchedule, navigate }) {
   return (
     <ServicePage
       title="Manual Lymphatic Drainage"
@@ -48,6 +48,8 @@ export default function ManualLymphaticDrainage({ setSchedule }) {
       price="$150"
       theme={THEMES['lymph-mld']}
       setSchedule={setSchedule}
+      faqSection="manual-lymphatic-drainage"
+      navigate={navigate}
     />
   );
 }

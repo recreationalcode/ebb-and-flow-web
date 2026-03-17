@@ -1,7 +1,7 @@
 import ServicePage from './ServicePage';
 import THEMES from '../config/themes';
 
-export default function OncologyMassage({ setSchedule }) {
+export default function OncologyMassage({ setSchedule, navigate }) {
   return (
     <ServicePage
       title="Oncology Massage"
@@ -47,6 +47,8 @@ export default function OncologyMassage({ setSchedule }) {
       price="$130"
       theme={THEMES['oncology']}
       setSchedule={setSchedule}
+      faqSection="oncology-massage"
+      navigate={navigate}
     />
   );
 }

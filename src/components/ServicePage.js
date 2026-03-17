@@ -1,7 +1,9 @@
 import classNames from '../utils/classNames';
+import Button from '../ui/Button';
 import { DesktopScheduleButton } from '../ui/ScheduleButton';
 import Footer from './Footer';
 import Cautions from './Cautions';
+import { QuestionMarkCircleIcon } from '@heroicons/react/outline';
 
 export default function ServicePage({
   title,
@@ -13,6 +15,8 @@ export default function ServicePage({
   price = '$150',
   theme,
   setSchedule,
+  faqSection,
+  navigate,
 }) {
   return (
     <>
@@ -83,6 +87,22 @@ export default function ServicePage({
             ))}
           </ul>
         </div>
+
+        <div className="h-10" />
+
+        {faqSection && navigate && (
+          <Button
+            variant="ghost"
+            ghostOn={theme.ghost}
+            ghostText={theme.ghostText}
+            onClick={() => navigate('faq', '#' + faqSection)}>
+              <QuestionMarkCircleIcon
+                      className="h-4 w-4 mr-1.5"
+                      aria-hidden="true"
+                    />{' '}
+            Have questions? &rarr;
+          </Button>
+        )}
 
         <div className="h-10" />
 

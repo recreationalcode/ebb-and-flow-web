@@ -1,7 +1,7 @@
 import ServicePage from './ServicePage';
 import THEMES from '../config/themes';
 
-export default function PregnancyPostpartumLymphatic({ setSchedule }) {
+export default function PregnancyPostpartumLymphatic({ setSchedule, navigate }) {
   return (
     <ServicePage
       title="Pregnancy and Postpartum Lymphatic Massage"
@@ -50,6 +50,8 @@ export default function PregnancyPostpartumLymphatic({ setSchedule }) {
       price="$150"
       theme={THEMES['lymph-pregnancy']}
       setSchedule={setSchedule}
+      faqSection="fertility-pregnancy-postpartum"
+      navigate={navigate}
     />
   );
 }

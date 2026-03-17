@@ -1,7 +1,7 @@
 import ServicePage from './ServicePage';
 import THEMES from '../config/themes';
 
-export default function FertilityIVFSupport({ setSchedule }) {
+export default function FertilityIVFSupport({ setSchedule, navigate }) {
   return (
     <ServicePage
       title={<span>Fertility and IVF<br/>Support Massage</span>}
@@ -43,6 +43,8 @@ export default function FertilityIVFSupport({ setSchedule }) {
       price="$150"
       theme={THEMES['lymph-fertility']}
       setSchedule={setSchedule}
+      faqSection="fertility-pregnancy-postpartum"
+      navigate={navigate}
     />
   );
 }

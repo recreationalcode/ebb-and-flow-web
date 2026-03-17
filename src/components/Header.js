@@ -6,6 +6,7 @@ import {
   ChevronDownIcon,
   GiftIcon,
   CalendarIcon,
+  QuestionMarkCircleIcon,
 } from '@heroicons/react/outline';
 
 import GrayBlueLogo from '../assets/logos/Gray Blue Logo.png';
@@ -95,7 +96,7 @@ export default function Header(props) {
                 </div>
                 <nav
                   aria-label="Main navigation"
-                  className="hidden lg:flex items-center gap-1 lg:gap-2">
+                  className="hidden lg:flex items-center gap-1 lg:gap-1.5">
                   <Button
                     variant="ghost"
                     href="/"
@@ -189,6 +190,20 @@ export default function Header(props) {
                       props.navigate('craniosacral');
                     }}>
                     Craniosacral
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    href="/faq"
+                    active={props.page === 'faq'}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.navigate('faq');
+                    }}>
+                    <QuestionMarkCircleIcon
+                      className="h-4 w-4 mr-1"
+                      aria-hidden="true"
+                    />
+                    FAQs
                   </Button>
                 </nav>
                 <div className="hidden lg:flex items-center justify-end gap-2 ml-3 lg:ml-4">
@@ -342,6 +357,22 @@ export default function Header(props) {
                       close();
                     }}>
                     Craniosacral
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    href="/faq"
+                    active={props.page === 'faq'}
+                    className="w-full text-left"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      props.navigate('faq');
+                      close();
+                    }}>
+                    <QuestionMarkCircleIcon
+                      className="h-4 w-4 mr-1.5"
+                      aria-hidden="true"
+                    />
+                    FAQs
                   </Button>
                   <div className="border-t border-white/20 my-1" />
                   <Button

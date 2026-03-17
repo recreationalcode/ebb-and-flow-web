@@ -85,3 +85,7 @@ button:focus-visible {
   background-color: var(--reveal-light);
   opacity: var(--reveal-overlay);
 }
+
+/* Hide scrollbar for pill navigation */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

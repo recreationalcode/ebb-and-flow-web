@@ -1,7 +1,7 @@
 import ServicePage from './ServicePage';
 import THEMES from '../config/themes';
 
-export default function PrePostOperativeLymphatic({ setSchedule }) {
+export default function PrePostOperativeLymphatic({ setSchedule, navigate }) {
   return (
     <ServicePage
       title="Pre/Post-Op Lymphatic Massage"
@@ -54,6 +54,8 @@ export default function PrePostOperativeLymphatic({ setSchedule }) {
       price="$150"
       theme={THEMES['lymph-operative']}
       setSchedule={setSchedule}
+      faqSection="pre-post-surgical"
+      navigate={navigate}
     />
   );
 }

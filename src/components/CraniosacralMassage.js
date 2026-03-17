@@ -1,7 +1,7 @@
 import ServicePage from './ServicePage';
 import THEMES from '../config/themes';
 
-export default function CraniosacralMassage({ setSchedule }) {
+export default function CraniosacralMassage({ setSchedule, navigate }) {
   return (
     <ServicePage
       title="Craniosacral Therapy"
@@ -52,6 +52,8 @@ export default function CraniosacralMassage({ setSchedule }) {
       price="$150"
       theme={THEMES['craniosacral']}
       setSchedule={setSchedule}
+      faqSection="craniosacral-therapy"
+      navigate={navigate}
     />
   );
 }

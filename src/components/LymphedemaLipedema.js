@@ -1,7 +1,7 @@
 import ServicePage from './ServicePage';
 import THEMES from '../config/themes';
 
-export default function LymphedemaLipedema({ setSchedule }) {
+export default function LymphedemaLipedema({ setSchedule, navigate }) {
   return (
     <ServicePage
       title="Lymphedema and Lipedema Management"
@@ -46,6 +46,8 @@ export default function LymphedemaLipedema({ setSchedule }) {
       price="$150"
       theme={THEMES['lymph-edema']}
       setSchedule={setSchedule}
+      faqSection="lymphedema-lipedema"
+      navigate={navigate}
     />
   );
 }
