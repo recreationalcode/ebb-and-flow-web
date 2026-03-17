@@ -100,7 +100,7 @@ export default function ServicePage({
                       className="h-4 w-4 mr-1.5"
                       aria-hidden="true"
                     />{' '}
-            Have questions? &rarr;
+            Questions? &rarr;
           </Button>
         )}
 

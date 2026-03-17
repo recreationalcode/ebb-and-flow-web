@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Header from './Header';
 import Info from './Info';
 import Schedule from './Schedule';
@@ -334,6 +335,7 @@ export default function App() {
         bookingUrl={bookingUrls[page]}
       />
       <MobileScheduleButton setSchedule={setSchedule} />
+      <Analytics />
     </main>
   );
 }
