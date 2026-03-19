@@ -1,3 +1,8 @@
+import ScheduleButton from '../ui/ScheduleButton';
+
+const openSchedule = () =>
+  window.dispatchEvent(new CustomEvent('open-schedule'));
+
 const faqData = [
   {
     id: 'booking-scheduling',
@@ -7,12 +12,17 @@ const faqData = [
       {
         q: 'How do I book?',
         a: (
-          <p>
-            Appointments are by appointment only, and a credit card is required
-            to hold your spot. If you like booking online, you can reserve up to
-            60 days in advance. Do itttttttt! It feels really good to have those spots
-            secured.
-          </p>
+          <>
+            <p>
+              Sessions are available by appointment only, and a credit card is
+              required to hold your spot. You can book online or by calling,
+              texting, or emailing me if you have questions. If you like
+              booking online, you can reserve multiple sessions up to 60 days in
+              advance. Do itttttttt! It feels really good to have those spots
+              secured.
+            </p>
+            <ScheduleButton setSchedule={openSchedule} className="mt-3" />
+          </>
         ),
       },
       {

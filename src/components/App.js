@@ -155,6 +155,13 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const openSchedule = () => setSchedule(true);
+    window.addEventListener('open-schedule', openSchedule);
+    return () => window.removeEventListener('open-schedule', openSchedule);
+  }, []);
+
+
+  useEffect(() => {
     const seo = {
       home: {
         title:
