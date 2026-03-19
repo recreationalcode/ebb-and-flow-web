@@ -100,9 +100,9 @@ export default function TermsAndConditions({ navigate }) {
             <p>
               If you have questions about these terms, please contact us at{' '}
               <a
-                href="mailto:nat.gamble@yahoo.com"
+                href="mailto:nat@ebbandflowmassagestudio.com"
                 className="text-blue underline underline-offset-2">
-                nat.gamble@yahoo.com
+                nat@ebbandflowmassagestudio.com
               </a>{' '}
               or call{' '}
               <a

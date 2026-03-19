@@ -80,9 +80,9 @@ export default function PrivacyPolicy({ navigate }) {
               If you have questions about this privacy policy, please contact us
               at{' '}
               <a
-                href="mailto:nat.gamble@yahoo.com"
+                href="mailto:nat@ebbandflowmassagestudio.com"
                 className="text-blue underline underline-offset-2">
-                nat.gamble@yahoo.com
+                nat@ebbandflowmassagestudio.com
               </a>{' '}
               or call{' '}
               <a

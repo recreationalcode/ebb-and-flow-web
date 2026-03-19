@@ -57,7 +57,7 @@ export default function Schedule({ open, setOpen, bookingUrl, ...props }) {
                 Call
               </Button>
             </a>
-            <a href="mailto:nat.gamble@yahoo.com">
+            <a href="mailto:nat@ebbandflowmassagestudio.com">
               <Button className="w-full sm:w-auto sm:text-sm">
                 <MailIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
                 Email

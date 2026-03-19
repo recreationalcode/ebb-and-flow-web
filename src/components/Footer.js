@@ -1,3 +1,7 @@
+import rcLogo from '../assets/logos/rc-logo-mono.png';
+import Button from '../ui/Button';
+import { HeartIcon } from '@heroicons/react/solid';
+
 export default function Footer({ navigate }) {
   return (
     <footer aria-label="Availability and location" className="relative bg-gray-50">
@@ -56,20 +60,37 @@ export default function Footer({ navigate }) {
         </div>
       </div>
       {navigate && (
-        <div className="flex justify-center gap-4 text-xs text-gray-400 pb-8 sm:pb-6">
-          <button
-            onClick={() => navigate('privacy')}
-            className="hover:text-gray-600 transition-colors underline underline-offset-2">
+        <div className="flex justify-center gap-2 mt-12">
+          <Button
+            variant="ghost"
+            ghostOn="gray"
+            onClick={() => navigate('privacy')}>
             Privacy Policy
-          </button>
-          <span aria-hidden="true">&middot;</span>
-          <button
-            onClick={() => navigate('terms')}
-            className="hover:text-gray-600 transition-colors underline underline-offset-2">
+          </Button>
+          <Button
+            variant="ghost"
+            ghostOn="gray"
+            onClick={() => navigate('terms')}>
             Terms &amp; Conditions
-          </button>
+          </Button>
         </div>
       )}
+      <div className="flex justify-center items-center gap-1.5 mt-2 pb-8 sm:pb-6">
+        <span className="text-sm text-gray-500 py-3">site made with <HeartIcon className="inline-block h-4 w-4 brightness-0 opacity-30 -translate-y-px" /> by</span>
+        <Button
+          variant="ghost"
+          ghostOn="gray"
+          href="https://www.recreationalcoder.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center justify-center gap-1.5 !px-1.5">
+          <img
+            src={rcLogo}
+            alt=""
+            className="h-5 w-5 brightness-0 opacity-30 group-hover:opacity-60 transition-opacity translate-y-px" />
+          recreationalcoder
+        </Button>
+      </div>
       </div>
     </footer>
   );
