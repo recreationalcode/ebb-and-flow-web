@@ -14,6 +14,8 @@ import LymphedemaLipedema from './LymphedemaLipedema';
 import OncologyMassage from './OncologyMassage';
 import CraniosacralMassage from './CraniosacralMassage';
 import FAQ from './FAQ';
+import PrivacyPolicy from './PrivacyPolicy';
+import TermsAndConditions from './TermsAndConditions';
 import THEMES from '../config/themes';
 
 const ABOUT_PATH = '/about';
@@ -25,6 +27,8 @@ const LYMPH_EDEMA_PATH = '/services/lymphatic/lymphedema-lipedema-management';
 const ONCOLOGY_PATH = '/services/oncology-massage';
 const CRANIOSACRAL_PATH = '/services/craniosacral-therapy';
 const FAQ_PATH = '/faq';
+const PRIVACY_PATH = '/privacy-policy';
+const TERMS_PATH = '/terms-and-conditions';
 
 function pageFromPath(pathname) {
   switch (pathname) {
@@ -46,6 +50,10 @@ function pageFromPath(pathname) {
       return 'craniosacral';
     case FAQ_PATH:
       return 'faq';
+    case PRIVACY_PATH:
+      return 'privacy';
+    case TERMS_PATH:
+      return 'terms';
     // Legacy redirects
     case '/lymphatic-massage':
     case '/services/lymphatic/manual-drainage':
@@ -77,6 +85,8 @@ const pagePaths = {
   oncology: ONCOLOGY_PATH,
   craniosacral: CRANIOSACRAL_PATH,
   faq: FAQ_PATH,
+  privacy: PRIVACY_PATH,
+  terms: TERMS_PATH,
 };
 
 const bookingUrls = {
@@ -216,6 +226,20 @@ export default function App() {
           'Frequently asked questions about lymphatic drainage, oncology massage, craniosacral therapy, booking, and more at Ebb & Flow Massage Studio in Washington, DC.',
         url: 'https://ebbandflowmassagestudio.com/faq',
       },
+      privacy: {
+        title:
+          'Privacy Policy | Ebb & Flow Massage Studio — Washington, DC',
+        description:
+          'Privacy policy for Ebb & Flow Massage Studio in Washington, DC. Learn how we collect, use, and protect your personal information.',
+        url: 'https://ebbandflowmassagestudio.com/privacy-policy',
+      },
+      terms: {
+        title:
+          'Terms & Conditions | Ebb & Flow Massage Studio — Washington, DC',
+        description:
+          'Terms and conditions for Ebb & Flow Massage Studio in Washington, DC, including appointments, cancellations, and service policies.',
+        url: 'https://ebbandflowmassagestudio.com/terms-and-conditions',
+      },
     };
     const { title, description, url } = seo[page] || seo.home;
 
@@ -257,7 +281,7 @@ export default function App() {
         wasObscured={revealedPage !== 'about'}
         dismissed={page !== 'about' && revealedPage !== 'about'}
         color="gray">
-        <AboutMe setSchedule={setSchedule} />
+        <AboutMe setSchedule={setSchedule} navigate={navigate} />
       </DropReveal>
       <DropReveal
         open={page === 'lymph-mld'}
@@ -327,7 +351,23 @@ export default function App() {
         wasObscured={revealedPage !== 'faq'}
         dismissed={page !== 'faq' && revealedPage !== 'faq'}
         color="gray">
-        <FAQ />
+        <FAQ navigate={navigate} />
+      </DropReveal>
+      <DropReveal
+        open={page === 'privacy'}
+        onOpen={handleRevealComplete}
+        wasObscured={revealedPage !== 'privacy'}
+        dismissed={page !== 'privacy' && revealedPage !== 'privacy'}
+        color="gray">
+        <PrivacyPolicy navigate={navigate} />
+      </DropReveal>
+      <DropReveal
+        open={page === 'terms'}
+        onOpen={handleRevealComplete}
+        wasObscured={revealedPage !== 'terms'}
+        dismissed={page !== 'terms' && revealedPage !== 'terms'}
+        color="gray">
+        <TermsAndConditions navigate={navigate} />
       </DropReveal>
       <Schedule
         open={schedule}

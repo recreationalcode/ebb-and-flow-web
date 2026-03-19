@@ -75,7 +75,7 @@ export default function Info({ navigate, setSchedule }) {
         <DesktopScheduleButton setSchedule={setSchedule} />
         <div className="h-10 sm:h-16" />
       </section>
-      <Footer />
+      <Footer navigate={navigate} />
     </>
   );
 }

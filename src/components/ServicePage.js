@@ -119,7 +119,7 @@ export default function ServicePage({
 
         <DesktopScheduleButton setSchedule={setSchedule} className="mt-6" />
       </section>
-      <Footer />
+      <Footer navigate={navigate} />
     </>
   );
 }

@@ -11,7 +11,7 @@ function initialSection() {
   return faqData[0].id;
 }
 
-export default function FAQ() {
+export default function FAQ({ navigate }) {
   const [activeSection, setActiveSection] = useState(initialSection);
   const pillBarRef = useRef(null);
   const pillRefs = useRef({});
@@ -267,7 +267,7 @@ export default function FAQ() {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer navigate={navigate} />
     </>
   );
 }

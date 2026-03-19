@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Footer({ navigate }) {
   return (
     <footer aria-label="Availability and location" className="relative bg-gray-50">
       <svg
@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="rounded-xl overflow-hidden shadow-md">
           <iframe
             title="Yao Shan Center for Chinese Medicine location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.9667265936364!2d-77.0398039!3d38.9018762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b702b2f89c25%3A0x3053ccabaca800cf!2sEbb%20%26%20Flow!5e0!3m2!1sen!2sus!4v1771646114733!5m2!1sen!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.9667265936364!2d-77.0398039!3d38.9018762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b702b2f89c25%3A0x3053ccabaca800cf!2sEbb%20%26%20Flow!5e0!3m2!1sen!2sus!4v1773886460882!5m2!1sen!2sus"
             width="100%"
             height="180"
             style={{ border: 0 }}
@@ -55,6 +55,21 @@ export default function Footer() {
           />
         </div>
       </div>
+      {navigate && (
+        <div className="flex justify-center gap-4 text-xs text-gray-400 pb-8 sm:pb-6">
+          <button
+            onClick={() => navigate('privacy')}
+            className="hover:text-gray-600 transition-colors underline underline-offset-2">
+            Privacy Policy
+          </button>
+          <span aria-hidden="true">&middot;</span>
+          <button
+            onClick={() => navigate('terms')}
+            className="hover:text-gray-600 transition-colors underline underline-offset-2">
+            Terms &amp; Conditions
+          </button>
+        </div>
+      )}
       </div>
     </footer>
   );

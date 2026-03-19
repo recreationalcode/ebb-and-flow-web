@@ -1,7 +1,7 @@
 import Footer from './Footer';
 import { DesktopScheduleButton } from '../ui/ScheduleButton';
 
-export default function AboutMe({ setSchedule }) {
+export default function AboutMe({ setSchedule, navigate }) {
   return (
     <>
       <section
@@ -41,7 +41,7 @@ export default function AboutMe({ setSchedule }) {
         </div>
         <DesktopScheduleButton setSchedule={setSchedule} className="mt-6" />
       </section>
-      <Footer />
+      <Footer navigate={navigate} />
     </>
   );
 }
