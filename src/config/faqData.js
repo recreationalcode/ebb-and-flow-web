@@ -10,7 +10,7 @@ const faqData = [
           <p>
             Appointments are by appointment only, and a credit card is required
             to hold your spot. If you like booking online, you can reserve up to
-            60 days in advance. Do it! It feels really good to have those spots
+            60 days in advance. Do itttttttt! It feels really good to have those spots
             secured.
           </p>
         ),
@@ -195,7 +195,7 @@ const faqData = [
             </p>
             <p>
               This is just a short-term (1&ndash;2 day) body&rsquo;s response.
-              As your body clears out the &ldquo;old fluid,&rdquo; you might
+              As your body clears out the &ldquo;stagnant fluid,&rdquo; you might
               feel some flu-like symptoms&mdash;headaches, nausea, fatigue, or a
               little achiness. It&rsquo;s a sign that your body is doing the
               hard work of cleaning and repairing itself!
@@ -209,7 +209,7 @@ const faqData = [
               <strong>The Bottom Line:</strong> These changes vary from person
               to person, but they are normal and temporary. Usually after the
               first few sessions, people no longer experience these side effects
-              due to their system being healthier! Drink plenty of water, give
+              due to their system being cleaner/healthier! Drink plenty of water, give
               yourself some grace, and get ready to feel amazing on the other
               side.
             </p>
@@ -353,7 +353,7 @@ const faqData = [
             stay in the room the entire time. For little ones under the age of
             5, I&rsquo;ve found that nap time is actually a great time for
             lymphatic work! Comfort is everything, feel free to bring a favorite
-            blanket, stuffed animal, or book.
+            blanket, stuffed animal, or book to help them settle in.
           </p>
         ),
       },
@@ -434,7 +434,7 @@ const faqData = [
             <p>
               I work around drains and healing incisions, not aggressively on
               top of them. Once you are further along in healing and your
-              provider has cleared you, I may also incorporate gentle scar
+              provider has cleared you, I may also incorporate scar
               tissue work, usually around the 6 to 8 week mark depending on the
               procedure and your surgeon&rsquo;s guidance.
             </p>
@@ -829,7 +829,7 @@ const faqData = [
         q: 'Do I need to prepare for my session?',
         a: (
           <p>
-            Not in any big way. Come exactly as you are. If you are tired,
+            Not in any way. Come exactly as you are. If you are tired,
             tender, overwhelmed, or just not feeling like your usual self, that
             is okay. If you need to stay in your comfy clothes, I can work
             around this. If you need to nap during the session, please do!
