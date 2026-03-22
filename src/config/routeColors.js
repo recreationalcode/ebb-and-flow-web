@@ -64,13 +64,6 @@ export const routeBackgrounds = Object.fromEntries(
   Object.entries(routeTheme).map(([path, theme]) => [path, palette[theme].bg]),
 );
 
-export const routeBackgroundsDark = Object.fromEntries(
-  Object.entries(routeTheme).map(([path, theme]) => [path, palette[theme].bgDark]),
-);
-
-export const routeOverlays = Object.fromEntries(
-  Object.entries(routeTheme).map(([path, theme]) => [path, palette[theme].overlay]),
-);
 
 // Resolve overlay color from a color name (for DropRevealOverlay)
 export function getOverlayColor(colorName) {

@@ -26,9 +26,9 @@ export default function Info() {
               src={NatalieGamble.src}
               alt="Natalie Gamble"
             />
-            <h1 className="text-4xl font-extralight text-blue sm:text-5xl">
+            <h2 className="text-4xl font-extralight text-blue sm:text-5xl">
               Natalie Gamble
-            </h1>
+            </h2>
             <h2 className="text-lg font-thin tracking-widest text-blue sm:text-2xl">
               LMT, CMLDT, MMP, CST
             </h2>

@@ -8,9 +8,6 @@ export default function Section({ children, className, ariaLabel }) {
   const pathname = usePathname();
   const theme = getTheme(pathname);
 
-  console.log('pathname', pathname);
-  console.log('theme', theme);
-  console.log('theme.bgClass', theme.bgClass);
 
   return (
     <section
