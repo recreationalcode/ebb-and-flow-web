@@ -1,7 +1,9 @@
-import ServicePage from './ServicePage';
-import THEMES from '../config/themes';
+'use client';
 
-export default function FertilityIVFSupport({ setSchedule, navigate }) {
+import ServicePage from './ServicePage';
+import { getTheme } from '@/src/config/routeColors';
+
+export default function FertilityIVFSupport() {
   return (
     <ServicePage
       title={<span>Fertility and IVF<br/>Support Massage</span>}
@@ -41,10 +43,8 @@ export default function FertilityIVFSupport({ setSchedule, navigate }) {
       ]}
       cautions="Please let me know where you are in your cycle and whether you are preparing for egg retrieval, recovering from a procedure, between appointments, or post-transfer. Depending on timing and how you are feeling, I may ask you to wait, modify the session, or get guidance from your medical team before booking."
       price="$150"
-      theme={THEMES['lymph-fertility']}
-      setSchedule={setSchedule}
+      theme={getTheme('/services/lymphatic/fertility-ivf-support-massage')}
       faqSection="fertility-pregnancy-postpartum"
-      navigate={navigate}
     />
   );
 }

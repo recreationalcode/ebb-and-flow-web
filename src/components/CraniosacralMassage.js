@@ -1,7 +1,9 @@
-import ServicePage from './ServicePage';
-import THEMES from '../config/themes';
+'use client';
 
-export default function CraniosacralMassage({ setSchedule, navigate }) {
+import ServicePage from './ServicePage';
+import { getTheme } from '@/src/config/routeColors';
+
+export default function CraniosacralMassage() {
   return (
     <ServicePage
       title="Craniosacral Therapy"
@@ -50,10 +52,8 @@ export default function CraniosacralMassage({ setSchedule, navigate }) {
       ]}
       cautions="Because Craniosacral Therapy uses such light pressure, it is often well tolerated, but it is not right for everyone. If you have a recent concussion or brain injury, acute neurological symptoms, recent cranial bleeding, uncontrolled medical concerns, or anything your physician has asked you to avoid, please get medical clearance first."
       price="$150"
-      theme={THEMES['craniosacral']}
-      setSchedule={setSchedule}
+      theme={getTheme('/services/craniosacral-therapy')}
       faqSection="craniosacral-therapy"
-      navigate={navigate}
     />
   );
 }

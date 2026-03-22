@@ -1,7 +1,9 @@
-import ServicePage from './ServicePage';
-import THEMES from '../config/themes';
+'use client';
 
-export default function PregnancyPostpartumLymphatic({ setSchedule, navigate }) {
+import ServicePage from './ServicePage';
+import { getTheme } from '@/src/config/routeColors';
+
+export default function PregnancyPostpartumLymphatic() {
   return (
     <ServicePage
       title="Pregnancy and Postpartum Lymphatic Massage"
@@ -48,10 +50,8 @@ export default function PregnancyPostpartumLymphatic({ setSchedule, navigate }) 
       ]}
       cautions="If you are in your first trimester, have a high-risk pregnancy, are being monitored for blood pressure concerns, have sudden swelling, fever, infection, or any complication your provider is watching closely, I may need medical clearance before booking. After birth, if you had a cesarean, significant tearing, complications, infection, or are very early in recovery, please check with your provider first. Scar tissue work is only appropriate once healing is well underway and your provider has cleared you."
       price="$150"
-      theme={THEMES['lymph-pregnancy']}
-      setSchedule={setSchedule}
+      theme={getTheme('/services/lymphatic/pregnancy-postpartum-lymphatic-massage')}
       faqSection="fertility-pregnancy-postpartum"
-      navigate={navigate}
     />
   );
 }

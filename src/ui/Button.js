@@ -1,4 +1,6 @@
-import classNames from '../utils/classNames';
+'use client';
+
+import classNames from '@/src/utils/classNames';
 
 const base =
   'inline-flex items-center justify-center rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';

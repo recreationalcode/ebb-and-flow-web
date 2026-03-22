@@ -1,48 +1,27 @@
+'use client';
+
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Disclosure } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/outline';
-import classNames from '../utils/classNames';
-import faqData from '../config/faqData';
-import Footer from './Footer';
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import classNames from '@/src/utils/classNames';
+import faqData from '@/src/config/faqData';
+import Section from './Section';
 
 function initialSection() {
+  if (typeof window === 'undefined') return faqData[0].id;
   const hash = window.location.hash?.slice(1);
   if (hash && faqData.some((s) => s.id === hash)) return hash;
   return faqData[0].id;
 }
 
-export default function FAQ({ navigate }) {
+export default function FAQ() {
   const [activeSection, setActiveSection] = useState(initialSection);
   const pillBarRef = useRef(null);
   const pillRefs = useRef({});
-  const containerRef = useRef(null);
   const isScrolling = useRef(false);
-
-  // Find the DropReveal scroll container
-  const getScrollRoot = useCallback(() => {
-    if (containerRef.current) {
-      let el = containerRef.current;
-      while (el && el !== document.body) {
-        const style = window.getComputedStyle(el);
-        if (
-          style.overflow === 'auto' ||
-          style.overflowY === 'auto' ||
-          style.overflow === 'scroll' ||
-          style.overflowY === 'scroll'
-        ) {
-          return el;
-        }
-        el = el.parentElement;
-      }
-    }
-    return null;
-  }, []);
 
   // Scroll-spy via IntersectionObserver
   useEffect(() => {
-    const root = getScrollRoot();
-    if (!root) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         if (isScrolling.current) return;
@@ -52,24 +31,22 @@ export default function FAQ({ navigate }) {
           }
         }
       },
-      { root, rootMargin: '-140px 0px -60% 0px', threshold: 0 },
+      { rootMargin: '-140px 0px -60% 0px', threshold: 0 },
     );
 
     faqData.forEach((section) => {
-      const el = root.querySelector(`#${section.id}`);
+      const el = document.getElementById(section.id);
       if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
-  }, [getScrollRoot]);
+  }, []);
 
   // Update URL hash and auto-scroll pill when active section changes
   useEffect(() => {
     window.history.replaceState(null, '', '/faq#' + activeSection);
     const pill = pillRefs.current[activeSection];
     if (pill && pillBarRef.current) {
-      // Horizontal-only scroll for the pill bar — no scrollIntoView
-      // which can interfere with the main content scroll
       const bar = pillBarRef.current;
       const pillLeft = pill.offsetLeft;
       const pillWidth = pill.offsetWidth;
@@ -79,33 +56,23 @@ export default function FAQ({ navigate }) {
     }
   }, [activeSection]);
 
-  // Handle hash on mount — scroll to target after DropReveal animation
+  // Handle hash on mount — scroll to target
   useEffect(() => {
     const hash = window.location.hash?.slice(1);
     if (!hash || !faqData.some((s) => s.id === hash)) return;
 
-    // Lock observer during initial scroll so it doesn't override
     isScrolling.current = true;
 
     const scrollToHash = () => {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          const root = getScrollRoot();
-          if (!root) {
-            isScrolling.current = false;
-            return;
-          }
-          const target = root.querySelector(`#${hash}`);
+          const target = document.getElementById(hash);
           if (target) {
             const isMobile = window.innerWidth < 1024;
             const offset = isMobile ? 140 : 112;
-            const targetTop =
-              target.getBoundingClientRect().top -
-              root.getBoundingClientRect().top +
-              root.scrollTop;
-            root.scrollTo({ top: targetTop - offset, behavior: 'smooth' });
+            const targetTop = target.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({ top: targetTop - offset, behavior: 'smooth' });
           }
-          // Re-enable observer after scroll settles
           setTimeout(() => {
             isScrolling.current = false;
           }, 1500);
@@ -113,59 +80,47 @@ export default function FAQ({ navigate }) {
       });
     };
 
-    // Delay to allow DropReveal animation to complete
-    const timer = setTimeout(scrollToHash, 1200);
+    // Delay to allow page transition to complete
+    const timer = setTimeout(scrollToHash, 500);
     return () => {
       clearTimeout(timer);
       isScrolling.current = false;
     };
-  }, [getScrollRoot]);
+  }, []);
 
   const scrollToSection = useCallback(
     (id) => {
-      const root = getScrollRoot();
-      const target = (root || document).querySelector(`#${id}`);
-      if (!target || !root) return;
+      const target = document.getElementById(id);
+      if (!target) return;
 
-      // Lock out the observer so intermediate sections don't hijack
       isScrolling.current = true;
       setActiveSection(id);
       window.history.replaceState(null, '', '/faq#' + id);
 
-      // Compute offset manually: account for header + pill bar on mobile
       const isMobile = window.innerWidth < 1024;
       const offset = isMobile ? 140 : 112;
-      const targetTop =
-        target.getBoundingClientRect().top -
-        root.getBoundingClientRect().top +
-        root.scrollTop;
-      root.scrollTo({ top: targetTop - offset, behavior: 'smooth' });
+      const targetTop = target.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: targetTop - offset, behavior: 'smooth' });
 
-      // Listen for scroll to settle, then re-enable observer
       let scrollTimer;
       const onScroll = () => {
         clearTimeout(scrollTimer);
         scrollTimer = setTimeout(() => {
           isScrolling.current = false;
-          root.removeEventListener('scroll', onScroll);
+          window.removeEventListener('scroll', onScroll);
         }, 150);
       };
-      root.addEventListener('scroll', onScroll, { passive: true });
-      // Safety fallback
+      window.addEventListener('scroll', onScroll, { passive: true });
       setTimeout(() => {
         isScrolling.current = false;
-        root.removeEventListener('scroll', onScroll);
+        window.removeEventListener('scroll', onScroll);
       }, 2000);
     },
-    [getScrollRoot],
+    [],
   );
 
   return (
-    <>
-      <section
-        ref={containerRef}
-        aria-label="Frequently Asked Questions"
-        className="bg-gray-200 pt-24 sm:pt-40 pb-24 sm:pb-28 px-4 sm:px-8">
+      <Section ariaLabel="Frequently Asked Questions">
         <h1 className="font-script text-5xl text-purple text-center mb-12">
           Frequently Asked Questions
         </h1>
@@ -234,7 +189,7 @@ export default function FAQ({ navigate }) {
                     <Disclosure key={i}>
                       {({ open }) => (
                         <div className="bg-white rounded-lg shadow-sm">
-                          <Disclosure.Button className="flex w-full items-center justify-between px-5 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 rounded-lg transition-colors">
+                          <DisclosureButton className="flex w-full items-center justify-between px-5 py-4 text-left text-gray-800 font-medium hover:bg-gray-50 rounded-lg transition-colors">
                             <span className="pr-4">{item.q}</span>
                             <ChevronDownIcon
                               className={classNames(
@@ -243,18 +198,18 @@ export default function FAQ({ navigate }) {
                               )}
                               aria-hidden="true"
                             />
-                          </Disclosure.Button>
+                          </DisclosureButton>
                           <div
                             className={classNames(
                               'grid transition-[grid-template-rows] duration-300 ease-out',
                               open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
                             )}>
                             <div className="overflow-hidden">
-                              <Disclosure.Panel
+                              <DisclosurePanel
                                 static
                                 className="px-5 pt-2 pb-5 font-light text-gray-600 leading-relaxed space-y-3">
                                 {item.a}
-                              </Disclosure.Panel>
+                              </DisclosurePanel>
                             </div>
                           </div>
                         </div>
@@ -266,8 +221,6 @@ export default function FAQ({ navigate }) {
             ))}
           </div>
         </div>
-      </section>
-      <Footer navigate={navigate} />
-    </>
+      </Section>
   );
 }

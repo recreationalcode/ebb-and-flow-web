@@ -1,11 +1,10 @@
-import Footer from './Footer';
+'use client';
 
-export default function PrivacyPolicy({ navigate }) {
+import Section from './Section';
+
+export default function PrivacyPolicy() {
   return (
-    <>
-      <section
-        aria-label="Privacy Policy"
-        className="flex flex-col items-center pt-28 sm:pt-40 pb-24 sm:pb-32 px-8 bg-gray-200">
+      <Section ariaLabel="Privacy Policy" className="flex flex-col items-center">
         <h1 className="font-script text-5xl sm:text-6xl text-purple mb-10">
           Privacy Policy
         </h1>
@@ -94,8 +93,6 @@ export default function PrivacyPolicy({ navigate }) {
             </p>
           </div>
         </div>
-      </section>
-      <Footer navigate={navigate} />
-    </>
+      </Section>
   );
 }

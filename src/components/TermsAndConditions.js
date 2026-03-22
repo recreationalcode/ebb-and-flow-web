@@ -1,11 +1,10 @@
-import Footer from './Footer';
+'use client';
 
-export default function TermsAndConditions({ navigate }) {
+import Section from './Section';
+
+export default function TermsAndConditions() {
   return (
-    <>
-      <section
-        aria-label="Terms and Conditions"
-        className="flex flex-col items-center pt-28 sm:pt-40 pb-24 sm:pb-32 px-8 bg-gray-200">
+      <Section ariaLabel="Terms and Conditions" className="flex flex-col items-center">
         <h1 className="font-script text-5xl sm:text-6xl text-purple mb-10">
           Terms &amp; Conditions
         </h1>
@@ -114,8 +113,6 @@ export default function TermsAndConditions({ navigate }) {
             </p>
           </div>
         </div>
-      </section>
-      <Footer navigate={navigate} />
-    </>
+      </Section>
   );
 }

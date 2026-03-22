@@ -1,7 +1,9 @@
-import ServicePage from './ServicePage';
-import THEMES from '../config/themes';
+'use client';
 
-export default function OncologyMassage({ setSchedule, navigate }) {
+import ServicePage from './ServicePage';
+import { getTheme } from '@/src/config/routeColors';
+
+export default function OncologyMassage() {
   return (
     <ServicePage
       title="Oncology Massage"
@@ -45,10 +47,8 @@ export default function OncologyMassage({ setSchedule, navigate }) {
       ]}
       cautions="If you are in active treatment or recent recovery, I may need information about ports, radiation sites, lymphedema risk, bone involvement, labs, medications, or surgery history. Please pause and get medical guidance first if you have a fever, infection, very low blood counts, current skin breakdown, a suspected blood clot, high fracture risk, or a scan scheduled within 24 hours, such as a PET scan."
       price="$130"
-      theme={THEMES['oncology']}
-      setSchedule={setSchedule}
+      theme={getTheme('/services/oncology-massage')}
       faqSection="oncology-massage"
-      navigate={navigate}
     />
   );
 }

@@ -1,19 +1,21 @@
-import { Fragment, useRef } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
-import classNames from '../utils/classNames';
+'use client';
+
+import { useRef } from 'react';
+import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
+import classNames from '@/src/utils/classNames';
 
 export default function Modal({ open, setOpen, top, children }) {
   const topRef = useRef(null);
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition show={open}>
       <Dialog
         as="div"
         className="relative z-[60]"
         onClose={setOpen}
         initialFocus={top ? topRef : undefined}>
-        <Transition.Child
-          as={Fragment}
+        <TransitionChild
+          as="div"
           enter="ease-out duration-300"
           enterFrom="opacity-0"
           enterTo="opacity-100"
@@ -21,7 +23,7 @@ export default function Modal({ open, setOpen, top, children }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0">
           <div className="fixed inset-0 bg-blue-200/50 transition-opacity" />
-        </Transition.Child>
+        </TransitionChild>
 
         <div className="fixed z-10 inset-0 overflow-y-auto">
           <div
@@ -29,22 +31,22 @@ export default function Modal({ open, setOpen, top, children }) {
               'flex sm:items-center justify-center min-h-full p-4 text-center sm:p-0',
               top ? 'items-start' : 'items-end',
             )}>
-            <Transition.Child
-              as={Fragment}
+            <TransitionChild
+              as="div"
               enter="ease-out duration-300"
               enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               enterTo="opacity-100 translate-y-0 sm:scale-100"
               leave="ease-in duration-200"
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-              <Dialog.Panel className="relative bg-gray-200 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-md sm:w-full">
+              <DialogPanel className="relative bg-gray-200 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-md sm:w-full">
                 {top && <span ref={topRef} tabIndex={-1} className="sr-only" />}
                 {children}
-              </Dialog.Panel>
-            </Transition.Child>
+              </DialogPanel>
+            </TransitionChild>
           </div>
         </div>
       </Dialog>
-    </Transition.Root>
+    </Transition>
   );
 }

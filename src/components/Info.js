@@ -1,15 +1,16 @@
-import NatalieGamble from '../assets/images/ng.jpeg';
-import Footer from './Footer';
-import Button from '../ui/Button';
-import { DesktopScheduleButton } from '../ui/ScheduleButton';
+'use client';
 
-export default function Info({ navigate, setSchedule }) {
+import NatalieGamble from '@/src/assets/images/ng.jpeg';
+import Button from '@/src/ui/Button';
+import { DesktopScheduleButton } from '@/src/ui/ScheduleButton';
+import { useTransitionNavigate } from './TransitionProvider';
+import Section from './Section';
+
+export default function Info() {
+  const navigate = useTransitionNavigate();
+
   return (
-    <>
-      <section
-        aria-label="About Ebb & Flow"
-        className="bg-gray-200 text-center">
-        <div className="h-28 sm:h-40"></div>
+      <Section ariaLabel="About Ebb & Flow" className="text-center">
         <span className="font-script text-7xl sm:text-8xl text-purple">
           Ebb & flow
         </span>
@@ -22,7 +23,7 @@ export default function Info({ navigate, setSchedule }) {
           <div className="flex flex-col items-center">
             <img
               className="h-32 mb-4 rounded-full sm:h-48 drop-shadow-lg"
-              src={NatalieGamble}
+              src={NatalieGamble.src}
               alt="Natalie Gamble"
             />
             <h1 className="text-4xl font-extralight text-blue sm:text-5xl">
@@ -51,31 +52,28 @@ export default function Info({ navigate, setSchedule }) {
         <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-purple mb-4">
           Specialized in
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mx-6 sm:mx-auto sm:max-w-3xl">
-          <Button variant="card" onClick={() => navigate('lymph-mld')}>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mx-6 sm:mx-auto sm:max-w-4xl">
+          <Button variant="card" onClick={() => navigate('/services/lymphatic/manual-lymphatic-drainage')}>
             Manual Lymphatic Drainage (MLD)
           </Button>
-          <Button variant="card" onClick={() => navigate('lymph-operative')}>
+          <Button variant="card" onClick={() => navigate('/services/lymphatic/pre-post-op-lymphatic-massage')}>
             Pre / Post Operative Lymphatic
           </Button>
-          <Button variant="card" onClick={() => navigate('lymph-fertility')}>
+          <Button variant="card" onClick={() => navigate('/services/lymphatic/fertility-ivf-support-massage')}>
             Fertility / Pregnancy / Postpartum Lymphatic
           </Button>
-          <Button variant="card" onClick={() => navigate('lymph-edema')}>
+          <Button variant="card" onClick={() => navigate('/services/lymphatic/lymphedema-lipedema-management')}>
             Lymphedema and Lipedema Management
           </Button>
-          <Button variant="card" onClick={() => navigate('oncology')}>
+          <Button variant="card" onClick={() => navigate('/services/oncology-massage')}>
             Oncology Massage
           </Button>
-          <Button variant="card" onClick={() => navigate('craniosacral')}>
+          <Button variant="card" onClick={() => navigate('/services/craniosacral-therapy')}>
             Craniosacral Therapy (CST)
           </Button>
         </div>
         <div className="h-4 sm:h-8" />
-        <DesktopScheduleButton setSchedule={setSchedule} />
-        <div className="h-10 sm:h-16" />
-      </section>
-      <Footer navigate={navigate} />
-    </>
+        <DesktopScheduleButton />
+      </Section>
   );
 }

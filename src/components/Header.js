@@ -1,46 +1,47 @@
+'use client';
+
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { Popover } from '@headlessui/react';
+import { usePathname } from 'next/navigation';
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import {
-  MenuIcon,
-  XIcon,
+  Bars3Icon,
+  XMarkIcon,
   ChevronDownIcon,
   GiftIcon,
   CalendarIcon,
   QuestionMarkCircleIcon,
-} from '@heroicons/react/outline';
+} from '@heroicons/react/24/outline';
 
-import GrayBlueLogo from '../assets/logos/Gray Blue Logo.png';
-import Button from '../ui/Button';
-import classNames from '../utils/classNames';
+import GrayBlueLogo from '@/src/assets/logos/Gray Blue Logo.png';
+import Button from '@/src/ui/Button';
+import classNames from '@/src/utils/classNames';
+import { useSchedule } from '@/src/context/ScheduleContext';
+import { useTransitionNavigate } from './TransitionProvider';
 
 const LYMPHATIC_SUBPAGES = [
   {
-    page: 'lymph-mld',
     path: '/services/lymphatic/manual-lymphatic-drainage',
     label: 'Manual Lymphatic Drainage',
   },
   {
-    page: 'lymph-operative',
     path: '/services/lymphatic/pre-post-op-lymphatic-massage',
     label: 'Pre/Post-Op Lymphatic',
   },
   {
-    page: 'lymph-edema',
     path: '/services/lymphatic/lymphedema-lipedema-management',
     label: 'Lymphedema/Lipedema',
   },
   {
-    page: 'lymph-fertility',
     path: '/services/lymphatic/fertility-ivf-support-massage',
     label: 'Fertility/IVF Support',
   },
   {
-    page: 'lymph-pregnancy',
     path: '/services/lymphatic/pregnancy-postpartum-lymphatic-massage',
     label: 'Pregnancy/Postpartum',
   },
 ];
-const isLymphaticPage = (p) => p.startsWith('lymph-');
+
+const isLymphaticPath = (p) => p.startsWith('/services/lymphatic/');
 
 function MobileSubReset({ open, onReset }) {
   const prevOpen = useRef(open);
@@ -51,9 +52,12 @@ function MobileSubReset({ open, onReset }) {
   return null;
 }
 
-export default function Header(props) {
+export default function Header({ bgColor }) {
+  const pathname = usePathname();
+  const navigate = useTransitionNavigate();
+  const { open: openSchedule } = useSchedule();
   const [lymphMenuOpen, setLymphMenuOpen] = useState(false);
-  const [mobileSubOpen, setMobileSubOpen] = useState(() => isLymphaticPage(props.page));
+  const [mobileSubOpen, setMobileSubOpen] = useState(() => isLymphaticPath(pathname));
   const closeTimer = useRef(null);
 
   const openDesktopMenu = useCallback(() => {
@@ -72,7 +76,7 @@ export default function Header(props) {
           <div
             className={classNames(
               'fixed z-50 top-0 left-4 right-4 sm:left-16 sm:right-16',
-              props.bgColor || 'bg-blue',
+              bgColor || 'bg-blue',
               'rounded-b-2xl shadow-header',
             )}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -81,9 +85,9 @@ export default function Header(props) {
                   <button
                     type="button"
                     className="flex items-center cursor-pointer bg-transparent border-none p-0"
-                    onClick={() => props.navigate('home')}
+                    onClick={() => navigate('/')}
                     aria-label="Go to home page">
-                    <img className="h-10" src={GrayBlueLogo} alt="Ebb & Flow" />
+                    <img className="h-10" src={GrayBlueLogo.src} alt="Ebb & Flow" />
                     <span className="flex items-center gap-0.5 ml-3 sm:ml-4 mt-2 sm:mt-1.5">
                       <span className="font-script text-2xl sm:text-3xl text-gray-100 whitespace-nowrap">
                         Ebb & flow
@@ -96,14 +100,14 @@ export default function Header(props) {
                 </div>
                 <nav
                   aria-label="Main navigation"
-                  className="hidden lg:flex items-center gap-1 lg:gap-1.5">
+                  className="hidden lg:flex items-center gap-1">
                   <Button
                     variant="ghost"
                     href="/"
-                    active={props.page === 'home'}
+                    active={pathname === '/'}
                     onClick={(e) => {
                       e.preventDefault();
-                      props.navigate('home');
+                      navigate('/');
                     }}>
                     Home
                   </Button>
@@ -111,10 +115,10 @@ export default function Header(props) {
                   <Button
                     variant="ghost"
                     href="/about"
-                    active={props.page === 'about'}
+                    active={pathname === '/about'}
                     onClick={(e) => {
                       e.preventDefault();
-                      props.navigate('about');
+                      navigate('/about');
                     }}>
                     About
                   </Button>
@@ -126,10 +130,10 @@ export default function Header(props) {
                     onMouseLeave={closeDesktopMenu}>
                     <Button
                       variant="ghost"
-                      active={isLymphaticPage(props.page)}
+                      active={isLymphaticPath(pathname)}
                       onClick={(e) => {
                         e.preventDefault();
-                        props.navigate('lymph-mld');
+                        navigate('/services/lymphatic/manual-lymphatic-drainage');
                       }}>
                       Lymphatic
                       <ChevronDownIcon
@@ -149,19 +153,19 @@ export default function Header(props) {
                       )}>
                       <div
                         className={classNames(
-                          props.bgColor || 'bg-blue',
+                          bgColor || 'bg-blue',
                           'rounded-xl shadow-header py-3 px-3 min-w-[280px]',
                         )}>
                         {LYMPHATIC_SUBPAGES.map((sub) => (
                           <Button
-                            key={sub.page}
+                            key={sub.path}
                             variant="ghost"
                             href={sub.path}
-                            active={props.page === sub.page}
+                            active={pathname === sub.path}
                             className="w-full !justify-start whitespace-nowrap"
                             onClick={(e) => {
                               e.preventDefault();
-                              props.navigate(sub.page);
+                              navigate(sub.path);
                               setLymphMenuOpen(false);
                             }}>
                             {sub.label}
@@ -174,30 +178,30 @@ export default function Header(props) {
                   <Button
                     variant="ghost"
                     href="/services/oncology-massage"
-                    active={props.page === 'oncology'}
+                    active={pathname === '/services/oncology-massage'}
                     onClick={(e) => {
                       e.preventDefault();
-                      props.navigate('oncology');
+                      navigate('/services/oncology-massage');
                     }}>
                     Oncology
                   </Button>
                   <Button
                     variant="ghost"
                     href="/services/craniosacral-therapy"
-                    active={props.page === 'craniosacral'}
+                    active={pathname === '/services/craniosacral-therapy'}
                     onClick={(e) => {
                       e.preventDefault();
-                      props.navigate('craniosacral');
+                      navigate('/services/craniosacral-therapy');
                     }}>
                     Craniosacral
                   </Button>
                   <Button
                     variant="ghost"
                     href="/faq"
-                    active={props.page === 'faq'}
+                    active={pathname === '/faq'}
                     onClick={(e) => {
                       e.preventDefault();
-                      props.navigate('faq');
+                      navigate('/faq');
                     }}>
                     <QuestionMarkCircleIcon
                       className="h-4 w-4 mr-1"
@@ -218,7 +222,7 @@ export default function Header(props) {
                   </Button>
                   <Button
                     className="whitespace-nowrap"
-                    onClick={() => props.setSchedule(true)}>
+                    onClick={() => openSchedule()}>
                     <CalendarIcon
                       className="h-4 w-4 mr-1.5"
                       aria-hidden="true"
@@ -227,21 +231,21 @@ export default function Header(props) {
                   </Button>
                 </div>
                 <div className="lg:hidden">
-                  <Popover.Button className="inline-flex items-center justify-center rounded-md p-2 text-blue-300 hover:text-white hover:bg-white/10 transition-colors">
+                  <PopoverButton className="inline-flex items-center justify-center rounded-md p-2 text-blue-300 hover:text-white hover:bg-white/10 transition-colors">
                     <span className="sr-only">Open menu</span>
                     {open ? (
-                      <XIcon className="h-6 w-6" aria-hidden="true" />
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                     ) : (
-                      <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                      <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                     )}
-                  </Popover.Button>
+                  </PopoverButton>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Clip container anchored below header; panel slides out from beneath */}
-          <Popover.Panel
+          <PopoverPanel
             static
             className={classNames(
               'fixed z-[45] left-4 right-4 sm:left-16 sm:right-16 lg:hidden overflow-hidden',
@@ -250,7 +254,7 @@ export default function Header(props) {
             style={{ top: 50 }}>
             <MobileSubReset
               open={open}
-              onReset={() => setMobileSubOpen(isLymphaticPage(props.page))}
+              onReset={() => setMobileSubOpen(isLymphaticPath(pathname))}
             />
             <div
               className={classNames(
@@ -259,7 +263,7 @@ export default function Header(props) {
               )}>
               <div
                 className={classNames(
-                  props.bgColor || 'bg-blue',
+                  bgColor || 'bg-blue',
                   'rounded-b-2xl shadow-header px-4 pb-4 pt-8',
                 )}>
                 <nav
@@ -268,11 +272,11 @@ export default function Header(props) {
                   <Button
                     variant="ghost"
                     href="/"
-                    active={props.page === 'home'}
+                    active={pathname === '/'}
                     className="w-full text-left"
                     onClick={(e) => {
                       e.preventDefault();
-                      props.navigate('home');
+                      navigate('/');
                       close();
                     }}>
                     Home
@@ -281,11 +285,11 @@ export default function Header(props) {
                   <Button
                     variant="ghost"
                     href="/about"
-                    active={props.page === 'about'}
+                    active={pathname === '/about'}
                     className="w-full text-left"
                     onClick={(e) => {
                       e.preventDefault();
-                      props.navigate('about');
+                      navigate('/about');
                       close();
                     }}>
                     About
@@ -295,7 +299,7 @@ export default function Header(props) {
                   <div>
                     <Button
                       variant="ghost"
-                      active={isLymphaticPage(props.page)}
+                      active={isLymphaticPath(pathname)}
                       className="w-full"
                       onClick={() => setMobileSubOpen(!mobileSubOpen)}>
                       Lymphatic
@@ -317,14 +321,14 @@ export default function Header(props) {
                       <div className="flex flex-col gap-1 items-center pt-1">
                         {LYMPHATIC_SUBPAGES.map((sub) => (
                           <Button
-                            key={sub.page}
+                            key={sub.path}
                             variant="ghost"
                             href={sub.path}
-                            active={props.page === sub.page}
+                            active={pathname === sub.path}
                             className="w-full"
                             onClick={(e) => {
                               e.preventDefault();
-                              props.navigate(sub.page);
+                              navigate(sub.path);
                               close();
                             }}>
                             {sub.label}
@@ -337,11 +341,11 @@ export default function Header(props) {
                   <Button
                     variant="ghost"
                     href="/services/oncology-massage"
-                    active={props.page === 'oncology'}
+                    active={pathname === '/services/oncology-massage'}
                     className="w-full text-left"
                     onClick={(e) => {
                       e.preventDefault();
-                      props.navigate('oncology');
+                      navigate('/services/oncology-massage');
                       close();
                     }}>
                     Oncology
@@ -349,11 +353,11 @@ export default function Header(props) {
                   <Button
                     variant="ghost"
                     href="/services/craniosacral-therapy"
-                    active={props.page === 'craniosacral'}
+                    active={pathname === '/services/craniosacral-therapy'}
                     className="w-full text-left"
                     onClick={(e) => {
                       e.preventDefault();
-                      props.navigate('craniosacral');
+                      navigate('/services/craniosacral-therapy');
                       close();
                     }}>
                     Craniosacral
@@ -361,11 +365,11 @@ export default function Header(props) {
                   <Button
                     variant="ghost"
                     href="/faq"
-                    active={props.page === 'faq'}
+                    active={pathname === '/faq'}
                     className="w-full text-left"
                     onClick={(e) => {
                       e.preventDefault();
-                      props.navigate('faq');
+                      navigate('/faq');
                       close();
                     }}>
                     <QuestionMarkCircleIcon
@@ -387,7 +391,7 @@ export default function Header(props) {
                   <Button
                     className="w-full"
                     onClick={() => {
-                      props.setSchedule(true);
+                      openSchedule();
                       close();
                     }}>
                     <CalendarIcon
@@ -399,7 +403,7 @@ export default function Header(props) {
                 </nav>
               </div>
             </div>
-          </Popover.Panel>
+          </PopoverPanel>
         </>
       )}
     </Popover>

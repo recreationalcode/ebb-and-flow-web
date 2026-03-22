@@ -1,8 +1,13 @@
-import rcLogo from '../assets/logos/rc-logo-mono.png';
-import Button from '../ui/Button';
-import { HeartIcon } from '@heroicons/react/solid';
+'use client';
 
-export default function Footer({ navigate }) {
+import rcLogo from '@/src/assets/logos/rc-logo-mono.png';
+import Button from '@/src/ui/Button';
+import { HeartIcon } from '@heroicons/react/24/solid';
+import { useTransitionNavigate } from './TransitionProvider';
+
+export default function Footer() {
+  const navigate = useTransitionNavigate();
+
   return (
     <footer aria-label="Availability and location" className="relative bg-gray-50">
       <svg
@@ -59,22 +64,20 @@ export default function Footer({ navigate }) {
           />
         </div>
       </div>
-      {navigate && (
-        <div className="flex justify-center gap-2 mt-12">
-          <Button
-            variant="ghost"
-            ghostOn="gray"
-            onClick={() => navigate('privacy')}>
-            Privacy Policy
-          </Button>
-          <Button
-            variant="ghost"
-            ghostOn="gray"
-            onClick={() => navigate('terms')}>
-            Terms &amp; Conditions
-          </Button>
-        </div>
-      )}
+      <div className="flex justify-center gap-2 mt-12">
+        <Button
+          variant="ghost"
+          ghostOn="gray"
+          onClick={() => navigate('/privacy-policy')}>
+          Privacy Policy
+        </Button>
+        <Button
+          variant="ghost"
+          ghostOn="gray"
+          onClick={() => navigate('/terms-and-conditions')}>
+          Terms &amp; Conditions
+        </Button>
+      </div>
       <div className="flex justify-center items-center gap-1.5 mt-2 pb-8 sm:pb-6">
         <span className="text-sm text-gray-500 py-3">site made with <HeartIcon className="inline-block h-4 w-4 brightness-0 opacity-30 -translate-y-px" /> by</span>
         <Button
@@ -85,7 +88,7 @@ export default function Footer({ navigate }) {
           rel="noopener noreferrer"
           className="group flex items-center justify-center gap-1.5 !px-1.5">
           <img
-            src={rcLogo}
+            src={rcLogo.src}
             alt=""
             className="h-5 w-5 brightness-0 opacity-30 group-hover:opacity-60 transition-opacity translate-y-px" />
           recreationalcoder

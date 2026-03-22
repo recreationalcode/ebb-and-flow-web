@@ -1,12 +1,11 @@
-import Footer from './Footer';
-import { DesktopScheduleButton } from '../ui/ScheduleButton';
+'use client';
 
-export default function AboutMe({ setSchedule, navigate }) {
+import { DesktopScheduleButton } from '@/src/ui/ScheduleButton';
+import Section from './Section';
+
+export default function AboutMe() {
   return (
-    <>
-      <section
-        aria-label="About Natalie Gamble"
-        className="flex flex-col items-center pt-28 sm:pt-40 pb-24 sm:pb-32 px-8 text-center bg-gray-200">
+      <Section ariaLabel="About Natalie Gamble" className="flex flex-col items-center text-center">
         <h1 className="font-script text-6xl text-purple mb-6">
           Who I Am and What I Do
         </h1>
@@ -39,9 +38,7 @@ export default function AboutMe({ setSchedule, navigate }) {
             I may need to know about and try!
           </p>
         </div>
-        <DesktopScheduleButton setSchedule={setSchedule} className="mt-6" />
-      </section>
-      <Footer navigate={navigate} />
-    </>
+        <DesktopScheduleButton className="mt-6" />
+      </Section>
   );
 }

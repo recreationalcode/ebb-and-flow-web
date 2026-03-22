@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button:focus-visible {
+  outline: unset;
+}
+
+/* Teardrop falls from header to center */
+@keyframes teardrop-fall {
+  from {
+    top: 30px;
+  }
+  to {
+    top: calc(50% - 21px);
+  }
+}
+
+@property --reveal-r {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+/* Circle expands from center, revealing content */
+@keyframes circle-expand {
+  0% {
+    --reveal-r: 0px;
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    --reveal-r: 2000px;
+    opacity: 1;
+  }
+}
+
+/* Content visible inside growing circle, transparent outside.
+   Center at viewport middle to match teardrop landing position. */
+.reveal-mask {
+  -webkit-mask-image: radial-gradient(
+    circle var(--reveal-r) at 50vw 50vh,
+    #000 calc(100% - 32px),
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle var(--reveal-r) at 50vw 50vh,
+    #000 calc(100% - 32px),
+    transparent 100%
+  );
+}
+
+/* Hide scrollbar for pill navigation */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

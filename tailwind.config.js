@@ -2,7 +2,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./app/**/*.{js,jsx}", "./src/**/*.{js,jsx}"],
   theme: {
     colors: {
       transparent: "transparent",
@@ -61,8 +61,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-        script: ["Saturday Script", "cursive"],
+        sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+        script: ["var(--font-script)", "cursive"],
       },
       boxShadow: {
         header: "0 4px 10px rgba(0, 0, 0, 0.2)",

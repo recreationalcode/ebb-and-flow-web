@@ -1,9 +1,12 @@
-import classNames from '../utils/classNames';
-import Button from '../ui/Button';
-import { DesktopScheduleButton } from '../ui/ScheduleButton';
-import Footer from './Footer';
+'use client';
+
+import classNames from '@/src/utils/classNames';
+import Button from '@/src/ui/Button';
+import { DesktopScheduleButton } from '@/src/ui/ScheduleButton';
 import Cautions from './Cautions';
-import { QuestionMarkCircleIcon } from '@heroicons/react/outline';
+import Section from './Section';
+import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
+import { useTransitionNavigate } from './TransitionProvider';
 
 export default function ServicePage({
   title,
@@ -14,23 +17,18 @@ export default function ServicePage({
   sessionTime = '60 minute sessions',
   price = '$150',
   theme,
-  setSchedule,
   faqSection,
-  navigate,
 }) {
+  const navigate = useTransitionNavigate();
+
   return (
-    <>
-      <section
-        aria-label={title}
-        className={classNames(
-          'flex flex-col items-center pt-28 sm:pt-40 pb-24 sm:pb-28 px-8',
-          theme.bg,
-        )}>
+      <Section
+        ariaLabel={typeof title === 'string' ? title : 'Service'}
+        className="flex flex-col items-center">
         <h1 className={classNames('font-script text-5xl mb-6 text-center', theme.h1Color)}>
           {title}
         </h1>
 
-        {/* Intro — larger, untitled */}
         <p
           className={classNames(
             'max-w-xl text-xl font-light leading-relaxed text-center',
@@ -41,7 +39,6 @@ export default function ServicePage({
 
         <div className="h-10" />
 
-        {/* What It Is */}
         <div className="max-w-2xl w-full text-left">
           <h2
             className={classNames(
@@ -61,7 +58,6 @@ export default function ServicePage({
 
         <div className="h-10" />
 
-        {/* Who It Is For */}
         <div className="max-w-2xl w-full text-left">
           <h2
             className={classNames(
@@ -90,12 +86,12 @@ export default function ServicePage({
 
         <div className="h-10" />
 
-        {faqSection && navigate && (
+        {faqSection && (
           <Button
             variant="ghost"
             ghostOn={theme.ghost}
             ghostText={theme.ghostText}
-            onClick={() => navigate('faq', '#' + faqSection)}>
+            onClick={() => navigate('/faq#' + faqSection)}>
               <QuestionMarkCircleIcon
                       className="h-4 w-4 mr-1.5"
                       aria-hidden="true"
@@ -106,20 +102,16 @@ export default function ServicePage({
 
         <div className="h-10" />
 
-        {/* Cautions */}
         <Cautions>{cautions}</Cautions>
 
         <div className="h-10" />
 
-        {/* Session & Price */}
         <p className={classNames('text-lg font-light', theme.bodyText)}>
           <span className="font-medium">{sessionTime}</span> for{' '}
           <span className="font-medium">{price}</span>
         </p>
 
-        <DesktopScheduleButton setSchedule={setSchedule} className="mt-6" />
-      </section>
-      <Footer navigate={navigate} />
-    </>
+        <DesktopScheduleButton className="mt-6" />
+      </Section>
   );
 }

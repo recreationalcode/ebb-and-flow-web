@@ -1,4 +1,4 @@
-import ScheduleButton from '../ui/ScheduleButton';
+import ScheduleButton from '@/src/ui/ScheduleButton';
 
 const openSchedule = () =>
   window.dispatchEvent(new CustomEvent('open-schedule'));
