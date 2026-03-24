@@ -48,7 +48,7 @@ const routeTheme = {
   '/services/lymphatic/lymphedema-lipedema-management': 'gray',
   '/services/lymphatic/fertility-ivf-support-massage': 'blue',
   '/services/lymphatic/pregnancy-postpartum-lymphatic-massage': 'purple',
-  '/services/oncology-massage': 'gray',
+  '/services/oncology-massage': 'purple',
   '/services/craniosacral-therapy': 'blue',
   '/faq': 'gray',
   '/privacy-policy': 'gray',

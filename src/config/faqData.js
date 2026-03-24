@@ -5,7 +5,7 @@ const openSchedule = () =>
 
 const faqData = [
   {
-    id: 'booking-scheduling',
+    id: 'general',
     label: 'General',
     heading: 'General',
     questions: [

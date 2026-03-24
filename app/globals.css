@@ -42,12 +42,12 @@ button:focus-visible {
 .reveal-mask {
   -webkit-mask-image: radial-gradient(
     circle var(--reveal-r) at 50vw 50vh,
-    #000 calc(100% - 32px),
+    #000 calc(100% - 64px),
     transparent 100%
   );
   mask-image: radial-gradient(
     circle var(--reveal-r) at 50vw 50vh,
-    #000 calc(100% - 32px),
+    #000 calc(100% - 64px),
     transparent 100%
   );
 }
