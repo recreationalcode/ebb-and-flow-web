@@ -86,7 +86,9 @@ export default function FAQ() {
     };
 
     // Delay to allow page transition to complete
-    const timer = setTimeout(scrollToHash, 500);
+    const timerDelay = typeof window !== 'undefined' && window.innerWidth < 640 ? 1000 : 500;
+
+    const timer = setTimeout(scrollToHash, timerDelay);
     return () => {
       clearTimeout(timer);
       isScrolling.current = false;
