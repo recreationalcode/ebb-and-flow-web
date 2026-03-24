@@ -49,7 +49,7 @@ const routeTheme = {
   '/services/lymphatic/fertility-ivf-support-massage': 'blue',
   '/services/lymphatic/pregnancy-postpartum-lymphatic-massage': 'purple',
   '/services/oncology-massage': 'purple',
-  '/services/craniosacral-therapy': 'blue',
+  '/services/craniosacral-therapy': 'gray',
   '/faq': 'gray',
   '/privacy-policy': 'gray',
   '/terms-and-conditions': 'gray',
