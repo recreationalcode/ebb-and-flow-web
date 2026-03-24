@@ -7,6 +7,15 @@ import { routeColors } from '@/src/config/routeColors';
 
 const TransitionContext = createContext();
 
+// Module-level store for the hash fragment that router.push strips during
+// RSC navigation. Readable synchronously by destination components.
+let _pendingHash = null;
+export function consumePendingHash() {
+  const hash = _pendingHash;
+  _pendingHash = null;
+  return hash;
+}
+
 // State machine:
 // idle ──(click)──→ dropping ──(teardrop animationEnd)──→ navigating
 //   ↑                                                         │
@@ -39,6 +48,8 @@ export function TransitionProvider({ children }) {
 
       isTransitioning.current = true;
       pendingHref.current = href;
+      const hashIndex = href.indexOf('#');
+      _pendingHash = hashIndex !== -1 ? href.slice(hashIndex + 1) : null;
       setPreviousPath(pathname);
       setColor(transitionColor || routeColors[targetPath] || 'gray');
       setDestinationPath(targetPath);

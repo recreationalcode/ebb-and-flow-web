@@ -6,9 +6,14 @@ import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import classNames from '@/src/utils/classNames';
 import faqData from '@/src/config/faqData';
 import Section from './Section';
+import { consumePendingHash } from './TransitionProvider';
 
 function initialSection() {
   if (typeof window === 'undefined') return faqData[0].id;
+  // Check for hash carried through page transition (router.push strips it)
+  const pending = consumePendingHash();
+  if (pending && faqData.some((s) => s.id === pending)) return pending;
+  // Fall back to URL hash (direct navigation / refresh)
   const hash = window.location.hash?.slice(1);
   if (hash && faqData.some((s) => s.id === hash)) return hash;
   return faqData[0].id;
