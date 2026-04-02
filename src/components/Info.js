@@ -11,13 +11,13 @@ export default function Info() {
 
   return (
       <Section ariaLabel="About Ebb & Flow" className="text-center">
-        <span className="font-script text-7xl sm:text-8xl text-purple">
+        <h1 className="font-script text-7xl sm:text-8xl text-purple">
           Ebb & flow
-        </span>
-        <div className="h-4 sm:h-8"></div>
-        <h1 className="text-lg sm:text-3xl font-extralight text-blue px-4">
-          Clinical Care for a Focused, Fluid, and Functional Body
         </h1>
+        <div className="h-4 sm:h-8"></div>
+        <span className="text-lg sm:text-3xl font-extralight text-blue px-4">
+          Clinical Care for a Focused, Fluid, and Functional Body
+        </span>
         <div className="h-6 sm:h-10"></div>
         <div className="flex flex-col sm:flex-row items-center sm:items-center sm:justify-center gap-6 sm:gap-10 mx-6 sm:mx-auto sm:max-w-3xl">
           <div className="flex flex-col items-center">
@@ -29,14 +29,14 @@ export default function Info() {
             <h2 className="text-4xl font-extralight text-blue sm:text-5xl">
               Natalie Gamble
             </h2>
-            <h2 className="text-lg font-thin tracking-widest text-blue sm:text-2xl">
+            <p className="text-lg font-thin tracking-widest text-blue sm:text-2xl">
               LMT, CMLDT, MMP, CST
-            </h2>
+            </p>
           </div>
           <div className="bg-blue rounded-2xl px-8 py-8 shadow-lg sm:flex-1 sm:max-w-md flex flex-col justify-center text-center sm:text-left">
-            <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-blue-200 mb-4">
+            <h3 className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-blue-200 mb-4">
               Mission
-            </div>
+            </h3>
             <p className="text-sm font-light text-white leading-relaxed">
               At Ebb and Flow, I specialize in helping you feel at home in your
               body through clinical recovery and nervous system regulation. I
@@ -49,9 +49,9 @@ export default function Info() {
           </div>
         </div>
         <div className="h-8 sm:h-12" />
-        <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-purple mb-4">
+        <h2 className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-purple mb-4">
           Specialized in
-        </div>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mx-6 sm:mx-auto sm:max-w-4xl">
           <Button variant="card" onClick={() => navigate('/services/lymphatic/manual-lymphatic-drainage')}>
             Manual Lymphatic Drainage (MLD)

@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const base = 'https://ebbandflowmassagestudio.com';
+  const base = 'https://www.ebbandflowmassagestudio.com';
 
   const pages = [
     { path: '/', priority: 1.0, changeFrequency: 'weekly' },
@@ -18,7 +18,7 @@ export default function sitemap() {
 
   return pages.map(({ path, priority, changeFrequency }) => ({
     url: `${base}${path}`,
-    lastModified: new Date('2026-03-23'),
+    lastModified: new Date('2026-04-01'),
     changeFrequency,
     priority,
   }));

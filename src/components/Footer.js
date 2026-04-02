@@ -37,10 +37,10 @@ export default function Footer() {
         <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-blue-100">
           Location
         </div>
-        <div className="text-base sm:text-lg font-light text-white">
+        <address className="text-base sm:text-lg font-light text-white not-italic">
           <div>910 17th Street NW, Suite 1020</div>
           <div>Washington, DC 20006</div>
-        </div>
+        </address>
         <div className="font-light text-white">
           <span>Inside the </span>
           <a
@@ -89,7 +89,7 @@ export default function Footer() {
           className="group flex items-center justify-center gap-1.5 !px-1.5">
           <img
             src={rcLogo.src}
-            alt=""
+            alt="Recreational Coder logo"
             className="h-5 w-5 brightness-0 opacity-30 group-hover:opacity-60 transition-opacity translate-y-px" />
           recreationalcoder
         </Button>

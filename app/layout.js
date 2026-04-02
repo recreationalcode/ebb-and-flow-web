@@ -26,7 +26,7 @@ const saturdayScript = localFont({
 
 export async function generateMetadata() {
   return {
-    metadataBase: new URL('https://ebbandflowmassagestudio.com'),
+    metadataBase: new URL('https://www.ebbandflowmassagestudio.com'),
     title: {
       default: 'Ebb & Flow Massage Studio | Lymphatic Drainage, Oncology Massage & Craniosacral Therapy in Washington, DC',
       template: '%s',
@@ -61,15 +61,15 @@ export async function generateMetadata() {
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': ['LocalBusiness', 'HealthAndBeautyBusiness'],
-  name: 'Ebb & Flow Massage Studio',
+  name: 'Ebb and Flow Massage Studio',
   description: 'Massage studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy.',
-  url: 'https://ebbandflowmassagestudio.com',
+  url: 'https://www.ebbandflowmassagestudio.com',
   telephone: '+18505293740',
   email: 'nat@ebbandflowmassagestudio.com',
-  image: 'https://ebbandflowmassagestudio.com/logo512.png',
+  image: 'https://www.ebbandflowmassagestudio.com/logo512.png',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '910 17th Street NW, Suite 1020',
+    streetAddress: '910 17th Street NW, #1020',
     addressLocality: 'Washington',
     addressRegion: 'DC',
     postalCode: '20006',
@@ -89,7 +89,7 @@ const jsonLd = {
     '@type': 'Person',
     name: 'Natalie Gamble',
     jobTitle: 'Licensed Massage Therapist (LMT, CMLDT, MMP, CST)',
-    url: 'https://ebbandflowmassagestudio.com/about',
+    url: 'https://www.ebbandflowmassagestudio.com/about',
   },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -97,37 +97,37 @@ const jsonLd = {
     itemListElement: [
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Manual Lymphatic Drainage', url: 'https://ebbandflowmassagestudio.com/services/lymphatic/manual-lymphatic-drainage', description: 'Gentle, rhythmic bodywork to support lymph flow and reduce swelling.' },
+        itemOffered: { '@type': 'Service', name: 'Manual Lymphatic Drainage', url: 'https://www.ebbandflowmassagestudio.com/services/lymphatic/manual-lymphatic-drainage', description: 'Gentle, rhythmic bodywork to support lymph flow and reduce swelling.' },
         price: '150.00', priceCurrency: 'USD',
       },
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Pre/Post-Op Lymphatic Massage', url: 'https://ebbandflowmassagestudio.com/services/lymphatic/pre-post-op-lymphatic-massage', description: 'Gentle lymphatic support before and after surgery for comfort and recovery.' },
+        itemOffered: { '@type': 'Service', name: 'Pre/Post-Op Lymphatic Massage', url: 'https://www.ebbandflowmassagestudio.com/services/lymphatic/pre-post-op-lymphatic-massage', description: 'Gentle lymphatic support before and after surgery for comfort and recovery.' },
         price: '150.00', priceCurrency: 'USD',
       },
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Lymphedema and Lipedema Management', url: 'https://ebbandflowmassagestudio.com/services/lymphatic/lymphedema-lipedema-management', description: 'Supportive lymphatic care for swelling, heaviness, and discomfort from lymphedema or lipedema.' },
+        itemOffered: { '@type': 'Service', name: 'Lymphedema and Lipedema Management', url: 'https://www.ebbandflowmassagestudio.com/services/lymphatic/lymphedema-lipedema-management', description: 'Supportive lymphatic care for swelling, heaviness, and discomfort from lymphedema or lipedema.' },
         price: '150.00', priceCurrency: 'USD',
       },
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Fertility and IVF Support Massage', url: 'https://ebbandflowmassagestudio.com/services/lymphatic/fertility-ivf-support-massage', description: 'Gentle, lymphatic-focused bodywork for comfort and grounding during fertility treatment.' },
+        itemOffered: { '@type': 'Service', name: 'Fertility and IVF Support Massage', url: 'https://www.ebbandflowmassagestudio.com/services/lymphatic/fertility-ivf-support-massage', description: 'Gentle, lymphatic-focused bodywork for comfort and grounding during fertility treatment.' },
         price: '150.00', priceCurrency: 'USD',
       },
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Pregnancy and Postpartum Lymphatic Massage', url: 'https://ebbandflowmassagestudio.com/services/lymphatic/pregnancy-postpartum-lymphatic-massage', description: 'Gentle bodywork for swelling, comfort, and recovery during pregnancy and postpartum.' },
+        itemOffered: { '@type': 'Service', name: 'Pregnancy and Postpartum Lymphatic Massage', url: 'https://www.ebbandflowmassagestudio.com/services/lymphatic/pregnancy-postpartum-lymphatic-massage', description: 'Gentle bodywork for swelling, comfort, and recovery during pregnancy and postpartum.' },
         price: '150.00', priceCurrency: 'USD',
       },
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Oncology Massage', url: 'https://ebbandflowmassagestudio.com/services/oncology-massage', description: 'Thoughtfully adapted massage for people in treatment, recovery, or survivorship.' },
+        itemOffered: { '@type': 'Service', name: 'Oncology Massage', url: 'https://www.ebbandflowmassagestudio.com/services/oncology-massage', description: 'Thoughtfully adapted massage for people in treatment, recovery, or survivorship.' },
         price: '130.00', priceCurrency: 'USD',
       },
       {
         '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Craniosacral Therapy', url: 'https://ebbandflowmassagestudio.com/services/craniosacral-therapy', description: 'Gentle hands-on therapy to help the body settle and release tension patterns.' },
+        itemOffered: { '@type': 'Service', name: 'Craniosacral Therapy', url: 'https://www.ebbandflowmassagestudio.com/services/craniosacral-therapy', description: 'Gentle hands-on therapy to help the body settle and release tension patterns.' },
         price: '150.00', priceCurrency: 'USD',
       },
     ],

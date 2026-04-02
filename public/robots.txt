@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://ebbandflowmassagestudio.com/sitemap.xml
+Sitemap: https://www.ebbandflowmassagestudio.com/sitemap.xml
