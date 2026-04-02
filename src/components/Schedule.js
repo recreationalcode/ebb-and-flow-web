@@ -6,6 +6,7 @@ import { CalendarIcon, ChatBubbleLeftIcon, PhoneIcon, EnvelopeIcon } from '@hero
 import PurpleBlueLogo from '@/src/assets/logos/Purple Blue Logo.png';
 import Button from '@/src/ui/Button';
 import Modal from '@/src/ui/Modal';
+import TrackedLink from '@/src/ui/TrackedLink';
 
 export default function Schedule({ open, setOpen, bookingUrl, ...props }) {
   return (
@@ -28,15 +29,17 @@ export default function Schedule({ open, setOpen, bookingUrl, ...props }) {
             </DialogTitle>
           </div>
           <div className="px-4 py-3 sm:px-6 flex flex-col sm:items-center">
-            <a
+            <TrackedLink
               href={bookingUrl || 'https://ebbnflow.janeapp.com'}
               target="_blank"
-              rel="noopener noreferrer">
+              rel="noopener noreferrer"
+              event="book_online_click"
+              eventParams={{ booking_url: bookingUrl }}>
               <Button className="w-full sm:w-auto sm:text-sm">
                 <CalendarIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
                 Book Online
               </Button>
-            </a>
+            </TrackedLink>
             <p className="text-xs italic text-gray-600 font-light mt-2 text-center">
               A card on file will be required
             </p>
@@ -47,24 +50,24 @@ export default function Schedule({ open, setOpen, bookingUrl, ...props }) {
             needs?
           </p>
           <div className="px-4 py-3 sm:px-6 flex flex-col sm:flex-row justify-center gap-3">
-            <a href="sms:+18505293740">
+            <TrackedLink href="sms:+18505293740" event="text_click">
               <Button className="w-full sm:w-auto sm:text-sm">
                 <ChatBubbleLeftIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
                 Text
               </Button>
-            </a>
-            <a href="tel:+18505293740">
+            </TrackedLink>
+            <TrackedLink href="tel:+18505293740" event="call_click">
               <Button className="w-full sm:w-auto sm:text-sm">
                 <PhoneIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
                 Call
               </Button>
-            </a>
-            <a href="mailto:nat@ebbandflowmassagestudio.com">
+            </TrackedLink>
+            <TrackedLink href="mailto:nat@ebbandflowmassagestudio.com" event="email_click">
               <Button className="w-full sm:w-auto sm:text-sm">
                 <EnvelopeIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
                 Email
               </Button>
-            </a>
+            </TrackedLink>
           </div>
         </div>
       </div>
