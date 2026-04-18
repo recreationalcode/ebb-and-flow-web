@@ -67,19 +67,42 @@ const jsonLd = {
   telephone: '+18505293740',
   email: 'nat@ebbandflowmassagestudio.com',
   image: 'https://www.ebbandflowmassagestudio.com/logo512.png',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '910 17th Street NW, #1020',
-    addressLocality: 'Washington',
-    addressRegion: 'DC',
-    postalCode: '20006',
-    addressCountry: 'US',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 38.9017,
-    longitude: -77.0395,
-  },
+  location: [
+    {
+      '@type': 'Place',
+      name: 'Ebb and Flow – Downtown DC',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '910 17th Street NW, #1020',
+        addressLocality: 'Washington',
+        addressRegion: 'DC',
+        postalCode: '20006',
+        addressCountry: 'US',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 38.9017,
+        longitude: -77.0395,
+      },
+    },
+    {
+      '@type': 'Place',
+      name: 'Ebb and Flow – Georgetown / Glover Park',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '2300 Wisconsin Ave NW, #400b',
+        addressLocality: 'Washington',
+        addressRegion: 'DC',
+        postalCode: '20007',
+        addressCountry: 'US',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 38.9201,
+        longitude: -77.0719,
+      },
+    },
+  ],
   areaServed: {
     '@type': 'City',
     name: 'Washington, D.C.',
@@ -138,10 +161,13 @@ const jsonLd = {
     'https://www.instagram.com/ebbandflowmassagestudio/',
   ],
   priceRange: '$130+',
-  openingHours: ['We 08:00-17:00', 'Sa 08:00-17:00'],
+  openingHours: ['Mo 09:00-17:00', 'Tu 09:00-17:00', 'We 09:00-17:00', 'Th 09:00-17:00', 'Sa 09:00-17:00'],
   openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Wednesday', opens: '08:00', closes: '17:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '08:00', closes: '17:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Monday', opens: '09:00', closes: '17:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Tuesday', opens: '09:00', closes: '17:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Wednesday', opens: '09:00', closes: '17:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Thursday', opens: '09:00', closes: '17:00' },
+    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '17:00' },
   ],
 };
 
