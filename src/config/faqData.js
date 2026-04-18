@@ -10,14 +10,45 @@ const faqData = [
     heading: 'General',
     questions: [
       {
+        q: 'Where are you located?',
+        a: (
+          <>
+            <p>
+              I see clients at two locations in Washington, DC depending on the
+              day of the week.
+            </p>
+            <ul className="list-disc list-outside pl-5 space-y-2 mt-3">
+              <li>
+                <strong>Downtown DC</strong>{' '}
+                <span>
+                  on Wednesdays &amp; Saturdays, inside the Yao Shan Center for
+                  Chinese Medicine (910 17th St NW, Suite 1020).
+                </span>
+              </li>
+              <li>
+                <strong>Georgetown / Glover Park</strong>{' '}
+                <span>
+                  on Mondays, Tuesdays &amp; Thursdays, inside DC Acupuncture
+                  (2300 Wisconsin Ave NW, #400b).
+                </span>
+              </li>
+            </ul>
+            <p className="mt-3">
+              Both locations are available 9:00 AM &ndash; 5:00 PM. When you
+              book, just pick the location and day that works best for you!
+            </p>
+          </>
+        ),
+      },
+      {
         q: 'How do I book?',
         a: (
           <>
             <p>
               Sessions are available by appointment only, and a credit card is
               required to hold your spot. You can book online or by calling,
-              texting, or emailing me if you have questions. If you like
-              booking online, you can reserve multiple sessions up to 60 days in
+              texting, or emailing me if you have questions. If you like booking
+              online, you can reserve multiple sessions up to 60 days in
               advance. Do itttttttt! It feels really good to have those spots
               secured.
             </p>
@@ -39,8 +70,8 @@ const faqData = [
         q: 'Do you take insurance or provide a superbill?',
         a: (
           <p>
-            I do not take insurance. I do provide emailed receipts at every visit
-            and can send superbills at your request.
+            I do not take insurance. I do provide emailed receipts at every
+            visit and can send superbills at your request.
           </p>
         ),
       },
@@ -51,9 +82,9 @@ const faqData = [
             Yes, please. Post-op care tends to be most helpful when it is
             planned out in advance. Highly recommend planning ahead and booking
             your post-op lymphatic drainage appointments in advance. Post-op MLD
-            is time sensitive and requires anywhere from 10&ndash;12 appointments
-            and you don&rsquo;t need any additional stress scrambling for
-            aftercare.
+            is time sensitive and requires anywhere from 10&ndash;12
+            appointments and you don&rsquo;t need any additional stress
+            scrambling for aftercare.
           </p>
         ),
       },
@@ -205,10 +236,10 @@ const faqData = [
             </p>
             <p>
               This is just a short-term (1&ndash;2 day) body&rsquo;s response.
-              As your body clears out the &ldquo;stagnant fluid,&rdquo; you might
-              feel some flu-like symptoms&mdash;headaches, nausea, fatigue, or a
-              little achiness. It&rsquo;s a sign that your body is doing the
-              hard work of cleaning and repairing itself!
+              As your body clears out the &ldquo;stagnant fluid,&rdquo; you
+              might feel some flu-like symptoms&mdash;headaches, nausea,
+              fatigue, or a little achiness. It&rsquo;s a sign that your body is
+              doing the hard work of cleaning and repairing itself!
             </p>
             <p>
               My favorite analogy: Just like your phone powers down during a
@@ -219,9 +250,9 @@ const faqData = [
               <strong>The Bottom Line:</strong> These changes vary from person
               to person, but they are normal and temporary. Usually after the
               first few sessions, people no longer experience these side effects
-              due to their system being cleaner/healthier! Drink plenty of water, give
-              yourself some grace, and get ready to feel amazing on the other
-              side.
+              due to their system being cleaner/healthier! Drink plenty of
+              water, give yourself some grace, and get ready to feel amazing on
+              the other side.
             </p>
           </>
         ),
@@ -244,9 +275,7 @@ const faqData = [
                 Hydrate (with electrolytes) prior to your appointment and keep
                 up the h2o intake afterwards.
               </li>
-              <li>
-                Prioritize sleep. It&rsquo;s where all the magic happens.
-              </li>
+              <li>Prioritize sleep. It&rsquo;s where all the magic happens.</li>
               <li>
                 Incorporate gentle movement before and after your session. Yoga,
                 walking, Qigong, light rebounding, or breath work can help
@@ -282,9 +311,9 @@ const faqData = [
               </li>
               <li>
                 <strong>Chronic Fatigue:</strong> Feeling like you are dragging
-                through the day, constantly tired, even after a full night&rsquo;s
-                sleep, can indicate that toxins are piling up in your system and
-                leave you feeling sluggish.
+                through the day, constantly tired, even after a full
+                night&rsquo;s sleep, can indicate that toxins are piling up in
+                your system and leave you feeling sluggish.
               </li>
               <li>
                 <strong>Frequent Infections or Illnesses:</strong> A weak immune
@@ -337,8 +366,8 @@ const faqData = [
         a: (
           <>
             <p>
-              Here&rsquo;s the deal: It&rsquo;s not about how deep one goes,
-              but how you go deep. I&rsquo;m a big believer that you don&rsquo;t
+              Here&rsquo;s the deal: It&rsquo;s not about how deep one goes, but
+              how you go deep. I&rsquo;m a big believer that you don&rsquo;t
               have to be &ldquo;bulldozed&rdquo; to get incredible results. In
               fact, my bodywork is rarely painful because I work with your
               nervous system instead of picking a fight with it.
@@ -380,9 +409,9 @@ const faqData = [
           <p>
             Absolutely. It can be a really nice way to support your body before
             surgery. I think of pre-op MLD like clearing traffic before roadwork
-            starts. The goal is not to &ldquo;fix&rdquo; anything ahead of
-            time, but to help your system feel a little less congested and a
-            little more supported going into recovery.
+            starts. The goal is not to &ldquo;fix&rdquo; anything ahead of time,
+            but to help your system feel a little less congested and a little
+            more supported going into recovery.
           </p>
         ),
       },
@@ -444,9 +473,9 @@ const faqData = [
             <p>
               I work around drains and healing incisions, not aggressively on
               top of them. Once you are further along in healing and your
-              provider has cleared you, I may also incorporate scar
-              tissue work, usually around the 6 to 8 week mark depending on the
-              procedure and your surgeon&rsquo;s guidance.
+              provider has cleared you, I may also incorporate scar tissue work,
+              usually around the 6 to 8 week mark depending on the procedure and
+              your surgeon&rsquo;s guidance.
             </p>
             <p className="mt-3">
               <strong>Please note:</strong> I do not push fluid out of
@@ -570,9 +599,7 @@ const faqData = [
             <ul className="list-disc list-outside pl-5 space-y-2 mt-2">
               <li>painful or tender tissue</li>
               <li>swelling or fullness in both legs, both arms, or both</li>
-              <li>
-                tissue that feels lumpy, nodular, or bumpy to the touch
-              </li>
+              <li>tissue that feels lumpy, nodular, or bumpy to the touch</li>
               <li>fat that does not seem to respond to diet or exercise</li>
               <li>
                 a feeling of heaviness, soreness, or &ldquo;why do my legs feel
@@ -644,8 +671,8 @@ const faqData = [
               down, movement can feel less uncomfortable and less exhausting.
             </p>
             <p>
-              I am not promising cartwheels, but I am very much here for
-              helping your body feel more mobile.
+              I am not promising cartwheels, but I am very much here for helping
+              your body feel more mobile.
             </p>
           </>
         ),
@@ -743,9 +770,7 @@ const faqData = [
               way to support comfort, relaxation, and a better sense of
               connection to your body.
             </p>
-            <p>
-              Think of it as preparing the soil before planting a garden.
-            </p>
+            <p>Think of it as preparing the soil before planting a garden.</p>
           </>
         ),
       },
@@ -839,10 +864,10 @@ const faqData = [
         q: 'Do I need to prepare for my session?',
         a: (
           <p>
-            Not in any way. Come exactly as you are. If you are tired,
-            tender, overwhelmed, or just not feeling like your usual self, that
-            is okay. If you need to stay in your comfy clothes, I can work
-            around this. If you need to nap during the session, please do!
+            Not in any way. Come exactly as you are. If you are tired, tender,
+            overwhelmed, or just not feeling like your usual self, that is okay.
+            If you need to stay in your comfy clothes, I can work around this.
+            If you need to nap during the session, please do!
           </p>
         ),
       },

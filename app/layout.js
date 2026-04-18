@@ -31,7 +31,7 @@ export async function generateMetadata() {
       default: 'Ebb & Flow Massage Studio | Lymphatic Drainage, Oncology Massage & Craniosacral Therapy in Washington, DC',
       template: '%s',
     },
-    description: 'Ebb & Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
+    description: 'Ebb & Flow Massage Studio in Downtown DC and Georgetown specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
     openGraph: {
       type: 'website',
       siteName: 'Ebb & Flow Massage Studio',

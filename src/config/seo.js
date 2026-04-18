@@ -1,39 +1,39 @@
 export const seoData = {
   '/': {
-    title: 'Ebb & Flow | Massage Studio in Washington, DC',
-    description: 'Lymphatic drainage, oncology massage, and craniosacral therapy in Washington, DC. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
+    title: 'Ebb & Flow | Massage Studio in Downtown DC & Georgetown',
+    description: 'Lymphatic drainage, oncology massage, and craniosacral therapy in Downtown DC and Georgetown. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
   },
   '/about': {
     title: 'About Natalie Gamble | Ebb & Flow Massage',
-    description: 'Meet Natalie Gamble, massage therapist in Washington, DC specializing in lymphatic drainage, oncology massage, and craniosacral therapy.',
+    description: 'Meet Natalie Gamble, massage therapist in Downtown DC and Georgetown specializing in lymphatic drainage, oncology massage, and craniosacral therapy.',
   },
   '/services/lymphatic/manual-lymphatic-drainage': {
     title: 'Manual Lymphatic Drainage | Ebb & Flow DC',
-    description: 'Gentle manual lymphatic drainage in Washington, DC for swelling, fluid retention, recovery support, and lymphatic maintenance.',
+    description: 'Gentle manual lymphatic drainage in Downtown DC and Georgetown for swelling, fluid retention, recovery support, and lymphatic maintenance.',
   },
   '/services/lymphatic/pre-post-op-lymphatic-massage': {
     title: 'Pre/Post-Op Lymphatic Massage | Ebb & Flow DC',
-    description: 'Pre and post-op lymphatic massage in Washington, DC to support swelling, comfort, scar healing, and recovery with provider-approved care.',
+    description: 'Pre and post-op lymphatic massage in Downtown DC and Georgetown to support swelling, comfort, scar healing, and recovery with provider-approved care.',
   },
   '/services/lymphatic/fertility-ivf-support-massage': {
     title: 'Fertility & IVF Support Massage | Ebb & Flow DC',
-    description: 'Fertility and IVF support massage in Washington, DC for bloating, tenderness, grounding, and comfort during treatment.',
+    description: 'Fertility and IVF support massage in Downtown DC and Georgetown for bloating, tenderness, grounding, and comfort during treatment.',
   },
   '/services/lymphatic/pregnancy-postpartum-lymphatic-massage': {
     title: 'Pregnancy & Postpartum Massage | Ebb & Flow DC',
-    description: 'Pregnancy and postpartum lymphatic massage in Washington, DC for swelling, comfort, recovery support, and scar tissue work.',
+    description: 'Pregnancy and postpartum lymphatic massage in Downtown DC and Georgetown for swelling, comfort, recovery support, and scar tissue work.',
   },
   '/services/lymphatic/lymphedema-lipedema-management': {
     title: 'Lymphedema & Lipedema Support | Ebb & Flow DC',
-    description: 'Massage support for lymphedema and lipedema in Washington, DC to help with heaviness, swelling, tenderness, and comfort.',
+    description: 'Massage support for lymphedema and lipedema in Downtown DC and Georgetown to help with heaviness, swelling, tenderness, and comfort.',
   },
   '/services/oncology-massage': {
     title: 'Oncology Massage | Ebb & Flow DC',
-    description: 'Safe, gentle oncology massage in Washington, DC for people in treatment, recovery, or survivorship who want supportive care.',
+    description: 'Safe, gentle oncology massage in Downtown DC and Georgetown for people in treatment, recovery, or survivorship who want supportive care.',
   },
   '/services/craniosacral-therapy': {
     title: 'Craniosacral Therapy | Ebb & Flow DC',
-    description: 'Craniosacral therapy in Washington, DC to support relaxation, nervous system regulation, and relief from tension patterns.',
+    description: 'Craniosacral therapy in Downtown DC and Georgetown to support relaxation, nervous system regulation, and relief from tension patterns.',
   },
   '/faq': {
     title: 'FAQ | Ebb & Flow Massage Studio',
