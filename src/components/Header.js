@@ -7,6 +7,11 @@ import {
   Bars3Icon,
   XMarkIcon,
   ChevronDownIcon,
+  ChevronRightIcon,
+  HomeIcon,
+  UserIcon,
+  Squares2X2Icon,
+  HeartIcon,
   GiftIcon,
   CalendarIcon,
   QuestionMarkCircleIcon,
@@ -42,6 +47,7 @@ const LYMPHATIC_SUBPAGES = [
 ];
 
 const isLymphaticPath = (p) => p.startsWith('/services/lymphatic/');
+const isServicePath = (p) => p.startsWith('/services/');
 
 function MobileSubReset({ open, onReset }) {
   const prevOpen = useRef(open);
@@ -56,17 +62,36 @@ export default function Header({ bgColor }) {
   const pathname = usePathname();
   const navigate = useTransitionNavigate();
   const { open: openSchedule } = useSchedule();
-  const [lymphMenuOpen, setLymphMenuOpen] = useState(false);
-  const [mobileSubOpen, setMobileSubOpen] = useState(() => isLymphaticPath(pathname));
+  const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
+  const [mobileNavDepth, setMobileNavDepth] = useState(0);
+  const [panelHeight, setPanelHeight] = useState(null);
+  const panelRefs = useRef([]);
   const closeTimer = useRef(null);
+
+  const measurePanel = useCallback((depth) => {
+    const el = panelRefs.current[depth];
+    if (!el) return;
+    // Temporarily make panel visible at natural height to measure
+    const prev = el.style.cssText;
+    el.style.position = 'absolute';
+    el.style.visibility = 'hidden';
+    el.style.height = 'auto';
+    const h = el.scrollHeight;
+    el.style.cssText = prev;
+    setPanelHeight(h);
+  }, []);
+
+  useEffect(() => {
+    measurePanel(mobileNavDepth);
+  }, [mobileNavDepth, measurePanel]);
 
   const openDesktopMenu = useCallback(() => {
     clearTimeout(closeTimer.current);
-    setLymphMenuOpen(true);
+    setServicesMenuOpen(true);
   }, []);
 
   const closeDesktopMenu = useCallback(() => {
-    closeTimer.current = setTimeout(() => setLymphMenuOpen(false), 150);
+    closeTimer.current = setTimeout(() => setServicesMenuOpen(false), 150);
   }, []);
 
   return (
@@ -109,6 +134,7 @@ export default function Header({ bgColor }) {
                       e.preventDefault();
                       navigate('/');
                     }}>
+                    <HomeIcon className="h-4 w-4 mr-1" aria-hidden="true" />
                     Home
                   </Button>
 
@@ -120,26 +146,24 @@ export default function Header({ bgColor }) {
                       e.preventDefault();
                       navigate('/about');
                     }}>
+                    <UserIcon className="h-4 w-4 mr-1" aria-hidden="true" />
                     About
                   </Button>
 
-                  {/* Lymphatic dropdown */}
+                  {/* Services dropdown */}
                   <div
                     className="relative"
                     onMouseEnter={openDesktopMenu}
                     onMouseLeave={closeDesktopMenu}>
                     <Button
                       variant="ghost"
-                      active={isLymphaticPath(pathname)}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        navigate('/services/lymphatic/manual-lymphatic-drainage');
-                      }}>
-                      Lymphatic
+                      active={isServicePath(pathname)}>
+                      <Squares2X2Icon className="h-4 w-4 mr-1" aria-hidden="true" />
+                      Services
                       <ChevronDownIcon
                         className={classNames(
                           'ml-1 h-3.5 w-3.5 transition-transform duration-200',
-                          lymphMenuOpen && 'rotate-180',
+                          servicesMenuOpen && 'rotate-180',
                         )}
                         aria-hidden="true"
                       />
@@ -147,15 +171,18 @@ export default function Header({ bgColor }) {
                     <div
                       className={classNames(
                         'absolute top-full left-1/2 -translate-x-1/2 pt-2 transition-all duration-200',
-                        lymphMenuOpen
+                        servicesMenuOpen
                           ? 'opacity-100 translate-y-0 pointer-events-auto'
                           : 'opacity-0 -translate-y-1 pointer-events-none',
                       )}>
                       <div
                         className={classNames(
                           bgColor || 'bg-blue',
-                          'rounded-xl shadow-header py-3 px-3 min-w-[280px]',
+                          'rounded-xl shadow-header py-3 px-3 min-w-[320px]',
                         )}>
+                        <span className="block text-xs uppercase tracking-widest text-blue-300/70 font-medium px-3 py-1.5">
+                          Lymphatic
+                        </span>
                         {LYMPHATIC_SUBPAGES.map((sub) => (
                           <Button
                             key={sub.path}
@@ -166,35 +193,39 @@ export default function Header({ bgColor }) {
                             onClick={(e) => {
                               e.preventDefault();
                               navigate(sub.path);
-                              setLymphMenuOpen(false);
+                              setServicesMenuOpen(false);
                             }}>
                             {sub.label}
                           </Button>
                         ))}
+                        <div className="border-t border-white/20 my-1.5" />
+                        <Button
+                          variant="ghost"
+                          href="/services/oncology-massage"
+                          active={pathname === '/services/oncology-massage'}
+                          className="w-full !justify-start whitespace-nowrap"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services/oncology-massage');
+                            setServicesMenuOpen(false);
+                          }}>
+                          Oncology Massage
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          href="/services/craniosacral-therapy"
+                          active={pathname === '/services/craniosacral-therapy'}
+                          className="w-full !justify-start whitespace-nowrap"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services/craniosacral-therapy');
+                            setServicesMenuOpen(false);
+                          }}>
+                          Craniosacral Therapy
+                        </Button>
                       </div>
                     </div>
                   </div>
-
-                  <Button
-                    variant="ghost"
-                    href="/services/oncology-massage"
-                    active={pathname === '/services/oncology-massage'}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/services/oncology-massage');
-                    }}>
-                    Oncology
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    href="/services/craniosacral-therapy"
-                    active={pathname === '/services/craniosacral-therapy'}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/services/craniosacral-therapy');
-                    }}>
-                    Craniosacral
-                  </Button>
                   <Button
                     variant="ghost"
                     href="/faq"
@@ -254,7 +285,7 @@ export default function Header({ bgColor }) {
             style={{ top: 50 }}>
             <MobileSubReset
               open={open}
-              onReset={() => setMobileSubOpen(isLymphaticPath(pathname))}
+              onReset={() => setMobileNavDepth(0)}
             />
             <div
               className={classNames(
@@ -269,56 +300,149 @@ export default function Header({ bgColor }) {
                 <nav
                   aria-label="Mobile navigation"
                   className="flex flex-col gap-2">
-                  <Button
-                    variant="ghost"
-                    href="/"
-                    active={pathname === '/'}
-                    className="w-full text-left"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/');
-                      close();
-                    }}>
-                    Home
-                  </Button>
-
-                  <Button
-                    variant="ghost"
-                    href="/about"
-                    active={pathname === '/about'}
-                    className="w-full text-left"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/about');
-                      close();
-                    }}>
-                    About
-                  </Button>
-
-                  {/* Lymphatic toggle + sub-links */}
-                  <div>
-                    <Button
-                      variant="ghost"
-                      active={isLymphaticPath(pathname)}
-                      className="w-full"
-                      onClick={() => setMobileSubOpen(!mobileSubOpen)}>
-                      Lymphatic
-                      <ChevronDownIcon
-                        className={classNames(
-                          'ml-1 h-3.5 w-3.5 transition-transform duration-200',
-                          mobileSubOpen && 'rotate-180',
-                        )}
-                        aria-hidden="true"
-                      />
-                    </Button>
+                  {/* Sliding panel area */}
+                  <div
+                    className={classNames(
+                      'overflow-hidden',
+                      panelHeight !== null && 'transition-[height] duration-300 ease-out',
+                    )}
+                    style={{ height: panelHeight ?? 'auto' }}>
                     <div
-                      className={classNames(
-                        'overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]',
-                        mobileSubOpen
-                          ? 'max-h-64 opacity-100'
-                          : 'max-h-0 opacity-0',
-                      )}>
-                      <div className="flex flex-col gap-1 items-center pt-1">
+                      className="flex transition-transform duration-300 ease-out"
+                      style={{ transform: `translateX(-${mobileNavDepth * 100}%)` }}>
+                      {/* Panel 0: Root */}
+                      <div ref={(el) => (panelRefs.current[0] = el)} className="w-full flex-shrink-0 flex flex-col gap-2">
+                        <Button
+                          variant="ghost"
+                          href="/"
+                          active={pathname === '/'}
+                          className="w-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/');
+                            close();
+                          }}>
+                          <HomeIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                          Home
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          href="/about"
+                          active={pathname === '/about'}
+                          className="w-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/about');
+                            close();
+                          }}>
+                          <UserIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                          About
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          active={isServicePath(pathname)}
+                          className="w-full"
+                          onClick={() => setMobileNavDepth(1)}>
+                          <Squares2X2Icon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                          Services
+                          <ChevronRightIcon
+                            className="ml-1 h-3.5 w-3.5"
+                            aria-hidden="true"
+                          />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          href="/faq"
+                          active={pathname === '/faq'}
+                          className="w-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/faq');
+                            close();
+                          }}>
+                          <QuestionMarkCircleIcon
+                            className="h-4 w-4 mr-1.5"
+                            aria-hidden="true"
+                          />
+                          FAQs
+                        </Button>
+                      </div>
+
+                      {/* Panel 1: Services */}
+                      <div ref={(el) => (panelRefs.current[1] = el)} className="w-full flex-shrink-0 flex flex-col gap-2">
+                        <div className="relative pb-1 mb-1 border-b border-white/15 flex items-center justify-center">
+                          <Button
+                            variant="ghost"
+                            className="absolute left-0 !text-xs !py-1"
+                            onClick={() => setMobileNavDepth(0)}>
+                            <ChevronRightIcon
+                              className="h-3 w-3 mr-0.5 rotate-180"
+                              aria-hidden="true"
+                            />
+                            <span className="hidden sm:inline">Back to Menu</span>
+                            <span className="sm:hidden">Back</span>
+                          </Button>
+                          <span className="flex items-center text-xs uppercase tracking-widest text-blue-300/50 font-medium py-1.5">
+                            <Squares2X2Icon className="h-3.5 w-3.5 mr-1.5" aria-hidden="true" />
+                            Services
+                          </span>
+                        </div>
+                        <Button
+                          variant="ghost"
+                          active={isLymphaticPath(pathname)}
+                          className="w-full"
+                          onClick={() => setMobileNavDepth(2)}>
+                          Lymphatic
+                          <ChevronRightIcon
+                            className="ml-1 h-3.5 w-3.5"
+                            aria-hidden="true"
+                          />
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          href="/services/oncology-massage"
+                          active={pathname === '/services/oncology-massage'}
+                          className="w-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services/oncology-massage');
+                            close();
+                          }}>
+                          Oncology Massage
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          href="/services/craniosacral-therapy"
+                          active={pathname === '/services/craniosacral-therapy'}
+                          className="w-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services/craniosacral-therapy');
+                            close();
+                          }}>
+                          Craniosacral Therapy
+                        </Button>
+                      </div>
+
+                      {/* Panel 2: Lymphatic */}
+                      <div ref={(el) => (panelRefs.current[2] = el)} className="w-full flex-shrink-0 flex flex-col gap-2">
+                        <div className="relative pb-1 mb-1 border-b border-white/15 flex items-center justify-center">
+                          <Button
+                            variant="ghost"
+                            className="absolute left-0 !text-xs !py-1"
+                            onClick={() => setMobileNavDepth(1)}>
+                            <ChevronRightIcon
+                              className="h-3 w-3 mr-0.5 rotate-180"
+                              aria-hidden="true"
+                            />
+                            <span className="hidden sm:inline">Back to Services</span>
+                            <span className="sm:hidden">Back</span>
+                          </Button>
+                          <span className="flex items-center text-xs uppercase tracking-widest text-blue-300/50 font-medium py-1.5">
+                            <HeartIcon className="h-3.5 w-3.5 mr-1.5" aria-hidden="true" />
+                            Lymphatic
+                          </span>
+                        </div>
                         {LYMPHATIC_SUBPAGES.map((sub) => (
                           <Button
                             key={sub.path}
@@ -338,46 +462,7 @@ export default function Header({ bgColor }) {
                     </div>
                   </div>
 
-                  <Button
-                    variant="ghost"
-                    href="/services/oncology-massage"
-                    active={pathname === '/services/oncology-massage'}
-                    className="w-full text-left"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/services/oncology-massage');
-                      close();
-                    }}>
-                    Oncology
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    href="/services/craniosacral-therapy"
-                    active={pathname === '/services/craniosacral-therapy'}
-                    className="w-full text-left"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/services/craniosacral-therapy');
-                      close();
-                    }}>
-                    Craniosacral
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    href="/faq"
-                    active={pathname === '/faq'}
-                    className="w-full text-left"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/faq');
-                      close();
-                    }}>
-                    <QuestionMarkCircleIcon
-                      className="h-4 w-4 mr-1.5"
-                      aria-hidden="true"
-                    />
-                    FAQs
-                  </Button>
+                  {/* Always visible actions */}
                   <div className="border-t border-white/20 my-1" />
                   <Button
                     variant="ghost"
