@@ -35,6 +35,10 @@ export const seoData = {
     title: 'Craniosacral Therapy | Ebb & Flow DC',
     description: 'Craniosacral therapy in Downtown DC and Georgetown to support relaxation, nervous system regulation, and relief from tension patterns.',
   },
+  '/contact': {
+    title: 'Contact Natalie Gamble | Ebb & Flow Massage DC',
+    description: 'Get in touch with Natalie Gamble at Ebb & Flow in Downtown DC and Georgetown. Text, call, or email about services, session packages, medical clearance, or scheduling.',
+  },
   '/faq': {
     title: 'FAQ | Ebb & Flow Massage Studio',
     description: 'Frequently asked questions about lymphatic drainage, oncology massage, craniosacral therapy, and booking at Ebb & Flow in Washington, DC.',

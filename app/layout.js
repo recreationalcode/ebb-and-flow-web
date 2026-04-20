@@ -8,7 +8,6 @@ import { TransitionProvider } from '@/src/components/TransitionProvider';
 import Header from '@/src/components/Header';
 import PageContent from '@/src/components/PageContent';
 import { MobileScheduleButton } from '@/src/ui/ScheduleButton';
-import ScheduleModal from '@/src/components/ScheduleModal';
 
 import './globals.css';
 
@@ -187,7 +186,6 @@ export default function RootLayout({ children }) {
             <PageContent>{children}</PageContent>
             <MobileScheduleButton />
           </TransitionProvider>
-          <ScheduleModal />
         </ScheduleProvider>
         <Analytics />
         <GoogleAnalytics gaId="G-08T80CNSW3" />

@@ -54,6 +54,16 @@ export default function PrePostOperativeLymphatic() {
       ]}
       cautions="If you have open incisions that have not been cleared, a fever, increasing redness or heat, unusual drainage, sudden swelling, calf pain, shortness of breath, or any concern for infection or a blood clot, please pause and contact your surgeon first. Depending on the procedure, timing, drains, medications, or complications, I may ask for medical clearance before booking. Scar tissue work is only appropriate once the incision is healed and you have been cleared by your provider."
       price="$150"
+      packages={[
+        {
+          name: 'Surgery Package',
+          description:
+            'For anyone preparing for or recovering from surgery who needs consistent lymphatic care throughout their healing process. Pay for 9 sessions, get 1 free.',
+          sessions: 10,
+          originalPrice: '$1,500',
+          packagePrice: '$1,350',
+        },
+      ]}
       theme={getTheme('/services/lymphatic/pre-post-op-lymphatic-massage')}
       faqSection="pre-post-surgical"
     />

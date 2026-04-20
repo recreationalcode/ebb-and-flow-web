@@ -16,6 +16,7 @@ export default function ServicePage({
   cautions,
   sessionTime = '60 minute sessions',
   price = '$150',
+  packages,
   theme,
   faqSection,
 }) {
@@ -110,6 +111,70 @@ export default function ServicePage({
           <span className="font-medium">{sessionTime}</span> for{' '}
           <span className="font-medium">{price}</span>
         </p>
+
+        {packages && packages.length > 0 && (
+          <>
+            <div className="h-10" />
+            <div className="max-w-2xl w-full">
+              <h2
+                className={classNames(
+                  'text-sm font-semibold uppercase tracking-widest mb-4 text-center',
+                  theme.sectionHeading,
+                )}>
+                Packages
+              </h2>
+              <div className="flex flex-col gap-4">
+                {packages.map((pkg) => (
+                  <div
+                    key={pkg.name}
+                    className="bg-white/10 rounded-2xl px-6 py-6 sm:px-8 sm:py-8 shadow-lg text-center">
+                    <h3
+                      className={classNames(
+                        'text-xl font-medium mb-2',
+                        theme.h1Color,
+                      )}>
+                      {pkg.name}
+                    </h3>
+                    <p
+                      className={classNames(
+                        'text-sm font-light leading-relaxed mb-4',
+                        theme.bodyText,
+                      )}>
+                      {pkg.description}
+                    </p>
+                    <p
+                      className={classNames(
+                        'text-sm font-light mb-1',
+                        theme.bodyText,
+                      )}>
+                      {pkg.sessions} sessions
+                    </p>
+                    <p className={classNames('text-lg', theme.bodyText)}>
+                      <span className="line-through opacity-60 mr-2">
+                        {pkg.originalPrice}
+                      </span>
+                      <span className="font-medium">{pkg.packagePrice}</span>
+                    </p>
+                    <p
+                      className={classNames(
+                        'text-xs font-light mt-4 mb-3',
+                        theme.bodyText,
+                      )}>
+                      Packages are available by contacting Natalie directly.
+                    </p>
+                    <Button
+                      variant="ghost"
+                      ghostOn={theme.ghost}
+                      ghostText={theme.ghostText}
+                      onClick={() => navigate('/contact')}>
+                      Contact to Purchase &rarr;
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
 
         <DesktopScheduleButton className="mt-6" />
       </Section>

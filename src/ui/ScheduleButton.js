@@ -2,16 +2,23 @@
 
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import Button from './Button';
+import TrackedLink from './TrackedLink';
 import { useSchedule } from '@/src/context/ScheduleContext';
 
-export default function ScheduleButton({ setSchedule, variant, className }) {
-  const schedule = useSchedule();
-  const handler = setSchedule || (schedule ? () => schedule.open() : () => {});
+export default function ScheduleButton({ variant, className }) {
+  const { bookingUrl } = useSchedule();
   return (
-    <Button variant={variant} className={className} onClick={handler}>
-      <CalendarIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
-      Schedule
-    </Button>
+    <TrackedLink
+      href={bookingUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      event="book_online_click"
+      eventParams={{ booking_url: bookingUrl }}>
+      <Button variant={variant} className={className}>
+        <CalendarIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+        Schedule
+      </Button>
+    </TrackedLink>
   );
 }
 

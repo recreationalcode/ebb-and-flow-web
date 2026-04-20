@@ -50,6 +50,7 @@ const routeTheme = {
   '/services/lymphatic/pregnancy-postpartum-lymphatic-massage': 'purple',
   '/services/oncology-massage': 'purple',
   '/services/craniosacral-therapy': 'gray',
+  '/contact': 'gray',
   '/faq': 'gray',
   '/privacy-policy': 'gray',
   '/terms-and-conditions': 'gray',

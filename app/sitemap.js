@@ -11,6 +11,7 @@ export default function sitemap() {
     { path: '/services/lymphatic/pregnancy-postpartum-lymphatic-massage', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/services/oncology-massage', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/services/craniosacral-therapy', priority: 0.8, changeFrequency: 'monthly' },
+    { path: '/contact', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/faq', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/privacy-policy', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/terms-and-conditions', priority: 0.3, changeFrequency: 'yearly' },

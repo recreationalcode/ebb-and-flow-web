@@ -15,11 +15,13 @@ import {
   GiftIcon,
   CalendarIcon,
   QuestionMarkCircleIcon,
+  EnvelopeIcon,
 } from '@heroicons/react/24/outline';
 
 import GrayBlueLogo from '@/src/assets/logos/Gray Blue Logo.png';
 import Button from '@/src/ui/Button';
 import classNames from '@/src/utils/classNames';
+import TrackedLink from '@/src/ui/TrackedLink';
 import { useSchedule } from '@/src/context/ScheduleContext';
 import { useTransitionNavigate } from './TransitionProvider';
 
@@ -61,7 +63,7 @@ function MobileSubReset({ open, onReset }) {
 export default function Header({ bgColor }) {
   const pathname = usePathname();
   const navigate = useTransitionNavigate();
-  const { open: openSchedule } = useSchedule();
+  const { bookingUrl } = useSchedule();
   const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
   const [mobileNavDepth, setMobileNavDepth] = useState(0);
   const [panelHeight, setPanelHeight] = useState(null);
@@ -112,7 +114,11 @@ export default function Header({ bgColor }) {
                     className="flex items-center cursor-pointer bg-transparent border-none p-0"
                     onClick={() => navigate('/')}
                     aria-label="Go to home page">
-                    <img className="h-10" src={GrayBlueLogo.src} alt="Ebb & Flow" />
+                    <img
+                      className="h-10"
+                      src={GrayBlueLogo.src}
+                      alt="Ebb & Flow"
+                    />
                     <span className="flex items-center gap-0.5 ml-3 sm:ml-4 mt-2 sm:mt-1.5">
                       <span className="font-script text-2xl sm:text-3xl text-gray-100 whitespace-nowrap">
                         Ebb & flow
@@ -157,8 +163,12 @@ export default function Header({ bgColor }) {
                     onMouseLeave={closeDesktopMenu}>
                     <Button
                       variant="ghost"
-                      active={isServicePath(pathname)}>
-                      <Squares2X2Icon className="h-4 w-4 mr-1" aria-hidden="true" />
+                      active={isServicePath(pathname)}
+                      className="mr-[-2px]">
+                      <Squares2X2Icon
+                        className="h-4 w-4 mr-1"
+                        aria-hidden="true"
+                      />
                       Services
                       <ChevronDownIcon
                         className={classNames(
@@ -240,6 +250,18 @@ export default function Header({ bgColor }) {
                     />
                     FAQs
                   </Button>
+
+                  <Button
+                    variant="ghost"
+                    href="/contact"
+                    active={pathname === '/contact'}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate('/contact');
+                    }}>
+                    <EnvelopeIcon className="h-4 w-4 mr-1" aria-hidden="true" />
+                    Contact
+                  </Button>
                 </nav>
                 <div className="hidden lg:flex items-center justify-end gap-2 ml-3 lg:ml-4">
                   <Button
@@ -251,15 +273,20 @@ export default function Header({ bgColor }) {
                     <GiftIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
                     Gift Card
                   </Button>
-                  <Button
-                    className="whitespace-nowrap"
-                    onClick={() => openSchedule()}>
-                    <CalendarIcon
-                      className="h-4 w-4 mr-1.5"
-                      aria-hidden="true"
-                    />
-                    Schedule
-                  </Button>
+                  <TrackedLink
+                    href={bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    event="book_online_click"
+                    eventParams={{ booking_url: bookingUrl }}>
+                    <Button className="whitespace-nowrap">
+                      <CalendarIcon
+                        className="h-4 w-4 mr-1.5"
+                        aria-hidden="true"
+                      />
+                      Schedule
+                    </Button>
+                  </TrackedLink>
                 </div>
                 <div className="lg:hidden">
                   <PopoverButton className="inline-flex items-center justify-center rounded-md p-2 text-blue-300 hover:text-white hover:bg-white/10 transition-colors">
@@ -283,10 +310,7 @@ export default function Header({ bgColor }) {
               !open && 'pointer-events-none',
             )}
             style={{ top: 50 }}>
-            <MobileSubReset
-              open={open}
-              onReset={() => setMobileNavDepth(0)}
-            />
+            <MobileSubReset open={open} onReset={() => setMobileNavDepth(0)} />
             <div
               className={classNames(
                 'transition-transform duration-300 ease-out',
@@ -304,14 +328,19 @@ export default function Header({ bgColor }) {
                   <div
                     className={classNames(
                       'overflow-hidden',
-                      panelHeight !== null && 'transition-[height] duration-300 ease-out',
+                      panelHeight !== null &&
+                        'transition-[height] duration-300 ease-out',
                     )}
                     style={{ height: panelHeight ?? 'auto' }}>
                     <div
                       className="flex transition-transform duration-300 ease-out"
-                      style={{ transform: `translateX(-${mobileNavDepth * 100}%)` }}>
+                      style={{
+                        transform: `translateX(-${mobileNavDepth * 100}%)`,
+                      }}>
                       {/* Panel 0: Root */}
-                      <div ref={(el) => (panelRefs.current[0] = el)} className="w-full flex-shrink-0 flex flex-col gap-2">
+                      <div
+                        ref={(el) => (panelRefs.current[0] = el)}
+                        className="w-full flex-shrink-0 flex flex-col gap-2">
                         <Button
                           variant="ghost"
                           href="/"
@@ -322,7 +351,10 @@ export default function Header({ bgColor }) {
                             navigate('/');
                             close();
                           }}>
-                          <HomeIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                          <HomeIcon
+                            className="h-4 w-4 mr-1.5"
+                            aria-hidden="true"
+                          />
                           Home
                         </Button>
                         <Button
@@ -335,7 +367,10 @@ export default function Header({ bgColor }) {
                             navigate('/about');
                             close();
                           }}>
-                          <UserIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                          <UserIcon
+                            className="h-4 w-4 mr-1.5"
+                            aria-hidden="true"
+                          />
                           About
                         </Button>
                         <Button
@@ -343,7 +378,10 @@ export default function Header({ bgColor }) {
                           active={isServicePath(pathname)}
                           className="w-full"
                           onClick={() => setMobileNavDepth(1)}>
-                          <Squares2X2Icon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+                          <Squares2X2Icon
+                            className="h-4 w-4 mr-1.5"
+                            aria-hidden="true"
+                          />
                           Services
                           <ChevronRightIcon
                             className="ml-1 h-3.5 w-3.5"
@@ -366,10 +404,28 @@ export default function Header({ bgColor }) {
                           />
                           FAQs
                         </Button>
+                        <Button
+                          variant="ghost"
+                          href="/contact"
+                          active={pathname === '/contact'}
+                          className="w-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/contact');
+                            close();
+                          }}>
+                          <EnvelopeIcon
+                            className="h-4 w-4 mr-1.5"
+                            aria-hidden="true"
+                          />
+                          Contact
+                        </Button>
                       </div>
 
                       {/* Panel 1: Services */}
-                      <div ref={(el) => (panelRefs.current[1] = el)} className="w-full flex-shrink-0 flex flex-col gap-2">
+                      <div
+                        ref={(el) => (panelRefs.current[1] = el)}
+                        className="w-full flex-shrink-0 flex flex-col gap-2">
                         <div className="relative pb-1 mb-1 border-b border-white/15 flex items-center justify-center">
                           <Button
                             variant="ghost"
@@ -379,11 +435,16 @@ export default function Header({ bgColor }) {
                               className="h-3 w-3 mr-0.5 rotate-180"
                               aria-hidden="true"
                             />
-                            <span className="hidden sm:inline">Back to Menu</span>
+                            <span className="hidden sm:inline">
+                              Back to Menu
+                            </span>
                             <span className="sm:hidden">Back</span>
                           </Button>
                           <span className="flex items-center text-xs uppercase tracking-widest text-blue-300/50 font-medium py-1.5">
-                            <Squares2X2Icon className="h-3.5 w-3.5 mr-1.5" aria-hidden="true" />
+                            <Squares2X2Icon
+                              className="h-3.5 w-3.5 mr-1.5"
+                              aria-hidden="true"
+                            />
                             Services
                           </span>
                         </div>
@@ -425,7 +486,9 @@ export default function Header({ bgColor }) {
                       </div>
 
                       {/* Panel 2: Lymphatic */}
-                      <div ref={(el) => (panelRefs.current[2] = el)} className="w-full flex-shrink-0 flex flex-col gap-2">
+                      <div
+                        ref={(el) => (panelRefs.current[2] = el)}
+                        className="w-full flex-shrink-0 flex flex-col gap-2">
                         <div className="relative pb-1 mb-1 border-b border-white/15 flex items-center justify-center">
                           <Button
                             variant="ghost"
@@ -435,11 +498,16 @@ export default function Header({ bgColor }) {
                               className="h-3 w-3 mr-0.5 rotate-180"
                               aria-hidden="true"
                             />
-                            <span className="hidden sm:inline">Back to Services</span>
+                            <span className="hidden sm:inline">
+                              Back to Services
+                            </span>
                             <span className="sm:hidden">Back</span>
                           </Button>
                           <span className="flex items-center text-xs uppercase tracking-widest text-blue-300/50 font-medium py-1.5">
-                            <HeartIcon className="h-3.5 w-3.5 mr-1.5" aria-hidden="true" />
+                            <HeartIcon
+                              className="h-3.5 w-3.5 mr-1.5"
+                              aria-hidden="true"
+                            />
                             Lymphatic
                           </span>
                         </div>
@@ -473,18 +541,21 @@ export default function Header({ bgColor }) {
                     <GiftIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
                     Gift Card
                   </Button>
-                  <Button
-                    className="w-full"
-                    onClick={() => {
-                      openSchedule();
-                      close();
-                    }}>
-                    <CalendarIcon
-                      className="h-4 w-4 mr-1.5"
-                      aria-hidden="true"
-                    />
-                    Schedule
-                  </Button>
+                  <TrackedLink
+                    href={bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    event="book_online_click"
+                    eventParams={{ booking_url: bookingUrl }}
+                    onClick={() => close()}>
+                    <Button className="w-full">
+                      <CalendarIcon
+                        className="h-4 w-4 mr-1.5"
+                        aria-hidden="true"
+                      />
+                      Schedule
+                    </Button>
+                  </TrackedLink>
                 </nav>
               </div>
             </div>

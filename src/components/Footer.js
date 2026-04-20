@@ -1,16 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import rcLogo from '@/src/assets/logos/rc-logo-mono.png';
 import Button from '@/src/ui/Button';
+import CopyableInfo from '@/src/ui/CopyableInfo';
 import TrackedLink from '@/src/ui/TrackedLink';
-import { HeartIcon, CheckIcon } from '@heroicons/react/24/solid';
+import { HeartIcon } from '@heroicons/react/24/solid';
 import {
   CalendarIcon,
-  ChatBubbleLeftIcon,
-  PhoneIcon,
   EnvelopeIcon,
-  Square2StackIcon,
 } from '@heroicons/react/24/outline';
 import { useTransitionNavigate } from './TransitionProvider';
 
@@ -25,15 +23,6 @@ function LocationCard({
   mapTitle,
   bookingUrl,
 }) {
-  const [copied, setCopied] = useState(false);
-
-  function copyAddress() {
-    navigator.clipboard.writeText(addressFull).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  }
-
   return (
     <div className="flex flex-col gap-4 bg-blue rounded-2xl px-6 py-6 sm:px-8 sm:py-8 shadow-lg flex-1">
       <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-blue-100">
@@ -42,29 +31,11 @@ function LocationCard({
       <div className="text-base sm:text-lg font-medium text-white">
         {days}
       </div>
-      <div className="flex items-stretch gap-0 bg-blue-600/50 rounded-xl w-fit max-w-full mx-auto">
-        <address className="text-sm font-light text-white not-italic leading-relaxed text-left px-4 py-3">
-          {addressLines.map((line, i) => (
-            <div key={i}>{line}</div>
-          ))}
-        </address>
-        <button
-          onClick={copyAddress}
-          className="flex-shrink-0 flex flex-col items-center justify-center gap-1 px-3 rounded-r-xl bg-blue-500/40 text-blue-100 hover:text-white hover:bg-blue-500/60 transition-colors text-xs font-medium"
-          aria-label="Copy address">
-          {copied ? (
-            <>
-              <CheckIcon className="h-5 w-5" />
-              <span className="hidden sm:inline">Copied</span>
-            </>
-          ) : (
-            <>
-              <Square2StackIcon className="h-5 w-5" />
-              <span className="hidden sm:inline">Copy</span>
-            </>
-          )}
-        </button>
-      </div>
+      <CopyableInfo copyText={addressFull} label="Address">
+        {addressLines.map((line, i) => (
+          <div key={i}>{line}</div>
+        ))}
+      </CopyableInfo>
       <div className="text-sm font-light text-blue-200">
         <span>Inside </span>
         <a
@@ -95,7 +66,7 @@ function LocationCard({
         eventParams={{ booking_url: bookingUrl }}>
         <Button className="w-full truncate">
           <CalendarIcon className="h-4 w-4 mr-1.5 flex-shrink-0" aria-hidden="true" />
-          <span className="truncate">Book at {name}</span>
+          <span className="truncate">Schedule at {name}</span>
         </Button>
       </TrackedLink>
     </div>
@@ -103,6 +74,7 @@ function LocationCard({
 }
 
 export default function Footer() {
+  const pathname = usePathname();
   const navigate = useTransitionNavigate();
 
   return (
@@ -166,36 +138,19 @@ export default function Footer() {
           />
         </div>
 
-        <div className="mt-10 sm:mt-12 sm:mx-auto sm:max-w-lg">
-          <p className="text-sm text-gray-600 font-medium mb-4">
-            Questions? Reach out to Natalie directly.
-          </p>
-          <div className="flex flex-row justify-center gap-3">
-            <TrackedLink href="sms:+18505293740" event="text_click">
-              <Button className="sm:text-sm">
-                <ChatBubbleLeftIcon
-                  className="h-4 w-4 mr-1.5"
-                  aria-hidden="true"
-                />
-                Text
-              </Button>
-            </TrackedLink>
-            <TrackedLink href="tel:+18505293740" event="call_click">
-              <Button className="sm:text-sm">
-                <PhoneIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
-                Call
-              </Button>
-            </TrackedLink>
-            <TrackedLink
-              href="mailto:nat@ebbandflowmassagestudio.com"
-              event="email_click">
-              <Button className="sm:text-sm">
-                <EnvelopeIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
-                Email
-              </Button>
-            </TrackedLink>
+        {pathname !== '/contact' && (
+          <div className="mt-10 sm:mt-12 sm:mx-auto sm:max-w-lg text-center">
+            <p className="text-sm text-gray-600 font-medium mb-4">
+              Questions? Reach out to Natalie directly.
+            </p>
+            <Button
+              className="sm:text-sm"
+              onClick={() => navigate('/contact')}>
+              <EnvelopeIcon className="h-4 w-4 mr-1.5" aria-hidden="true" />
+              Contact
+            </Button>
           </div>
-        </div>
+        )}
 
         <div className="flex justify-center gap-2 mt-12">
           <Button

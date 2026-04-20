@@ -1,8 +1,5 @@
 import ScheduleButton from '@/src/ui/ScheduleButton';
 
-const openSchedule = () =>
-  window.dispatchEvent(new CustomEvent('open-schedule'));
-
 const faqData = [
   {
     id: 'general',
@@ -52,7 +49,7 @@ const faqData = [
               advance. Do itttttttt! It feels really good to have those spots
               secured.
             </p>
-            <ScheduleButton setSchedule={openSchedule} className="mt-3" />
+            <ScheduleButton className="mt-3" />
           </>
         ),
       },
