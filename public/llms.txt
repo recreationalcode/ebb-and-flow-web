@@ -2,6 +2,8 @@
 
 > Clinical massage therapy in Downtown DC and Georgetown specializing in lymphatic drainage, oncology massage, and craniosacral therapy.
 
+Updated: 2026-04-23
+
 ## About
 
 Ebb & Flow is a clinical massage studio owned and operated by Natalie Gamble, a licensed massage therapist with advanced certifications in lymphatic drainage, oncology massage, and craniosacral therapy. Natalie sees clients at two locations in Washington, DC.
@@ -18,7 +20,7 @@ Natalie's credentials include: Licensed Massage Therapist (LMT), Certified Manua
 ### Georgetown / Glover Park
 - Address: 2300 Wisconsin Ave NW, #400b, Washington, DC 20007
 - Inside DC Acupuncture
-- Days: Mondays, Tuesdays & Thursdays
+- Days: Mondays, Tuesdays, Thursdays & Fridays
 
 ## Hours
 
@@ -43,7 +45,7 @@ Natalie's credentials include: Licensed Massage Therapist (LMT), Certified Manua
 
 ### Oncology Massage
 
-Safe, gentle massage adapted for people at any stage of cancer treatment, recovery, or survivorship. Natalie holds Tracy Walton's Oncology Massage certification. $130 per session.
+Safe, gentle massage adapted for people at any stage of cancer treatment, recovery, or survivorship. Natalie holds Tracy Walton's Oncology Massage certification (Medical Massage Practitioner, MMP). $130 per session.
 
 ### Craniosacral Therapy (CST)
 
@@ -53,6 +55,8 @@ Light-touch therapy working with the craniosacral system to support relaxation, 
 
 - [Home](https://www.ebbandflowmassagestudio.com/)
 - [About](https://www.ebbandflowmassagestudio.com/about)
+- [All Services](https://www.ebbandflowmassagestudio.com/services)
+- [Lymphatic Services](https://www.ebbandflowmassagestudio.com/services/lymphatic)
 - [Manual Lymphatic Drainage](https://www.ebbandflowmassagestudio.com/services/lymphatic/manual-lymphatic-drainage)
 - [Pre/Post-Op Lymphatic Massage](https://www.ebbandflowmassagestudio.com/services/lymphatic/pre-post-op-lymphatic-massage)
 - [Fertility & IVF Support](https://www.ebbandflowmassagestudio.com/services/lymphatic/fertility-ivf-support-massage)
@@ -60,4 +64,7 @@ Light-touch therapy working with the craniosacral system to support relaxation, 
 - [Lymphedema & Lipedema](https://www.ebbandflowmassagestudio.com/services/lymphatic/lymphedema-lipedema-management)
 - [Oncology Massage](https://www.ebbandflowmassagestudio.com/services/oncology-massage)
 - [Craniosacral Therapy](https://www.ebbandflowmassagestudio.com/services/craniosacral-therapy)
+- [Contact](https://www.ebbandflowmassagestudio.com/contact)
 - [FAQ](https://www.ebbandflowmassagestudio.com/faq)
+- [Book Downtown DC](https://ebbnflow.janeapp.com/locations/ebb-and-flow-downtown-dc/book)
+- [Book Georgetown / Glover Park](https://ebbnflow.janeapp.com/locations/ebb-and-flow-georgetown-glover-park/book)

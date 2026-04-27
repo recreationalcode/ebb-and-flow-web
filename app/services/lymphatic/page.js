@@ -1,8 +1,8 @@
-import FertilityIVFSupport from '@/src/components/FertilityIVFSupport';
+import LymphaticServices from '@/src/components/LymphaticServices';
 import { seoData } from '@/src/config/seo';
 import { generateBreadcrumbs } from '@/src/utils/breadcrumbSchema';
 
-const PATH = '/services/lymphatic/fertility-ivf-support-massage';
+const PATH = '/services/lymphatic';
 
 export async function generateMetadata() {
   const { title, description } = seoData[PATH];
@@ -19,7 +19,6 @@ const breadcrumbs = generateBreadcrumbs([
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
   { name: 'Lymphatic', path: '/services/lymphatic' },
-  { name: 'Fertility & IVF Support Massage', path: PATH },
 ]);
 
 export default function Page() {
@@ -29,7 +28,7 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <FertilityIVFSupport />
+      <LymphaticServices />
     </>
   );
 }

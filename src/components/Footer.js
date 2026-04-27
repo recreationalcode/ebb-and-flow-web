@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import rcLogo from '@/src/assets/logos/rc-logo-mono.png';
 import Button from '@/src/ui/Button';
@@ -127,7 +128,7 @@ export default function Footer() {
           />
           <LocationCard
             name="Georgetown / Glover Park"
-            days="Mondays, Tuesdays &amp; Thursdays"
+            days="Mondays, Tuesdays, Thursdays &amp; Fridays"
             addressLines={['2300 Wisconsin Ave NW, #400b', 'Washington, DC 20007']}
             addressFull="2300 Wisconsin Ave NW, #400b, Washington, DC 20007"
             insideOf="DC Acupuncture"
@@ -179,9 +180,11 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center justify-center gap-1.5 !px-1.5">
-            <img
-              src={rcLogo.src}
+            <Image
+              src={rcLogo}
               alt="Recreational Coder logo"
+              width={20}
+              height={20}
               className="h-5 w-5 brightness-0 opacity-30 group-hover:opacity-60 transition-opacity translate-y-px"
             />
             recreationalcoder

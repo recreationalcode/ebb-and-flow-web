@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useCallback, useEffect } from 'react';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import {
@@ -16,6 +17,7 @@ import {
   CalendarIcon,
   QuestionMarkCircleIcon,
   EnvelopeIcon,
+  ArrowRightIcon,
 } from '@heroicons/react/24/outline';
 
 import GrayBlueLogo from '@/src/assets/logos/Gray Blue Logo.png';
@@ -70,22 +72,26 @@ export default function Header({ bgColor }) {
   const panelRefs = useRef([]);
   const closeTimer = useRef(null);
 
-  const measurePanel = useCallback((depth) => {
-    const el = panelRefs.current[depth];
-    if (!el) return;
-    // Temporarily make panel visible at natural height to measure
-    const prev = el.style.cssText;
-    el.style.position = 'absolute';
-    el.style.visibility = 'hidden';
-    el.style.height = 'auto';
-    const h = el.scrollHeight;
-    el.style.cssText = prev;
-    setPanelHeight(h);
+  const cachedHeights = useRef({});
+
+  // Measure all panels once on mount, cache heights to avoid forced reflows on interaction
+  useEffect(() => {
+    panelRefs.current.forEach((el, i) => {
+      if (el) {
+        const prev = el.style.cssText;
+        el.style.position = 'absolute';
+        el.style.visibility = 'hidden';
+        el.style.height = 'auto';
+        cachedHeights.current[i] = el.scrollHeight;
+        el.style.cssText = prev;
+      }
+    });
   }, []);
 
   useEffect(() => {
-    measurePanel(mobileNavDepth);
-  }, [mobileNavDepth, measurePanel]);
+    const h = cachedHeights.current[mobileNavDepth];
+    if (h != null) setPanelHeight(h);
+  }, [mobileNavDepth]);
 
   const openDesktopMenu = useCallback(() => {
     clearTimeout(closeTimer.current);
@@ -114,10 +120,13 @@ export default function Header({ bgColor }) {
                     className="flex items-center cursor-pointer bg-transparent border-none p-0"
                     onClick={() => navigate('/')}
                     aria-label="Go to home page">
-                    <img
-                      className="h-10"
-                      src={GrayBlueLogo.src}
+                    <Image
+                      src={GrayBlueLogo}
                       alt="Ebb & Flow"
+                      width={40}
+                      height={40}
+                      priority
+                      className="h-10 w-auto"
                     />
                     <span className="flex items-center gap-0.5 ml-3 sm:ml-4 mt-2 sm:mt-1.5">
                       <span className="font-script text-2xl sm:text-3xl text-gray-100 whitespace-nowrap">
@@ -232,6 +241,23 @@ export default function Header({ bgColor }) {
                             setServicesMenuOpen(false);
                           }}>
                           Craniosacral Therapy
+                        </Button>
+                        <div className="border-t border-white/20 my-1.5" />
+                        <Button
+                          variant="ghost"
+                          href="/services"
+                          active={pathname === '/services'}
+                          className="w-full !justify-start whitespace-nowrap"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services');
+                            setServicesMenuOpen(false);
+                          }}>
+                          All Services
+                          <ArrowRightIcon
+                            className="ml-1.5 h-3.5 w-3.5"
+                            aria-hidden="true"
+                          />
                         </Button>
                       </div>
                     </div>
@@ -482,6 +508,23 @@ export default function Header({ bgColor }) {
                             close();
                           }}>
                           Craniosacral Therapy
+                        </Button>
+                        <div className="border-t border-white/15 my-1" />
+                        <Button
+                          variant="ghost"
+                          href="/services"
+                          active={pathname === '/services'}
+                          className="w-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services');
+                            close();
+                          }}>
+                          All Services
+                          <ArrowRightIcon
+                            className="ml-1.5 h-3.5 w-3.5"
+                            aria-hidden="true"
+                          />
                         </Button>
                       </div>
 

@@ -43,6 +43,8 @@ const palette = {
 const routeTheme = {
   '/': 'gray',
   '/about': 'gray',
+  '/services': 'gray',
+  '/services/lymphatic': 'blue',
   '/services/lymphatic/manual-lymphatic-drainage': 'blue',
   '/services/lymphatic/pre-post-op-lymphatic-massage': 'purple',
   '/services/lymphatic/lymphedema-lipedema-management': 'gray',

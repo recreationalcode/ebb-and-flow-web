@@ -25,7 +25,7 @@ const faqData = [
               <li>
                 <strong>Georgetown / Glover Park</strong>{' '}
                 <span>
-                  on Mondays, Tuesdays &amp; Thursdays, inside DC Acupuncture
+                  on Mondays, Tuesdays, Thursdays &amp; Fridays, inside DC Acupuncture
                   (2300 Wisconsin Ave NW, #400b).
                 </span>
               </li>
@@ -46,7 +46,7 @@ const faqData = [
               required to hold your spot. You can book online or by calling,
               texting, or emailing me if you have questions. If you like booking
               online, you can reserve multiple sessions up to 60 days in
-              advance. Do itttttttt! It feels really good to have those spots
+              advance. I highly recommend it! It feels really good to have those spots
               secured.
             </p>
             <ScheduleButton className="mt-3" />
@@ -77,11 +77,10 @@ const faqData = [
         a: (
           <p>
             Yes, please. Post-op care tends to be most helpful when it is
-            planned out in advance. Highly recommend planning ahead and booking
-            your post-op lymphatic drainage appointments in advance. Post-op MLD
-            is time sensitive and requires anywhere from 10&ndash;12
-            appointments and you don&rsquo;t need any additional stress
-            scrambling for aftercare.
+            planned out in advance. Post-op MLD is time sensitive and typically
+            requires anywhere from 10&ndash;12 appointments. I highly recommend
+            booking those sessions ahead of time so you don&rsquo;t have the
+            additional stress of scrambling for aftercare during recovery.
           </p>
         ),
       },

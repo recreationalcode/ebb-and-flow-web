@@ -1,11 +1,19 @@
 export const seoData = {
   '/': {
-    title: 'Ebb & Flow | Massage Studio in Downtown DC & Georgetown',
+    title: 'Ebb & Flow | Lymphatic & Oncology Massage in DC',
     description: 'Lymphatic drainage, oncology massage, and craniosacral therapy in Downtown DC and Georgetown. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
   },
   '/about': {
     title: 'About Natalie Gamble | Ebb & Flow Massage',
     description: 'Meet Natalie Gamble, massage therapist in Downtown DC and Georgetown specializing in lymphatic drainage, oncology massage, and craniosacral therapy.',
+  },
+  '/services': {
+    title: 'Services | Ebb & Flow Massage Studio DC',
+    description: 'Explore massage services at Ebb & Flow in Downtown DC and Georgetown: lymphatic drainage, oncology massage, craniosacral therapy, and more.',
+  },
+  '/services/lymphatic': {
+    title: 'Lymphatic Drainage Services | Ebb & Flow DC',
+    description: 'Lymphatic drainage massage services in Downtown DC and Georgetown: MLD, pre/post-op support, fertility and pregnancy care, lymphedema and lipedema management.',
   },
   '/services/lymphatic/manual-lymphatic-drainage': {
     title: 'Manual Lymphatic Drainage | Ebb & Flow DC',

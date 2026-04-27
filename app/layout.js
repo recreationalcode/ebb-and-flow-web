@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 const saturdayScript = localFont({
-  src: '../src/assets/fonts/SaturdayScriptOblique.otf',
+  src: '../src/assets/fonts/SaturdayScriptOblique.woff2',
   variable: '--font-script',
   display: 'swap',
 });
@@ -27,7 +27,7 @@ export async function generateMetadata() {
   return {
     metadataBase: new URL('https://www.ebbandflowmassagestudio.com'),
     title: {
-      default: 'Ebb & Flow Massage Studio | Lymphatic Drainage, Oncology Massage & Craniosacral Therapy in Washington, DC',
+      default: 'Ebb & Flow | Lymphatic & Oncology Massage in DC',
       template: '%s',
     },
     description: 'Ebb & Flow Massage Studio in Downtown DC and Georgetown specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
@@ -57,22 +57,81 @@ export async function generateMetadata() {
   };
 }
 
+const BASE = 'https://www.ebbandflowmassagestudio.com';
+
+const serviceOffers = [
+  {
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: 'Manual Lymphatic Drainage', url: `${BASE}/services/lymphatic/manual-lymphatic-drainage`, description: 'Gentle, rhythmic bodywork to support lymph flow and reduce swelling.' },
+    price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
+    seller: { '@id': `${BASE}/#organization` },
+  },
+  {
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: 'Pre/Post-Op Lymphatic Massage', url: `${BASE}/services/lymphatic/pre-post-op-lymphatic-massage`, description: 'Gentle lymphatic support before and after surgery for comfort and recovery.' },
+    price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
+    seller: { '@id': `${BASE}/#organization` },
+  },
+  {
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: 'Lymphedema and Lipedema Management', url: `${BASE}/services/lymphatic/lymphedema-lipedema-management`, description: 'Supportive lymphatic care for swelling, heaviness, and discomfort from lymphedema or lipedema.' },
+    price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
+    seller: { '@id': `${BASE}/#organization` },
+  },
+  {
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: 'Fertility and IVF Support Massage', url: `${BASE}/services/lymphatic/fertility-ivf-support-massage`, description: 'Gentle, lymphatic-focused bodywork for comfort and grounding during fertility treatment.' },
+    price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
+    seller: { '@id': `${BASE}/#organization` },
+  },
+  {
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: 'Pregnancy and Postpartum Lymphatic Massage', url: `${BASE}/services/lymphatic/pregnancy-postpartum-lymphatic-massage`, description: 'Gentle bodywork for swelling, comfort, and recovery during pregnancy and postpartum.' },
+    price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
+    seller: { '@id': `${BASE}/#organization` },
+  },
+  {
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: 'Oncology Massage', url: `${BASE}/services/oncology-massage`, description: 'Thoughtfully adapted massage for people in treatment, recovery, or survivorship. Natalie holds Tracy Walton\'s Oncology Massage certification.' },
+    price: '130.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
+    seller: { '@id': `${BASE}/#organization` },
+  },
+  {
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: 'Craniosacral Therapy', url: `${BASE}/services/craniosacral-therapy`, description: 'Gentle hands-on therapy to help the body settle and release tension patterns.' },
+    price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
+    seller: { '@id': `${BASE}/#organization` },
+  },
+];
+
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': ['LocalBusiness', 'HealthAndBeautyBusiness'],
-  name: 'Ebb and Flow Massage Studio',
-  description: 'Massage studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy.',
-  url: 'https://www.ebbandflowmassagestudio.com',
-  telephone: '+18505293740',
-  email: 'nat@ebbandflowmassagestudio.com',
-  image: 'https://www.ebbandflowmassagestudio.com/logo512.png',
-  location: [
+  '@graph': [
     {
-      '@type': 'Place',
-      name: 'Ebb and Flow – Downtown DC',
+      '@type': 'Organization',
+      '@id': `${BASE}/#organization`,
+      name: 'Ebb and Flow Massage Studio',
+      url: BASE,
+      logo: `${BASE}/logo512.png`,
+      sameAs: [
+        'https://www.linkedin.com/company/ebb-and-flow-massage/',
+        'https://www.facebook.com/ebbandflowmassagestudio',
+        'https://www.instagram.com/ebbandflowmassagestudio/',
+      ],
+      founder: { '@id': `${BASE}/#natalie-gamble` },
+    },
+    {
+      '@type': ['LocalBusiness', 'HealthAndBeautyBusiness'],
+      '@id': `${BASE}/#location-downtown`,
+      name: 'Ebb and Flow Massage Studio — Downtown DC',
+      description: 'Massage studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy.',
+      url: BASE,
+      telephone: '+18505293740',
+      email: 'nat@ebbandflowmassagestudio.com',
+      image: `${BASE}/logo512.png`,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '910 17th Street NW, #1020',
+        streetAddress: '910 17th Street NW, Suite 1020',
         addressLocality: 'Washington',
         addressRegion: 'DC',
         postalCode: '20006',
@@ -80,13 +139,36 @@ const jsonLd = {
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 38.9017,
-        longitude: -77.0395,
+        latitude: 38.90188,
+        longitude: -77.03950,
+      },
+      parentOrganization: { '@id': `${BASE}/#organization` },
+      priceRange: '$130+',
+      openingHoursSpecification: [
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Wednesday', opens: '09:00', closes: '17:00' },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '17:00' },
+      ],
+      areaServed: {
+        '@type': 'City',
+        name: 'Washington, D.C.',
+        sameAs: 'https://en.wikipedia.org/wiki/Washington,_D.C.',
+      },
+      employee: { '@id': `${BASE}/#natalie-gamble` },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Massage Services',
+        itemListElement: serviceOffers,
       },
     },
     {
-      '@type': 'Place',
-      name: 'Ebb and Flow – Georgetown / Glover Park',
+      '@type': ['LocalBusiness', 'HealthAndBeautyBusiness'],
+      '@id': `${BASE}/#location-georgetown`,
+      name: 'Ebb and Flow Massage Studio — Georgetown / Glover Park',
+      description: 'Massage studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy.',
+      url: BASE,
+      telephone: '+18505293740',
+      email: 'nat@ebbandflowmassagestudio.com',
+      image: `${BASE}/logo512.png`,
       address: {
         '@type': 'PostalAddress',
         streetAddress: '2300 Wisconsin Ave NW, #400b',
@@ -97,76 +179,56 @@ const jsonLd = {
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: 38.9201,
-        longitude: -77.0719,
+        latitude: 38.92013,
+        longitude: -77.07190,
       },
+      parentOrganization: { '@id': `${BASE}/#organization` },
+      priceRange: '$130+',
+      openingHoursSpecification: [
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Monday', opens: '09:00', closes: '17:00' },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Tuesday', opens: '09:00', closes: '17:00' },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Thursday', opens: '09:00', closes: '17:00' },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Friday', opens: '09:00', closes: '17:00' },
+      ],
+      areaServed: {
+        '@type': 'City',
+        name: 'Washington, D.C.',
+        sameAs: 'https://en.wikipedia.org/wiki/Washington,_D.C.',
+      },
+      employee: { '@id': `${BASE}/#natalie-gamble` },
     },
-  ],
-  areaServed: {
-    '@type': 'City',
-    name: 'Washington, D.C.',
-    sameAs: 'https://en.wikipedia.org/wiki/Washington,_D.C.',
-  },
-  founder: {
-    '@type': 'Person',
-    name: 'Natalie Gamble',
-    jobTitle: 'Licensed Massage Therapist (LMT, CMLDT, MMP, CST)',
-    url: 'https://www.ebbandflowmassagestudio.com/about',
-  },
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Massage Services',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Manual Lymphatic Drainage', url: 'https://www.ebbandflowmassagestudio.com/services/lymphatic/manual-lymphatic-drainage', description: 'Gentle, rhythmic bodywork to support lymph flow and reduce swelling.' },
-        price: '150.00', priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Pre/Post-Op Lymphatic Massage', url: 'https://www.ebbandflowmassagestudio.com/services/lymphatic/pre-post-op-lymphatic-massage', description: 'Gentle lymphatic support before and after surgery for comfort and recovery.' },
-        price: '150.00', priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Lymphedema and Lipedema Management', url: 'https://www.ebbandflowmassagestudio.com/services/lymphatic/lymphedema-lipedema-management', description: 'Supportive lymphatic care for swelling, heaviness, and discomfort from lymphedema or lipedema.' },
-        price: '150.00', priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Fertility and IVF Support Massage', url: 'https://www.ebbandflowmassagestudio.com/services/lymphatic/fertility-ivf-support-massage', description: 'Gentle, lymphatic-focused bodywork for comfort and grounding during fertility treatment.' },
-        price: '150.00', priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Pregnancy and Postpartum Lymphatic Massage', url: 'https://www.ebbandflowmassagestudio.com/services/lymphatic/pregnancy-postpartum-lymphatic-massage', description: 'Gentle bodywork for swelling, comfort, and recovery during pregnancy and postpartum.' },
-        price: '150.00', priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Oncology Massage', url: 'https://www.ebbandflowmassagestudio.com/services/oncology-massage', description: 'Thoughtfully adapted massage for people in treatment, recovery, or survivorship.' },
-        price: '130.00', priceCurrency: 'USD',
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: 'Craniosacral Therapy', url: 'https://www.ebbandflowmassagestudio.com/services/craniosacral-therapy', description: 'Gentle hands-on therapy to help the body settle and release tension patterns.' },
-        price: '150.00', priceCurrency: 'USD',
-      },
-    ],
-  },
-  sameAs: [
-    'https://www.linkedin.com/company/ebb-and-flow-massage/',
-    'https://www.facebook.com/ebbandflowmassagestudio',
-    'https://www.instagram.com/ebbandflowmassagestudio/',
-  ],
-  priceRange: '$130+',
-  openingHours: ['Mo 09:00-17:00', 'Tu 09:00-17:00', 'We 09:00-17:00', 'Th 09:00-17:00', 'Sa 09:00-17:00'],
-  openingHoursSpecification: [
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Monday', opens: '09:00', closes: '17:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Tuesday', opens: '09:00', closes: '17:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Wednesday', opens: '09:00', closes: '17:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Thursday', opens: '09:00', closes: '17:00' },
-    { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '17:00' },
+    {
+      '@type': 'Person',
+      '@id': `${BASE}/#natalie-gamble`,
+      name: 'Natalie Gamble',
+      jobTitle: 'Licensed Massage Therapist',
+      url: `${BASE}/about`,
+      image: `${BASE}/ng.jpeg`,
+      worksFor: { '@id': `${BASE}/#organization` },
+      knowsAbout: [
+        'Manual Lymphatic Drainage',
+        'Oncology Massage',
+        'Craniosacral Therapy',
+        'Lymphedema Management',
+        'Lipedema Management',
+        'Pre/Post-Operative Massage',
+        'Pregnancy Massage',
+        'Fertility Massage',
+      ],
+      hasCredential: [
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Licensed Massage Therapist (LMT)' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Certified Manual Lymphatic Drainage Therapist (CMLDT)' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Medical Massage Practitioner (MMP)' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Craniosacral Therapist (CST)' },
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${BASE}/#website`,
+      url: BASE,
+      name: 'Ebb and Flow Massage Studio',
+      publisher: { '@id': `${BASE}/#organization` },
+    },
   ],
 };
 
