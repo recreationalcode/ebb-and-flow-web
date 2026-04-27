@@ -217,6 +217,22 @@ export default function Header({ bgColor }) {
                             {sub.label}
                           </Button>
                         ))}
+                        <Button
+                          variant="ghost"
+                          href="/services/lymphatic"
+                          active={pathname === '/services/lymphatic'}
+                          className="w-full !justify-start whitespace-nowrap !text-xs !text-blue-300/60"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services/lymphatic');
+                            setServicesMenuOpen(false);
+                          }}>
+                          All Lymphatic Services
+                          <ArrowRightIcon
+                            className="ml-1 h-3 w-3"
+                            aria-hidden="true"
+                          />
+                        </Button>
                         <div className="border-t border-white/20 my-1.5" />
                         <Button
                           variant="ghost"
@@ -569,6 +585,23 @@ export default function Header({ bgColor }) {
                             {sub.label}
                           </Button>
                         ))}
+                        <div className="border-t border-white/15 my-1" />
+                        <Button
+                          variant="ghost"
+                          href="/services/lymphatic"
+                          active={pathname === '/services/lymphatic'}
+                          className="w-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services/lymphatic');
+                            close();
+                          }}>
+                          All Lymphatic Services
+                          <ArrowRightIcon
+                            className="ml-1.5 h-3.5 w-3.5"
+                            aria-hidden="true"
+                          />
+                        </Button>
                       </div>
                     </div>
                   </div>

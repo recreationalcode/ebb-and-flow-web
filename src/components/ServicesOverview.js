@@ -1,8 +1,7 @@
 'use client';
 
-import Button from '@/src/ui/Button';
+import ServiceCard from '@/src/ui/ServiceCard';
 import { DesktopScheduleButton } from '@/src/ui/ScheduleButton';
-import { useTransitionNavigate } from './TransitionProvider';
 import Section from './Section';
 
 const services = [
@@ -51,8 +50,6 @@ const services = [
 ];
 
 export default function ServicesOverview() {
-  const navigate = useTransitionNavigate();
-
   return (
     <Section ariaLabel="All Services" className="flex flex-col items-center">
       <h1 className="font-script text-5xl sm:text-6xl text-purple mb-4 text-center">
@@ -64,23 +61,7 @@ export default function ServicesOverview() {
       </p>
       <div className="max-w-2xl w-full space-y-6">
         {services.map((service) => (
-          <button
-            key={service.path}
-            type="button"
-            onClick={() => navigate(service.path)}
-            className="w-full text-left bg-white/60 rounded-2xl px-6 py-6 sm:px-8 sm:py-8 shadow-sm hover:shadow-md transition-shadow cursor-pointer border border-gray-100">
-            <div className="flex items-baseline justify-between gap-4 mb-2">
-              <h2 className="text-lg sm:text-xl font-medium text-blue">
-                {service.name}
-              </h2>
-              <span className="text-sm font-medium text-gray-500 whitespace-nowrap">
-                {service.price}
-              </span>
-            </div>
-            <p className="text-sm font-light text-gray-600 leading-relaxed">
-              {service.description}
-            </p>
-          </button>
+          <ServiceCard key={service.path} {...service} />
         ))}
       </div>
       <DesktopScheduleButton className="mt-8" />
