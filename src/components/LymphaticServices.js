@@ -9,27 +9,32 @@ const services = [
   {
     name: 'Manual Lymphatic Drainage (MLD)',
     path: '/services/lymphatic/manual-lymphatic-drainage',
-    description: 'The foundation of lymphatic bodywork. Gentle, rhythmic technique to support fluid movement, reduce swelling, and promote recovery. A fit for fluid retention, post-travel swelling, seasonal wellness, and general lymphatic maintenance.',
+    description:
+      'The foundation of lymphatic bodywork. Gentle, rhythmic technique to support fluid movement, reduce swelling, and promote recovery. A fit for fluid retention, post-travel swelling, seasonal wellness, and general lymphatic maintenance.',
   },
   {
     name: 'Pre / Post-Op Lymphatic Massage',
     path: '/services/lymphatic/pre-post-op-lymphatic-massage',
-    description: 'Prepare your body before surgery and support recovery after. Helps reduce swelling, support scar healing, and improve comfort during the post-op window. Provider approval required.',
+    description:
+      'Prepare your body before surgery and support recovery after. Helps reduce swelling, support scar healing, and improve comfort during the post-op window. Provider approval required.',
   },
   {
     name: 'Fertility & IVF Support Massage',
     path: '/services/lymphatic/fertility-ivf-support-massage',
-    description: 'Gentle lymphatic support during fertility treatments, including IVF and egg retrieval. Addresses bloating, tenderness, and provides grounding during a high-stress season.',
+    description:
+      'Gentle lymphatic support during fertility treatments, including IVF and egg retrieval. Addresses bloating, tenderness, and provides grounding during a high-stress season.',
   },
   {
     name: 'Pregnancy & Postpartum Lymphatic Massage',
     path: '/services/lymphatic/pregnancy-postpartum-lymphatic-massage',
-    description: 'Lymphatic massage tailored for pregnancy-related swelling, postpartum recovery, engorgement, and C-section scar tissue work with provider approval.',
+    description:
+      'Lymphatic massage tailored for pregnancy-related swelling, postpartum recovery, engorgement, and C-section scar tissue work with provider approval.',
   },
   {
     name: 'Lymphedema & Lipedema Management',
     path: '/services/lymphatic/lymphedema-lipedema-management',
-    description: 'Ongoing supportive care for people managing lymphedema or lipedema. Focused on reducing heaviness, swelling, and tenderness while improving comfort and mobility.',
+    description:
+      'Ongoing supportive care for people managing lymphedema or lipedema. Focused on reducing heaviness, swelling, and tenderness while improving comfort and mobility.',
   },
 ];
 
@@ -37,7 +42,9 @@ export default function LymphaticServices() {
   const navigate = useTransitionNavigate();
 
   return (
-    <Section ariaLabel="Lymphatic Drainage Services" className="flex flex-col items-center">
+    <Section
+      ariaLabel="Lymphatic Drainage Services"
+      className="flex flex-col items-center">
       <h1 className="font-script text-5xl sm:text-6xl text-blue mb-4 text-center">
         Lymphatic Drainage Services
       </h1>
@@ -45,7 +52,7 @@ export default function LymphaticServices() {
         All lymphatic services at Ebb &amp; Flow are rooted in Manual Lymphatic
         Drainage (MLD), a gentle and precise technique that supports the
         body&rsquo;s natural fluid movement. Each service below is adapted to a
-        specific context&mdash;from surgical recovery to pregnancy to chronic
+        specific context, from surgical recovery to pregnancy to chronic
         condition management.
       </p>
       <p className="max-w-xl text-sm font-light text-gray-500 text-center mb-10">
@@ -72,10 +79,16 @@ export default function LymphaticServices() {
           Looking for oncology massage or craniosacral therapy?
         </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <Button variant="ghost" ghostOn="gray" onClick={() => navigate('/services/oncology-massage')}>
+          <Button
+            variant="ghost"
+            ghostOn="gray"
+            onClick={() => navigate('/services/oncology-massage')}>
             Oncology Massage
           </Button>
-          <Button variant="ghost" ghostOn="gray" onClick={() => navigate('/services/craniosacral-therapy')}>
+          <Button
+            variant="ghost"
+            ghostOn="gray"
+            onClick={() => navigate('/services/craniosacral-therapy')}>
             Craniosacral Therapy
           </Button>
         </div>
