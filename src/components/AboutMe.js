@@ -38,10 +38,10 @@ export default function AboutMe() {
             lipedema management.
           </li>
           <li>
-            <strong>Medical Massage Practitioner (MMP)</strong> - certified
-            through Tracy Walton &amp; Associates in oncology massage, which
-            prepares therapists to work safely with people in active cancer
-            treatment, recovery, and survivorship.
+            <strong>Certified Oncology Massage</strong> - certified through
+            Tracy Walton &amp; Associates in oncology massage, which prepares
+            therapists to work safely with people in active cancer treatment,
+            recovery, and survivorship.
           </li>
           <li>
             <strong>Craniosacral Therapist (CST)</strong> - trained in gentle,

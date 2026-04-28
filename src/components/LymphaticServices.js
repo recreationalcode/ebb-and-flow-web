@@ -19,7 +19,7 @@ const services = [
     path: '/services/lymphatic/pre-post-op-lymphatic-massage',
     price: '$150',
     description:
-      'Prepare your body before surgery and support recovery after. Helps reduce swelling, support scar healing, and improve comfort during the post-op window. Provider approval required.',
+      'Prepare your body before surgery and support recovery after. Helps reduce swelling, support scar healing, and improve comfort during the post-op window.',
   },
   {
     name: 'Fertility & IVF Support Massage',
@@ -33,7 +33,7 @@ const services = [
     path: '/services/lymphatic/pregnancy-postpartum-lymphatic-massage',
     price: '$150',
     description:
-      'Lymphatic massage tailored for pregnancy-related swelling, postpartum recovery, engorgement, and C-section scar tissue work with provider approval.',
+      'Lymphatic massage tailored for pregnancy-related swelling, postpartum recovery, engorgement, and C-section scar tissue work.',
   },
   {
     name: 'Lymphedema & Lipedema Management',
@@ -69,7 +69,9 @@ export default function LymphaticServices() {
           <ServiceCard key={service.path} {...service} />
         ))}
       </div>
-      <div className="mt-8 text-center">
+      <DesktopScheduleButton className="mt-8" />
+
+      <div className="mt-10 text-center">
         <p className="text-sm font-light text-gray-500 mb-4">
           Looking for oncology massage or craniosacral therapy?
         </p>
@@ -88,7 +90,6 @@ export default function LymphaticServices() {
           </Button>
         </div>
       </div>
-      <DesktopScheduleButton className="mt-6" />
     </Section>
   );
 }

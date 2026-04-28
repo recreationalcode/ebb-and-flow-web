@@ -125,9 +125,9 @@ export default function Info() {
           specialized bodywork for people navigating recovery, managing chronic
           conditions, or simply looking for targeted, expert care. Natalie
           Gamble (that's me!) brings advanced certifications in Manual Lymphatic
-          Drainage (CMLDT), Oncology Massage (MMP), and Craniosacral Therapy
-          (CST) to every session, tailoring each treatment to your body and your
-          goals.
+          Drainage (CMLDT), Oncology Massage (Tracy Walton&rsquo;s), and
+          Craniosacral Therapy (CST) to every session, tailoring each treatment
+          to your body and your goals.
         </p>
         <p className="text-sm font-light text-gray-700 leading-relaxed">
           Whether you are preparing for surgery, recovering from a procedure,
