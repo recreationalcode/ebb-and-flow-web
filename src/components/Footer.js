@@ -15,7 +15,6 @@ import { useTransitionNavigate } from './TransitionProvider';
 
 function LocationCard({
   name,
-  days,
   addressLines,
   addressFull,
   insideOf,
@@ -28,9 +27,6 @@ function LocationCard({
     <div className="flex flex-col gap-4 bg-blue rounded-2xl px-6 py-6 sm:px-8 sm:py-8 shadow-lg flex-1">
       <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-blue-100">
         {name}
-      </div>
-      <div className="text-base sm:text-lg font-medium text-white">
-        {days}
       </div>
       <CopyableInfo copyText={addressFull} label="Address">
         {addressLines.map((line, i) => (
@@ -105,35 +101,23 @@ export default function Footer() {
             9:00 AM &ndash; 5:00 PM
           </div>
           <p className="text-sm font-light text-gray-500 mt-2">
-            I see clients at two locations depending on the day of the week! See
-            below for more information.
+            I see clients in Georgetown / Glover Park inside DC Acupuncture. See
+            below for the address.
           </p>
         </div>
 
         <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-gray-600 mb-6 sm:mb-8">
-          Locations
+          Location
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 lg:mx-auto lg:max-w-4xl">
-          <LocationCard
-            name="Downtown DC"
-            days="Wednesdays &amp; Saturdays"
-            addressLines={['910 17th Street NW, Suite 1020', 'Washington, DC 20006']}
-            addressFull="910 17th Street NW, Suite 1020, Washington, DC 20006"
-            insideOf="Yao Shan Center for Chinese Medicine"
-            insideUrl="https://yaoshancenter.com/"
-            mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.9667265936364!2d-77.0398039!3d38.9018762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b702b2f89c25%3A0x3053ccabaca800cf!2sEbb%20%26%20Flow!5e0!3m2!1sen!2sus!4v1773886460882!5m2!1sen!2sus"
-            mapTitle="Ebb & Flow Downtown DC location"
-            bookingUrl="https://ebbnflow.janeapp.com/locations/ebb-and-flow-downtown-dc/book"
-          />
+        <div className="lg:mx-auto lg:max-w-md">
           <LocationCard
             name="Georgetown / Glover Park"
-            days="Mondays, Tuesdays, Thursdays &amp; Fridays"
             addressLines={['2300 Wisconsin Ave NW, #400b', 'Washington, DC 20007']}
             addressFull="2300 Wisconsin Ave NW, #400b, Washington, DC 20007"
             insideOf="DC Acupuncture"
             insideUrl="https://www.dcacupuncture.net/"
-            mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.1683122157688!2d-77.0718575!3d38.9201303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b637523c0c2b%3A0x431e038cb36a68f1!2sDC%20Acupuncture%2C%20LLC!5e0!3m2!1sen!2sus!4v1776517368168!5m2!1sen!2sus"
+            mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3055.666431650553!2d-77.0719167!3d38.92011289999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7820bdb3063%3A0xcacd2ac326590dc!2sEbb%20and%20Flow%20Massage%20Studio!5e1!3m2!1sen!2sus!4v1778366184565!5m2!1sen!2sus"
             mapTitle="Ebb & Flow Georgetown / Glover Park location"
             bookingUrl="https://ebbnflow.janeapp.com/locations/ebb-and-flow-georgetown-glover-park/book"
           />

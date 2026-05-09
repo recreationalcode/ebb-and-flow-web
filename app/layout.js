@@ -30,7 +30,7 @@ export async function generateMetadata() {
       default: 'Ebb & Flow | Lymphatic & Oncology Massage in DC',
       template: '%s',
     },
-    description: 'Ebb & Flow Massage Studio in Downtown DC and Georgetown specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
+    description: 'Ebb & Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
     openGraph: {
       type: 'website',
       siteName: 'Ebb & Flow Massage Studio',
@@ -122,46 +122,6 @@ const jsonLd = {
     },
     {
       '@type': ['LocalBusiness', 'HealthAndBeautyBusiness'],
-      '@id': `${BASE}/#location-downtown`,
-      name: 'Ebb and Flow Massage Studio — Downtown DC',
-      description: 'Massage studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy.',
-      url: BASE,
-      telephone: '+18505293740',
-      email: 'nat@ebbandflowmassagestudio.com',
-      image: `${BASE}/logo512.png`,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '910 17th Street NW, Suite 1020',
-        addressLocality: 'Washington',
-        addressRegion: 'DC',
-        postalCode: '20006',
-        addressCountry: 'US',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 38.90188,
-        longitude: -77.03950,
-      },
-      parentOrganization: { '@id': `${BASE}/#organization` },
-      priceRange: '$130+',
-      openingHoursSpecification: [
-        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Wednesday', opens: '09:00', closes: '17:00' },
-        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '17:00' },
-      ],
-      areaServed: {
-        '@type': 'City',
-        name: 'Washington, D.C.',
-        sameAs: 'https://en.wikipedia.org/wiki/Washington,_D.C.',
-      },
-      employee: { '@id': `${BASE}/#natalie-gamble` },
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Massage Services',
-        itemListElement: serviceOffers,
-      },
-    },
-    {
-      '@type': ['LocalBusiness', 'HealthAndBeautyBusiness'],
       '@id': `${BASE}/#location-georgetown`,
       name: 'Ebb and Flow Massage Studio — Georgetown / Glover Park',
       description: 'Massage studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy.',
@@ -187,8 +147,10 @@ const jsonLd = {
       openingHoursSpecification: [
         { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Monday', opens: '09:00', closes: '17:00' },
         { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Tuesday', opens: '09:00', closes: '17:00' },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Wednesday', opens: '09:00', closes: '17:00' },
         { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Thursday', opens: '09:00', closes: '17:00' },
         { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Friday', opens: '09:00', closes: '17:00' },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '17:00' },
       ],
       areaServed: {
         '@type': 'City',
@@ -196,6 +158,11 @@ const jsonLd = {
         sameAs: 'https://en.wikipedia.org/wiki/Washington,_D.C.',
       },
       employee: { '@id': `${BASE}/#natalie-gamble` },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Massage Services',
+        itemListElement: serviceOffers,
+      },
     },
     {
       '@type': 'Person',

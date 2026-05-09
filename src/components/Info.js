@@ -138,12 +138,10 @@ export default function Info() {
           therapeutic bodywork.
         </p>
         <p className="text-sm font-light text-gray-700 leading-relaxed">
-          Ebb &amp; Flow operates from two locations in Washington, DC: Downtown
-          DC on Wednesdays and Saturdays inside the Yao Shan Center for Chinese
-          Medicine, and Georgetown / Glover Park on Mondays, Tuesdays,
-          Thursdays, and Fridays inside DC Acupuncture. Sessions are available
-          by appointment only, and you can book online through Jane App up to 60
-          days in advance.
+          Ebb &amp; Flow is located in Georgetown / Glover Park, Washington, DC,
+          inside DC Acupuncture. Sessions are available Mondays through
+          Saturdays by appointment only, and you can book online through Jane
+          App up to 60 days in advance.
         </p>
       </div>
     </Section>

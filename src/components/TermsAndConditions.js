@@ -20,8 +20,7 @@ export default function TermsAndConditions() {
             <p>
               Ebb & Flow Massage Studio provides massage therapy services by
               Natalie Gamble, a Licensed Massage Therapist (LMT, CMLDT, MMP,
-              CST). All services are provided at Yao Shan Center for Chinese
-              Medicine in Washington, DC.
+              CST). All services are provided in Washington, DC.
             </p>
           </div>
 

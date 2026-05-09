@@ -11,28 +11,13 @@ const faqData = [
         a: (
           <>
             <p>
-              I see clients at two locations in Washington, DC depending on the
-              day of the week.
+              I see clients in <strong>Georgetown / Glover Park</strong>, inside
+              DC Acupuncture (2300 Wisconsin Ave NW, #400b, Washington, DC
+              20007).
             </p>
-            <ul className="list-disc list-outside pl-5 space-y-2 mt-3">
-              <li>
-                <strong>Downtown DC</strong>{' '}
-                <span>
-                  on Wednesdays &amp; Saturdays, inside the Yao Shan Center for
-                  Chinese Medicine (910 17th St NW, Suite 1020).
-                </span>
-              </li>
-              <li>
-                <strong>Georgetown / Glover Park</strong>{' '}
-                <span>
-                  on Mondays, Tuesdays, Thursdays &amp; Fridays, inside DC Acupuncture
-                  (2300 Wisconsin Ave NW, #400b).
-                </span>
-              </li>
-            </ul>
             <p className="mt-3">
-              Both locations are available 9:00 AM &ndash; 5:00 PM. When you
-              book, just pick the location and day that works best for you!
+              I&rsquo;m available Mondays through Saturdays, 9:00 AM &ndash;
+              5:00 PM. Book the day that works best for you!
             </p>
           </>
         ),
@@ -59,7 +44,7 @@ const faqData = [
           <p>
             Full payment is due at the time of service. I accept cash, checks,
             and credit cards, including Visa, Mastercard, Discover, and American
-            Express. HSA and FSA cards are also accepted.
+            Express. Some HSA and FSA cards are also accepted.
           </p>
         ),
       },

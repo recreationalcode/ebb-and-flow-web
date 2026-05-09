@@ -1,30 +1,25 @@
 # Ebb & Flow Massage Studio
 
-> Clinical massage therapy in Downtown DC and Georgetown specializing in lymphatic drainage, oncology massage, and craniosacral therapy.
+> Clinical massage therapy in Washington, DC specializing in lymphatic drainage, oncology massage, and craniosacral therapy.
 
-Updated: 2026-04-23
+Updated: 2026-05-09
 
 ## About
 
-Ebb & Flow is a clinical massage studio owned and operated by Natalie Gamble, a licensed massage therapist with advanced certifications in lymphatic drainage, oncology massage, and craniosacral therapy. Natalie sees clients at two locations in Washington, DC.
+Ebb & Flow is a clinical massage studio owned and operated by Natalie Gamble, a licensed massage therapist with advanced certifications in lymphatic drainage, oncology massage, and craniosacral therapy. Natalie sees clients in Washington, DC.
 
 Natalie's credentials include: Licensed Massage Therapist (LMT), Certified Manual Lymphatic Drainage Therapist (CMLDT), Medical Massage Practitioner (MMP), and Craniosacral Therapist (CST).
 
-## Locations
-
-### Downtown DC
-- Address: 910 17th Street NW, Suite 1020, Washington, DC 20006
-- Inside the Yao Shan Center for Chinese Medicine
-- Days: Wednesdays & Saturdays
+## Location
 
 ### Georgetown / Glover Park
 - Address: 2300 Wisconsin Ave NW, #400b, Washington, DC 20007
 - Inside DC Acupuncture
-- Days: Mondays, Tuesdays, Thursdays & Fridays
+- Days: Mondays through Saturdays
 
 ## Hours
 
-- Monday - Saturday: 9:00 AM - 5:00 PM (location varies by day)
+- Monday - Saturday: 9:00 AM - 5:00 PM
 - By appointment only
 
 ## Contact
@@ -66,5 +61,4 @@ Light-touch therapy working with the craniosacral system to support relaxation, 
 - [Craniosacral Therapy](https://www.ebbandflowmassagestudio.com/services/craniosacral-therapy)
 - [Contact](https://www.ebbandflowmassagestudio.com/contact)
 - [FAQ](https://www.ebbandflowmassagestudio.com/faq)
-- [Book Downtown DC](https://ebbnflow.janeapp.com/locations/ebb-and-flow-downtown-dc/book)
-- [Book Georgetown / Glover Park](https://ebbnflow.janeapp.com/locations/ebb-and-flow-georgetown-glover-park/book)
+- [Book Online](https://ebbnflow.janeapp.com/locations/ebb-and-flow-georgetown-glover-park/book)
