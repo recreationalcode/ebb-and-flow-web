@@ -15,11 +15,18 @@ const faqData = [
               DC Acupuncture (2300 Wisconsin Ave NW, #400b, Washington, DC
               20007).
             </p>
-            <p className="mt-3">
-              I&rsquo;m available Mondays through Saturdays, 9:00 AM &ndash;
-              5:00 PM. Book the day that works best for you!
-            </p>
           </>
+        ),
+      },
+      {
+        q: 'What are your hours?',
+        a: (
+          <ul className="list-disc list-outside pl-5 space-y-2">
+            <li>Mondays through Thursdays: 9:00 AM &ndash; 5:00 PM.</li>
+            <li>Fridays: 9:00 AM &ndash; 1:00 PM.</li>
+            <li>Saturdays: 9:00 AM &ndash; 4:00 PM.</li>
+            <li>Closed Sundays.</li>
+          </ul>
         ),
       },
       {

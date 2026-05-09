@@ -92,13 +92,21 @@ export default function Footer() {
       <div className="text-center px-6 pt-8 sm:pt-12 pb-24 sm:pb-16">
         <div className="mb-8 sm:mb-10">
           <div className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-gray-600 mb-3">
-            Availability
+            Hours
           </div>
-          <div className="text-lg sm:text-xl font-medium text-blue">
-            Monday &ndash; Saturday
-          </div>
-          <div className="text-base sm:text-lg font-light text-gray-600">
-            9:00 AM &ndash; 5:00 PM
+          <div className="text-base sm:text-lg font-light text-gray-600 space-y-0.5">
+            <div>
+              <span className="font-medium text-blue">Mon &ndash; Thu</span>{' '}
+              9:00 AM &ndash; 5:00 PM
+            </div>
+            <div>
+              <span className="font-medium text-blue">Fri</span>{' '}
+              9:00 AM &ndash; 1:00 PM
+            </div>
+            <div>
+              <span className="font-medium text-blue">Sat</span>{' '}
+              9:00 AM &ndash; 4:00 PM
+            </div>
           </div>
           <p className="text-sm font-light text-gray-500 mt-2">
             I see clients in Georgetown / Glover Park inside DC Acupuncture. See
