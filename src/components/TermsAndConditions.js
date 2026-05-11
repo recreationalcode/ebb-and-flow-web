@@ -18,7 +18,7 @@ export default function TermsAndConditions() {
               Services
             </h2>
             <p>
-              Ebb & Flow Massage Studio provides massage therapy services by
+              Ebb and Flow Massage Studio provides massage therapy services by
               Natalie Gamble, a Licensed Massage Therapist (LMT, CMLDT, MMP,
               CST). All services are provided in Washington, DC.
             </p>
@@ -65,7 +65,7 @@ export default function TermsAndConditions() {
             </h2>
             <p>
               Gift cards are non-refundable and have no expiration date. They may
-              be applied toward any service offered by Ebb & Flow Massage Studio.
+              be applied toward any service offered by Ebb and Flow Massage Studio.
             </p>
           </div>
 
@@ -74,7 +74,7 @@ export default function TermsAndConditions() {
               Limitation of Liability
             </h2>
             <p>
-              Ebb & Flow Massage Studio and Natalie Gamble are not liable for any
+              Ebb and Flow Massage Studio and Natalie Gamble are not liable for any
               injury or adverse reaction resulting from massage therapy services.
               By booking an appointment, you acknowledge and accept the inherent
               risks associated with massage therapy.

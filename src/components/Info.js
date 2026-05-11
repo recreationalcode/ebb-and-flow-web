@@ -33,7 +33,7 @@ export default function Info() {
         <div className="flex flex-col items-center">
           <Image
             src={NatalieGamble}
-            alt="Natalie Gamble, Licensed Massage Therapist and founder of Ebb & Flow Massage Studio"
+            alt="Natalie Gamble, Licensed Massage Therapist and founder of Ebb and Flow Massage Studio"
             width={192}
             height={192}
             priority

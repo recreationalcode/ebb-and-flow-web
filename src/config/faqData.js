@@ -23,8 +23,7 @@ const faqData = [
         a: (
           <ul className="list-disc list-outside pl-5 space-y-2">
             <li>Mondays through Thursdays: 9:00 AM &ndash; 5:00 PM.</li>
-            <li>Fridays: 9:00 AM &ndash; 1:00 PM.</li>
-            <li>Saturdays: 9:00 AM &ndash; 4:00 PM.</li>
+            <li>Fridays and Saturdays: 9:00 AM &ndash; 4:00 PM.</li>
             <li>Closed Sundays.</li>
           </ul>
         ),

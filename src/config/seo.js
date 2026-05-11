@@ -8,7 +8,7 @@ export const seoData = {
     description: 'Meet Natalie Gamble, massage therapist in Washington, DC specializing in lymphatic drainage, oncology massage, and craniosacral therapy.',
   },
   '/services': {
-    title: 'Services | Ebb & Flow Massage Studio DC',
+    title: 'Services | Ebb and Flow Massage Studio DC',
     description: 'Explore massage services at Ebb & Flow in Washington, DC: lymphatic drainage, oncology massage, craniosacral therapy, and more.',
   },
   '/services/lymphatic': {
@@ -48,15 +48,15 @@ export const seoData = {
     description: 'Get in touch with Natalie Gamble at Ebb & Flow in Washington, DC. Text, call, or email about services, session packages, medical clearance, or scheduling.',
   },
   '/faq': {
-    title: 'FAQ | Ebb & Flow Massage Studio',
+    title: 'FAQ | Ebb and Flow Massage Studio',
     description: 'Frequently asked questions about lymphatic drainage, oncology massage, craniosacral therapy, and booking at Ebb & Flow in Washington, DC.',
   },
   '/privacy-policy': {
-    title: 'Privacy Policy | Ebb & Flow Massage Studio',
-    description: 'Privacy policy for Ebb & Flow Massage Studio in Washington, DC. How we collect, use, and protect your personal information.',
+    title: 'Privacy Policy | Ebb and Flow Massage Studio',
+    description: 'Privacy policy for Ebb and Flow Massage Studio in Washington, DC. How we collect, use, and protect your personal information.',
   },
   '/terms-and-conditions': {
-    title: 'Terms & Conditions | Ebb & Flow Massage Studio',
-    description: 'Terms and conditions for Ebb & Flow Massage Studio in Washington, DC, including appointments, cancellations, and service policies.',
+    title: 'Terms & Conditions | Ebb and Flow Massage Studio',
+    description: 'Terms and conditions for Ebb and Flow Massage Studio in Washington, DC, including appointments, cancellations, and service policies.',
   },
 };

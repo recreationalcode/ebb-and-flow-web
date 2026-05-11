@@ -1,12 +1,12 @@
-# Ebb & Flow Massage Studio
+# Ebb and Flow Massage Studio
 
 > Clinical massage therapy in Washington, DC specializing in lymphatic drainage, oncology massage, and craniosacral therapy.
 
-Updated: 2026-05-09
+Updated: 2026-05-11
 
 ## About
 
-Ebb & Flow is a clinical massage studio owned and operated by Natalie Gamble, a licensed massage therapist with advanced certifications in lymphatic drainage, oncology massage, and craniosacral therapy. Natalie sees clients in Washington, DC.
+Ebb and Flow is a clinical massage studio owned and operated by Natalie Gamble, a licensed massage therapist with advanced certifications in lymphatic drainage, oncology massage, and craniosacral therapy. Natalie sees clients in Washington, DC.
 
 Natalie's credentials include: Licensed Massage Therapist (LMT), Certified Manual Lymphatic Drainage Therapist (CMLDT), Medical Massage Practitioner (MMP), and Craniosacral Therapist (CST).
 
@@ -19,8 +19,7 @@ Natalie's credentials include: Licensed Massage Therapist (LMT), Certified Manua
 ## Hours
 
 - Monday - Thursday: 9:00 AM - 5:00 PM
-- Friday: 9:00 AM - 1:00 PM
-- Saturday: 9:00 AM - 4:00 PM
+- Friday - Saturday: 9:00 AM - 4:00 PM
 - Sunday: Closed
 - By appointment only
 

@@ -100,11 +100,7 @@ export default function Footer() {
               9:00 AM &ndash; 5:00 PM
             </div>
             <div>
-              <span className="font-medium text-blue">Fri</span>{' '}
-              9:00 AM &ndash; 1:00 PM
-            </div>
-            <div>
-              <span className="font-medium text-blue">Sat</span>{' '}
+              <span className="font-medium text-blue">Fri &ndash; Sat</span>{' '}
               9:00 AM &ndash; 4:00 PM
             </div>
           </div>

@@ -30,16 +30,16 @@ export async function generateMetadata() {
       default: 'Ebb & Flow | Lymphatic & Oncology Massage in DC',
       template: '%s',
     },
-    description: 'Ebb & Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
+    description: 'Ebb and Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
     openGraph: {
       type: 'website',
-      siteName: 'Ebb & Flow Massage Studio',
+      siteName: 'Ebb and Flow Massage Studio',
       locale: 'en_US',
       images: [{
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Ebb & Flow Massage Studio logo — Clinical Care for a Focused, Fluid, and Functional Body',
+        alt: 'Ebb and Flow Massage Studio logo — Clinical Care for a Focused, Fluid, and Functional Body',
       }],
     },
     twitter: {
@@ -146,8 +146,7 @@ const jsonLd = {
       priceRange: '$130+',
       openingHoursSpecification: [
         { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '09:00', closes: '17:00' },
-        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Friday', opens: '09:00', closes: '13:00' },
-        { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '09:00', closes: '16:00' },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Friday', 'Saturday'], opens: '09:00', closes: '16:00' },
       ],
       areaServed: {
         '@type': 'City',
