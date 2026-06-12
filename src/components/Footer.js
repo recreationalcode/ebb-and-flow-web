@@ -141,7 +141,19 @@ export default function Footer() {
           </div>
         )}
 
-        <div className="flex justify-center gap-2 mt-12">
+        <p className="mt-12 text-sm font-light text-gray-500">
+          Natalie is a proud member of the{' '}
+          <a
+            href="https://www.amtamassage.org/famt/1640762/natalie-gamble"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 decoration-gray-400 hover:decoration-gray-600 transition-colors text-gray-600">
+            American Massage Therapy Association
+          </a>
+          .
+        </p>
+
+        <div className="flex justify-center gap-2 mt-4">
           <Button
             variant="ghost"
             ghostOn="gray"
