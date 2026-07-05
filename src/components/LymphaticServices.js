@@ -12,14 +12,14 @@ const services = [
     path: '/services/lymphatic/manual-lymphatic-drainage',
     price: '$150',
     description:
-      'The foundation of lymphatic bodywork. Gentle, rhythmic technique to support fluid movement, reduce swelling, and promote recovery. A fit for fluid retention, post-travel swelling, seasonal wellness, and general lymphatic maintenance.',
+      'The foundation of lymphatic bodywork. Gentle, rhythmic technique to support fluid movement, reduce swelling, and promote recovery. A fit for fluid retention, post-travel swelling, seasonal wellness, and general lymphatic maintenance. Sessions can open with optional vagus nerve stimulation.',
   },
   {
     name: 'Pre / Post-Op Lymphatic Massage',
     path: '/services/lymphatic/pre-post-op-lymphatic-massage',
     price: '$150',
     description:
-      'Prepare your body before surgery and support recovery after. Helps reduce swelling, support scar healing, and improve comfort during the post-op window.',
+      'Prepare your body before surgery and support recovery after. Helps reduce swelling, support scar healing, including MPS scar release therapy, and improve comfort during the post-op window.',
   },
   {
     name: 'Fertility & IVF Support Massage',

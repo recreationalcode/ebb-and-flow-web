@@ -35,6 +35,14 @@ export const seoData = {
     title: 'Lymphedema & Lipedema Support | Ebb & Flow DC',
     description: 'Massage support for lymphedema and lipedema in Washington, DC to help with heaviness, swelling, tenderness, and comfort.',
   },
+  '/services/scar-release-therapy': {
+    title: 'Scar Release Therapy (MPS) | Ebb & Flow DC',
+    description: 'Scar tissue release therapy in Washington, DC. Gentle Dolphin Neurostim microcurrent (MPS) to soften C-section and surgical scars and ease restriction.',
+  },
+  '/services/vagus-nerve-stimulation': {
+    title: 'Vagus Nerve Stimulation | Ebb & Flow DC',
+    description: 'Non-invasive vagus nerve stimulation in Washington, DC. Dolphin Neurostim VNS to support vagal tone, calm the nervous system, and deepen relaxation.',
+  },
   '/services/oncology-massage': {
     title: 'Oncology Massage | Ebb & Flow DC',
     description: 'Safe, gentle oncology massage in Washington, DC for people in treatment, recovery, or survivorship who want supportive care.',

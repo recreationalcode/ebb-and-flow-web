@@ -383,6 +383,45 @@ const faqData = [
           </p>
         ),
       },
+      {
+        q: 'What is vagus nerve stimulation?',
+        a: (
+          <>
+            <p>
+              The vagus nerve is the longest cranial nerve in your body and the
+              main driver of your parasympathetic nervous system, the
+              &ldquo;rest and digest&rdquo; state where real recovery happens.
+              I offer non-invasive vagus nerve stimulation using the Dolphin
+              Neurostim: soft clips rest on the ear and deliver a very gentle
+              microcurrent that helps support vagal tone and ease your system
+              out of stress mode.
+            </p>
+            <p className="mt-3">
+              It is not a separate service or an extra charge. The clips simply
+              go on at the start of a session so the lymphatic work that
+              follows lands even better. You can read more on my{' '}
+              <a
+                href="/services/vagus-nerve-stimulation"
+                className="underline underline-offset-2">
+                vagus nerve stimulation
+              </a>{' '}
+              page.
+            </p>
+          </>
+        ),
+      },
+      {
+        q: 'What does vagus nerve stimulation feel like?',
+        a: (
+          <p>
+            Honestly? Like permission to do nothing. The soft clips rest on
+            your ear for about 10 to 15 minutes while you settle in, and most
+            people feel little more than a faint tingle, if anything. Breathing
+            slows, shoulders drop, and by the time I begin the hands-on work
+            your body is already halfway to relaxed.
+          </p>
+        ),
+      },
     ],
   },
   {
@@ -490,6 +529,55 @@ const faqData = [
               drainage therapy.
             </li>
           </ul>
+        ),
+      },
+      {
+        q: 'What is scar release therapy?',
+        a: (
+          <>
+            <p>
+              Scar release therapy is gentle microcurrent work that helps scar
+              tissue soften, fade, and let go of the adhesions underneath. I
+              use the Dolphin Neurostim to apply microcurrent point stimulation
+              (MPS) along each side of the scar, which supports the
+              skin&rsquo;s own healing response and helps ease that tight,
+              pulling, or stuck feeling.
+            </p>
+            <p className="mt-3">
+              It is not booked as a separate service. Once your incision is
+              healed and your provider has cleared you, I incorporate it into
+              pre/post-op or postpartum sessions. You can read more on my{' '}
+              <a
+                href="/services/scar-release-therapy"
+                className="underline underline-offset-2">
+                scar release therapy
+              </a>{' '}
+              page.
+            </p>
+          </>
+        ),
+      },
+      {
+        q: 'Does scar release therapy hurt?',
+        a: (
+          <p>
+            No. The current is very low, and most people feel little more than
+            a light tingle while the probes rest along each side of the scar.
+            This is not aggressive scar mobilization; the whole point is to
+            invite the tissue to release rather than force it.
+          </p>
+        ),
+      },
+      {
+        q: 'How many scar release sessions will I need?',
+        a: (
+          <p>
+            It depends on the age, depth, and size of the scar. Many people
+            notice changes in the appearance and mobility of a scar within 1 to
+            3 sessions, and deeper or older scars may take longer. The
+            encouraging part: there is no expiration date on this work. Even
+            scars that are decades old can still respond.
+          </p>
         ),
       },
     ],

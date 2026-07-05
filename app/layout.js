@@ -177,6 +177,9 @@ const jsonLd = {
         'Pre/Post-Operative Massage',
         'Pregnancy Massage',
         'Fertility Massage',
+        'Scar Release Therapy',
+        'Vagus Nerve Stimulation',
+        'Microcurrent Point Stimulation (MPS)',
       ],
       hasCredential: [
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Licensed Massage Therapist (LMT)' },

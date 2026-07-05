@@ -1,7 +1,10 @@
 'use client';
 
 import ServicePage from './ServicePage';
+import TransitionLink from './TransitionLink';
 import { getTheme } from '@/src/config/routeColors';
+
+const linkClass = 'underline underline-offset-2 hover:opacity-80';
 
 export default function PrePostOperativeLymphatic() {
   return (
@@ -51,6 +54,37 @@ export default function PrePostOperativeLymphatic() {
         'you are looking for post-op bodywork that is calm, careful, and not overly intense',
         'you are 6 to 8 weeks out from surgery and want provider-approved scar tissue support',
         'you want care that takes your recovery timeline seriously',
+      ]}
+      extraSections={[
+        {
+          heading: 'Scar Release Therapy',
+          content: (
+            <>
+              <p>
+                For scars that feel tight, raised, or restricted, I also offer{' '}
+                <a
+                  className={linkClass}
+                  href="https://www.dolphinmps.com/mps-scar-release-therapy/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  MPS Scar Release Therapy
+                </a>{' '}
+                with the Dolphin Neurostim. This gentle microcurrent point
+                stimulation helps soften and fade scar tissue, release
+                adhesions, and restore circulation and lymph flow through the
+                area. It is a natural complement to post-op lymphatic massage
+                for C-section, mastectomy, and other surgical scars.
+              </p>
+              <p>
+                <TransitionLink
+                  className={linkClass}
+                  href="/services/scar-release-therapy">
+                  Learn more about Scar Release Therapy &rarr;
+                </TransitionLink>
+              </p>
+            </>
+          ),
+        },
       ]}
       cautions="If you have open incisions that have not been cleared, a fever, increasing redness or heat, unusual drainage, sudden swelling, calf pain, shortness of breath, or any concern for infection or a blood clot, please pause and contact your surgeon first. Depending on the procedure, timing, drains, medications, or complications, I may ask for medical clearance before booking. Scar tissue work is only appropriate once the incision is healed and you have been cleared by your provider."
       price="$150"

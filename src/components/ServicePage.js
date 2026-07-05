@@ -13,6 +13,7 @@ export default function ServicePage({
   intro,
   whatItIs,
   whoItIsFor,
+  extraSections,
   cautions,
   sessionTime = '60 minute sessions',
   price = '$150',
@@ -85,6 +86,27 @@ export default function ServicePage({
           </ul>
         </div>
 
+        {extraSections &&
+          extraSections.map((section) => (
+            <div key={section.heading} className="max-w-2xl w-full text-left">
+              <div className="h-10" />
+              <h2
+                className={classNames(
+                  'text-sm font-semibold uppercase tracking-widest mb-4',
+                  theme.sectionHeading,
+                )}>
+                {section.heading}
+              </h2>
+              <div
+                className={classNames(
+                  'text-base font-light leading-relaxed space-y-4',
+                  theme.bodyText,
+                )}>
+                {section.content}
+              </div>
+            </div>
+          ))}
+
         <div className="h-10" />
 
         {faqSection && (
@@ -107,10 +129,12 @@ export default function ServicePage({
 
         <div className="h-10" />
 
-        <p className={classNames('text-lg font-light', theme.bodyText)}>
-          <span className="font-medium">{sessionTime}</span> for{' '}
-          <span className="font-medium">{price}</span>
-        </p>
+        {price && (
+          <p className={classNames('text-lg font-light', theme.bodyText)}>
+            <span className="font-medium">{sessionTime}</span> for{' '}
+            <span className="font-medium">{price}</span>
+          </p>
+        )}
 
         {packages && packages.length > 0 && (
           <>

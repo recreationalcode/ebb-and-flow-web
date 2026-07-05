@@ -1,7 +1,10 @@
 'use client';
 
 import ServicePage from './ServicePage';
+import TransitionLink from './TransitionLink';
 import { getTheme } from '@/src/config/routeColors';
+
+const linkClass = 'underline underline-offset-2 hover:opacity-80';
 
 export default function ManualLymphaticDrainage() {
   return (
@@ -45,6 +48,37 @@ export default function ManualLymphaticDrainage() {
         'you want lymphatic maintenance as part of your regular wellness routine',
         'you are looking for gentle support during a recovery period',
         'you want bodywork that feels calming rather than intense',
+      ]}
+      extraSections={[
+        {
+          heading: 'Vagus Nerve Stimulation',
+          content: (
+            <>
+              <p>
+                Because the lymphatic system works best when your body is in a
+                calm, parasympathetic state, I also offer non-invasive{' '}
+                <a
+                  className={linkClass}
+                  href="https://www.dolphinmps.com/what-is-vagus-nerve/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  vagus nerve stimulation
+                </a>{' '}
+                with the Dolphin Neurostim. Gentle microcurrent ear clips help
+                activate the vagus nerve and support vagal tone, easing your
+                nervous system out of stress mode so the lymphatic work that
+                follows can be even more effective.
+              </p>
+              <p>
+                <TransitionLink
+                  className={linkClass}
+                  href="/services/vagus-nerve-stimulation">
+                  Learn more about Vagus Nerve Stimulation &rarr;
+                </TransitionLink>
+              </p>
+            </>
+          ),
+        },
       ]}
       cautions="Manual Lymphatic Drainage may not be the right fit right now if you have a fever, an active infection, a current or suspected blood clot, new unexplained swelling, or certain uncontrolled medical conditions. If you are pregnant, postpartum, under active cancer care, recovering from a major medical event, or have a more complex health history, I may ask you to get medical clearance before your session."
       price="$150"

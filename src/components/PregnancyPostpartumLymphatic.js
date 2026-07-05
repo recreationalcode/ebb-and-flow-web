@@ -1,7 +1,10 @@
 'use client';
 
 import ServicePage from './ServicePage';
+import TransitionLink from './TransitionLink';
 import { getTheme } from '@/src/config/routeColors';
+
+const linkClass = 'underline underline-offset-2 hover:opacity-80';
 
 export default function PregnancyPostpartumLymphatic() {
   return (
@@ -47,6 +50,39 @@ export default function PregnancyPostpartumLymphatic() {
         'you want bodywork that feels calming and nurturing',
         'you are looking for a gentler alternative to traditional massage',
         'you want care that is adapted to where you are in pregnancy or postpartum recovery',
+      ]}
+      extraSections={[
+        {
+          heading: 'Scar Release Therapy',
+          content: (
+            <>
+              <p>
+                For C-section scars that still feel tight, numb, or restricted
+                later in recovery, I also offer{' '}
+                <a
+                  className={linkClass}
+                  href="https://www.dolphinmps.com/mps-scar-release-therapy/"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  MPS Scar Release Therapy
+                </a>{' '}
+                with the Dolphin Neurostim. This gentle microcurrent point
+                stimulation helps soften and fade scar tissue, release
+                adhesions, and restore circulation and lymph flow through the
+                area. C-section scar tissue release is woven into postpartum
+                sessions once your provider has cleared you, and like
+                everything else in this work, it is never rushed.
+              </p>
+              <p>
+                <TransitionLink
+                  className={linkClass}
+                  href="/services/scar-release-therapy">
+                  Learn more about Scar Release Therapy &rarr;
+                </TransitionLink>
+              </p>
+            </>
+          ),
+        },
       ]}
       cautions="If you are in your first trimester, have a high-risk pregnancy, are being monitored for blood pressure concerns, have sudden swelling, fever, infection, or any complication your provider is watching closely, I may need medical clearance before booking. After birth, if you had a cesarean, significant tearing, complications, infection, or are very early in recovery, please check with your provider first. Scar tissue work is only appropriate once healing is well underway and your provider has cleared you."
       price="$150"
