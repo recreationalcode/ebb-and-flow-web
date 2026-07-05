@@ -51,6 +51,12 @@ export default function AboutMe() {
           </li>
         </ul>
         <p>
+          I also keep adding training that deepens this work. Most recently, I
+          completed the MPS Scar Release Therapy course, which is how I bring
+          Dolphin Neurostim microcurrent scar release into post-op and
+          postpartum sessions.
+        </p>
+        <p>
           I love being the person who sees a client through the whole loop: the
           &ldquo;rebuilding&rdquo; phase, the &ldquo;recovery&rdquo; phase, and
           finally, the &ldquo;flourishing&rdquo; phase. I&rsquo;m a firm

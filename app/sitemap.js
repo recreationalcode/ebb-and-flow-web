@@ -3,7 +3,7 @@ export default function sitemap() {
 
   const pages = [
     { path: '/', lastModified: '2026-04-28' },
-    { path: '/about', lastModified: '2026-04-28' },
+    { path: '/about', lastModified: '2026-07-05' },
     { path: '/services', lastModified: '2026-07-05' },
     { path: '/services/lymphatic', lastModified: '2026-07-05' },
     { path: '/services/lymphatic/manual-lymphatic-drainage', lastModified: '2026-07-05' },

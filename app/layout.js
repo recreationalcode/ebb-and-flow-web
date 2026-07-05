@@ -186,6 +186,7 @@ const jsonLd = {
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Certified Manual Lymphatic Drainage Therapist (CMLDT)' },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Medical Massage Practitioner (MMP)' },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Craniosacral Therapist (CST)' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certificate', name: 'MPS Scar Release Therapy (Dolphin Neurostim)' },
       ],
     },
     {
