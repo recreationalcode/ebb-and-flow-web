@@ -54,6 +54,13 @@ const services = [
     description:
       'Light-touch therapy working with the craniosacral system to support relaxation, nervous system regulation, and relief from tension patterns.',
   },
+  {
+    name: 'Intra-Oral & Facial Massage',
+    path: '/services/intra-oral-facial-massage',
+    price: '$150',
+    description:
+      'A focused, specialized therapy working inside and outside the mouth to ease jaw tension, soften facial pressure, and help your head and neck feel lighter.',
+  },
 ];
 
 export default function ServicesOverview() {

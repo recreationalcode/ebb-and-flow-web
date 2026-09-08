@@ -13,8 +13,8 @@ export default function Info() {
   return (
     <Section ariaLabel="About Ebb & Flow" className="text-center">
       <h1 className="sr-only">
-        Lymphatic Drainage, Oncology Massage &amp; Craniosacral Therapy in
-        Washington, DC
+        Lymphatic Drainage, Oncology Massage, Craniosacral Therapy &amp;
+        Intra-Oral Facial Massage in Washington, DC
       </h1>
       <span
         aria-hidden="true"
@@ -65,9 +65,10 @@ export default function Info() {
       <h2 className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-purple mb-4">
         Specialized in
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mx-6 sm:mx-auto sm:max-w-4xl">
+      <div className="flex flex-wrap justify-center gap-3 mx-6 sm:mx-auto sm:max-w-4xl">
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() =>
             navigate('/services/lymphatic/manual-lymphatic-drainage')
           }>
@@ -75,6 +76,7 @@ export default function Info() {
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() =>
             navigate('/services/lymphatic/pre-post-op-lymphatic-massage')
           }>
@@ -82,13 +84,23 @@ export default function Info() {
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() =>
             navigate('/services/lymphatic/fertility-ivf-support-massage')
           }>
-          Fertility / Pregnancy / Postpartum Lymphatic
+          Fertility / IVF Support Lymphatic
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
+          onClick={() =>
+            navigate('/services/lymphatic/pregnancy-postpartum-lymphatic-massage')
+          }>
+          Pregnancy / Postpartum Lymphatic
+        </Button>
+        <Button
+          variant="card"
+          className="w-full sm:w-64"
           onClick={() =>
             navigate('/services/lymphatic/lymphedema-lipedema-management')
           }>
@@ -96,13 +108,21 @@ export default function Info() {
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() => navigate('/services/oncology-massage')}>
           Oncology Massage
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() => navigate('/services/craniosacral-therapy')}>
           Craniosacral Therapy (CST)
+        </Button>
+        <Button
+          variant="card"
+          className="w-full sm:w-64"
+          onClick={() => navigate('/services/intra-oral-facial-massage')}>
+          Intra-Oral &amp; Facial Massage
         </Button>
       </div>
       <div className="h-3 sm:h-4" />
@@ -131,9 +151,10 @@ export default function Info() {
         </p>
         <p className="text-sm font-light text-gray-700 leading-relaxed">
           Whether you are preparing for surgery, recovering from a procedure,
-          managing lymphedema or lipedema, going through cancer treatment, or
-          seeking support during fertility care or pregnancy, every session is
-          grounded in clinical expertise and adapted to what your body needs
+          managing lymphedema or lipedema, going through cancer treatment,
+          seeking support during fertility care or pregnancy, or carrying
+          tension in your jaw, face, and neck, every session is grounded in
+          clinical expertise and adapted to what your body needs
           right now. This is not a spa experience. It is focused, intentional,
           therapeutic bodywork.
         </p>

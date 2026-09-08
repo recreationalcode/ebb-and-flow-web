@@ -62,6 +62,27 @@ function MobileSubReset({ open, onReset }) {
   return null;
 }
 
+// Ghost nav button that performs an animated route transition instead of a
+// full page load. `onNavigate` runs after navigation (e.g. to close a menu).
+function NavLink({ to, onNavigate, children, ...rest }) {
+  const pathname = usePathname();
+  const navigate = useTransitionNavigate();
+  return (
+    <Button
+      variant="ghost"
+      href={to}
+      active={pathname === to}
+      onClick={(e) => {
+        e.preventDefault();
+        navigate(to);
+        onNavigate?.();
+      }}
+      {...rest}>
+      {children}
+    </Button>
+  );
+}
+
 export default function Header({ bgColor }) {
   const pathname = usePathname();
   const navigate = useTransitionNavigate();
@@ -102,6 +123,8 @@ export default function Header({ bgColor }) {
     closeTimer.current = setTimeout(() => setServicesMenuOpen(false), 150);
   }, []);
 
+  const closeServicesMenu = useCallback(() => setServicesMenuOpen(false), []);
+
   return (
     <Popover>
       {({ open, close }) => (
@@ -141,29 +164,15 @@ export default function Header({ bgColor }) {
                 <nav
                   aria-label="Main navigation"
                   className="hidden lg:flex items-center gap-1">
-                  <Button
-                    variant="ghost"
-                    href="/"
-                    active={pathname === '/'}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/');
-                    }}>
+                  <NavLink to="/">
                     <HomeIcon className="h-4 w-4 mr-1" aria-hidden="true" />
                     Home
-                  </Button>
+                  </NavLink>
 
-                  <Button
-                    variant="ghost"
-                    href="/about"
-                    active={pathname === '/about'}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/about');
-                    }}>
+                  <NavLink to="/about">
                     <UserIcon className="h-4 w-4 mr-1" aria-hidden="true" />
                     About
-                  </Button>
+                  </NavLink>
 
                   {/* Services dropdown */}
                   <div
@@ -203,107 +212,69 @@ export default function Header({ bgColor }) {
                           Lymphatic
                         </span>
                         {LYMPHATIC_SUBPAGES.map((sub) => (
-                          <Button
+                          <NavLink
                             key={sub.path}
-                            variant="ghost"
-                            href={sub.path}
-                            active={pathname === sub.path}
+                            to={sub.path}
                             className="w-full !justify-start whitespace-nowrap"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              navigate(sub.path);
-                              setServicesMenuOpen(false);
-                            }}>
+                            onNavigate={closeServicesMenu}>
                             {sub.label}
-                          </Button>
+                          </NavLink>
                         ))}
-                        <Button
-                          variant="ghost"
-                          href="/services/lymphatic"
-                          active={pathname === '/services/lymphatic'}
+                        <NavLink
+                          to="/services/lymphatic"
                           className="w-full !justify-start whitespace-nowrap !text-xs !text-blue-300/60"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/services/lymphatic');
-                            setServicesMenuOpen(false);
-                          }}>
+                          onNavigate={closeServicesMenu}>
                           All Lymphatic Services
                           <ArrowRightIcon
                             className="ml-1 h-3 w-3"
                             aria-hidden="true"
                           />
-                        </Button>
+                        </NavLink>
                         <div className="border-t border-white/20 my-1.5" />
-                        <Button
-                          variant="ghost"
-                          href="/services/oncology-massage"
-                          active={pathname === '/services/oncology-massage'}
+                        <NavLink
+                          to="/services/oncology-massage"
                           className="w-full !justify-start whitespace-nowrap"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/services/oncology-massage');
-                            setServicesMenuOpen(false);
-                          }}>
+                          onNavigate={closeServicesMenu}>
                           Oncology Massage
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          href="/services/craniosacral-therapy"
-                          active={pathname === '/services/craniosacral-therapy'}
+                        </NavLink>
+                        <NavLink
+                          to="/services/craniosacral-therapy"
                           className="w-full !justify-start whitespace-nowrap"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/services/craniosacral-therapy');
-                            setServicesMenuOpen(false);
-                          }}>
+                          onNavigate={closeServicesMenu}>
                           Craniosacral Therapy
-                        </Button>
-                        <div className="border-t border-white/20 my-1.5" />
-                        <Button
-                          variant="ghost"
-                          href="/services"
-                          active={pathname === '/services'}
+                        </NavLink>
+                        <NavLink
+                          to="/services/intra-oral-facial-massage"
                           className="w-full !justify-start whitespace-nowrap"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/services');
-                            setServicesMenuOpen(false);
-                          }}>
+                          onNavigate={closeServicesMenu}>
+                          Intra-Oral &amp; Facial Massage
+                        </NavLink>
+                        <div className="border-t border-white/20 my-1.5" />
+                        <NavLink
+                          to="/services"
+                          className="w-full !justify-start whitespace-nowrap"
+                          onNavigate={closeServicesMenu}>
                           All Services
                           <ArrowRightIcon
                             className="ml-1.5 h-3.5 w-3.5"
                             aria-hidden="true"
                           />
-                        </Button>
+                        </NavLink>
                       </div>
                     </div>
                   </div>
-                  <Button
-                    variant="ghost"
-                    href="/faq"
-                    active={pathname === '/faq'}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/faq');
-                    }}>
+                  <NavLink to="/faq">
                     <QuestionMarkCircleIcon
                       className="h-4 w-4 mr-1"
                       aria-hidden="true"
                     />
                     FAQs
-                  </Button>
+                  </NavLink>
 
-                  <Button
-                    variant="ghost"
-                    href="/contact"
-                    active={pathname === '/contact'}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate('/contact');
-                    }}>
+                  <NavLink to="/contact">
                     <EnvelopeIcon className="h-4 w-4 mr-1" aria-hidden="true" />
                     Contact
-                  </Button>
+                  </NavLink>
                 </nav>
                 <div className="hidden lg:flex items-center justify-end gap-2 ml-3 lg:ml-4">
                   <Button
@@ -383,38 +354,26 @@ export default function Header({ bgColor }) {
                       <div
                         ref={(el) => (panelRefs.current[0] = el)}
                         className="w-full flex-shrink-0 flex flex-col gap-2">
-                        <Button
-                          variant="ghost"
-                          href="/"
-                          active={pathname === '/'}
+                        <NavLink
+                          to="/"
                           className="w-full"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/');
-                            close();
-                          }}>
+                          onNavigate={close}>
                           <HomeIcon
                             className="h-4 w-4 mr-1.5"
                             aria-hidden="true"
                           />
                           Home
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          href="/about"
-                          active={pathname === '/about'}
+                        </NavLink>
+                        <NavLink
+                          to="/about"
                           className="w-full"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/about');
-                            close();
-                          }}>
+                          onNavigate={close}>
                           <UserIcon
                             className="h-4 w-4 mr-1.5"
                             aria-hidden="true"
                           />
                           About
-                        </Button>
+                        </NavLink>
                         <Button
                           variant="ghost"
                           active={isServicePath(pathname)}
@@ -430,38 +389,26 @@ export default function Header({ bgColor }) {
                             aria-hidden="true"
                           />
                         </Button>
-                        <Button
-                          variant="ghost"
-                          href="/faq"
-                          active={pathname === '/faq'}
+                        <NavLink
+                          to="/faq"
                           className="w-full"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/faq');
-                            close();
-                          }}>
+                          onNavigate={close}>
                           <QuestionMarkCircleIcon
                             className="h-4 w-4 mr-1.5"
                             aria-hidden="true"
                           />
                           FAQs
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          href="/contact"
-                          active={pathname === '/contact'}
+                        </NavLink>
+                        <NavLink
+                          to="/contact"
                           className="w-full"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/contact');
-                            close();
-                          }}>
+                          onNavigate={close}>
                           <EnvelopeIcon
                             className="h-4 w-4 mr-1.5"
                             aria-hidden="true"
                           />
                           Contact
-                        </Button>
+                        </NavLink>
                       </div>
 
                       {/* Panel 1: Services */}
@@ -501,47 +448,35 @@ export default function Header({ bgColor }) {
                             aria-hidden="true"
                           />
                         </Button>
-                        <Button
-                          variant="ghost"
-                          href="/services/oncology-massage"
-                          active={pathname === '/services/oncology-massage'}
+                        <NavLink
+                          to="/services/oncology-massage"
                           className="w-full"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/services/oncology-massage');
-                            close();
-                          }}>
+                          onNavigate={close}>
                           Oncology Massage
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          href="/services/craniosacral-therapy"
-                          active={pathname === '/services/craniosacral-therapy'}
+                        </NavLink>
+                        <NavLink
+                          to="/services/craniosacral-therapy"
                           className="w-full"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/services/craniosacral-therapy');
-                            close();
-                          }}>
+                          onNavigate={close}>
                           Craniosacral Therapy
-                        </Button>
-                        <div className="border-t border-white/15 my-1" />
-                        <Button
-                          variant="ghost"
-                          href="/services"
-                          active={pathname === '/services'}
+                        </NavLink>
+                        <NavLink
+                          to="/services/intra-oral-facial-massage"
                           className="w-full"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/services');
-                            close();
-                          }}>
+                          onNavigate={close}>
+                          Intra-Oral &amp; Facial Massage
+                        </NavLink>
+                        <div className="border-t border-white/15 my-1" />
+                        <NavLink
+                          to="/services"
+                          className="w-full"
+                          onNavigate={close}>
                           All Services
                           <ArrowRightIcon
                             className="ml-1.5 h-3.5 w-3.5"
                             aria-hidden="true"
                           />
-                        </Button>
+                        </NavLink>
                       </div>
 
                       {/* Panel 2: Lymphatic */}
@@ -571,37 +506,25 @@ export default function Header({ bgColor }) {
                           </span>
                         </div>
                         {LYMPHATIC_SUBPAGES.map((sub) => (
-                          <Button
+                          <NavLink
                             key={sub.path}
-                            variant="ghost"
-                            href={sub.path}
-                            active={pathname === sub.path}
+                            to={sub.path}
                             className="w-full"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              navigate(sub.path);
-                              close();
-                            }}>
+                            onNavigate={close}>
                             {sub.label}
-                          </Button>
+                          </NavLink>
                         ))}
                         <div className="border-t border-white/15 my-1" />
-                        <Button
-                          variant="ghost"
-                          href="/services/lymphatic"
-                          active={pathname === '/services/lymphatic'}
+                        <NavLink
+                          to="/services/lymphatic"
                           className="w-full"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            navigate('/services/lymphatic');
-                            close();
-                          }}>
+                          onNavigate={close}>
                           All Lymphatic Services
                           <ArrowRightIcon
                             className="ml-1.5 h-3.5 w-3.5"
                             aria-hidden="true"
                           />
-                        </Button>
+                        </NavLink>
                       </div>
                     </div>
                   </div>

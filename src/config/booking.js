@@ -6,6 +6,7 @@ export const bookingUrls = {
   '/services/lymphatic/lymphedema-lipedema-management': 'https://ebbnflow.janeapp.com/#/lymphedema-and-lipedema-management',
   '/services/oncology-massage': 'https://ebbnflow.janeapp.com/#/oncology-massage',
   '/services/craniosacral-therapy': 'https://ebbnflow.janeapp.com/#/craniosacral-therapy-cst',
+  '/services/intra-oral-facial-massage': 'https://ebbnflow.janeapp.com/#/intra-oral-facial-massage',
   // Scar release and VNS are not standalone services — they are incorporated
   // into these session types, so their pages book through the parent service.
   '/services/scar-release-therapy': 'https://ebbnflow.janeapp.com/#/pre-post-operative-lymphatic-massage',

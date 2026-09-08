@@ -30,7 +30,7 @@ export async function generateMetadata() {
       default: 'Ebb & Flow | Lymphatic & Oncology Massage in DC',
       template: '%s',
     },
-    description: 'Ebb and Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
+    description: 'Clinical massage in Washington, DC: lymphatic drainage, oncology massage, craniosacral therapy, and intra-oral facial massage with Natalie Gamble, LMT.',
     openGraph: {
       type: 'website',
       siteName: 'Ebb and Flow Massage Studio',
@@ -102,6 +102,12 @@ const serviceOffers = [
     price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
     seller: { '@id': `${BASE}/#organization` },
   },
+  {
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: 'Intra-Oral and Facial Massage', url: `${BASE}/services/intra-oral-facial-massage`, description: 'Focused therapy working inside and outside the mouth to ease jaw tension, soften facial pressure, and help the head and neck feel lighter.' },
+    price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
+    seller: { '@id': `${BASE}/#organization` },
+  },
 ];
 
 const jsonLd = {
@@ -124,7 +130,7 @@ const jsonLd = {
       '@type': ['LocalBusiness', 'HealthAndBeautyBusiness'],
       '@id': `${BASE}/#location-georgetown`,
       name: 'Ebb and Flow Massage Studio — Georgetown / Glover Park',
-      description: 'Massage studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, and Craniosacral Therapy.',
+      description: 'Massage studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, Craniosacral Therapy, and Intra-Oral and Facial Massage.',
       url: BASE,
       telephone: '+18505293740',
       email: 'nat@ebbandflowmassagestudio.com',
@@ -172,6 +178,7 @@ const jsonLd = {
         'Manual Lymphatic Drainage',
         'Oncology Massage',
         'Craniosacral Therapy',
+        'Intra-Oral and Facial Massage',
         'Lymphedema Management',
         'Lipedema Management',
         'Pre/Post-Operative Massage',
