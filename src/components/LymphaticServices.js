@@ -73,7 +73,8 @@ export default function LymphaticServices() {
 
       <div className="mt-10 text-center">
         <p className="text-sm font-light text-gray-500 mb-4">
-          Looking for oncology massage or craniosacral therapy?
+          Looking for oncology massage, craniosacral therapy, or intra-oral
+          &amp; facial massage?
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <Button
@@ -87,6 +88,12 @@ export default function LymphaticServices() {
             ghostOn="gray"
             onClick={() => navigate('/services/craniosacral-therapy')}>
             Craniosacral Therapy
+          </Button>
+          <Button
+            variant="ghost"
+            ghostOn="gray"
+            onClick={() => navigate('/services/intra-oral-facial-massage')}>
+            Intra-Oral &amp; Facial Massage
           </Button>
         </div>
       </div>

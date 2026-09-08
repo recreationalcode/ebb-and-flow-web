@@ -54,6 +54,7 @@ const routeTheme = {
   '/services/vagus-nerve-stimulation': 'blue',
   '/services/oncology-massage': 'purple',
   '/services/craniosacral-therapy': 'gray',
+  '/services/intra-oral-facial-massage': 'blue',
   '/contact': 'gray',
   '/faq': 'gray',
   '/privacy-policy': 'gray',

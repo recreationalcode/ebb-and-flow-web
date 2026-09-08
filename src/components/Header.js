@@ -258,6 +258,18 @@ export default function Header({ bgColor }) {
                           }}>
                           Craniosacral Therapy
                         </Button>
+                        <Button
+                          variant="ghost"
+                          href="/services/intra-oral-facial-massage"
+                          active={pathname === '/services/intra-oral-facial-massage'}
+                          className="w-full !justify-start whitespace-nowrap"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services/intra-oral-facial-massage');
+                            setServicesMenuOpen(false);
+                          }}>
+                          Intra-Oral &amp; Facial Massage
+                        </Button>
                         <div className="border-t border-white/20 my-1.5" />
                         <Button
                           variant="ghost"
@@ -524,6 +536,18 @@ export default function Header({ bgColor }) {
                             close();
                           }}>
                           Craniosacral Therapy
+                        </Button>
+                        <Button
+                          variant="ghost"
+                          href="/services/intra-oral-facial-massage"
+                          active={pathname === '/services/intra-oral-facial-massage'}
+                          className="w-full"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate('/services/intra-oral-facial-massage');
+                            close();
+                          }}>
+                          Intra-Oral &amp; Facial Massage
                         </Button>
                         <div className="border-t border-white/15 my-1" />
                         <Button

@@ -1034,6 +1034,57 @@ const faqData = [
       },
     ],
   },
+  {
+    id: 'intra-oral-facial-massage',
+    label: 'Intra-Oral & Facial',
+    heading: 'Intra-Oral & Facial Massage',
+    questions: [
+      {
+        q: 'Does intra-oral massage hurt?',
+        a: (
+          <p>
+            It should not. The muscles inside the mouth can feel tender when
+            they have been clenched for a long time, a little like pressing on
+            a tight knot in your shoulder, but the work is slow and never
+            forced. I stay in light communication the whole time, and you can
+            signal me to lighten up or pause at any point. Most people describe
+            it as a relieving kind of pressure that fades into ease, and many
+            are surprised by how much lighter their jaw and head feel
+            afterward.
+          </p>
+        ),
+      },
+      {
+        q: 'How many sessions will I need?',
+        a: (
+          <p>
+            That depends on how long the tension has been there. Some people
+            feel a meaningful shift after a single session. For long-standing
+            clenching, TMJ discomfort, or frequent tension headaches, a short
+            series of sessions spaced a week or two apart tends to help
+            patterns release and stay released. From there, many people come in
+            monthly or seasonally for maintenance, especially during stressful
+            stretches. We can talk through what makes sense for you at your
+            first visit.
+          </p>
+        ),
+      },
+      {
+        q: 'How should I prepare for an intra-oral session?',
+        a: (
+          <p>
+            Please brush your teeth beforehand, skip lip products, and remove
+            any retainers, aligners, or removable dental work. If you wear a
+            night guard, it is helpful to mention it. I use fresh, sterile,
+            latex-free gloves for all intra-oral work. Let me know about any
+            dental work, oral sensitivity, or recent Botox or filler so I can
+            adjust the session for you, and please wait at least 7 days after
+            Botox or fillers before booking.
+          </p>
+        ),
+      },
+    ],
+  },
 ];
 
 export default faqData;

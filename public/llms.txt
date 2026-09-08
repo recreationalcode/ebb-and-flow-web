@@ -1,8 +1,8 @@
 # Ebb and Flow Massage Studio
 
-> Clinical massage therapy in Washington, DC specializing in lymphatic drainage, oncology massage, and craniosacral therapy.
+> Clinical massage therapy in Washington, DC specializing in lymphatic drainage, oncology massage, craniosacral therapy, and intra-oral and facial massage.
 
-Updated: 2026-07-05
+Updated: 2026-09-07
 
 ## About
 
@@ -47,6 +47,10 @@ Safe, gentle massage adapted for people at any stage of cancer treatment, recove
 
 Light-touch therapy working with the craniosacral system to support relaxation, nervous system regulation, and relief from tension patterns. $150 per session.
 
+### Intra-Oral and Facial Massage
+
+A focused, specialized therapy working inside and outside the mouth to ease jaw tension, soften facial pressure, and help the head and neck feel lighter. Combines gentle external lymphatic work across the shoulders, neck, scalp, and face with intra-oral technique using sterile, latex-free gloves. For teeth clenching or grinding, TMJ discomfort, jaw fatigue, tension headaches, temple tightness, sinus pressure, and neck and shoulder tension. Not appropriate with active oral infections, cold sores, open mouth wounds, recent dental extractions or oral surgery, or acute facial nerve flare-ups; wait at least 7 days after Botox or facial fillers. $150 per 60 minute session.
+
 ### Incorporated Techniques
 
 These are not standalone services. They are incorporated into the session types above at no separate charge. Natalie completed the MPS Scar Release Therapy course and uses the Dolphin Neurostim (Microcurrent Point Stimulation) in her practice.
@@ -67,6 +71,7 @@ These are not standalone services. They are incorporated into the session types 
 - [Lymphedema & Lipedema](https://www.ebbandflowmassagestudio.com/services/lymphatic/lymphedema-lipedema-management)
 - [Oncology Massage](https://www.ebbandflowmassagestudio.com/services/oncology-massage)
 - [Craniosacral Therapy](https://www.ebbandflowmassagestudio.com/services/craniosacral-therapy)
+- [Intra-Oral & Facial Massage](https://www.ebbandflowmassagestudio.com/services/intra-oral-facial-massage)
 - [Scar Release Therapy](https://www.ebbandflowmassagestudio.com/services/scar-release-therapy)
 - [Vagus Nerve Stimulation](https://www.ebbandflowmassagestudio.com/services/vagus-nerve-stimulation)
 - [Contact](https://www.ebbandflowmassagestudio.com/contact)
