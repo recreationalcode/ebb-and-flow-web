@@ -30,7 +30,7 @@ export async function generateMetadata() {
       default: 'Ebb & Flow | Lymphatic & Oncology Massage in DC',
       template: '%s',
     },
-    description: 'Ebb and Flow Massage Studio in Washington, DC specializing in Lymphatic Drainage, Oncology Massage, Craniosacral Therapy, and Intra-Oral and Facial Massage. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
+    description: 'Clinical massage in Washington, DC: lymphatic drainage, oncology massage, craniosacral therapy, and intra-oral facial massage with Natalie Gamble, LMT.',
     openGraph: {
       type: 'website',
       siteName: 'Ebb and Flow Massage Studio',
