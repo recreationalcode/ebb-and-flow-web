@@ -1,7 +1,7 @@
 export const seoData = {
   '/': {
     title: 'Ebb & Flow | Lymphatic & Oncology Massage in DC',
-    description: 'Lymphatic drainage, oncology massage, craniosacral therapy, and intra-oral facial massage in Washington, DC. Book with Natalie Gamble, LMT, CMLDT, MMP, CST.',
+    description: 'Lymphatic drainage, oncology massage, craniosacral therapy, and intra-oral facial massage in Washington, DC with Natalie Gamble, LMT, CMLDT, MMP, CST.',
   },
   '/about': {
     title: 'About Natalie Gamble | Ebb & Flow Massage',
@@ -9,7 +9,7 @@ export const seoData = {
   },
   '/services': {
     title: 'Services | Ebb and Flow Massage Studio DC',
-    description: 'Explore massage services at Ebb & Flow in Washington, DC: lymphatic drainage, oncology massage, craniosacral therapy, intra-oral and facial massage, and more.',
+    description: 'Massage services at Ebb & Flow in Washington, DC: lymphatic drainage, oncology massage, craniosacral therapy, intra-oral and facial massage, and more.',
   },
   '/services/lymphatic': {
     title: 'Lymphatic Drainage Services | Ebb & Flow DC',
@@ -53,7 +53,7 @@ export const seoData = {
   },
   '/services/intra-oral-facial-massage': {
     title: 'Intra-Oral & Facial Massage | Ebb & Flow DC',
-    description: 'Intra-oral and facial massage in Washington, DC for jaw clenching, TMJ discomfort, tension headaches, and sinus pressure. Gentle lymphatic and inside-the-mouth work.',
+    description: 'Intra-oral and facial massage in Washington, DC for jaw clenching, TMJ discomfort, tension headaches, sinus pressure, and neck tension.',
   },
   '/contact': {
     title: 'Contact Natalie Gamble | Ebb & Flow Massage DC',
