@@ -65,9 +65,10 @@ export default function Info() {
       <h2 className="text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-purple mb-4">
         Specialized in
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mx-6 sm:mx-auto sm:max-w-4xl">
+      <div className="flex flex-wrap justify-center gap-3 mx-6 sm:mx-auto sm:max-w-4xl">
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() =>
             navigate('/services/lymphatic/manual-lymphatic-drainage')
           }>
@@ -75,6 +76,7 @@ export default function Info() {
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() =>
             navigate('/services/lymphatic/pre-post-op-lymphatic-massage')
           }>
@@ -82,6 +84,7 @@ export default function Info() {
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() =>
             navigate('/services/lymphatic/fertility-ivf-support-massage')
           }>
@@ -89,6 +92,7 @@ export default function Info() {
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() =>
             navigate('/services/lymphatic/pregnancy-postpartum-lymphatic-massage')
           }>
@@ -96,6 +100,7 @@ export default function Info() {
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() =>
             navigate('/services/lymphatic/lymphedema-lipedema-management')
           }>
@@ -103,16 +108,19 @@ export default function Info() {
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() => navigate('/services/oncology-massage')}>
           Oncology Massage
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() => navigate('/services/craniosacral-therapy')}>
           Craniosacral Therapy (CST)
         </Button>
         <Button
           variant="card"
+          className="w-full sm:w-64"
           onClick={() => navigate('/services/intra-oral-facial-massage')}>
           Intra-Oral &amp; Facial Massage
         </Button>
