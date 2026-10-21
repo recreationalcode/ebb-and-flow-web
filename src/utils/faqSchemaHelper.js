@@ -1,3 +1,7 @@
+// Block-level elements get padded with spaces so adjacent paragraphs and list
+// items don't run together (e.g. "5:00 PM.Fridays") once tags are stripped.
+const BLOCK_TAGS = new Set(['p', 'li', 'ul', 'ol', 'div', 'br']);
+
 function extractText(node) {
   if (node == null || typeof node === 'boolean') return '';
   if (typeof node === 'string') return node;
@@ -6,7 +10,8 @@ function extractText(node) {
   if (typeof node === 'object' && node.props) {
     // Skip interactive components (ScheduleButton, etc.)
     if (typeof node.type === 'function' || typeof node.type === 'object') return '';
-    return extractText(node.props.children);
+    const text = extractText(node.props.children);
+    return BLOCK_TAGS.has(node.type) ? ` ${text} ` : text;
   }
   return '';
 }
