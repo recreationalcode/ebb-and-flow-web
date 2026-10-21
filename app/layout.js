@@ -192,7 +192,8 @@ const jsonLd = {
       hasCredential: [
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Licensed Massage Therapist (LMT)' },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Certified Manual Lymphatic Drainage Therapist (CMLDT)', description: 'Manual Lymphatic Drainage certification in the Vodder technique.', recognizedBy: { '@type': 'Organization', name: 'Klose Training', url: 'https://klosetraining.com/' } },
-        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Medical Massage Practitioner (MMP)' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Oncology Massage Certification', recognizedBy: { '@type': 'Organization', name: 'Tracy Walton & Associates', url: 'https://www.tracywalton.com/' } },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Medical Massage Practitioner (MMP)', recognizedBy: { '@type': 'Organization', name: 'LMT Success Group', url: 'https://www.lmtsuccessgroup.com/' } },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Craniosacral Therapist (CST)', recognizedBy: { '@type': 'Organization', name: 'Upledger Institute International', url: 'https://www.upledger.com/' } },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certificate', name: 'MPS Scar Release Therapy (Dolphin Neurostim)' },
       ],
