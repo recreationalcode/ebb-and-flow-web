@@ -195,7 +195,7 @@ const jsonLd = {
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Oncology Massage Certification', recognizedBy: { '@type': 'Organization', name: 'Tracy Walton & Associates', url: 'https://www.tracywalton.com/' } },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Medical Massage Practitioner (MMP)', recognizedBy: { '@type': 'Organization', name: 'LMT Success Group', url: 'https://www.lmtsuccessgroup.com/' } },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Craniosacral Therapist (CST)', recognizedBy: { '@type': 'Organization', name: 'Upledger Institute International', url: 'https://www.upledger.com/' } },
-        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certificate', name: 'MPS Scar Release Therapy (Dolphin Neurostim)' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certificate', name: 'MPS Scar Release Therapy (Dolphin Neurostim)', recognizedBy: { '@type': 'Organization', name: 'Dolphin Neurostim', url: 'https://www.dolphinmps.com/' } },
       ],
     },
     {
