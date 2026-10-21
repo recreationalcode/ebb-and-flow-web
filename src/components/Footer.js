@@ -96,7 +96,7 @@ export default function Footer() {
           </div>
           <div className="text-base sm:text-lg font-light text-gray-600 space-y-0.5">
             <div>
-              <span className="font-medium text-blue">Mon &ndash; Thu</span>{' '}
+              <span className="font-medium text-blue">Mon &ndash; Wed</span>{' '}
               9:00 AM &ndash; 5:00 PM
             </div>
             <div>

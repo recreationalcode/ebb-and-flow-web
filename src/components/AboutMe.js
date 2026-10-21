@@ -3,6 +3,8 @@
 import { DesktopScheduleButton } from '@/src/ui/ScheduleButton';
 import Section from './Section';
 
+const linkClass = 'underline underline-offset-2 hover:opacity-80';
+
 export default function AboutMe() {
   return (
     <Section
@@ -32,22 +34,45 @@ export default function AboutMe() {
             <strong>
               Certified Manual Lymphatic Drainage Therapist (CMLDT)
             </strong>{' '}
-            - advanced training in the Vodder technique for gentle, rhythmic
-            lymphatic work. This certification is the foundation for all of my
+            - certified through{' '}
+            <a
+              className={linkClass}
+              href="https://klosetraining.com/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Klose Training
+            </a>{' '}
+            in the Vodder technique for gentle, rhythmic lymphatic work. This
+            certification is the foundation for all of my
             lymphatic services, from post-surgical recovery to lymphedema and
             lipedema management.
           </li>
           <li>
-            <strong>Certified Oncology Massage</strong> - certified through
-            Tracy Walton &amp; Associates in oncology massage, which prepares
+            <strong>Certified Oncology Massage</strong> - certified through{' '}
+            <a
+              className={linkClass}
+              href="https://www.tracywalton.com/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Tracy Walton &amp; Associates
+            </a>{' '}
+            in oncology massage, which prepares
             therapists to work safely with people in active cancer treatment,
             recovery, and survivorship.
           </li>
           <li>
-            <strong>Craniosacral Therapist (CST)</strong> - trained in gentle,
-            hands-on therapy working with the craniosacral system to support
-            nervous system regulation, relaxation, and relief from tension
-            patterns.
+            <strong>Craniosacral Therapist (CST)</strong> - certified through
+            the{' '}
+            <a
+              className={linkClass}
+              href="https://www.upledger.com/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Upledger Institute
+            </a>{' '}
+            in gentle, hands-on therapy working with the craniosacral system to
+            support nervous system regulation, relaxation, and relief from
+            tension patterns.
           </li>
         </ul>
         <p>

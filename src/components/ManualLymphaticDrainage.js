@@ -27,7 +27,16 @@ export default function ManualLymphaticDrainage() {
             onto more than it needs to.
           </p>
           <p>
-            This work is very light and rhythmic. It is not deep tissue, and it
+            I am certified in Manual Lymphatic Drainage through{' '}
+            <a
+              className={linkClass}
+              href="https://klosetraining.com/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Klose Training
+            </a>{' '}
+            and use the Vodder technique. This work is very light and
+            rhythmic. It is not deep tissue, and it
             is not meant to be forceful. In fact, it is usually much gentler than
             people expect. My goal is not to push your body, but to support it in
             a way that feels calming, soothing, and effective.

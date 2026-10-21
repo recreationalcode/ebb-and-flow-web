@@ -7,6 +7,8 @@ import { DesktopScheduleButton } from '@/src/ui/ScheduleButton';
 import { useTransitionNavigate } from './TransitionProvider';
 import Section from './Section';
 
+const linkClass = 'underline underline-offset-2 hover:opacity-80';
+
 export default function Info() {
   const navigate = useTransitionNavigate();
 
@@ -144,10 +146,32 @@ export default function Info() {
           Ebb &amp; Flow is a clinical massage studio in Washington, DC offering
           specialized bodywork for people navigating recovery, managing chronic
           conditions, or simply looking for targeted, expert care. Natalie
-          Gamble (that's me!) brings advanced certifications in Manual Lymphatic
-          Drainage (CMLDT), Oncology Massage (Tracy Walton&rsquo;s), and
-          Craniosacral Therapy (CST) to every session, tailoring each treatment
-          to your body and your goals.
+          Gamble (that's me!) brings advanced certifications to every session:
+          Manual Lymphatic Drainage (CMLDT) in the Vodder technique through{' '}
+          <a
+            className={linkClass}
+            href="https://klosetraining.com/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Klose Training
+          </a>
+          , Oncology Massage through{' '}
+          <a
+            className={linkClass}
+            href="https://www.tracywalton.com/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Tracy Walton &amp; Associates
+          </a>
+          , and Craniosacral Therapy (CST) through the{' '}
+          <a
+            className={linkClass}
+            href="https://www.upledger.com/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Upledger Institute
+          </a>
+          . Each treatment is tailored to your body and your goals.
         </p>
         <p className="text-sm font-light text-gray-700 leading-relaxed">
           Whether you are preparing for surgery, recovering from a procedure,
@@ -160,9 +184,9 @@ export default function Info() {
         </p>
         <p className="text-sm font-light text-gray-700 leading-relaxed">
           Ebb &amp; Flow is located in Georgetown / Glover Park, Washington, DC,
-          inside DC Acupuncture. Sessions are available Mondays through
-          Saturdays by appointment only, and you can book online through Jane
-          App up to 60 days in advance.
+          inside DC Acupuncture. Sessions are available by appointment only on
+          Mondays, Tuesdays, Wednesdays, Fridays, and Saturdays, and you can
+          book online through Jane App up to 60 days in advance.
         </p>
       </div>
     </Section>

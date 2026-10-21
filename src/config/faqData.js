@@ -22,9 +22,9 @@ const faqData = [
         q: 'What are your hours?',
         a: (
           <ul className="list-disc list-outside pl-5 space-y-2">
-            <li>Mondays through Thursdays: 9:00 AM &ndash; 5:00 PM.</li>
+            <li>Mondays through Wednesdays: 9:00 AM &ndash; 5:00 PM.</li>
             <li>Fridays and Saturdays: 9:00 AM &ndash; 4:00 PM.</li>
-            <li>Closed Sundays.</li>
+            <li>Closed Thursdays and Sundays.</li>
           </ul>
         ),
       },

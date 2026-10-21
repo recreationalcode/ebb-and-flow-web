@@ -5,7 +5,7 @@ export const seoData = {
   },
   '/about': {
     title: 'About Natalie Gamble | Ebb & Flow Massage',
-    description: 'Meet Natalie Gamble, massage therapist in Washington, DC specializing in lymphatic drainage, oncology massage, and craniosacral therapy.',
+    description: 'Meet Natalie Gamble, a DC massage therapist certified in Vodder lymphatic drainage (Klose Training), oncology massage, and Upledger craniosacral therapy.',
   },
   '/services': {
     title: 'Services | Ebb and Flow Massage Studio DC',
@@ -17,7 +17,7 @@ export const seoData = {
   },
   '/services/lymphatic/manual-lymphatic-drainage': {
     title: 'Manual Lymphatic Drainage | Ebb & Flow DC',
-    description: 'Gentle manual lymphatic drainage in Washington, DC for swelling, fluid retention, recovery support, and lymphatic maintenance.',
+    description: 'Gentle manual lymphatic drainage in Washington, DC using the Vodder technique, for swelling, fluid retention, recovery support, and lymphatic maintenance.',
   },
   '/services/lymphatic/pre-post-op-lymphatic-massage': {
     title: 'Pre/Post-Op Lymphatic Massage | Ebb & Flow DC',
@@ -45,11 +45,11 @@ export const seoData = {
   },
   '/services/oncology-massage': {
     title: 'Oncology Massage | Ebb & Flow DC',
-    description: 'Safe, gentle oncology massage in Washington, DC for people in treatment, recovery, or survivorship who want supportive care.',
+    description: 'Safe, gentle oncology massage in Washington, DC from a Tracy Walton-certified therapist, for people in treatment, recovery, or survivorship.',
   },
   '/services/craniosacral-therapy': {
     title: 'Craniosacral Therapy | Ebb & Flow DC',
-    description: 'Craniosacral therapy in Washington, DC to support relaxation, nervous system regulation, and relief from tension patterns.',
+    description: 'Upledger-certified craniosacral therapy in Washington, DC to support relaxation, nervous system regulation, and relief from tension patterns.',
   },
   '/services/intra-oral-facial-massage': {
     title: 'Intra-Oral & Facial Massage | Ebb & Flow DC',

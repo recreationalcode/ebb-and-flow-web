@@ -62,7 +62,7 @@ const BASE = 'https://www.ebbandflowmassagestudio.com';
 const serviceOffers = [
   {
     '@type': 'Offer',
-    itemOffered: { '@type': 'Service', name: 'Manual Lymphatic Drainage', url: `${BASE}/services/lymphatic/manual-lymphatic-drainage`, description: 'Gentle, rhythmic bodywork to support lymph flow and reduce swelling.' },
+    itemOffered: { '@type': 'Service', name: 'Manual Lymphatic Drainage', url: `${BASE}/services/lymphatic/manual-lymphatic-drainage`, description: 'Gentle, rhythmic Vodder-technique bodywork to support lymph flow and reduce swelling. Natalie is certified in Manual Lymphatic Drainage through Klose Training.' },
     price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
     seller: { '@id': `${BASE}/#organization` },
   },
@@ -98,7 +98,7 @@ const serviceOffers = [
   },
   {
     '@type': 'Offer',
-    itemOffered: { '@type': 'Service', name: 'Craniosacral Therapy', url: `${BASE}/services/craniosacral-therapy`, description: 'Gentle hands-on therapy to help the body settle and release tension patterns.' },
+    itemOffered: { '@type': 'Service', name: 'Craniosacral Therapy', url: `${BASE}/services/craniosacral-therapy`, description: 'Gentle hands-on therapy to help the body settle and release tension patterns. Natalie is certified in Craniosacral Therapy through the Upledger Institute.' },
     price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
     seller: { '@id': `${BASE}/#organization` },
   },
@@ -151,7 +151,7 @@ const jsonLd = {
       parentOrganization: { '@id': `${BASE}/#organization` },
       priceRange: '$130+',
       openingHoursSpecification: [
-        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], opens: '09:00', closes: '17:00' },
+        { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday'], opens: '09:00', closes: '17:00' },
         { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Friday', 'Saturday'], opens: '09:00', closes: '16:00' },
       ],
       areaServed: {
@@ -176,6 +176,7 @@ const jsonLd = {
       worksFor: { '@id': `${BASE}/#organization` },
       knowsAbout: [
         'Manual Lymphatic Drainage',
+        'Vodder Technique',
         'Oncology Massage',
         'Craniosacral Therapy',
         'Intra-Oral and Facial Massage',
@@ -190,9 +191,9 @@ const jsonLd = {
       ],
       hasCredential: [
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Licensed Massage Therapist (LMT)' },
-        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Certified Manual Lymphatic Drainage Therapist (CMLDT)' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Certified Manual Lymphatic Drainage Therapist (CMLDT)', description: 'Manual Lymphatic Drainage certification in the Vodder technique.', recognizedBy: { '@type': 'Organization', name: 'Klose Training', url: 'https://klosetraining.com/' } },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Medical Massage Practitioner (MMP)' },
-        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Craniosacral Therapist (CST)' },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Craniosacral Therapist (CST)', recognizedBy: { '@type': 'Organization', name: 'Upledger Institute International', url: 'https://www.upledger.com/' } },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certificate', name: 'MPS Scar Release Therapy (Dolphin Neurostim)' },
       ],
     },
