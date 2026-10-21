@@ -2,6 +2,7 @@
 
 import { DesktopScheduleButton } from '@/src/ui/ScheduleButton';
 import Section from './Section';
+import TransitionLink from './TransitionLink';
 
 const linkClass = 'underline underline-offset-2 hover:opacity-80';
 
@@ -23,7 +24,7 @@ export default function AboutMe() {
           vulnerable chapters.
         </p>
         <p>
-          I hold four professional credentials that shape my clinical practice:
+          I hold five professional credentials that shape my clinical practice:
         </p>
         <ul className="list-disc list-outside pl-5 space-y-2">
           <li>
@@ -73,6 +74,24 @@ export default function AboutMe() {
             in gentle, hands-on therapy working with the craniosacral system to
             support nervous system regulation, relaxation, and relief from
             tension patterns.
+          </li>
+          <li>
+            <strong>Medical Massage Practitioner (MMP)</strong> - completed the
+            full certification through{' '}
+            <a
+              className={linkClass}
+              href="https://www.lmtsuccessgroup.com/"
+              target="_blank"
+              rel="noopener noreferrer">
+              LMT Success Group
+            </a>
+            . In my practice, I apply this training specifically to{' '}
+            <TransitionLink
+              className={linkClass}
+              href="/services/intra-oral-facial-massage">
+              Intra-Oral &amp; Facial Massage
+            </TransitionLink>
+            , my focused work for jaw, face, and neck tension.
           </li>
         </ul>
         <p>

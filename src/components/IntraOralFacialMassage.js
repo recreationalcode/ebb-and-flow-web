@@ -3,6 +3,8 @@
 import ServicePage from './ServicePage';
 import { getTheme } from '@/src/config/routeColors';
 
+const linkClass = 'underline underline-offset-2 hover:opacity-80';
+
 export default function IntraOralFacialMassage() {
   return (
     <ServicePage
@@ -32,7 +34,16 @@ export default function IntraOralFacialMassage() {
             working thoughtfully inside the mouth using sterile, latex-free
             gloved hands and supporting these deep internal muscles directly,
             stubborn tension patterns that have been locked in place for months
-            or even years can be released.
+            or even years can be released. This is the session where I draw on
+            my Medical Massage Practitioner (MMP) certification through{' '}
+            <a
+              className={linkClass}
+              href="https://www.lmtsuccessgroup.com/"
+              target="_blank"
+              rel="noopener noreferrer">
+              LMT Success Group
+            </a>
+            .
           </p>
           <p>
             The work is slow, precise, and entirely guided by your comfort

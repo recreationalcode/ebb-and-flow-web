@@ -53,7 +53,7 @@ export const seoData = {
   },
   '/services/intra-oral-facial-massage': {
     title: 'Intra-Oral & Facial Massage | Ebb & Flow DC',
-    description: 'Intra-oral and facial massage in Washington, DC for jaw clenching, TMJ discomfort, tension headaches, sinus pressure, and neck tension.',
+    description: 'Intra-oral and facial massage in Washington, DC by a certified Medical Massage Practitioner for jaw clenching, TMJ discomfort, and tension headaches.',
   },
   '/contact': {
     title: 'Contact Natalie Gamble | Ebb & Flow Massage DC',
