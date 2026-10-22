@@ -85,7 +85,8 @@ export default function AboutMe() {
               rel="noopener noreferrer">
               LMT Success Group
             </a>
-            . In my practice, I apply this training specifically to{' '}
+            , which includes training in intra-oral technique. In my practice,
+            I use this certification specifically for{' '}
             <TransitionLink
               className={linkClass}
               href="/services/intra-oral-facial-massage">

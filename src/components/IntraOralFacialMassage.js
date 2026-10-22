@@ -34,8 +34,9 @@ export default function IntraOralFacialMassage() {
             working thoughtfully inside the mouth using sterile, latex-free
             gloved hands and supporting these deep internal muscles directly,
             stubborn tension patterns that have been locked in place for months
-            or even years can be released. This is the session where I draw on
-            my Medical Massage Practitioner (MMP) certification through{' '}
+            or even years can be released. I trained in intra-oral technique as
+            part of my Medical Massage Practitioner (MMP) certification
+            through{' '}
             <a
               className={linkClass}
               href="https://www.lmtsuccessgroup.com/"

@@ -104,7 +104,7 @@ const serviceOffers = [
   },
   {
     '@type': 'Offer',
-    itemOffered: { '@type': 'Service', name: 'Intra-Oral and Facial Massage', url: `${BASE}/services/intra-oral-facial-massage`, description: 'Focused therapy working inside and outside the mouth to ease jaw tension, soften facial pressure, and help the head and neck feel lighter. Natalie draws on her Medical Massage Practitioner (MMP) certification through LMT Success Group for this work.' },
+    itemOffered: { '@type': 'Service', name: 'Intra-Oral and Facial Massage', url: `${BASE}/services/intra-oral-facial-massage`, description: 'Focused therapy working inside and outside the mouth to ease jaw tension, soften facial pressure, and help the head and neck feel lighter. Natalie trained in intra-oral technique as part of her Medical Massage Practitioner (MMP) certification through LMT Success Group.' },
     price: '150.00', priceCurrency: 'USD', availability: 'https://schema.org/InStock',
     seller: { '@id': `${BASE}/#organization` },
   },
@@ -193,7 +193,7 @@ const jsonLd = {
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Licensed Massage Therapist (LMT)' },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Certified Manual Lymphatic Drainage Therapist (CMLDT)', description: 'Manual Lymphatic Drainage certification in the Vodder technique.', recognizedBy: { '@type': 'Organization', name: 'Klose Training', url: 'https://klosetraining.com/' } },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Oncology Massage Certification', recognizedBy: { '@type': 'Organization', name: 'Tracy Walton & Associates', url: 'https://www.tracywalton.com/' } },
-        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Medical Massage Practitioner (MMP)', description: 'Full Medical Massage Practitioner certification, applied in practice to Intra-Oral and Facial Massage.', recognizedBy: { '@type': 'Organization', name: 'LMT Success Group', url: 'https://www.lmtsuccessgroup.com/' } },
+        { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Medical Massage Practitioner (MMP)', description: 'Full Medical Massage Practitioner certification, including intra-oral technique. Applied in practice to Intra-Oral and Facial Massage.', recognizedBy: { '@type': 'Organization', name: 'LMT Success Group', url: 'https://www.lmtsuccessgroup.com/' } },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certification', name: 'Craniosacral Therapist (CST)', recognizedBy: { '@type': 'Organization', name: 'Upledger Institute International', url: 'https://www.upledger.com/' } },
         { '@type': 'EducationalOccupationalCredential', credentialCategory: 'certificate', name: 'MPS Scar Release Therapy (Dolphin Neurostim)', recognizedBy: { '@type': 'Organization', name: 'Dolphin Neurostim', url: 'https://www.dolphinmps.com/' } },
       ],
