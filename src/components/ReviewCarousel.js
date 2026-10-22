@@ -31,12 +31,13 @@ function displayTime(text) {
   return Math.min(20000, Math.max(8000, text.length * 50));
 }
 
-// The countdown runs once START_SHARE of the carousel is on screen and its
-// middle has risen above START_MIDDLE of the screen height, so it doesn't run
-// while it sits at the bottom of the screen under the section still being
-// read. It pauses, keeping its progress, once less than STOP_SHARE is on screen.
-const START_SHARE = 0.75;
-const START_MIDDLE = 0.6;
+// The countdown runs once the whole carousel is on screen (START_SHARE allows
+// for rounding) with its middle in the top START_MIDDLE of the screen. On
+// phones and laptops that is as soon as the card is fully visible; on tall
+// screens it waits for the card to leave the very bottom. It pauses, keeping
+// its progress, once less than STOP_SHARE of the carousel is on screen.
+const START_SHARE = 0.98;
+const START_MIDDLE = 0.75;
 const STOP_SHARE = 0.25;
 
 // In a carousel, long reviews are cut to --clamp-lines with a "Read more"
