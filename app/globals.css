@@ -59,6 +59,13 @@ button:focus-visible {
   initial-value: 0px;
 }
 
+/* "Read more" toggles that appear once a review is measured */
+@keyframes review-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
 /* Hide scrollbar for pill navigation */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

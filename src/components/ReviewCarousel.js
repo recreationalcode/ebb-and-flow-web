@@ -39,12 +39,14 @@ const MAX_FRAME_MS = 100;
 const START_SHARE = 0.98;
 const STOP_SHARE = 0.25;
 
-// In a carousel, long reviews are cut to --clamp-lines with a "Read more"
-// toggle so the cards stay close in height. A review that would only lose
-// CLAMP_SLACK_LINES or fewer is shown in full instead.
-const CLAMP_LINES = '[--clamp-lines:8] sm:[--clamp-lines:6]';
-const CLAMP_SLACK_LINES = 1.5;
+// In a carousel, reviews longer than --clamp-lines are cut there with a fade
+// and a "Read more" toggle, so every cut card is the same height.
+const CLAMP_LINES = '[--clamp-lines:9] sm:[--clamp-lines:7]';
 const FADE = 'linear-gradient(to bottom, #000 calc(100% - var(--review-fade)), transparent)';
+// Whether a review is cut is measured in the browser, but one longer than this
+// is cut at every screen width (7 lines of at most ~72 characters), so it is
+// drawn cut, faded, and with its toggle from the first paint.
+const ALWAYS_CUT_CHARS = 520;
 
 // Cards slide past each other this far apart, and soften over the strip at
 // each edge of the stage where they leave and arrive.
@@ -105,21 +107,6 @@ export default function ReviewCarousel({ reviews, theme }) {
   // Per review: whether it is long enough to cut, and its full height for the
   // expand animation. Null until measured in the browser.
   const [quoteSizes, setQuoteSizes] = useState(null);
-  // Off until the first measurement has been drawn, so the fade and height
-  // don't animate into place while the page loads.
-  const [quoteMotion, setQuoteMotion] = useState(false);
-
-  useEffect(() => {
-    if (!quoteSizes || quoteMotion) return;
-    let inner = 0;
-    const outer = requestAnimationFrame(() => {
-      inner = requestAnimationFrame(() => setQuoteMotion(true));
-    });
-    return () => {
-      cancelAnimationFrame(outer);
-      cancelAnimationFrame(inner);
-    };
-  }, [quoteSizes, quoteMotion]);
 
   const count = reviews.length;
   const hasMany = count > 1;
@@ -175,10 +162,7 @@ export default function ReviewCarousel({ reviews, theme }) {
         const lines = parseFloat(style.getPropertyValue('--clamp-lines'));
         const lineHeight = parseFloat(style.lineHeight);
         const fullHeight = quote.scrollHeight;
-        return {
-          expandable: fullHeight > lineHeight * (lines + CLAMP_SLACK_LINES),
-          fullHeight,
-        };
+        return { expandable: fullHeight > lineHeight * lines + 1, fullHeight };
       });
       setQuoteSizes((prev) =>
         prev &&
@@ -428,9 +412,10 @@ export default function ReviewCarousel({ reviews, theme }) {
             const active = i === index;
             const quoteId = `${headingId}-quote-${i}`;
             const size = quoteSizes?.[i];
-            const canExpand = hasMany && Boolean(size?.expandable);
+            const alwaysCut = review.text.length > ALWAYS_CUT_CHARS;
+            const canExpand = hasMany && (size ? size.expandable : alwaysCut);
             const open = canExpand && active && expanded;
-            // Until measured, cut every review so the card starts near its final height.
+            // Until measured, cap every review; it changes nothing for ones that fit.
             const cut = hasMany && (!quoteSizes || canExpand);
             return (
               <div
@@ -462,7 +447,7 @@ export default function ReviewCarousel({ reviews, theme }) {
                       hasMany && CLAMP_LINES,
                       cut && 'overflow-hidden',
                       cut && !open && 'max-h-[calc(var(--clamp-lines)*1lh)]',
-                      canExpand && quoteMotion && 'transition-[max-height,--review-fade] duration-500 ease-in-out motion-reduce:transition-none',
+                      canExpand && 'transition-[max-height,--review-fade] duration-500 ease-in-out motion-reduce:transition-none',
                     )}
                     style={
                       canExpand
@@ -485,7 +470,11 @@ export default function ReviewCarousel({ reviews, theme }) {
                       aria-expanded={open}
                       aria-controls={quoteId}
                       onClick={toggleExpanded}
-                      className="col-start-2 row-start-3 justify-self-end mt-6 inline-flex items-center gap-1 rounded-sm text-sm font-medium text-gray-700 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400">
+                      className={classNames(
+                        'col-start-2 row-start-3 justify-self-end mt-6 inline-flex items-center gap-1 rounded-sm text-sm font-medium text-gray-700 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400',
+                        // Only toggles found by measuring appear after load; ease them in.
+                        !alwaysCut && 'animate-[review-fade-in_300ms_ease-out] motion-reduce:animate-none',
+                      )}>
                       {open ? 'Show less' : 'Read more'}
                       <ChevronDownIcon
                         aria-hidden="true"
