@@ -32,12 +32,9 @@ function displayTime(text) {
 }
 
 // The countdown runs once the whole carousel is on screen (START_SHARE allows
-// for rounding) with its middle in the top START_MIDDLE of the screen. On
-// phones and laptops that is as soon as the card is fully visible; on tall
-// screens it waits for the card to leave the very bottom. It pauses, keeping
-// its progress, once less than STOP_SHARE of the carousel is on screen.
+// for rounding) and pauses, keeping its progress, once less than STOP_SHARE
+// of it is on screen.
 const START_SHARE = 0.98;
-const START_MIDDLE = 0.75;
 const STOP_SHARE = 0.25;
 
 // In a carousel, long reviews are cut to --clamp-lines with a "Read more"
@@ -138,10 +135,7 @@ export default function ReviewCarousel({ reviews, theme }) {
       const visible = Math.max(0, Math.min(rect.bottom, screen) - Math.max(rect.top, 0));
       // A carousel taller than the screen counts by how much of the screen it fills.
       const share = Math.max(visible / rect.height, visible / screen);
-      const middle = (rect.top + rect.bottom) / 2;
-      setInView((was) =>
-        was ? share > STOP_SHARE : share >= START_SHARE && middle <= screen * START_MIDDLE,
-      );
+      setInView((was) => (was ? share > STOP_SHARE : share >= START_SHARE));
     };
     const schedule = () => {
       if (!frame) frame = requestAnimationFrame(check);
