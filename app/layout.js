@@ -8,6 +8,7 @@ import { TransitionProvider } from '@/src/components/TransitionProvider';
 import Header from '@/src/components/Header';
 import PageContent from '@/src/components/PageContent';
 import { MobileScheduleButton } from '@/src/ui/ScheduleButton';
+import { GOOGLE_PROFILE_URL } from '@/src/config/reviews';
 
 import './globals.css';
 
@@ -148,6 +149,7 @@ const jsonLd = {
         latitude: 38.92013,
         longitude: -77.07190,
       },
+      hasMap: GOOGLE_PROFILE_URL,
       parentOrganization: { '@id': `${BASE}/#organization` },
       priceRange: '$130+',
       openingHoursSpecification: [

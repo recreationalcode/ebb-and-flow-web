@@ -2,6 +2,7 @@
 
 import ServicePage from './ServicePage';
 import { getTheme } from '@/src/config/routeColors';
+import { getReviews } from '@/src/config/reviews';
 
 export default function OncologyMassage() {
   return (
@@ -45,6 +46,7 @@ export default function OncologyMassage() {
         'you want bodywork that respects your energy, comfort, and medical history',
         'you want a space where your body is approached thoughtfully and without pressure',
       ]}
+      reviews={getReviews('/services/oncology-massage')}
       cautions="If you are in active treatment or recent recovery, I may need information about ports, radiation sites, lymphedema risk, bone involvement, labs, medications, or surgery history. Please pause and get medical guidance first if you have a fever, infection, very low blood counts, current skin breakdown, a suspected blood clot, high fracture risk, or a scan scheduled within 24 hours, such as a PET scan."
       price="$130"
       theme={getTheme('/services/oncology-massage')}
