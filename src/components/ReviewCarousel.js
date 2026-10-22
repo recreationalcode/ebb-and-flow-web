@@ -31,6 +31,8 @@ function displayTime(text) {
   return Math.min(20000, Math.max(8000, text.length * 50));
 }
 
+const MAX_FRAME_MS = 100;
+
 // The countdown runs once the whole carousel is on screen (START_SHARE allows
 // for rounding) and pauses, keeping its progress, once less than STOP_SHARE
 // of it is on screen.
@@ -90,6 +92,9 @@ export default function ReviewCarousel({ reviews, theme }) {
   const motion = useRef(null);
   const swipe = useRef(null);
   const lastSwipeEnd = useRef(-Infinity);
+  // The countdown's progress bar and how long the current review has been up.
+  const fillRef = useRef(null);
+  const elapsed = useRef(0);
   const [index, setIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const [hovered, setHovered] = useState(false);
@@ -241,6 +246,32 @@ export default function ReviewCarousel({ reviews, theme }) {
   };
 
   const advance = () => slideTo((index + 1) % count, 1);
+
+  // The countdown runs here rather than as a CSS animation, because browsers
+  // can report a resumed CSS animation as already ended, which skipped reviews.
+  // Time only accrues on frames while rotating, and a long gap between frames
+  // counts as at most MAX_FRAME_MS, so the countdown can never jump ahead.
+  useEffect(() => {
+    elapsed.current = 0;
+  }, [index, autoplay]);
+
+  useEffect(() => {
+    if (!rotating) return;
+    const duration = displayTime(reviews[index].text);
+    let last = null;
+    let frame = requestAnimationFrame(function tick(now) {
+      if (last !== null) elapsed.current += Math.min(Math.max(now - last, 0), MAX_FRAME_MS);
+      last = now;
+      const progress = Math.min(elapsed.current / duration, 1);
+      if (fillRef.current) fillRef.current.style.transform = `scaleX(${progress})`;
+      if (progress >= 1) {
+        advance();
+        return;
+      }
+      frame = requestAnimationFrame(tick);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [rotating, index]);
 
   // Picking a review by hand stops the rotation so it can be read at leisure.
   const go = (next, direction) => {
@@ -512,21 +543,12 @@ export default function ReviewCarousel({ reviews, theme }) {
                       )}
                     />
                     {active && (
+                      // Filled by the countdown; solid when autoplay is off.
                       <span
                         key={`${index}-${autoplay}`}
+                        ref={fillRef}
                         className="absolute inset-0 origin-left bg-current"
-                        style={
-                          autoplay
-                            ? {
-                                animationName: 'review-progress',
-                                animationDuration: `${displayTime(review.text)}ms`,
-                                animationTimingFunction: 'linear',
-                                animationFillMode: 'forwards',
-                                animationPlayState: rotating ? 'running' : 'paused',
-                              }
-                            : undefined
-                        }
-                        onAnimationEnd={advance}
+                        style={autoplay ? { transform: 'scaleX(0)' } : undefined}
                       />
                     )}
                   </span>

@@ -59,16 +59,6 @@ button:focus-visible {
   initial-value: 0px;
 }
 
-/* Fills the active review dot while the carousel waits to advance */
-@keyframes review-progress {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
-}
-
 /* Hide scrollbar for pill navigation */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
