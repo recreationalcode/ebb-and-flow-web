@@ -3,8 +3,6 @@
 import ServicePage from './ServicePage';
 import { getTheme } from '@/src/config/routeColors';
 
-const linkClass = 'underline underline-offset-2 hover:opacity-80';
-
 export default function CraniosacralMassage() {
   return (
     <ServicePage
@@ -15,15 +13,7 @@ export default function CraniosacralMassage() {
           <p>
             Craniosacral Therapy, or CST, is a gentle hands-on therapy that uses
             light touch to help the body settle, soften, and release tension
-            patterns. I am certified in Craniosacral Therapy through the{' '}
-            <a
-              className={linkClass}
-              href="https://www.upledger.com/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Upledger Institute
-            </a>
-            .
+            patterns.
           </p>
           <p>
             I often explain it as giving your nervous system a chance to turn the

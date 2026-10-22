@@ -3,8 +3,6 @@
 import ServicePage from './ServicePage';
 import { getTheme } from '@/src/config/routeColors';
 
-const linkClass = 'underline underline-offset-2 hover:opacity-80';
-
 export default function OncologyMassage() {
   return (
     <ServicePage
@@ -15,15 +13,7 @@ export default function OncologyMassage() {
           <p>
             Oncology massage is massage therapy that I carefully adapt for people
             who are in active treatment, in recovery, or living in survivorship
-            after cancer. I am certified in oncology massage through{' '}
-            <a
-              className={linkClass}
-              href="https://www.tracywalton.com/"
-              target="_blank"
-              rel="noopener noreferrer">
-              Tracy Walton &amp; Associates
-            </a>
-            .
+            after cancer.
           </p>
           <p>
             I think of it like custom-tailored care. Just like clothing that is
