@@ -31,9 +31,12 @@ function displayTime(text) {
   return Math.min(20000, Math.max(8000, text.length * 50));
 }
 
-// The countdown runs once this share of the carousel is on screen and pauses,
-// keeping its progress, once less than STOP_SHARE is.
+// The countdown runs once START_SHARE of the carousel is on screen and its
+// middle has risen above START_MIDDLE of the screen height, so it doesn't run
+// while it sits at the bottom of the screen under the section still being
+// read. It pauses, keeping its progress, once less than STOP_SHARE is on screen.
 const START_SHARE = 0.75;
+const START_MIDDLE = 0.6;
 const STOP_SHARE = 0.25;
 
 // In a carousel, long reviews are cut to --clamp-lines with a "Read more"
@@ -50,11 +53,14 @@ const EDGE_FADE = 'linear-gradient(to right, transparent, #000 1rem, #000 calc(1
 const SLIDE_MS = 450;
 const SLIDE_EASING = 'cubic-bezier(0.22, 1, 0.36, 1)';
 
-// A finger must move this far sideways before it counts as a swipe, then past
-// this share of the card (or flick this fast) for the next card to take over.
-const SWIPE_START_PX = 8;
+// A swipe starts once a finger moves SWIPE_START_PX mostly sideways; moving
+// that far mostly up or down is left to page scrolling. The next card takes
+// over past SWIPE_COMMIT_SHARE of the card, or on a flick of at least
+// SWIPE_FLICK_PX at SWIPE_FLICK_PX_PER_MS.
+const SWIPE_START_PX = 10;
 const SWIPE_COMMIT_SHARE = 0.25;
-const SWIPE_FLICK_PX_PER_MS = 0.3;
+const SWIPE_FLICK_PX = 30;
+const SWIPE_FLICK_PX_PER_MS = 0.4;
 
 function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -89,6 +95,7 @@ export default function ReviewCarousel({ reviews, theme }) {
   const [index, setIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const [hovered, setHovered] = useState(false);
+  const [dragging, setDragging] = useState(false);
   const [inView, setInView] = useState(false);
   const [pageVisible, setPageVisible] = useState(true);
   const [expanded, setExpanded] = useState(false);
@@ -99,7 +106,7 @@ export default function ReviewCarousel({ reviews, theme }) {
   const count = reviews.length;
   const hasMany = count > 1;
   const onScreen = inView && pageVisible;
-  const rotating = hasMany && autoplay && !hovered && onScreen;
+  const rotating = hasMany && autoplay && !hovered && !dragging && onScreen;
 
   useEffect(() => {
     if (prefersReducedMotion()) setAutoplay(false);
@@ -107,20 +114,31 @@ export default function ReviewCarousel({ reviews, theme }) {
 
   useEffect(() => {
     if (!hasMany) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // A card taller than the screen counts by how much of the screen it fills.
-        const screenHeight = entry.rootBounds?.height || window.innerHeight;
-        const share = Math.max(
-          entry.intersectionRatio,
-          entry.intersectionRect.height / screenHeight,
-        );
-        setInView((was) => (was ? share > STOP_SHARE : share >= START_SHARE));
-      },
-      { threshold: [0, 0.25, 0.5, 0.75, 1] },
-    );
-    observer.observe(stageRef.current);
-    return () => observer.disconnect();
+    let frame = 0;
+    const check = () => {
+      frame = 0;
+      const rect = stageRef.current.getBoundingClientRect();
+      const screen = window.innerHeight;
+      const visible = Math.max(0, Math.min(rect.bottom, screen) - Math.max(rect.top, 0));
+      // A carousel taller than the screen counts by how much of the screen it fills.
+      const share = Math.max(visible / rect.height, visible / screen);
+      const middle = (rect.top + rect.bottom) / 2;
+      setInView((was) =>
+        was ? share > STOP_SHARE : share >= START_SHARE && middle <= screen * START_MIDDLE,
+      );
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(check);
+    };
+    // First check on the next frame, after any scroll reset from a page transition.
+    schedule();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+    };
   }, [hasMany]);
 
   // A background tab counts as off screen too.
@@ -241,11 +259,16 @@ export default function ReviewCarousel({ reviews, theme }) {
     if (!gesture || e.pointerId !== gesture.id) return;
     const dx = e.clientX - gesture.x;
     if (!gesture.moving) {
-      if (Math.abs(dx) < SWIPE_START_PX || Math.abs(dx) < Math.abs(e.clientY - gesture.y)) return;
-      // A sideways swipe takes over from the timer.
+      const dy = e.clientY - gesture.y;
+      const sideways = Math.abs(dx) >= SWIPE_START_PX && Math.abs(dx) > Math.abs(dy) * 1.5;
+      if (!sideways) {
+        // Moving up or down first means the page is scrolling, not the cards.
+        if (Math.abs(dy) >= SWIPE_START_PX) swipe.current = null;
+        return;
+      }
       gesture.moving = true;
       settle();
-      setAutoplay(false);
+      setDragging(true);
       try {
         e.currentTarget.setPointerCapture(e.pointerId);
       } catch {
@@ -275,15 +298,20 @@ export default function ReviewCarousel({ reviews, theme }) {
     if (!gesture || e.pointerId !== gesture.id) return;
     swipe.current = null;
     if (!gesture.moving) return;
+    setDragging(false);
     lastSwipeEnd.current = e.timeStamp;
     const current = slideRefs.current[index];
     const first = gesture.samples[0];
     const last = gesture.samples[gesture.samples.length - 1];
     const velocity = last.t > first.t ? (last.x - first.x) / (last.t - first.t) : 0;
     const flicked =
-      Math.abs(velocity) > SWIPE_FLICK_PX_PER_MS && Math.sign(velocity) === Math.sign(gesture.dx);
+      Math.abs(gesture.dx) >= SWIPE_FLICK_PX &&
+      Math.abs(velocity) > SWIPE_FLICK_PX_PER_MS &&
+      Math.sign(velocity) === Math.sign(gesture.dx);
     const farEnough = Math.abs(gesture.dx) > current.offsetWidth * SWIPE_COMMIT_SHARE;
     if (e.type === 'pointerup' && (farEnough || flicked)) {
+      // Swiping to another review counts as picking it by hand.
+      setAutoplay(false);
       slideTo((index + gesture.direction + count) % count, gesture.direction, gesture.dx);
       return;
     }
@@ -480,7 +508,10 @@ export default function ReviewCarousel({ reviews, theme }) {
                         style={
                           autoplay
                             ? {
-                                animation: `review-progress ${displayTime(review.text)}ms linear forwards`,
+                                animationName: 'review-progress',
+                                animationDuration: `${displayTime(review.text)}ms`,
+                                animationTimingFunction: 'linear',
+                                animationFillMode: 'forwards',
                                 animationPlayState: rotating ? 'running' : 'paused',
                               }
                             : undefined
