@@ -103,6 +103,21 @@ export default function ReviewCarousel({ reviews, theme }) {
   // Per review: whether it is long enough to cut, and its full height for the
   // expand animation. Null until measured in the browser.
   const [quoteSizes, setQuoteSizes] = useState(null);
+  // Off until the first measurement has been drawn, so the fade and height
+  // don't animate into place while the page loads.
+  const [quoteMotion, setQuoteMotion] = useState(false);
+
+  useEffect(() => {
+    if (!quoteSizes || quoteMotion) return;
+    let inner = 0;
+    const outer = requestAnimationFrame(() => {
+      inner = requestAnimationFrame(() => setQuoteMotion(true));
+    });
+    return () => {
+      cancelAnimationFrame(outer);
+      cancelAnimationFrame(inner);
+    };
+  }, [quoteSizes, quoteMotion]);
 
   const count = reviews.length;
   const hasMany = count > 1;
@@ -422,7 +437,7 @@ export default function ReviewCarousel({ reviews, theme }) {
                       hasMany && CLAMP_LINES,
                       cut && 'overflow-hidden',
                       cut && !open && 'max-h-[calc(var(--clamp-lines)*1lh)]',
-                      canExpand && 'transition-[max-height,--review-fade] duration-500 ease-in-out motion-reduce:transition-none',
+                      canExpand && quoteMotion && 'transition-[max-height,--review-fade] duration-500 ease-in-out motion-reduce:transition-none',
                     )}
                     style={
                       canExpand
