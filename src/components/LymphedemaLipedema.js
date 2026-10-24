@@ -2,6 +2,7 @@
 
 import ServicePage from './ServicePage';
 import { getTheme } from '@/src/config/routeColors';
+import { getReviews } from '@/src/config/reviews';
 
 export default function LymphedemaLipedema() {
   return (
@@ -44,6 +45,7 @@ export default function LymphedemaLipedema() {
         'you are looking for lymphatic support that feels attentive and individualized',
         'you want care that works alongside your broader treatment or self-care plan',
       ]}
+      reviews={getReviews('/services/lymphatic/lymphedema-lipedema-management')}
       cautions="I do not diagnose lymphedema or lipedema. If you have sudden new swelling, redness, heat, fever, suspected infection, uncontrolled heart or kidney concerns, or any sign of a blood clot, please speak with your doctor first. If you wear compression garments or are under the care of a specialist, I am happy to work within that plan."
       price="$150"
       theme={getTheme('/services/lymphatic/lymphedema-lipedema-management')}

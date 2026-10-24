@@ -4,6 +4,7 @@ import classNames from '@/src/utils/classNames';
 import Button from '@/src/ui/Button';
 import { DesktopScheduleButton } from '@/src/ui/ScheduleButton';
 import Cautions from './Cautions';
+import ReviewCarousel from './ReviewCarousel';
 import Section from './Section';
 import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
 import { useTransitionNavigate } from './TransitionProvider';
@@ -14,6 +15,7 @@ export default function ServicePage({
   whatItIs,
   whoItIsFor,
   extraSections,
+  reviews,
   cautions,
   sessionTime = '60 minute sessions',
   price = '$150',
@@ -106,6 +108,13 @@ export default function ServicePage({
               </div>
             </div>
           ))}
+
+        {reviews && reviews.length > 0 && (
+          <div className="max-w-2xl w-full">
+            <div className="h-10" />
+            <ReviewCarousel reviews={reviews} theme={theme} />
+          </div>
+        )}
 
         <div className="h-10" />
 

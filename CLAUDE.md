@@ -55,6 +55,7 @@ src/
 │   ├── AboutMe.js      # About page (client)
 │   ├── FAQ.js          # FAQ with scroll-spy accordion (client)
 │   ├── ServicePage.js  # Shared service layout (client)
+│   ├── ReviewCarousel.js  # Timed Google-review carousel on service pages (client)
 │   ├── Footer.js       # Availability, location, links (client)
 │   ├── Schedule.js     # Contact modal content (client)
 │   ├── ScheduleModal.js        # Schedule modal wired to context (client)
@@ -68,6 +69,7 @@ src/
 ├── config/
 │   ├── seo.js          # SEO data per route (title, description)
 │   ├── booking.js      # Booking URLs per route
+│   ├── reviews.js      # Google reviews per service route + Business Profile URL
 │   ├── routeColors.js  # DropReveal color per route
 │   ├── themes.js       # Theme config (blue/purple/gray) per service
 │   └── faqData.js      # FAQ section data
@@ -103,6 +105,7 @@ src/
 - Use semantic HTML elements (`<main>`, `<section>`, `<nav>`, `<header>`) with `aria-label`
 - When adding new routes, add to `src/config/seo.js`, `app/sitemap.js`, and `src/config/routeColors.js`
 - JSON-LD structured data in `app/layout.js`
+- Reviews in `src/config/reviews.js` come from Google with only light typo cleanup (first name + last initial). Don't add `Review`/`AggregateRating` schema for them: Google treats a business's own reviews (including ones copied from Google) as self-serving and ineligible for stars
 - Contact links: `tel:+18505293740`, `sms:+18505293740`, `mailto:user@example.com`
 - All images must have descriptive `alt` text
 

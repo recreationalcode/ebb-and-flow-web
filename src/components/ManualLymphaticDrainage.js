@@ -3,6 +3,7 @@
 import ServicePage from './ServicePage';
 import TransitionLink from './TransitionLink';
 import { getTheme } from '@/src/config/routeColors';
+import { getReviews } from '@/src/config/reviews';
 
 const linkClass = 'underline underline-offset-2 hover:opacity-80';
 
@@ -80,6 +81,7 @@ export default function ManualLymphaticDrainage() {
           ),
         },
       ]}
+      reviews={getReviews('/services/lymphatic/manual-lymphatic-drainage')}
       cautions="Manual Lymphatic Drainage may not be the right fit right now if you have a fever, an active infection, a current or suspected blood clot, new unexplained swelling, or certain uncontrolled medical conditions. If you are pregnant, postpartum, under active cancer care, recovering from a major medical event, or have a more complex health history, I may ask you to get medical clearance before your session."
       price="$150"
       theme={getTheme('/services/lymphatic/manual-lymphatic-drainage')}

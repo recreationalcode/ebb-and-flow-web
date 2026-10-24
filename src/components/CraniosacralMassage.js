@@ -2,6 +2,7 @@
 
 import ServicePage from './ServicePage';
 import { getTheme } from '@/src/config/routeColors';
+import { getReviews } from '@/src/config/reviews';
 
 export default function CraniosacralMassage() {
   return (
@@ -50,6 +51,7 @@ export default function CraniosacralMassage() {
         'you are looking for support that feels grounding and calming',
         'you respond well to slower, subtler bodywork',
       ]}
+      reviews={getReviews('/services/craniosacral-therapy')}
       cautions="Because Craniosacral Therapy uses such light pressure, it is often well tolerated, but it is not right for everyone. If you have a recent concussion or brain injury, acute neurological symptoms, recent cranial bleeding, uncontrolled medical concerns, or anything your physician has asked you to avoid, please get medical clearance first."
       price="$150"
       theme={getTheme('/services/craniosacral-therapy')}

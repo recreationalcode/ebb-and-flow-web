@@ -3,6 +3,7 @@
 import ServicePage from './ServicePage';
 import TransitionLink from './TransitionLink';
 import { getTheme } from '@/src/config/routeColors';
+import { getReviews } from '@/src/config/reviews';
 
 const linkClass = 'underline underline-offset-2 hover:opacity-80';
 
@@ -86,6 +87,7 @@ export default function PrePostOperativeLymphatic() {
           ),
         },
       ]}
+      reviews={getReviews('/services/lymphatic/pre-post-op-lymphatic-massage')}
       cautions="If you have open incisions that have not been cleared, a fever, increasing redness or heat, unusual drainage, sudden swelling, calf pain, shortness of breath, or any concern for infection or a blood clot, please pause and contact your surgeon first. Depending on the procedure, timing, drains, medications, or complications, I may ask for medical clearance before booking. Scar tissue work is only appropriate once the incision is healed and you have been cleared by your provider."
       price="$150"
       packages={[

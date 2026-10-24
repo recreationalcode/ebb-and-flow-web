@@ -14,6 +14,7 @@ const palette = {
     sectionHeading: 'text-white',
     ghost: 'blue',
     ghostText: '!text-gray-200',
+    accent: 'text-blue-500', // stars and highlights on white cards
   },
   purple: {
     overlay: '#9277AB', // purple-500 — teardrop / color wash
@@ -25,6 +26,7 @@ const palette = {
     sectionHeading: 'text-white',
     ghost: 'purple',
     ghostText: '!text-gray-200',
+    accent: 'text-purple-500',
   },
   gray: {
     overlay: '#F0F0F0', // gray-100 — teardrop / color wash
@@ -36,6 +38,7 @@ const palette = {
     sectionHeading: 'text-gray-800',
     ghost: 'gray',
     ghostText: '!text-gray-500',
+    accent: 'text-purple-500',
   },
 };
 
