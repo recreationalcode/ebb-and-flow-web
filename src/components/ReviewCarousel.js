@@ -64,6 +64,9 @@ const SWIPE_COMMIT_SHARE = 0.25;
 const SWIPE_FLICK_PX = 30;
 const SWIPE_FLICK_PX_PER_MS = 0.4;
 
+// Input that means someone is scrolling the page themselves.
+const SCROLL_INPUTS = ['wheel', 'touchmove'];
+
 function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
@@ -94,6 +97,8 @@ export default function ReviewCarousel({ reviews, theme }) {
   const motion = useRef(null);
   const swipe = useRef(null);
   const lastSwipeEnd = useRef(-Infinity);
+  // Stops the page scroll that follows an open review as it shrinks back.
+  const stopHold = useRef(null);
   // The countdown's progress bar and how long the current review has been up.
   const fillRef = useRef(null);
   const elapsed = useRef(0);
@@ -122,6 +127,8 @@ export default function ReviewCarousel({ reviews, theme }) {
     let frame = 0;
     const check = () => {
       frame = 0;
+      // Leaving the page removes the cards a moment before this listener.
+      if (!stageRef.current) return;
       const rect = stageRef.current.getBoundingClientRect();
       const screen = window.innerHeight;
       const visible = Math.max(0, Math.min(rect.bottom, screen) - Math.max(rect.top, 0));
@@ -181,6 +188,45 @@ export default function ReviewCarousel({ reviews, theme }) {
     return () => observer.disconnect();
   }, [hasMany]);
 
+  useEffect(() => () => stopHold.current?.(), []);
+
+  // Brings the top of the cards back into view if it's scrolled away.
+  const revealTop = () => {
+    const stage = stageRef.current;
+    if (stage.getBoundingClientRect().top < parseFloat(getComputedStyle(stage).scrollMarginTop)) {
+      stage.scrollIntoView({ block: 'start', behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+    }
+  };
+
+  // Moving on from an open review shrinks the cards back to their usual
+  // height. If the buttons below are on screen, the page scrolls along with
+  // the shrink so they stay put; partway down a long review, the next card is
+  // shown from its top instead.
+  const keepPlace = (quote) => {
+    const stage = stageRef.current;
+    const start = stage.getBoundingClientRect().bottom;
+    if (start > window.innerHeight) {
+      revealTop();
+      return;
+    }
+    stopHold.current?.();
+    let frame;
+    const stop = () => {
+      cancelAnimationFrame(frame);
+      SCROLL_INPUTS.forEach((type) => window.removeEventListener(type, stop));
+      stopHold.current = null;
+    };
+    frame = requestAnimationFrame(function tick() {
+      if (!stage.isConnected) return stop();
+      window.scrollBy(0, stage.getBoundingClientRect().bottom - start);
+      if (quote.getAnimations().length) frame = requestAnimationFrame(tick);
+      else stop();
+    });
+    // Scrolling by hand takes over.
+    SCROLL_INPUTS.forEach((type) => window.addEventListener(type, stop, { passive: true }));
+    stopHold.current = stop;
+  };
+
   // Jumps any slide animation to its end and clears the inline styles it used.
   const settle = () => {
     const current = motion.current;
@@ -218,6 +264,7 @@ export default function ReviewCarousel({ reviews, theme }) {
     const incoming = slideRefs.current[next];
     const distance = outgoing.offsetWidth + CARD_GAP;
     const remaining = 1 - Math.min(Math.abs(offset) / distance, 1);
+    if (expanded) keepPlace(quoteRefs.current[index]);
     setExpanded(false);
     setIndex(next);
     animate(
@@ -268,10 +315,7 @@ export default function ReviewCarousel({ reviews, theme }) {
     setExpanded((open) => !open);
     // After reading a long review the top of the card may be scrolled away;
     // glide back to it while the card shrinks.
-    const stage = stageRef.current;
-    if (expanded && stage.getBoundingClientRect().top < parseFloat(getComputedStyle(stage).scrollMarginTop)) {
-      stage.scrollIntoView({ block: 'start', behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
-    }
+    if (expanded) revealTop();
   };
 
   const handlePointerDown = (e) => {
@@ -457,6 +501,8 @@ export default function ReviewCarousel({ reviews, theme }) {
                             maskImage: FADE,
                             WebkitMaskImage: FADE,
                             '--review-fade': open ? '0px' : '1.5lh',
+                            // Leaving an open review, it shrinks in step with the slide.
+                            ...(!active && { transitionDuration: `${SLIDE_MS}ms`, transitionTimingFunction: SLIDE_EASING }),
                           }
                         : undefined
                     }>
